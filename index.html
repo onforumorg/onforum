@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>온포럼(ON-FORUM) | 공식 홈페이지 준비 중</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&family=Noto+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        /* 존재의 깊이를 담은 심연의 배경색 */
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #0d0d0d; /* 완전한 검정보다 깊은 차콜 블랙 */
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .content-box {
+            text-align: center;
+            padding: 20px;
+            opacity: 0;
+            animation: fadeInManifest 3s ease-out forwards;
+        }
+
+        /* 1단: 존재의 구조를 다시 쓰다, 온포럼! */
+        h1 {
+            font-family: 'Noto Serif KR', serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            letter-spacing: -0.02rem;
+            line-height: 1.3;
+        }
+
+        /* 2단: 40년의 침묵을 깨고, 이제 존재의 언어로 답하다! */
+        .sub-message {
+            font-family: 'Noto Serif KR', serif;
+            font-size: 1.4rem;
+            color: #d4af37; /* 발현의 금색 */
+            margin-bottom: 3rem;
+            font-weight: 400;
+            word-break: keep-all;
+        }
+
+        /* 3단: 온포럼(ON-FORUM)이 곧 그 실체를 드러냅니다. */
+        .status {
+            font-family: 'Noto Sans KR', sans-serif;
+            font-size: 1rem;
+            color: #888888;
+            letter-spacing: 0.2rem;
+            text-transform: uppercase;
+        }
+
+        /* 중앙 구분선 */
+        .divider {
+            width: 40px;
+            height: 1px;
+            background-color: #d4af37;
+            margin: 2rem auto;
+        }
+
+        /* 발현 애니메이션: 아래에서 위로 서서히 나타남 */
+        @keyframes fadeInManifest {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 모바일 대응 */
+        @media (max-width: 768px) {
+            h1 { font-size: 1.8rem; }
+            .sub-message { font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="content-box">
+        <h1>존재의 구조를 다시 쓰다, <br>온포럼!</h1>
+        
+        <div class="divider"></div>
+        
+        <p class="sub-message">
+            40년의 침묵을 깨고, <br>이제 존재의 언어로 답하다!
+        </p>
+        
+        <p class="status">ON-FORUM이 곧 그 실체를 드러냅니다</p>
+    </div>
+
+</body>
+</html>
