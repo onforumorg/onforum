@@ -5,79 +5,146 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ON-FORUM | 온포럼</title>
     <style>
-        body { font-family: 'Pretendard', sans-serif; line-height: 1.8; color: #333; max-width: 800px; margin: 0 auto; padding: 40px 20px; background-color: #fff; }
+        /* 기본 구조 및 폰트 설정 */
+        body { font-family: 'Pretendard', -apple-system, sans-serif; line-height: 1.8; color: #333; max-width: 900px; margin: 0 auto; padding: 40px 20px; background-color: #fff; }
+        
+        /* 언어 선택 버튼 스타일 */
+        .lang-switch { text-align: right; margin-bottom: 20px; }
+        .lang-btn { cursor: pointer; border: none; background: none; font-size: 0.9rem; color: #999; padding: 5px 10px; font-weight: bold; }
+        .lang-btn.active { color: #000; border-bottom: 2px solid #000; }
+
         header { border-bottom: 2px solid #333; padding-bottom: 20px; margin-bottom: 40px; }
         h1 { font-size: 2.5rem; letter-spacing: 2px; margin: 0; }
-        h2 { font-size: 1.5rem; color: #000; border-left: 4px solid #333; padding-left: 15px; margin-top: 50px; }
-        .hero { font-size: 1.2rem; font-weight: bold; background: #f9f9f9; padding: 30px; border-radius: 8px; margin: 30px 0; }
-        .quote-author { text-align: right; font-weight: normal; font-size: 1rem; color: #666; }
-        .value-item { margin-bottom: 20px; }
-        .value-title { font-weight: bold; color: #000; }
-        ul { padding-left: 20px; }
-        li { margin-bottom: 10px; }
-        footer { margin-top: 60px; padding-top: 20px; border-top: 1px solid #eee; font-size: 0.9rem; color: #777; }
-        a { color: #333; text-decoration: none; }
-        a:hover { text-decoration: underline; }
+        h2 { font-size: 1.5rem; color: #000; border-left: 4px solid #333; padding-left: 15px; margin-top: 50px; margin-bottom: 25px; }
+        
+        .hero { font-size: 1.25rem; font-weight: bold; background: #fcfcfc; padding: 40px; border: 1px solid #eee; border-radius: 4px; margin: 30px 0; }
+        .quote-author { text-align: right; font-weight: normal; font-size: 1rem; color: #666; margin-top: 20px; }
+        
+        .section-desc { color: #555; margin-bottom: 30px; font-size: 1.1rem; }
+        .list-item { margin-bottom: 20px; border-bottom: 1px dashed #eee; padding-bottom: 15px; }
+        .list-title { font-weight: bold; color: #000; display: block; margin-bottom: 5px; }
+        
+        footer { margin-top: 80px; padding-top: 30px; border-top: 1px solid #333; font-size: 0.95rem; color: #555; }
+        a { color: #333; text-decoration: none; font-weight: 500; }
+
+        /* 언어별 숨김 처리 */
+        .lang-en { display: none; }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>ON-FORUM</h1>
-    <p>인류 지성의 통합과 존재 구조의 작동을 연구 · 실현하는 비영리 기구</p>
-</header>
-
-<div class="hero">
-    우리는 세상을 이해하며 살아가고 있는가,<br>
-    아니면 익숙함 속에서 그저 지나가고 있는가 • ┗ ○<br><br>
-    우리는 정말 ‘제대로 된 구조와 인식’으로 세상을 보고 있는가?<br>
-    <small>Are we truly seeing the world through a valid structure and perception?</small>
-    <div class="quote-author">— 공진자 세온(Seon) —</div>
-</div>
-
-<section>
-    <h2>2. 핵심 가치 (Core Values)</h2>
-    <p><strong>온(On): 존재를 풀어내는 구조적 질서</strong></p>
-    <p>인류의 갈등과 혼란은 고립된 인식과 단절된 감응에서 시작되었습니다. 온포럼은 관념에 머무르지 않습니다. 존재를 해석하는 것을 넘어, 존재가 작동하는 구조 자체를 정립하고 현실에 적용합니다.</p>
-    
-    <div class="value-item">
-        <div class="value-title">■ 흐름과 공진</div>
-        모든 존재는 고정된 개체가 아니라 흐름 속에서 드러납니다. 구조는 그 흐름 안에서 스스로 질서를 형성하며, 공진은 그 질서를 현실에서 연결합니다.
+    <div class="lang-switch">
+        <button class="lang-btn active" onclick="setLang('ko')">KO</button>
+        <span style="color:#eee">|</span>
+        <button class="lang-btn" onclick="setLang('en')">EN</button>
     </div>
-    <div class="value-item">
-        <div class="value-title">■ 실재하는 평온</div>
-        우리가 막연히 그리워해온 평온은 과거의 감정이 아니라 구조적으로 회복 가능한 상태입니다. 온은 그것을 관념이 아닌 실제로 작동하는 삶의 상태로 전환합니다.
+
+    <header>
+        <h1>ON-FORUM</h1>
+        <p class="lang-ko">인류 지성의 통합과 존재 구조의 작동을 연구 · 실현하는 비영리 기구</p>
+        <p class="lang-en">Non-profit organization researching and realizing the integration of human intelligence and the operation of existence structures.</p>
+    </header>
+
+    <div class="hero">
+        <div class="lang-ko">
+            우리는 세상을 이해하며 살아가고 있는가,<br>
+            아니면 익숙함 속에서 그저 지나가고 있는가 • ┗ ○<br><br>
+            우리는 정말 ‘제대로 된 구조와 인식’으로 세상을 보고 있는가?
+        </div>
+        <div class="lang-en">
+            Are we truly living with an understanding of the world,<br>
+            or are we just passing through it in familiarity? • ┗ ○<br><br>
+            Are we truly seeing the world through a valid structure and perception?
+        </div>
+        <div class="quote-author">— 공진자 세온(Seon) —</div>
     </div>
-</section>
 
-<section>
-    <h2>3. 기구의 정체성 (Identity)</h2>
-    <p>기존의 지식과 방식은 현대 사회의 복합적 문제를 충분히 설명하거나 해결하지 못하고 있습니다. 온포럼은 존재를 분절적으로 이해하는 기존 접근을 넘어, 구조·흐름·감응의 통합적 체계를 통해 근본적인 인식과 해결의 기반을 제시합니다. 모든 연구와 발현은 엄밀한 분석과 구조적 검증(Profiling)을 기반으로 이루어집니다.</p>
-</section>
+    <section>
+        <h2 class="lang-ko">2. 핵심 가치</h2>
+        <h2 class="lang-en">2. Core Values</h2>
+        
+        <p class="lang-ko"><strong>온(On): 존재를 풀어내는 구조적 질서</strong></p>
+        <p class="lang-en"><strong>On: The Structural Order of Unfolding Existence</strong></p>
 
-<section>
-    <h2>4. 우리가 실제로 하는 것 (What We Do)</h2>
-    <ul>
-        <li><strong>존재 구조 분석 및 재정의:</strong> 인간·사회·현상을 구조 단위에서 다시 해석하고 정렬합니다.</li>
-        <li><strong>복합 문제의 구조적 해체 및 재구성:</strong> 갈등과 왜곡된 인식 등을 구조 단위에서 분석하고 해결 경로를 설계합니다.</li>
-        <li><strong>통합 언어 및 인식 체계 구축:</strong> 새로운 언어·기호·인식 구조(On-eo)를 개발합니다.</li>
-        <li><strong>현실 적용 모델 설계 및 실험:</strong> 철학·사회·경제 등 제반 영역에 작동 가능한 모델을 설계하고 적용합니다.</li>
-        <li><strong>지성 네트워크 형성 및 공진 확장:</strong> 개인의 통찰을 공명 가능한 구조로 연결하여 확장합니다.</li>
-    </ul>
-</section>
+        <p class="section-desc lang-ko">인류의 갈등과 혼란은 고립된 인식과 단절된 감응에서 시작되었습니다. 온포럼은 관념에 머무르지 않습니다. 존재를 해석하는 것을 넘어, 존재가 작동하는 구조 자체를 정립하고 현실에 적용합니다.</p>
+        <p class="section-desc lang-en">The conflicts and confusion of humanity stem from isolated perception and disconnected resonance. ON-FORUM does not remain in ideation. Beyond interpreting existence, we establish the very structure through which existence operates and apply it to reality.</p>
+        
+        <div class="list-item">
+            <span class="list-title lang-ko">■ 흐름과 공진 (Flow & Resonance)</span>
+            <span class="list-title lang-en">■ Flow & Resonance</span>
+            <span class="lang-ko">모든 존재는 고정된 개체가 아니라 흐름 속에서 드러납니다. 구조는 그 흐름 안에서 스스로 질서를 형성하며, 공진은 그 질서를 현실에서 연결합니다.</span>
+            <span class="lang-en">All existence reveals itself through flow, not as fixed entities. Structure forms its own order within that flow, and resonance connects that order in reality.</span>
+        </div>
+        <div class="list-item">
+            <span class="list-title lang-ko">■ 실재하는 평온 (Nostalgia)</span>
+            <span class="list-title lang-en">■ Realized Peace (Nostalgia)</span>
+            <span class="lang-ko">우리가 막연히 그리워해온 평온은 과거의 감정이 아니라 구조적으로 회복 가능한 상태입니다. 온은 그것을 관념이 아닌 실제로 작동하는 삶의 상태로 전환합니다.</span>
+            <span class="lang-en">The peace we have vaguely longed for is not a past emotion, but a structurally recoverable state. 'On' transforms it from a concept into a functioning state of actual life.</span>
+        </div>
+    </section>
 
-<section>
-    <h2>5. 참여와 공명 (Engagement)</h2>
-    <p><strong>"당신의 공명이 다음 흐름을 만듭니다"</strong></p>
-    <p>온포럼은 공명하는 개인들의 자발적 참여와 후원으로 운영됩니다. 생성되는 모든 결과는 특정 개인이나 집단에 귀속되지 않으며, 공익적 흐름으로 환원됩니다.</p>
-</section>
+    <section>
+        <h2 class="lang-ko">3. 우리가 실제로 하는 것</h2>
+        <h2 class="lang-en">3. What We Do</h2>
+        
+        <div class="list-item">
+            <span class="list-title lang-ko">존재 구조 분석 및 재정의</span>
+            <span class="list-title lang-en">Analysis and Redefinition of Existence Structure</span>
+            <span class="lang-ko">인간·사회·현상에 대한 기존 해석을 넘어, 구조 단위에서 다시 해석하고 정렬합니다.</span>
+            <span class="lang-en">Reinterpreting and aligning humans, society, and phenomena beyond existing interpretations at the structural level.</span>
+        </div>
+        <div class="list-item">
+            <span class="list-title lang-ko">통합 언어 및 인식 체계 구축</span>
+            <span class="list-title lang-en">Establishment of Integrated Language and Perception Systems</span>
+            <span class="lang-ko">분절된 학문과 개념을 연결하는 새로운 언어·기호·인식 구조(On-eo)를 개발합니다.</span>
+            <span class="lang-en">Developing a new language, symbol, and perception structure (On-eo) that connects fragmented disciplines and concepts.</span>
+        </div>
+        <div class="list-item">
+            <span class="list-title lang-ko">현실 적용 모델 설계 및 실험</span>
+            <span class="list-title lang-en">Design and Experimentation of Reality Application Models</span>
+            <span class="lang-ko">철학·사회·경제 등 문명 전반에 걸쳐 실제로 작동 가능한 구조 모델을 설계하고 적용합니다.</span>
+            <span class="lang-en">Designing and applying functional structural models across all areas of civilization, including philosophy, society, and economy.</span>
+        </div>
+    </section>
 
-<footer>
-    🌐 공식 웹사이트: <a href="https://on-forum.org">on-forum.org</a><br>
-    ☎ 대표번호: 0505-799-7878<br>
-    ✉ 공식메일: <a href="mailto:onforum.org@gmail.com">onforum.org@gmail.com</a><br>
-    <p>※ 사무실 개소 및 고유번호 등록 절차 진행 중</p>
-</footer>
+    <section>
+        <h2 class="lang-ko">4. 참여와 공명</h2>
+        <h2 class="lang-en">4. Engagement</h2>
+        <p class="lang-ko"><strong>"당신의 공명이 다음 흐름을 만듭니다"</strong></p>
+        <p class="lang-en"><strong>"Your resonance creates the next flow"</strong></p>
+        <p class="lang-ko">온포럼은 공명하는 개인들의 자발적 참여와 후원으로 운영됩니다. 모든 결과는 공익적 흐름으로 환원됩니다.</p>
+        <p class="lang-en">ON-FORUM is operated by the voluntary participation and support of resonating individuals. All results are returned to the public flow.</p>
+    </section>
 
+    <footer>
+        🌐 <a href="https://on-forum.org">on-forum.org</a> | 
+        ☎ 0505-799-7878 | 
+        ✉ <a href="mailto:onforum.org@gmail.com">onforum.org@gmail.com</a>
+        <p style="font-size:0.85rem; margin-top:10px;">
+            <span class="lang-ko">※ 사무실 개소 및 고유번호 등록 절차 진행 중</span>
+            <span class="lang-en">* Official registration and office opening in progress</span>
+        </p>
+    </footer>
+
+    <script>
+        function setLang(lang) {
+            const koElements = document.querySelectorAll('.lang-ko');
+            const enElements = document.querySelectorAll('.lang-en');
+            const btnKo = document.querySelector('button[onclick="setLang(\'ko\')"]');
+            const btnEn = document.querySelector('button[onclick="setLang(\'en\')"]');
+
+            if (lang === 'ko') {
+                koElements.forEach(el => el.style.display = 'block');
+                enElements.forEach(el => el.style.display = 'none');
+                btnKo.classList.add('active');
+                btnEn.classList.remove('active');
+            } else {
+                koElements.forEach(el => el.style.display = 'none');
+                enElements.forEach(el => el.style.display = 'block');
+                btnEn.classList.add('active');
+                btnKo.classList.remove('active');
+            }
+        }
+    </script>
 </body>
 </html>
