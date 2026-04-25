@@ -7,84 +7,88 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
     <style>
         :root {
-            --bg-color: #f6f5f2; 
-            --point-gold: #c5a059; 
-            --text-black: #0d0d0d;
-            --text-dark: #333333;
-            --transition-slow: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            --bg-paper: #f7f6f2; 
+            --point-gold: #b5945d; 
+            --deep-blue: #1a2a40; 
+            --text-main: #1a1a1a;
+            --transition: all 0.6s cubic-bezier(0.2, 1, 0.3, 1);
         }
 
         body { 
-            font-family: 'Pretendard', sans-serif; 
-            background-color: var(--bg-color);
-            color: var(--text-black);
-            margin: 0; padding: 0;
-            line-height: 1.8;
-            -webkit-font-smoothing: antialiased;
-            word-break: keep-all;
+            font-family: 'Pretendard', sans-serif; background-color: var(--bg-paper);
+            color: var(--text-main); margin: 0; padding: 0; line-height: 1.7;
+            -webkit-font-smoothing: antialiased; word-break: keep-all;
         }
 
-        @keyframes reveal {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes shine { 0% { text-shadow: 0 0 0px rgba(181, 148, 93, 0); } 50% { text-shadow: 0 0 15px rgba(181, 148, 93, 0.4); } 100% { text-shadow: 0 0 0px rgba(181, 148, 93, 0); } }
 
         .container { max-width: 1000px; margin: 0 auto; padding: 0 40px; }
 
-        .lang-switch { position: fixed; top: 30px; right: 40px; z-index: 1000; display: flex; gap: 15px; }
+        /* 언어 스위치 */
+        .lang-switch { position: fixed; top: 30px; right: 40px; z-index: 1000; display: flex; gap: 12px; }
         .lang-btn { 
-            background: none; border: none; font-size: 12px; letter-spacing: 2px; 
-            color: #bbb; cursor: pointer; font-weight: 800; transition: 0.3s;
+            background: none; border: none; font-size: 11px; letter-spacing: 2px; 
+            color: #ccc; cursor: pointer; font-weight: 800; transition: 0.3s;
         }
-        .lang-btn.active { color: var(--text-black); border-bottom: 2px solid var(--text-black); }
+        .lang-btn.active { color: var(--deep-blue); border-bottom: 2px solid var(--deep-blue); }
 
-        /* 여백 압축: 180px -> 120px */
-        header { text-align: center; padding: 120px 0 80px; animation: reveal 1s ease-out; }
-        .logo-box { 
-            width: 90px; height: 90px; margin: 0 auto 40px;
-            border: 1px solid #dcdcdc; display: flex; align-items: center; justify-content: center;
+        /* 헤더: 로고 테두리 및 미세 움직임 */
+        header { text-align: center; padding: 100px 0 60px; animation: fadeIn 1s ease-out; }
+        .logo-box { width: 90px; height: 90px; margin: 0 auto 30px; }
+        .logo-img { width: 100%; height: auto; }
+
+        .main-title { 
+            font-size: 3.8rem; font-weight: 900; letter-spacing: 15px; margin: 0;
+            color: transparent; -webkit-text-stroke: 1px var(--deep-blue);
+            transition: var(--transition); animation: shine 4s infinite ease-in-out;
         }
-        .logo-img { width: 100%; height: auto; display: block; }
-        .main-logo { font-size: 3.5rem; font-weight: 900; letter-spacing: 12px; margin: 0; }
-        .sub-desc { font-size: 1.15rem; color: var(--text-dark); margin-top: 25px; font-weight: 300; letter-spacing: 1px; }
+        .main-title:hover { color: var(--deep-blue); -webkit-text-stroke: 0px; }
+        .sub-desc { font-size: 1.2rem; color: var(--point-gold); margin-top: 20px; font-weight: 400; letter-spacing: 1px; }
 
-        /* 영웅 슬로건 여백 압축 */
-        .hero { text-align: center; margin: 120px 0; animation: reveal 1.2s ease-out; }
-        .hero-text { font-size: 2rem; font-weight: 800; line-height: 1.6; color: var(--text-black); }
-        .on-symbol { display: block; font-size: 2.5rem; margin: 40px 0; color: var(--point-gold); opacity: 0.5; }
-
-        section { margin-bottom: 140px; animation: reveal 1.5s ease-out; }
-        .section-tag { font-size: 0.85rem; letter-spacing: 5px; color: var(--point-gold); font-weight: 800; margin-bottom: 15px; display: block; }
-        h2 { font-size: 2.2rem; font-weight: 900; margin: 0 0 50px 0; letter-spacing: -1.5px; }
-
-        .value-block { margin-bottom: 70px; }
-        .value-title { font-size: 1.6rem; font-weight: 800; color: var(--text-black); margin-bottom: 20px; display: block; }
-        .value-desc { font-size: 1.15rem; color: var(--text-dark); text-align: justify; }
-
-        .work-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-        .work-card { 
-            background: #fff; padding: 40px; 
-            box-shadow: 0 15px 30px rgba(0,0,0,0.03); 
-            border-bottom: 4px solid #eee; transition: var(--transition-slow);
+        /* 공명 배너 (Hero Banner) */
+        .resonance-hero { 
+            width: 100%; background: var(--deep-blue); color: #fff; padding: 100px 0;
+            text-align: center; margin: 60px 0 120px; position: relative; overflow: hidden;
         }
-        .work-card:hover { transform: translateY(-10px); border-color: var(--point-gold); box-shadow: 0 30px 50px rgba(0,0,0,0.06); }
-        .work-card-title { font-size: 1.3rem; font-weight: 800; margin-bottom: 15px; display: block; }
-
-        @keyframes flowLight { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-        .resonance-banner { 
-            width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw;
-            background: linear-gradient(270deg, #000, #1a1a1a, #2a2a2a, #000); background-size: 400% 400%;
-            animation: flowLight 15s infinite ease-in-out; padding: 120px 0; text-align: center; color: #fff;
+        .resonance-hero::before {
+            content: ""; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(181, 148, 93, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
         }
-        .resonance-text { font-size: 2.2rem; font-weight: 800; letter-spacing: 2px; color: #fff; text-shadow: 0 0 30px rgba(197, 160, 89, 0.3); }
+        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        .hero-txt { font-size: 2.2rem; font-weight: 800; position: relative; z-index: 2; letter-spacing: 2px; }
 
-        footer { padding: 80px 0 50px; border-top: 1px solid #ddd; display: flex; justify-content: space-between; align-items: flex-start; }
-        .footer-left { display: flex; flex-direction: column; gap: 8px; }
-        .footer-info-item { font-size: 0.95rem; font-weight: 700; color: var(--text-black); text-decoration: none; }
-        .footer-right { color: #888; font-size: 0.85rem; text-align: right; }
+        /* 섹션 디자인 */
+        section { margin-bottom: 150px; animation: fadeIn 1.2s ease-out; }
+        .section-tag { font-size: 0.8rem; letter-spacing: 4px; color: var(--point-gold); font-weight: 800; margin-bottom: 15px; display: block; }
+        h2 { font-size: 2.4rem; font-weight: 900; margin: 0 0 60px; color: var(--deep-blue); }
+
+        .card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .card { 
+            background: #fff; padding: 45px; border-left: 5px solid var(--point-gold);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.04); transition: var(--transition);
+        }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 30px 60px rgba(0,0,0,0.08); }
+        .card-title { font-size: 1.5rem; font-weight: 800; color: var(--deep-blue); margin-bottom: 20px; display: block; }
+        .card-desc { font-size: 1.1rem; color: #555; text-align: justify; }
+
+        /* 상태 메시지 섹션 */
+        .status-box { 
+            background: rgba(181, 148, 93, 0.05); padding: 40px; border: 1px dashed var(--point-gold);
+            margin-bottom: 100px; text-align: center;
+        }
+        .status-title { font-weight: 800; color: var(--point-gold); font-size: 1.1rem; margin-bottom: 10px; display: block; }
+
+        footer { 
+            padding: 80px 0 60px; border-top: 1px solid #ddd; 
+            display: flex; justify-content: space-between; align-items: flex-start;
+        }
+        .contact-link { font-size: 1rem; font-weight: 700; color: var(--deep-blue); text-decoration: none; display: block; margin-bottom: 8px; }
+        .footer-right { text-align: right; color: #888; font-size: 0.9rem; }
 
         .lang-en { display: none; }
-        @media (max-width: 768px) { .work-grid { grid-template-columns: 1fr; } footer { flex-direction: column; text-align: center; } .footer-right { text-align: center; margin-top: 30px; } }
+        @media (max-width: 768px) { .card-grid { grid-template-columns: 1fr; } .hero-txt { font-size: 1.5rem; } footer { flex-direction: column; text-align: center; gap: 30px; } .footer-right { text-align: center; } }
     </style>
 </head>
 <body>
@@ -97,49 +101,32 @@
     <div class="container">
         <header>
             <div class="logo-box">
-                <img src="images/onforum_logo.png" alt="ON" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                <span style="display:none; font-size: 11px; font-weight: 900; letter-spacing: 2px;">ON</span>
+                <img src="images/onforum_logo.png" alt="ON" class="logo-img" onerror="this.style.display='none';">
             </div>
-            <h1 class="main-logo">ON-FORUM</h1>
+            <h1 class="main-title">ON-FORUM</h1>
             <p class="lang-ko sub-desc">인류 지성의 통합과 존재 구조의 작동을 연구 실현하는 비영리 기구</p>
-            <p class="lang-en sub-desc">International research entity for the integration of intelligence and existence structures.</p>
         </header>
+    </div>
 
-        <div class="hero">
-            <div class="lang-ko hero-text">
-                우리는 세상을 이해하며 살아가고 있는가,<br> 아니면 익숙함 속에서 그저 지나가고 있는가
-                <span class="on-symbol">• ┗ ○</span>
-                우리는 정말 ‘제대로 된 구조와 인식’으로 세상을 보고 있는가?
-            </div>
-            <div class="lang-en hero-text">
-                Are we truly living with an understanding of the world,<br> or just passing through it in familiarity?
-                <span class="on-symbol">• ┗ ○</span>
-                Are we truly seeing the world through valid structures and perceptions?
-            </div>
+    <div class="resonance-hero">
+        <div class="container">
+            <p class="lang-ko hero-txt">"당신의 공명이 다음 흐름을 만듭니다"</p>
+            <p class="lang-en hero-txt">"Your resonance creates the next flow"</p>
         </div>
+    </div>
 
+    <div class="container">
         <section>
             <span class="section-tag">STRUCTURE 01</span>
             <h2 class="lang-ko">핵심 가치</h2>
-            <h2 class="lang-en">Core Values</h2>
-            <div class="value-block">
-                <span class="value-title lang-ko">온(On): 존재를 풀어내는 구조적 질서</span>
-                <span class="value-title lang-en">On: The Structural Order of Existence</span>
-                <p class="lang-ko value-desc">인류의 갈등과 혼란은 고립된 인식과 단절된 감응에서 시작되었습니다. 온포럼은 존재를 해석하는 것을 넘어, 존재가 작동하는 구조 자체를 정립하고 현실에 적용합니다.</p>
-                <p class="lang-en value-desc">Humanity's conflicts stem from isolated perception. ON-FORUM establishes the very structures by which existence operates and applies them to reality.</p>
-            </div>
-            <div class="work-grid">
-                <div class="work-card">
-                    <span class="work-card-title lang-ko">■ 흐름과 공진</span>
-                    <span class="work-card-title lang-en">■ Flow & Resonance</span>
-                    <p class="lang-ko value-desc" style="font-size: 1.05rem;">모든 존재는 흐름 속에서 드러납니다. 구조는 질서를 형성하고, 공진은 그 질서를 현실에 연결합니다.</p>
-                    <p class="lang-en value-desc" style="font-size: 1.05rem;">Existence reveals itself through flow. Structure forms order, and resonance connects that order to reality.</p>
+            <div class="card-grid">
+                <div class="card">
+                    <span class="card-title lang-ko">■ 흐름과 공진</span>
+                    <p class="lang-ko card-desc">모든 존재는 흐름 속에서 드러납니다. 구조는 질서를 형성하고, 공진은 그 질서를 현실에 연결합니다.</p>
                 </div>
-                <div class="work-card">
-                    <span class="work-card-title lang-ko">■ 실재하는 평온</span>
-                    <span class="work-card-title lang-en">■ Realized Peace</span>
-                    <p class="lang-ko value-desc" style="font-size: 1.05rem;">막연한 그리움이 아닌, 구조적으로 회복 가능한 실재하는 삶의 상태를 지향합니다.</p>
-                    <p class="lang-en value-desc" style="font-size: 1.05rem;">We aim for peace as a structurally recoverable and actual state of life, not as vague longing.</p>
+                <div class="card">
+                    <span class="card-title lang-ko">■ 실재하는 평온</span>
+                    <p class="lang-ko card-desc">막연한 그리움이 아닌, 구조적으로 회복 가능한 실재하는 삶의 상태를 지향합니다.</p>
                 </div>
             </div>
         </section>
@@ -147,39 +134,32 @@
         <section>
             <span class="section-tag">OPERATION 02</span>
             <h2 class="lang-ko">주요 업무</h2>
-            <h2 class="lang-en">Key Operations</h2>
-            <div class="work-grid">
-                <div class="work-card">
-                    <span class="work-card-title lang-ko">통합 인식 체계 및 언어 구축</span>
-                    <span class="work-card-title lang-en">Integrated Systems & Language</span>
-                    <p class="lang-ko value-desc" style="font-size: 1.05rem;">분절된 학문을 연결하는 새로운 인식 구조와 통합 언어(The On Language)를 개발하고 보급합니다.</p>
-                    <p class="lang-en value-desc" style="font-size: 1.05rem;">Developing the 'On Language' and perception structures that connect fragmented disciplines.</p>
+            <div class="card-grid">
+                <div class="card">
+                    <span class="card-title lang-ko">통합 인식 체계 및 언어 구축</span>
+                    <p class="lang-ko card-desc">분절된 학문을 연결하는 새로운 인식 구조와 통합 언어(The On Language)를 개발하고 보급합니다.</p>
                 </div>
-                <div class="work-card">
-                    <span class="work-card-title lang-ko">구조적 프로파일링 및 모델링</span>
-                    <span class="work-card-title lang-en">Structural Profiling & Modeling</span>
-                    <p class="lang-ko value-desc" style="font-size: 1.05rem;">복합적인 사회 현상과 인간의 문제를 구조 단위에서 분석하여 해결 경로를 설계합니다.</p>
-                    <p class="lang-en value-desc" style="font-size: 1.05rem;">Analyzing complex social and human issues at the structural level to design solutions.</p>
+                <div class="card">
+                    <span class="card-title lang-ko">구조적 프로파일링 및 모델링</span>
+                    <p class="lang-ko card-desc">복합적인 사회 현상과 인간의 문제를 구조 단위에서 분석하여 근본적인 해결 경로를 설계합니다.</p>
                 </div>
             </div>
         </section>
-    </div>
 
-    <div class="resonance-banner">
-        <p class="lang-ko resonance-text">"당신의 공명이 다음 흐름을 만듭니다"</p>
-        <p class="lang-en resonance-text">"Your resonance creates the next flow"</p>
-    </div>
+        <div class="status-box">
+            <span class="status-title lang-ko">CURRENT PROGRESS</span>
+            <p class="lang-ko" style="margin: 0; color: #666;">온포럼은 현재 공식 사무실 개소 및 비영리 기구 등록 절차를 정밀하게 진행 중입니다. <br>인류 지성의 새로운 지평을 위한 준비에 만전을 기하고 있습니다.</p>
+        </div>
 
-    <div class="container">
         <footer>
             <div class="footer-left">
-                <a href="https://on-forum.org" class="footer-info-item">🌐 on-forum.org</a>
-                <span class="footer-info-item">☎ 0505-799-7878</span>
-                <span class="footer-info-item">✉ onforum.org@gmail.com</span>
+                <a href="https://on-forum.org" class="contact-link">🌐 on-forum.org</a>
+                <span class="contact-link">☎ 0505-799-7878</span>
+                <span class="contact-link">✉ onforum.org@gmail.com</span>
             </div>
             <div class="footer-right">
                 <p>© 2026 ON-FORUM. ALL RIGHTS RESERVED.</p>
-                <span style="font-size: 0.8rem; opacity: 0.6;">* Official registration in progress.</span>
+                <p style="font-size: 0.8rem; opacity: 0.7;">GONGJINJA SEON | PROJECT PLANNING REP.</p>
             </div>
         </footer>
     </div>
