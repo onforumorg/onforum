@@ -11,8 +11,7 @@
             --point-gold: #c5a059; 
             --text-black: #0d0d0d;
             --text-dark: #333333;
-            --text-light: #777777;
-            --transition-slow: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            --transition-slow: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         body { 
@@ -26,7 +25,7 @@
         }
 
         @keyframes reveal {
-            from { opacity: 0; transform: translateY(50px); }
+            from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
@@ -39,65 +38,53 @@
         }
         .lang-btn.active { color: var(--text-black); border-bottom: 2px solid var(--text-black); }
 
-        header { text-align: center; padding: 180px 0 120px; animation: reveal 1s ease-out; }
+        /* 여백 압축: 180px -> 120px */
+        header { text-align: center; padding: 120px 0 80px; animation: reveal 1s ease-out; }
         .logo-box { 
-            width: 100px; height: 100px; margin: 0 auto 50px;
+            width: 90px; height: 90px; margin: 0 auto 40px;
             border: 1px solid #dcdcdc; display: flex; align-items: center; justify-content: center;
         }
-        .main-logo { font-size: 4rem; font-weight: 900; letter-spacing: 15px; margin: 0; }
-        .sub-desc { font-size: 1.25rem; color: var(--text-dark); margin-top: 35px; font-weight: 300; letter-spacing: 1px; }
+        .logo-img { width: 100%; height: auto; display: block; }
+        .main-logo { font-size: 3.5rem; font-weight: 900; letter-spacing: 12px; margin: 0; }
+        .sub-desc { font-size: 1.15rem; color: var(--text-dark); margin-top: 25px; font-weight: 300; letter-spacing: 1px; }
 
-        .hero { text-align: center; margin: 180px 0; animation: reveal 1.2s ease-out; }
-        .hero-text { font-size: 2.2rem; font-weight: 800; line-height: 1.6; color: var(--text-black); }
-        .on-symbol { display: block; margin: 50px 0; font-size: 3rem; color: var(--point-gold); font-weight: 200; opacity: 0.5; }
+        /* 영웅 슬로건 여백 압축 */
+        .hero { text-align: center; margin: 120px 0; animation: reveal 1.2s ease-out; }
+        .hero-text { font-size: 2rem; font-weight: 800; line-height: 1.6; color: var(--text-black); }
+        .on-symbol { display: block; font-size: 2.5rem; margin: 40px 0; color: var(--point-gold); opacity: 0.5; }
 
-        section { margin-bottom: 200px; animation: reveal 1.5s ease-out; }
-        .section-tag { font-size: 0.85rem; letter-spacing: 5px; color: var(--point-gold); font-weight: 800; margin-bottom: 20px; display: block; }
-        h2 { font-size: 2.4rem; font-weight: 900; margin: 0 0 70px 0; letter-spacing: -1.5px; }
+        section { margin-bottom: 140px; animation: reveal 1.5s ease-out; }
+        .section-tag { font-size: 0.85rem; letter-spacing: 5px; color: var(--point-gold); font-weight: 800; margin-bottom: 15px; display: block; }
+        h2 { font-size: 2.2rem; font-weight: 900; margin: 0 0 50px 0; letter-spacing: -1.5px; }
 
-        .value-block { margin-bottom: 100px; }
-        .value-title { font-size: 1.8rem; font-weight: 800; color: var(--text-black); margin-bottom: 25px; display: block; }
-        .value-desc { font-size: 1.2rem; color: var(--text-dark); text-align: justify; }
+        .value-block { margin-bottom: 70px; }
+        .value-title { font-size: 1.6rem; font-weight: 800; color: var(--text-black); margin-bottom: 20px; display: block; }
+        .value-desc { font-size: 1.15rem; color: var(--text-dark); text-align: justify; }
 
-        .work-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+        .work-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
         .work-card { 
-            background: #fff; padding: 50px 40px; 
-            box-shadow: 0 20px 40px rgba(0,0,0,0.03); 
+            background: #fff; padding: 40px; 
+            box-shadow: 0 15px 30px rgba(0,0,0,0.03); 
             border-bottom: 4px solid #eee; transition: var(--transition-slow);
         }
-        .work-card:hover { transform: translateY(-15px); border-color: var(--point-gold); box-shadow: 0 40px 60px rgba(0,0,0,0.06); }
-        .work-card-title { font-size: 1.4rem; font-weight: 800; margin-bottom: 20px; display: block; }
+        .work-card:hover { transform: translateY(-10px); border-color: var(--point-gold); box-shadow: 0 30px 50px rgba(0,0,0,0.06); }
+        .work-card-title { font-size: 1.3rem; font-weight: 800; margin-bottom: 15px; display: block; }
 
-        @keyframes flowLight {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
+        @keyframes flowLight { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
         .resonance-banner { 
             width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw;
-            background: linear-gradient(270deg, #000, #1a1a1a, #2a2a2a, #000);
-            background-size: 400% 400%;
-            animation: flowLight 15s infinite ease-in-out;
-            padding: 150px 0; text-align: center; color: #fff;
+            background: linear-gradient(270deg, #000, #1a1a1a, #2a2a2a, #000); background-size: 400% 400%;
+            animation: flowLight 15s infinite ease-in-out; padding: 120px 0; text-align: center; color: #fff;
         }
-        .resonance-text { font-size: 2.4rem; font-weight: 800; letter-spacing: 2px; color: #fff; text-shadow: 0 0 30px rgba(197, 160, 89, 0.3); }
-        .resonance-sub { font-size: 1.1rem; opacity: 0.5; margin-top: 40px; letter-spacing: 5px; }
+        .resonance-text { font-size: 2.2rem; font-weight: 800; letter-spacing: 2px; color: #fff; text-shadow: 0 0 30px rgba(197, 160, 89, 0.3); }
 
-        footer { 
-            padding: 100px 0 60px; border-top: 1px solid #ddd;
-            display: flex; justify-content: space-between; align-items: flex-start;
-        }
-        .footer-left { display: flex; flex-direction: column; gap: 10px; }
-        .footer-info-item { font-size: 1rem; font-weight: 700; color: var(--text-black); text-decoration: none; }
-        .footer-right { color: var(--text-light); font-size: 0.9rem; text-align: right; }
-        .status-msg { font-size: 0.8rem; color: #999; margin-top: 10px; display: block; font-weight: 400; }
+        footer { padding: 80px 0 50px; border-top: 1px solid #ddd; display: flex; justify-content: space-between; align-items: flex-start; }
+        .footer-left { display: flex; flex-direction: column; gap: 8px; }
+        .footer-info-item { font-size: 0.95rem; font-weight: 700; color: var(--text-black); text-decoration: none; }
+        .footer-right { color: #888; font-size: 0.85rem; text-align: right; }
 
         .lang-en { display: none; }
-        @media (max-width: 768px) {
-            .work-grid { grid-template-columns: 1fr; }
-            footer { flex-direction: column; gap: 40px; align-items: center; text-align: center; }
-            .footer-right { text-align: center; }
-        }
+        @media (max-width: 768px) { .work-grid { grid-template-columns: 1fr; } footer { flex-direction: column; text-align: center; } .footer-right { text-align: center; margin-top: 30px; } }
     </style>
 </head>
 <body>
@@ -110,37 +97,49 @@
     <div class="container">
         <header>
             <div class="logo-box">
-                <span style="font-size: 11px; font-weight: 900; letter-spacing: 2px;">ON</span>
+                <img src="images/onforum_logo.png" alt="ON" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <span style="display:none; font-size: 11px; font-weight: 900; letter-spacing: 2px;">ON</span>
             </div>
             <h1 class="main-logo">ON-FORUM</h1>
             <p class="lang-ko sub-desc">인류 지성의 통합과 존재 구조의 작동을 연구 실현하는 비영리 기구</p>
-            <p class="lang-en sub-desc">International research entity for the integration of intelligence.</p>
+            <p class="lang-en sub-desc">International research entity for the integration of intelligence and existence structures.</p>
         </header>
 
         <div class="hero">
             <div class="lang-ko hero-text">
-                우리는 세상을 이해하며 살아가고 있는가,<br>
-                아니면 익숙함 속에서 그저 지나가고 있는가
+                우리는 세상을 이해하며 살아가고 있는가,<br> 아니면 익숙함 속에서 그저 지나가고 있는가
                 <span class="on-symbol">• ┗ ○</span>
                 우리는 정말 ‘제대로 된 구조와 인식’으로 세상을 보고 있는가?
+            </div>
+            <div class="lang-en hero-text">
+                Are we truly living with an understanding of the world,<br> or just passing through it in familiarity?
+                <span class="on-symbol">• ┗ ○</span>
+                Are we truly seeing the world through valid structures and perceptions?
             </div>
         </div>
 
         <section>
             <span class="section-tag">STRUCTURE 01</span>
             <h2 class="lang-ko">핵심 가치</h2>
+            <h2 class="lang-en">Core Values</h2>
             <div class="value-block">
                 <span class="value-title lang-ko">온(On): 존재를 풀어내는 구조적 질서</span>
+                <span class="value-title lang-en">On: The Structural Order of Existence</span>
                 <p class="lang-ko value-desc">인류의 갈등과 혼란은 고립된 인식과 단절된 감응에서 시작되었습니다. 온포럼은 존재를 해석하는 것을 넘어, 존재가 작동하는 구조 자체를 정립하고 현실에 적용합니다.</p>
+                <p class="lang-en value-desc">Humanity's conflicts stem from isolated perception. ON-FORUM establishes the very structures by which existence operates and applies them to reality.</p>
             </div>
             <div class="work-grid">
                 <div class="work-card">
                     <span class="work-card-title lang-ko">■ 흐름과 공진</span>
+                    <span class="work-card-title lang-en">■ Flow & Resonance</span>
                     <p class="lang-ko value-desc" style="font-size: 1.05rem;">모든 존재는 흐름 속에서 드러납니다. 구조는 질서를 형성하고, 공진은 그 질서를 현실에 연결합니다.</p>
+                    <p class="lang-en value-desc" style="font-size: 1.05rem;">Existence reveals itself through flow. Structure forms order, and resonance connects that order to reality.</p>
                 </div>
                 <div class="work-card">
                     <span class="work-card-title lang-ko">■ 실재하는 평온</span>
+                    <span class="work-card-title lang-en">■ Realized Peace</span>
                     <p class="lang-ko value-desc" style="font-size: 1.05rem;">막연한 그리움이 아닌, 구조적으로 회복 가능한 실재하는 삶의 상태를 지향합니다.</p>
+                    <p class="lang-en value-desc" style="font-size: 1.05rem;">We aim for peace as a structurally recoverable and actual state of life, not as vague longing.</p>
                 </div>
             </div>
         </section>
@@ -148,14 +147,19 @@
         <section>
             <span class="section-tag">OPERATION 02</span>
             <h2 class="lang-ko">주요 업무</h2>
+            <h2 class="lang-en">Key Operations</h2>
             <div class="work-grid">
                 <div class="work-card">
                     <span class="work-card-title lang-ko">통합 인식 체계 및 언어 구축</span>
+                    <span class="work-card-title lang-en">Integrated Systems & Language</span>
                     <p class="lang-ko value-desc" style="font-size: 1.05rem;">분절된 학문을 연결하는 새로운 인식 구조와 통합 언어(The On Language)를 개발하고 보급합니다.</p>
+                    <p class="lang-en value-desc" style="font-size: 1.05rem;">Developing the 'On Language' and perception structures that connect fragmented disciplines.</p>
                 </div>
                 <div class="work-card">
                     <span class="work-card-title lang-ko">구조적 프로파일링 및 모델링</span>
-                    <p class="lang-ko value-desc" style="font-size: 1.05rem;">복합적인 사회 현상과 인간의 문제를 구조 단위에서 분석하여 근본적인 해결 경로를 설계합니다.</p>
+                    <span class="work-card-title lang-en">Structural Profiling & Modeling</span>
+                    <p class="lang-ko value-desc" style="font-size: 1.05rem;">복합적인 사회 현상과 인간의 문제를 구조 단위에서 분석하여 해결 경로를 설계합니다.</p>
+                    <p class="lang-en value-desc" style="font-size: 1.05rem;">Analyzing complex social and human issues at the structural level to design solutions.</p>
                 </div>
             </div>
         </section>
@@ -164,7 +168,6 @@
     <div class="resonance-banner">
         <p class="lang-ko resonance-text">"당신의 공명이 다음 흐름을 만듭니다"</p>
         <p class="lang-en resonance-text">"Your resonance creates the next flow"</p>
-        <p class="resonance-sub">ON-FORUM SYNERGY</p>
     </div>
 
     <div class="container">
@@ -176,26 +179,20 @@
             </div>
             <div class="footer-right">
                 <p>© 2026 ON-FORUM. ALL RIGHTS RESERVED.</p>
-                <span class="status-msg">※ 본 기구는 현재 사무실 개소 및 공식 등록 절차를 진행 중입니다.</span>
+                <span style="font-size: 0.8rem; opacity: 0.6;">* Official registration in progress.</span>
             </div>
         </footer>
     </div>
 
     <script>
         function setLang(lang) {
-            const koElements = document.querySelectorAll('.lang-ko');
-            const enElements = document.querySelectorAll('.lang-en');
-            const btns = document.querySelectorAll('.lang-btn');
+            const ko = document.querySelectorAll('.lang-ko'), en = document.querySelectorAll('.lang-en'), btns = document.querySelectorAll('.lang-btn');
             if (lang === 'ko') {
-                koElements.forEach(el => el.style.display = 'block');
-                enElements.forEach(el => el.style.display = 'none');
-                btns[0].classList.add('active');
-                btns[1].classList.remove('active');
+                ko.forEach(e => e.style.display = 'block'); en.forEach(e => e.style.display = 'none');
+                btns[0].classList.add('active'); btns[1].classList.remove('active');
             } else {
-                koElements.forEach(el => el.style.display = 'none');
-                enElements.forEach(el => el.style.display = 'block');
-                btns[1].classList.add('active');
-                btns[0].classList.remove('active');
+                ko.forEach(e => e.style.display = 'none'); en.forEach(e => e.style.display = 'block');
+                btns[1].classList.add('active'); btns[0].classList.remove('active');
             }
         }
     </script>
