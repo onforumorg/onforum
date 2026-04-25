@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>온포럼 - 적용 사례</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --bg-color: #f8f9fa;
+            --text-color: #333;
+            --accent-color: #3498db;
+            --problem-color: #e74c3c;
+            --on-color: #27ae60;
+        }
+
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 2.2rem;
+            border-bottom: 2px solid var(--primary-color);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .case-card {
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            margin-top: 0;
+            font-size: 1.6rem;
+            display: flex;
+            align-items: center;
+        }
+
+        h2::before {
+            content: 'Q';
+            color: var(--accent-color);
+            font-size: 2rem;
+            margin-right: 15px;
+            font-weight: 900;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .section {
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .problem { background: #fff5f5; border-left: 5px solid var(--problem-color); }
+        .on-approach { background: #f0fff4; border-left: 5px solid var(--on-color); }
+
+        h3 { font-size: 1.1rem; margin-top: 0; }
+        .problem h3 { color: var(--problem-color); }
+        .on-approach h3 { color: var(--on-color); }
+
+        .result-box {
+            background: #e9ecef;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .highlight-bar {
+            background: var(--primary-color);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.1rem;
+        }
+
+        .quote-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .quote-item {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            font-style: italic;
+        }
+
+        .story-section {
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 10px solid var(--accent-color);
+            margin-bottom: 30px;
+        }
+
+        .summary-footer {
+            text-align: center;
+            padding: 40px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 15px;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 700px) {
+            .grid-container, .quote-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>적용 사례 보기</h1>
+        <p>구조의 변화가 만드는 현실의 차이</p>
+    </header>
+
+    <div class="case-card">
+        <h2>1. 판단의 혼란을 구조로 해소하다</h2>
+        <div class="grid-container">
+            <div class="section problem">
+                <h3>문제 & 기존 방식</h3>
+                <p>결론이 다른 논쟁의 반복, 합의 부재.<br>정보만 추가하거나 주장을 강화하며 피로 누적.</p>
+            </div>
+            <div class="section on-approach">
+                <h3>온의 접근</h3>
+                <p>사실/해석/감정 층위 분리.<br>원인을 내용이 아닌 '기준의 불일치'로 규정.</p>
+            </div>
+        </div>
+        <div class="result-box">
+            결과: 논쟁의 핵심이 명확해지고 불필요한 감정 충돌 감소.
+        </div>
+        <div class="highlight-bar">
+            👉 “문제를 해결하지 못하던 상태”에서 “문제를 정확히 볼 수 있는 상태”로 전환
+        </div>
+    </div>
+
+    <div class="case-card">
+        <h2>2. 조직 의사결정의 왜곡을 제거하다</h2>
+        <div class="grid-container">
+            <div class="section problem">
+                <h3>문제 & 기존 방식</h3>
+                <p>권력과 직관에 따른 왜곡된 결정.<br>회의와 보고서만 늘어나며 속도 저하.</p>
+            </div>
+            <div class="section on-approach">
+                <h3>온의 접근</h3>
+                <p>요소 분리(데이터/해석/목적/영향).<br>결정 과정 전체를 구조로 재정렬.</p>
+            </div>
+        </div>
+        <div class="result-box">
+            결과: 판단 기준 명확화, 결정 속도 향상, 책임 구조 투명화.
+        </div>
+        <div class="highlight-bar">
+            👉 “누가 맞는가”에서 “어떤 구조로 결정되는가”로 전환
+        </div>
+    </div>
+
+    <div class="case-card">
+        <h2>3. 개인의 방향 상실 문제 해결</h2>
+        <div class="grid-container">
+            <div class="section problem">
+                <h3>문제 & 기존 방식</h3>
+                <p>선택지 속의 결정 장애.<br>조언과 정보만 찾으며 지속성 부족.</p>
+            </div>
+            <div class="section on-approach">
+                <h3>온의 접근</h3>
+                <p>개인 상태 구조적 분해(욕구/환경/가능성).<br>선택이 아닌 '방향 구조'를 설정.</p>
+            </div>
+        </div>
+        <div class="result-box">
+            결과: 선택 피로 감소, 일관된 방향 유지, 결과 연결성 강화.
+        </div>
+        <div class="highlight-bar">
+            👉 “무엇을 할 것인가”에서 “어떤 구조로 살아갈 것인가”로 전환
+        </div>
+    </div>
+
+    <div class="case-card">
+        <h2>4 & 5. 지식 통합 및 감정 분리</h2>
+        <p><strong>지식:</strong> 단편적 지식을 구조로 재정의하여 연결된 이해와 활용 상태로 전환</p>
+        <p><strong>감정:</strong> 감정을 제거하지 않고 판단과 분리된 요소로 위치시켜 판단의 안정성 확보</p>
+        <div class="highlight-bar">
+            👉 “많이 아는 상태”에서 “연결해서 이해하는 상태”로 전환
+        </div>
+    </div>
+
+    <h2>6. 핵심 후기</h2>
+    <div class="quote-grid">
+        <div class="quote-item">“기준을 나눠보니 어디서 막히는지 바로 보였습니다.”</div>
+        <div class="quote-item">“미루던 일을 구조로 정리하니 금방 해결됐습니다.”</div>
+        <div class="quote-item">“기준을 잡으니 흔들림이 줄어들었습니다.”</div>
+        <div class="quote-item">“나눠서 보니까 판단이 훨씬 단순해졌습니다.”</div>
+    </div>
+
+    <h2 style="margin-top:50px;">7. 확장 사례</h2>
+    <div class="story-section">
+        <p><strong>의사결정 지연 해결:</strong> 내용을 더 쌓는 방식에서 구조를 먼저 보는 방식으로 바뀌어 결정이 빨라졌습니다.</p>
+    </div>
+    <div class="story-section">
+        <p><strong>방향성 확보:</strong> 무엇을 할지 고민하던 상태에서 어떤 기준으로 갈지 정리하는 상태로 바뀌어 흐름이 생겼습니다.</p>
+    </div>
+
+    <div class="summary-footer">
+        <h3>정리</h3>
+        <p>온포럼의 적용은 특정 분야에 제한되지 않습니다.<br>
+        문제가 존재하는 모든 곳에서 그 문제를 만들어내는 구조를 드러내고,<br>
+        현실을 다시 인식할 수 있는 상태를 만들어냅니다.</p>
+    </div>
+</div>
+
+</body>
+</html>
