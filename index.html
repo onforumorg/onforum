@@ -63,10 +63,17 @@
         }
         .contact-link { font-size: 1rem; font-weight: 700; color: var(--deep-blue); text-decoration: none; display: block; margin-bottom: 8px; }
         .footer-right { text-align: right; color: #888; font-size: 0.9rem; }
-    </style>
+   .lang-en { display: none; }
+.lang-switch { position: fixed; top: 30px; right: 40px; z-index: 1000; display: flex; gap: 12px; }
+.lang-btn { background: none; border: none; font-size: 11px; letter-spacing: 2px; color: #ccc; cursor: pointer; font-weight: 800; transition: 0.3s; }
+.lang-btn.active { color: var(--deep-blue); border-bottom: 2px solid var(--deep-blue); }
+</style>
 </head>
 <body>
-
+<nav class="lang-switch">
+    <button class="lang-btn active" onclick="setLang('ko')">KOR</button>
+    <button class="lang-btn" onclick="setLang('en')">ENG</button>
+</nav>
     <div class="container">
         <header>
             <h1 class="main-title">ON-FORUM</h1>
@@ -83,7 +90,8 @@
     <div class="container">
         <section>
             <span class="section-tag">STRUCTURE 01</span>
-            <h2>핵심 가치</h2>
+         <h2 class="lang-ko">핵심 가치</h2>
+<h2 class="lang-en">Core Values</h2>
             <div class="card-grid">
                 <div class="card">
                     <span class="card-title">■ 흐름과 공진</span>
@@ -112,7 +120,8 @@
         </section>
 
         <div class="status-box">
-            <p style="margin: 0; color: #666; font-weight: 500;">온포럼은 현재 공식 사무실 개소 및 비영리 기구 등록 절차를 정밀하게 진행 중입니다.</p>
+<p class="lang-ko" style="margin: 0; color: #666; font-weight: 500;">온포럼은 현재 공식 사무실 개소 및 비영리 기구 등록 절차를 정밀하게 진행 중입니다.</p>
+<p class="lang-en" style="margin: 0; color: #666; font-weight: 500;">ON-FORUM is currently in the process of official office opening and non-profit registration.</p>
         </div>
 
         <footer>
@@ -127,6 +136,17 @@
             </div>
         </footer>
     </div>
-
+<script>
+    function setLang(lang) {
+        const ko = document.querySelectorAll('.lang-ko'), en = document.querySelectorAll('.lang-en'), btns = document.querySelectorAll('.lang-btn');
+        if (lang === 'ko') {
+            ko.forEach(e => e.style.display = 'block'); en.forEach(e => e.style.display = 'none');
+            btns[0].classList.add('active'); btns[1].classList.remove('active');
+        } else {
+            ko.forEach(e => e.style.display = 'none'); en.forEach(e => e.style.display = 'block');
+            btns[1].classList.add('active'); btns[0].classList.remove('active');
+        }
+    }
+</script>
 </body>
 </html>
