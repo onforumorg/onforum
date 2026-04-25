@@ -6,12 +6,10 @@
     <title>ON-FORUM | 온포럼</title>
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
     <style>
-        /* 전문가급 디자인 시스템 */
         :root {
-            --bg-color: #fbfbfb; /* 지적인 미색 */
+            --bg-color: #fbfbfb;
             --text-main: #111111;
             --text-sub: #4a4a4a;
-            --accent-red: #b22222; /* 낙관용 심볼릭 레드 */
             --font-family: 'Pretendard', -apple-system, sans-serif;
         }
 
@@ -23,11 +21,10 @@
             margin: 0 auto; 
             padding: 80px 24px; 
             background-color: var(--bg-color);
-            background-image: url("https://www.transparenttextures.com/patterns/white-paper.png"); /* 미세한 종이 질감 */
+            background-image: url("https://www.transparenttextures.com/patterns/white-paper.png");
             -webkit-font-smoothing: antialiased;
         }
 
-        /* 1. 세련된 애니메이션 정의 */
         @keyframes fadeInHeader {
             0% { opacity: 0; transform: translateY(-15px); }
             100% { opacity: 1; transform: translateY(0); }
@@ -38,33 +35,15 @@
             100% { opacity: 0.8; color: #fff; }
         }
 
-        /* 언어 스위치 */
         .lang-switch { position: fixed; top: 20px; right: 20px; z-index: 1000; }
         .lang-btn { cursor: pointer; border: 1px solid #ddd; background: #fff; font-size: 0.75rem; color: #999; padding: 6px 14px; font-weight: 600; border-radius: 4px; transition: 0.3s; }
         .lang-btn.active { color: #fff; background-color: #000; border-color: #000; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
 
-        /* 헤더: 로고와 인장의 공진 */
         header { text-align: center; margin-bottom: 110px; animation: fadeInHeader 1s ease-out; }
         .logo-wrap { position: relative; display: inline-block; margin-bottom: 40px; }
-        
-        /* 로고 이미지 (배경 없는 PNG 권장) */
-        .logo-img { width: 140px; height: auto; display: block; margin: 0 auto; }
-        
-        /* 인장 (낙관 스타일 배치) */
-        .seal-img { 
-            position: absolute; 
-            top: 60px; 
-            right: -60px; 
-            width: 70px; 
-            height: auto; 
-            opacity: 0.9;
-            transform: rotate(4deg);
-            filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.1));
-        }
-
+        .logo-text { font-size: 2.8rem; font-weight: 900; letter-spacing: 8px; color: #000; text-transform: uppercase; }
         .slogan-sub { font-size: 1.1rem; color: var(--text-sub); font-weight: 400; letter-spacing: -0.3px; }
 
-        /* 도입부 슬로건 */
         .hero { font-size: 1.45rem; font-weight: 800; color: #000; text-align: center; margin: 100px 0 140px 0; word-break: keep-all; }
         .on-symbol { display: block; font-size: 2.5rem; margin: 35px 0; color: #ccc; font-weight: 200; }
 
@@ -79,7 +58,6 @@
         .grid-item { background: rgba(255,255,255,0.6); padding: 30px; border-radius: 4px; border: 1px solid #f0f0f0; transition: 0.3s; }
         .grid-item:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.03); }
 
-        /* 참여 섹션: 블랙 배너 */
         .engagement { background: #000; color: #fff; padding: 80px 40px; text-align: center; border-radius: 4px; margin: 120px 0; }
         .engagement-slogan { font-size: 1.4rem; font-weight: 700; animation: sparkle 2.5s infinite; margin-bottom: 20px; }
         .engagement-desc { font-size: 1rem; opacity: 0.8; line-height: 1.8; }
@@ -92,7 +70,6 @@
         @media (max-width: 600px) {
             .grid { grid-template-columns: 1fr; }
             .hero { font-size: 1.2rem; }
-            .seal-img { top: 40px; right: -30px; width: 50px; }
         }
     </style>
 </head>
@@ -105,8 +82,7 @@
 
     <header>
         <div class="logo-wrap">
-            <img src="images/onforum_logo.png" alt="ON-FORUM" class="logo-img">
-            <img src="images/onforum_seal.png" alt="Seal" class="seal-img">
+            <span class="logo-text">ON-FORUM</span>
         </div>
         <p class="lang-ko slogan-sub">인류 지성의 통합과 존재 구조의 작동을 연구 · 실현하는 비영리 기구</p>
         <p class="lang-en slogan-sub">International research entity for the integration of intelligence and the operation of existence structures.</p>
@@ -135,6 +111,7 @@
             <span class="list-title lang-ko">온(On): 존재를 풀어내는 구조적 질서</span>
             <span class="list-title lang-en">On: The Structural Order of Unfolding Existence</span>
             <p class="lang-ko list-content">인류의 갈등과 혼란은 고립된 인식과 단절된 감응에서 시작되었습니다. 온포럼은 존재를 해석하는 것을 넘어, 존재가 작동하는 구조 자체를 정립하고 현실에 적용합니다.</p>
+            <p class="lang-en list-content">Humanity's conflicts stem from isolated perception. Beyond interpretation, ON-FORUM establishes the structure of existence and applies it to reality.</p>
         </div>
 
         <div class="grid">
@@ -148,6 +125,22 @@
                 <span class="list-title lang-en">■ Realized Peace</span>
                 <p class="lang-ko list-content">막연한 그리움이 아닌, 구조적으로 회복 가능한 실재하는 삶의 상태를 지향합니다.</p>
             </div>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="lang-ko">2. 주요 업무</h2>
+        <h2 class="lang-en">2. Key Operations</h2>
+        
+        <div class="list-item">
+            <span class="list-title lang-ko">통합 인식 체계 및 언어 구축</span>
+            <span class="list-title lang-en">Integrated Perception & Language Systems</span>
+            <p class="lang-ko list-content">분절된 학문을 연결하는 새로운 인식 구조와 통합 언어(The On Language)를 개발하고 보급합니다.</p>
+        </div>
+        <div class="list-item">
+            <span class="list-title lang-ko">구조적 프로파일링 및 모델링</span>
+            <span class="list-title lang-en">Structural Profiling & Modeling</span>
+            <p class="lang-ko list-content">복합적인 사회 현상과 인간의 문제를 구조 단위에서 분석하여 근본적인 해결 경로를 설계합니다.</p>
         </div>
     </section>
 
