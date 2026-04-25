@@ -1,57 +1,106 @@
-<style>
-    :root {
-        /* 배경을 눈이 편안한 미색으로 변경 */
-        --bg-color: #fbfbfb; 
-        --text-main: #111;
-        --accent-red: #b22222; /* 인장 고유의 붉은색 포인트 */
-    }
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>웹사이트 보정본</title>
+    <style>
+        :root {
+            /* 눈이 편안한 미색 배경 */
+            --bg-color: #f7f6f2; 
+            --text-main: #1a1a1a;
+            --accent-red: #b22222; 
+        }
 
-    body {
-        background-color: var(--bg-color);
-        /* 미세한 질감을 주는 배경 효과 추가 */
-        background-image: url("https://www.transparenttextures.com/patterns/white-paper.png");
-        -webkit-font-smoothing: antialiased;
-    }
+        body {
+            background-color: var(--bg-color);
+            /* 외부 이미지 대신 CSS 그레디언트로 미세한 종이 질감 구현 (로딩 속도 최적화) */
+            background-image: radial-gradient(#e5e5f7 0.5px, transparent 0.5px);
+            background-size: 4px 4px;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            line-height: 1.6;
+        }
 
-    /* 헤더 영역: 로고와 인장의 공진 배치 */
-    header {
-        position: relative;
-        padding: 100px 0 60px 0;
-        text-align: center;
-    }
+        /* 헤더 영역 */
+        header {
+            position: relative;
+            padding: 120px 0 80px 0;
+            text-align: center;
+        }
 
-    .logo-container {
-        display: inline-block;
-        position: relative;
-    }
+        .logo-container {
+            display: inline-block;
+            position: relative;
+        }
 
-    .logo-text {
-        font-size: 2.8rem;
-        font-weight: 900;
-        letter-spacing: 8px;
-        color: #000;
-        position: relative;
-        z-index: 2;
-    }
+        .logo-text {
+            font-size: 3rem;
+            font-weight: 900;
+            letter-spacing: 10px;
+            color: #000;
+            position: relative;
+            z-index: 2;
+            margin: 0;
+        }
 
-    /* 인장을 로고와 자연스럽게 어우러지게 배치 (낙관 스타일) */
-    .seal-img {
-        position: absolute;
-        top: -30px;
-        right: -50px;
-        width: 80px;
-        height: auto;
-        opacity: 0.8;
-        z-index: 1;
-        transform: rotate(5deg);
-        filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));
-    }
+        /* 인장(낙관) 이미지 설정 */
+        .seal-img {
+            position: absolute;
+            top: -25px;
+            right: -45px;
+            width: 70px;
+            height: auto;
+            opacity: 0.85;
+            z-index: 1;
+            transform: rotate(7deg);
+            /* 이미지가 없을 때를 대비한 최소 높이 */
+            min-height: 70px; 
+            transition: transform 0.3s ease;
+        }
 
-    /* 나머지 섹션 디자인 정교화 */
-    section {
-        background: rgba(255, 255, 255, 0.5); /* 섹션 배경에 은은한 투명도 부여 */
-        padding: 40px;
-        border-radius: 2px;
-        margin-bottom: 80px;
-    }
-</style>
+        /* 메인 섹션 */
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            background: rgba(255, 255, 255, 0.7);
+            padding: 50px;
+            border-radius: 4px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            margin-bottom: 60px;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            border-bottom: 2px solid var(--accent-red);
+            display: inline-block;
+            padding-bottom: 5px;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <h1 class="logo-text">브랜드명</h1>
+            <img src="seal-image.png" alt="인장" class="seal-img" onerror="this.style.display='none'">
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <h2>소개</h2>
+            <p>여기에 내용을 입력하세요. 보정된 코드는 로딩 속도와 가독성에 최적화되어 있습니다.</p>
+        </section>
+    </main>
+
+</body>
+</html>
