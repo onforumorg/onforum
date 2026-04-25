@@ -5,53 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ON-FORUM | 온포럼</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
-    <style>
-        :root {
-            --bg-paper: #f7f6f2; 
-            --point-gold: #b5945d; 
-            --deep-blue: #1a2a40; 
-            --text-main: #1a1a1a;
-            --transition: all 0.6s cubic-bezier(0.2, 1, 0.3, 1);
-        }
-        body { font-family: 'Pretendard', sans-serif; background-color: var(--bg-paper); color: var(--text-main); margin: 0; padding: 0; line-height: 1.7; -webkit-font-smoothing: antialiased; word-break: keep-all; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes shine { 0% { text-shadow: 0 0 0px rgba(181, 148, 93, 0); } 50% { text-shadow: 0 0 15px rgba(181, 148, 93, 0.4); } 100% { text-shadow: 0 0 0px rgba(181, 148, 93, 0); } }
-        .container { max-width: 1000px; margin: 0 auto; padding: 0 40px; }
-
-        /* 언어 스위치 */
-        .lang-en { display: none; }
-        .lang-switch { position: fixed; top: 30px; right: 40px; z-index: 1000; display: flex; gap: 12px; }
-        .lang-btn { background: none; border: none; font-size: 11px; letter-spacing: 2px; color: #ccc; cursor: pointer; font-weight: 800; transition: 0.3s; }
-        .lang-btn.active { color: var(--deep-blue); border-bottom: 2px solid var(--deep-blue); }
-
-        header { text-align: center; padding: 80px 0 60px; animation: fadeIn 1s ease-out; }
-<svg viewBox="0 0 140 120" width="140" height="120">
-    <circle cx="70" cy="55" r="40" fill="none" stroke="#1a2a40" stroke-width="4" />
+   <style>
+    :root {
+        --bg-paper: #f7f6f2; 
+        --point-gold: #b5945d; 
+        --deep-blue: #1a2a40; 
+        --text-main: #1a1a1a;
+        --transition: all 0.6s cubic-bezier(0.2, 1, 0.3, 1);
+    }
+    body { font-family: 'Pretendard', sans-serif; background-color: var(--bg-paper); color: var(--text-main); margin: 0; padding: 0; line-height: 1.7; -webkit-font-smoothing: antialiased; word-break: keep-all; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     
-    <circle cx="70" cy="48" r="6" fill="#1a2a40" />
-    
-    <polygon points="70,57 115,105 25,105" fill="none" stroke="#1a2a40" stroke-width="4.5" stroke-linejoin="miter" />
-    
-    <path d="M 30 55 A 40 40 0 0 1 70 15" fill="none" stroke="#1a2a40" stroke-width="4" stroke-linecap="round" />
-</svg>
-        .sub-desc { font-size: 1.2rem; color: var(--point-gold); margin-top: 20px; font-weight: 400; letter-spacing: 1px; }
+    /* 메인 타이틀 광채 애니메이션 (세온님의 요청 반영) */
+    @keyframes shine { 
+        0% { text-shadow: 0 0 5px rgba(181, 148, 93, 0.1); color: rgba(26, 42, 64, 0.1); } 
+        50% { text-shadow: 0 0 20px rgba(181, 148, 93, 0.3); color: rgba(26, 42, 64, 0.4); } 
+        100% { text-shadow: 0 0 5px rgba(181, 148, 93, 0.1); color: rgba(26, 42, 64, 0.1); } 
+    }
 
-        .resonance-hero { width: 100%; background: var(--deep-blue); color: #fff; padding: 100px 0; text-align: center; margin: 60px 0 120px; position: relative; overflow: hidden; }
-        .hero-txt { font-size: 2.2rem; font-weight: 800; position: relative; z-index: 2; letter-spacing: 2px; }
+    .container { max-width: 1000px; margin: 0 auto; padding: 0 40px; }
 
-        section { margin-bottom: 150px; animation: fadeIn 1.2s ease-out; }
-        .section-tag { font-size: 0.8rem; letter-spacing: 4px; color: var(--point-gold); font-weight: 800; margin-bottom: 15px; display: block; }
-        h2 { font-size: 2.4rem; font-weight: 900; margin: 0 0 60px; color: var(--deep-blue); }
+    /* 언어 스위치 */
+    .lang-en { display: none; }
+    .lang-switch { position: fixed; top: 30px; right: 40px; z-index: 1000; display: flex; gap: 12px; }
+    .lang-btn { background: none; border: none; font-size: 11px; letter-spacing: 2px; color: #ccc; cursor: pointer; font-weight: 800; transition: 0.3s; }
+    .lang-btn.active { color: var(--deep-blue); border-bottom: 2px solid var(--deep-blue); }
 
-        .card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-        .card { background: #fff; padding: 45px; border-left: 5px solid var(--point-gold); box-shadow: 0 15px 35px rgba(0,0,0,0.04); transition: var(--transition); }
-        .card-title { font-size: 1.5rem; font-weight: 800; color: var(--deep-blue); margin-bottom: 20px; display: block; }
-        .card-desc { font-size: 1.1rem; color: #555; text-align: justify; }
+    header { text-align: center; padding: 80px 0 60px; animation: fadeIn 1s ease-out; }
 
-        footer { padding: 80px 0 60px; border-top: 1px solid #ddd; display: flex; justify-content: space-between; align-items: flex-start; }
-        .contact-link { font-size: 1rem; font-weight: 700; color: var(--deep-blue); text-decoration: none; display: block; margin-bottom: 8px; }
-        .footer-right { text-align: right; color: #888; font-size: 0.9rem; }
-    </style>
+    /* [메인 타이틀 디자인 복구] */
+    .main-title { 
+        font-size: 3.8rem; font-weight: 900; letter-spacing: 15px; margin: 0;
+        color: transparent; 
+        -webkit-text-stroke: 1.2px var(--deep-blue); 
+        transition: var(--transition); 
+        animation: shine 4s infinite ease-in-out;
+    }
+    .main-title:hover { 
+        color: rgba(26, 42, 64, 0.7); /* 마우스 올리면 서서히 짙어짐 */
+        -webkit-text-stroke: 1.2px var(--deep-blue);
+    }
+
+    .sub-desc { font-size: 1.2rem; color: var(--point-gold); margin-top: 20px; font-weight: 400; letter-spacing: 1px; }
+
+    .resonance-hero { width: 100%; background: var(--deep-blue); color: #fff; padding: 100px 0; text-align: center; margin: 60px 0 120px; position: relative; overflow: hidden; }
+    .hero-txt { font-size: 2.2rem; font-weight: 800; position: relative; z-index: 2; letter-spacing: 2px; }
+
+    section { margin-bottom: 150px; animation: fadeIn 1.2s ease-out; }
+    .section-tag { font-size: 0.8rem; letter-spacing: 4px; color: var(--point-gold); font-weight: 800; margin-bottom: 15px; display: block; }
+    h2 { font-size: 2.4rem; font-weight: 900; margin: 0 0 60px; color: var(--deep-blue); }
+
+    .card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+    .card { background: #fff; padding: 45px; border-left: 5px solid var(--point-gold); box-shadow: 0 15px 35px rgba(0,0,0,0.04); transition: var(--transition); }
+    .card-title { font-size: 1.5rem; font-weight: 800; color: var(--deep-blue); margin-bottom: 20px; display: block; }
+    .card-desc { font-size: 1.1rem; color: #555; text-align: justify; }
+
+    footer { padding: 80px 0 60px; border-top: 1px solid #ddd; display: flex; justify-content: space-between; align-items: flex-start; }
+    .contact-link { font-size: 1rem; font-weight: 700; color: var(--deep-blue); text-decoration: none; display: block; margin-bottom: 8px; }
+    .footer-right { text-align: right; color: #888; font-size: 0.9rem; }
+</style>
 </head>
 <body>
 
