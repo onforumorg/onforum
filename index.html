@@ -1,71 +1,97 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-   <meta name="google-site-verification" content="AO04JIbwmCmGyniRJkDQeEBEXviPYXGTGirNbMCza5o" />
-   <meta name="naver-site-verification" content="6a4d77a14577fabfd17f8811ce5e9f59ff77ca10" /> 
+    <meta name="google-site-verification" content="AO04JIbwmCmGyniRJkDQeEBEXviPYXGTGirNbMCza5o" />
+    <meta name="naver-site-verification" content="6a4d77a14577fabfd17f8811ce5e9f59ff77ca10" /> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ON-FORUM | 온포럼</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
-   <style>
-    :root {
-        --bg-paper: #f7f6f2; 
-        --point-gold: #b5945d; 
-        --deep-blue: #1a2a40; 
-        --text-main: #1a1a1a;
-        --transition: all 0.6s cubic-bezier(0.2, 1, 0.3, 1);
-    }
-    body { font-family: 'Pretendard', sans-serif; background-color: var(--bg-paper); color: var(--text-main); margin: 0; padding: 0; line-height: 1.7; -webkit-font-smoothing: antialiased; word-break: keep-all; }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     
-    /* 메인 타이틀 광채 애니메이션 (세온님의 요청 반영) */
-    @keyframes shine { 
-        0% { text-shadow: 0 0 5px rgba(181, 148, 93, 0.1); color: rgba(26, 42, 64, 0.1); } 
-        50% { text-shadow: 0 0 20px rgba(181, 148, 93, 0.3); color: rgba(26, 42, 64, 0.4); } 
-        100% { text-shadow: 0 0 5px rgba(181, 148, 93, 0.1); color: rgba(26, 42, 64, 0.1); } 
-    }
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-paper: #f7f6f2; 
+            --point-gold: #b5945d; 
+            --deep-blue: #1a2a40; 
+            --text-main: #1a1a1a;
+            --transition: all 0.6s cubic-bezier(0.2, 1, 0.3, 1);
+        }
+        body { font-family: 'Pretendard', sans-serif; background-color: var(--bg-paper); color: var(--text-main); margin: 0; padding: 0; line-height: 1.7; -webkit-font-smoothing: antialiased; word-break: keep-all; }
+        
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes shine { 
+            0% { text-shadow: 0 0 5px rgba(181, 148, 93, 0.1); color: rgba(26, 42, 64, 0.1); } 
+            50% { text-shadow: 0 0 20px rgba(181, 148, 93, 0.3); color: rgba(26, 42, 64, 0.4); } 
+            100% { text-shadow: 0 0 5px rgba(181, 148, 93, 0.1); color: rgba(26, 42, 64, 0.1); } 
+        }
 
-    .container { max-width: 1000px; margin: 0 auto; padding: 0 40px; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 40px; }
 
-    /* 언어 스위치 */
-    .lang-en { display: none; }
-    .lang-switch { position: fixed; top: 30px; right: 40px; z-index: 1000; display: flex; gap: 12px; }
-    .lang-btn { background: none; border: none; font-size: 11px; letter-spacing: 2px; color: #ccc; cursor: pointer; font-weight: 800; transition: 0.3s; }
-    .lang-btn.active { color: var(--deep-blue); border-bottom: 2px solid var(--deep-blue); }
+        /* 언어 스위치 */
+        .lang-en { display: none; }
+        .lang-switch { position: fixed; top: 30px; right: 40px; z-index: 1000; display: flex; gap: 12px; }
+        .lang-btn { background: none; border: none; font-size: 11px; letter-spacing: 2px; color: #ccc; cursor: pointer; font-weight: 800; transition: 0.3s; }
+        .lang-btn.active { color: var(--deep-blue); border-bottom: 2px solid var(--deep-blue); }
 
-    header { text-align: center; padding: 80px 0 60px; animation: fadeIn 1s ease-out; }
+        header { text-align: center; padding: 80px 0 60px; animation: fadeIn 1s ease-out; }
+        .main-title { 
+            font-size: 3.8rem; font-weight: 900; letter-spacing: 15px; margin: 0;
+            color: transparent; -webkit-text-stroke: 1.2px var(--deep-blue); 
+            animation: shine 4s infinite ease-in-out;
+        }
 
-    /* [메인 타이틀 디자인 복구] */
-    .main-title { 
-        font-size: 3.8rem; font-weight: 900; letter-spacing: 15px; margin: 0;
-        color: transparent; 
-        -webkit-text-stroke: 1.2px var(--deep-blue); 
-        transition: var(--transition); 
-        animation: shine 4s infinite ease-in-out;
-    }
-    .main-title:hover { 
-        color: rgba(26, 42, 64, 0.7); /* 마우스 올리면 서서히 짙어짐 */
-        -webkit-text-stroke: 1.2px var(--deep-blue);
-    }
+        /* 1. 메인 히어로 영역 */
+        .hero-section { text-align: center; margin-bottom: 100px; }
+        .hero-title { font-size: 2.2rem; font-weight: 800; line-height: 1.4; color: var(--deep-blue); }
+        .hero-sub { font-size: 1.1rem; color: #666; margin-top: 25px; }
+        .btn-group { display: flex; justify-content: center; gap: 15px; margin-top: 40px; }
+        .btn { padding: 12px 25px; text-decoration: none; border-radius: 4px; font-weight: 600; font-size: 0.9rem; transition: 0.3s; letter-spacing: 1px; }
+        .btn-primary { background: var(--deep-blue); color: white; }
+        .btn-outline { border: 1px solid var(--deep-blue); color: var(--deep-blue); }
 
-    .sub-desc { font-size: 1.2rem; color: var(--point-gold); margin-top: 20px; font-weight: 400; letter-spacing: 1px; }
+        /* 2. 한 줄 정의 영역 */
+        .definition-bar { background: var(--deep-blue); color: #fff; padding: 50px 0; text-align: center; margin: 80px 0; }
+        .definition-bar h2 { font-size: 1.5rem; font-weight: 300; margin: 0; letter-spacing: 2px; color: #fff; }
 
-    .resonance-hero { width: 100%; background: var(--deep-blue); color: #fff; padding: 100px 0; text-align: center; margin: 60px 0 120px; position: relative; overflow: hidden; }
-    .hero-txt { font-size: 2.2rem; font-weight: 800; position: relative; z-index: 2; letter-spacing: 2px; }
+        /* 섹션 공통 스타일 */
+        section { margin-bottom: 120px; animation: fadeIn 1.2s ease-out; }
+        .section-tag { font-size: 0.75rem; letter-spacing: 4px; color: var(--point-gold); font-weight: 800; margin-bottom: 15px; display: block; }
+        h3 { font-size: 2rem; font-weight: 900; margin-bottom: 50px; color: var(--deep-blue); }
 
-    section { margin-bottom: 150px; animation: fadeIn 1.2s ease-out; }
-    .section-tag { font-size: 0.8rem; letter-spacing: 4px; color: var(--point-gold); font-weight: 800; margin-bottom: 15px; display: block; }
-    h2 { font-size: 2.4rem; font-weight: 900; margin: 0 0 60px; color: var(--deep-blue); }
+        /* 3. 우리가 하는 일 (4블록) & 5. 적용 사례 (3블록) */
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; }
+        .card { background: #fff; padding: 40px 30px; border-left: 4px solid var(--point-gold); box-shadow: 0 10px 30px rgba(0,0,0,0.03); transition: var(--transition); }
+        .card:hover { transform: translateY(-10px); border-left-width: 10px; }
+        .card-title { font-size: 1.3rem; font-weight: 800; color: var(--deep-blue); margin-bottom: 15px; display: block; }
+        .card-desc { font-size: 1rem; color: #555; line-height: 1.6; }
 
-    .card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-    .card { background: #fff; padding: 45px; border-left: 5px solid var(--point-gold); box-shadow: 0 15px 35px rgba(0,0,0,0.04); transition: var(--transition); }
-    .card-title { font-size: 1.5rem; font-weight: 800; color: var(--deep-blue); margin-bottom: 20px; display: block; }
-    .card-desc { font-size: 1.1rem; color: #555; text-align: justify; }
+        /* 4. 왜 필요한가 */
+        .why-box { background: rgba(181, 148, 93, 0.05); padding: 60px 40px; text-align: center; border: 1px solid rgba(181, 148, 93, 0.2); }
+        .why-text { font-size: 1.2rem; color: #444; max-width: 700px; margin: 0 auto; }
 
-    footer { padding: 80px 0 60px; border-top: 1px solid #ddd; display: flex; justify-content: space-between; align-items: flex-start; }
-    .contact-link { font-size: 1rem; font-weight: 700; color: var(--deep-blue); text-decoration: none; display: block; margin-bottom: 8px; }
-    .footer-right { text-align: right; color: #888; font-size: 0.9rem; }
-</style>
+        /* 6. 핵심 개념 (Flow, Resonance, Structure) */
+        .concept-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; text-align: center; margin-top: 40px; }
+        .concept-item h4 { font-family: 'Montserrat', sans-serif; font-size: 1.8rem; color: var(--point-gold); margin-bottom: 10px; }
+        .concept-item p { font-size: 0.95rem; color: #777; }
+
+        /* 7. 마무리 CTA */
+        .cta-area { text-align: center; padding: 100px 0; border-top: 1px solid #ddd; margin-top: 100px; }
+        .cta-title { font-size: 1.8rem; font-weight: 800; color: var(--deep-blue); margin-bottom: 40px; }
+
+        footer { padding: 60px 0; border-top: 1px solid #eee; display: flex; justify-content: space-between; align-items: flex-start; }
+        .contact-link { font-size: 0.95rem; font-weight: 700; color: var(--deep-blue); text-decoration: none; display: block; margin-bottom: 8px; }
+        .footer-right { text-align: right; color: #888; font-size: 0.85rem; }
+
+        @media (max-width: 768px) {
+            .main-title { font-size: 2.5rem; letter-spacing: 8px; }
+            .card-grid { grid-template-columns: 1fr; }
+            .concept-grid { grid-template-columns: 1fr; }
+            footer { flex-direction: column; gap: 30px; text-align: center; }
+            .footer-right { text-align: center; width: 100%; }
+        }
+    </style>
 </head>
 <body>
 
@@ -76,105 +102,5 @@
 
     <div class="container">
         <header>
-        <div style="margin-bottom: 25px; display: flex; justify-content: center;">
-    <svg viewBox="0 0 140 120" width="140" height="120" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="70" cy="55" r="40" fill="none" stroke="#1a2a40" stroke-width="4" />
-        
-        <polygon points="70,61 112,102 28,102" fill="none" stroke="#1a2a40" stroke-width="4.5" stroke-linejoin="miter" />
-        
-        <circle cx="70" cy="48" r="6" fill="#1a2a40" />
-        <path d="M 30 55 A 40 40 0 0 1 70 15" fill="none" stroke="#1a2a40" stroke-width="4" stroke-linecap="round" />
-
-        <path d="M 32 75 L 45 85" stroke="#f7f6f2" stroke-width="6" fill="none" /> 
-        <path d="M 38 71 L 28 102" stroke="#1a2a40" stroke-width="4.5" />
-
-        <path d="M 100 80 L 110 95" stroke="#f7f6f2" stroke-width="7" fill="none" />
-        <path d="M 110 55 A 40 40 0 0 1 100 85" stroke="#1a2a40" stroke-width="4" />
-    </svg>
-</div>
-            <h1 class="main-title">ON-FORUM</h1>
-            <p class="lang-ko sub-desc">인류 지성의 통합과 존재 구조의 작동을 연구 실현하는 비영리 기구</p>
-            <p class="lang-en sub-desc">International research entity for integrating intelligence and structural existence.</p>
-        </header>
-    </div>
-
-    <div class="resonance-hero">
-        <div class="container">
-            <p class="lang-ko hero-txt">"당신의 공명이 다음 흐름을 만듭니다"</p>
-            <p class="lang-en hero-txt">"Your resonance creates the next flow"</p>
-        </div>
-    </div>
-
-    <div class="container">
-        <section>
-            <span class="section-tag">STRUCTURE 01</span>
-            <h2 class="lang-ko">핵심 가치</h2>
-            <h2 class="lang-en">Core Values</h2>
-            <div class="card-grid">
-                <div class="card">
-                    <span class="card-title lang-ko">■ 흐름과 공진</span>
-                    <span class="card-title lang-en">■ Flow & Resonance</span>
-                    <p class="lang-ko card-desc">모든 존재는 흐름 속에서 드러납니다. 구조는 질서를 형성하고, 공진은 그 질서를 현실에 연결합니다.</p>
-                    <p class="lang-en card-desc">Existence reveals itself through flow. Structure forms order, and resonance connects it to reality.</p>
-                </div>
-                <div class="card">
-                    <span class="card-title lang-ko">■ 실재하는 평온</span>
-                    <span class="card-title lang-en">■ Substantial Peace</span>
-                    <p class="lang-ko card-desc">막연한 그리움이 아닌, 구조적으로 회복 가능한 실재하는 삶의 상태를 지향합니다.</p>
-                    <p class="lang-en card-desc">We pursue a state of peace that is structurally recoverable and actual, not just a vague longing.</p>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <span class="section-tag">OPERATION 02</span>
-            <h2 class="lang-ko">주요 업무</h2>
-            <h2 class="lang-en">Key Operations</h2>
-            <div class="card-grid">
-                <div class="card">
-                    <span class="card-title lang-ko">통합 인식 체계 및 언어 구축</span>
-                    <span class="card-title lang-en">Integrated Cognitive Systems</span>
-                    <p class="lang-ko card-desc">분절된 학문을 연결하는 새로운 인식 구조와 통합 언어(The On Language)를 개발하고 보급합니다.</p>
-                    <p class="lang-en card-desc">Developing the 'On Language' and cognitive structures that unify fragmented disciplines.</p>
-                </div>
-                <div class="card">
-                    <span class="card-title lang-ko">구조적 프로파일링 및 모델링</span>
-                    <span class="card-title lang-en">Structural Profiling</span>
-                    <p class="lang-ko card-desc">복합적인 사회 현상과 인간의 문제를 구조 단위에서 분석하여 근본적인 해결 경로를 설계합니다.</p>
-                    <p class="lang-en card-desc">Analyzing social phenomena and human issues at the structural level to design solutions.</p>
-                </div>
-            </div>
-        </section>
-
-        <div style="background: rgba(181, 148, 93, 0.05); padding: 40px; border: 1px dashed var(--point-gold); margin-bottom: 100px; text-align: center;">
-            <p class="lang-ko" style="margin: 0; color: #666; font-weight: 500;">온포럼은 현재 공식 사무실 개소 및 비영리 기구 등록 절차를 정밀하게 진행 중입니다.</p>
-            <p class="lang-en" style="margin: 0; color: #666; font-weight: 500;">ON-FORUM is in the process of office opening and non-profit registration.</p>
-        </div>
-
-        <footer>
-            <div class="footer-left">
-                <a href="https://on-forum.org" class="contact-link">🌐 on-forum.org</a>
-                <span class="contact-link">☎ 0505-799-7878</span>
-                <span class="contact-link">✉ onforum.org@gmail.com</span>
-            </div>
-            <div class="footer-right">
-                <p>© 2026 ON-FORUM. ALL RIGHTS RESERVED.</p>
-                <p style="font-size: 0.8rem; opacity: 0.7;">RESONATOR SEON | PROJECT PLANNING REP.</p>
-            </div>
-        </footer>
-    </div>
-
-    <script>
-        function setLang(lang) {
-            const ko = document.querySelectorAll('.lang-ko'), en = document.querySelectorAll('.lang-en'), btns = document.querySelectorAll('.lang-btn');
-            if (lang === 'ko') {
-                ko.forEach(e => e.style.display = 'block'); en.forEach(e => e.style.display = 'none');
-                btns[0].classList.add('active'); btns[1].classList.remove('active');
-            } else {
-                ko.forEach(e => e.style.display = 'none'); en.forEach(e => e.style.display = 'block');
-                btns[1].classList.add('active'); btns[0].classList.remove('active');
-            }
-        }
-    </script>
-</body>
-</html>
+            <div style="margin-bottom: 25px; display: flex; justify-content: center;">
+                <svg viewBox="0 0 140 120" width="140" height="120" xmlns="
