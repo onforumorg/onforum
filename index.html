@@ -3,104 +3,189 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>웹사이트 보정본</title>
+    <title>ON-FORUM | 온포럼</title>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
     <style>
+        /* 전문가급 디자인 시스템 */
         :root {
-            /* 눈이 편안한 미색 배경 */
-            --bg-color: #f7f6f2; 
-            --text-main: #1a1a1a;
-            --accent-red: #b22222; 
+            --bg-color: #fbfbfb; /* 지적인 미색 */
+            --text-main: #111111;
+            --text-sub: #4a4a4a;
+            --accent-red: #b22222; /* 낙관용 심볼릭 레드 */
+            --font-family: 'Pretendard', -apple-system, sans-serif;
         }
 
-        body {
+        body { 
+            font-family: var(--font-family); 
+            line-height: 1.95; 
+            color: var(--text-main); 
+            max-width: 850px; 
+            margin: 0 auto; 
+            padding: 80px 24px; 
             background-color: var(--bg-color);
-            /* 외부 이미지 대신 CSS 그레디언트로 미세한 종이 질감 구현 (로딩 속도 최적화) */
-            background-image: radial-gradient(#e5e5f7 0.5px, transparent 0.5px);
-            background-size: 4px 4px;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            margin: 0;
-            font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+            background-image: url("https://www.transparenttextures.com/patterns/white-paper.png"); /* 미세한 종이 질감 */
             -webkit-font-smoothing: antialiased;
-            line-height: 1.6;
         }
 
-        /* 헤더 영역 */
-        header {
-            position: relative;
-            padding: 120px 0 80px 0;
-            text-align: center;
+        /* 1. 세련된 애니메이션 정의 */
+        @keyframes fadeInHeader {
+            0% { opacity: 0; transform: translateY(-15px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes sparkle {
+            0% { opacity: 0.8; color: #fff; }
+            50% { opacity: 1; color: #fdfd96; }
+            100% { opacity: 0.8; color: #fff; }
         }
 
-        .logo-container {
-            display: inline-block;
-            position: relative;
+        /* 언어 스위치 */
+        .lang-switch { position: fixed; top: 20px; right: 20px; z-index: 1000; }
+        .lang-btn { cursor: pointer; border: 1px solid #ddd; background: #fff; font-size: 0.75rem; color: #999; padding: 6px 14px; font-weight: 600; border-radius: 4px; transition: 0.3s; }
+        .lang-btn.active { color: #fff; background-color: #000; border-color: #000; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+
+        /* 헤더: 로고와 인장의 공진 */
+        header { text-align: center; margin-bottom: 110px; animation: fadeInHeader 1s ease-out; }
+        .logo-wrap { position: relative; display: inline-block; margin-bottom: 40px; }
+        
+        /* 로고 이미지 (배경 없는 PNG 권장) */
+        .logo-img { width: 140px; height: auto; display: block; margin: 0 auto; }
+        
+        /* 인장 (낙관 스타일 배치) */
+        .seal-img { 
+            position: absolute; 
+            top: 60px; 
+            right: -60px; 
+            width: 70px; 
+            height: auto; 
+            opacity: 0.9;
+            transform: rotate(4deg);
+            filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.1));
         }
 
-        .logo-text {
-            font-size: 3rem;
-            font-weight: 900;
-            letter-spacing: 10px;
-            color: #000;
-            position: relative;
-            z-index: 2;
-            margin: 0;
-        }
+        .slogan-sub { font-size: 1.1rem; color: var(--text-sub); font-weight: 400; letter-spacing: -0.3px; }
 
-        /* 인장(낙관) 이미지 설정 */
-        .seal-img {
-            position: absolute;
-            top: -25px;
-            right: -45px;
-            width: 70px;
-            height: auto;
-            opacity: 0.85;
-            z-index: 1;
-            transform: rotate(7deg);
-            /* 이미지가 없을 때를 대비한 최소 높이 */
-            min-height: 70px; 
-            transition: transform 0.3s ease;
-        }
+        /* 도입부 슬로건 */
+        .hero { font-size: 1.45rem; font-weight: 800; color: #000; text-align: center; margin: 100px 0 140px 0; word-break: keep-all; }
+        .on-symbol { display: block; font-size: 2.5rem; margin: 35px 0; color: #ccc; font-weight: 200; }
 
-        /* 메인 섹션 */
-        main {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+        section { margin-bottom: 100px; padding: 0 10px; }
+        h2 { font-size: 1.5rem; font-weight: 800; border-bottom: 3px solid #000; display: inline-block; padding-bottom: 8px; margin-bottom: 50px; }
+        
+        .list-item { margin-bottom: 50px; padding-left: 24px; border-left: 2px solid #eee; }
+        .list-title { font-weight: 700; color: #000; display: block; margin-bottom: 15px; font-size: 1.25rem; }
+        .list-content { color: var(--text-sub); text-align: justify; }
 
-        section {
-            background: rgba(255, 255, 255, 0.7);
-            padding: 50px;
-            border-radius: 4px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-            margin-bottom: 60px;
-            border: 1px solid rgba(0,0,0,0.05);
-        }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 30px; }
+        .grid-item { background: rgba(255,255,255,0.6); padding: 30px; border-radius: 4px; border: 1px solid #f0f0f0; transition: 0.3s; }
+        .grid-item:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.03); }
 
-        h2 {
-            border-bottom: 2px solid var(--accent-red);
-            display: inline-block;
-            padding-bottom: 5px;
-            margin-bottom: 30px;
+        /* 참여 섹션: 블랙 배너 */
+        .engagement { background: #000; color: #fff; padding: 80px 40px; text-align: center; border-radius: 4px; margin: 120px 0; }
+        .engagement-slogan { font-size: 1.4rem; font-weight: 700; animation: sparkle 2.5s infinite; margin-bottom: 20px; }
+        .engagement-desc { font-size: 1rem; opacity: 0.8; line-height: 1.8; }
+
+        footer { margin-top: 140px; padding: 80px 0; border-top: 1px solid #eee; text-align: center; color: #000; }
+        .footer-info { display: flex; justify-content: center; flex-wrap: wrap; gap: 30px; font-weight: 600; margin-bottom: 30px; }
+        .status-msg { font-size: 0.85rem; color: #999; }
+
+        .lang-en { display: none; }
+        @media (max-width: 600px) {
+            .grid { grid-template-columns: 1fr; }
+            .hero { font-size: 1.2rem; }
+            .seal-img { top: 40px; right: -30px; width: 50px; }
         }
     </style>
 </head>
 <body>
 
+    <div class="lang-switch">
+        <button class="lang-btn active" onclick="setLang('ko')">KO</button>
+        <button class="lang-btn" onclick="setLang('en')">EN</button>
+    </div>
+
     <header>
-        <div class="logo-container">
-            <h1 class="logo-text">브랜드명</h1>
-            <img src="seal-image.png" alt="인장" class="seal-img" onerror="this.style.display='none'">
+        <div class="logo-wrap">
+            <img src="images/onforum_logo.png" alt="ON-FORUM" class="logo-img">
+            <img src="images/onforum_seal.png" alt="Seal" class="seal-img">
         </div>
+        <p class="lang-ko slogan-sub">인류 지성의 통합과 존재 구조의 작동을 연구 · 실현하는 비영리 기구</p>
+        <p class="lang-en slogan-sub">International research entity for the integration of intelligence and the operation of existence structures.</p>
     </header>
 
-    <main>
-        <section>
-            <h2>소개</h2>
-            <p>여기에 내용을 입력하세요. 보정된 코드는 로딩 속도와 가독성에 최적화되어 있습니다.</p>
-        </section>
-    </main>
+    <div class="hero">
+        <div class="lang-ko">
+            우리는 세상을 이해하며 살아가고 있는가,<br>
+            아니면 익숙함 속에서 그저 지나가고 있는가
+            <span class="on-symbol">• ┗ ○</span>
+            우리는 정말 ‘제대로 된 구조와 인식’으로 세상을 보고 있는가?
+        </div>
+        <div class="lang-en">
+            Are we truly living with an understanding of the world,<br>
+            or are we just passing through it in familiarity?
+            <span class="on-symbol">• ┗ ○</span>
+            Are we truly seeing the world through a valid structure and perception?
+        </div>
+    </div>
 
+    <section>
+        <h2 class="lang-ko">1. 핵심 가치</h2>
+        <h2 class="lang-en">1. Core Values</h2>
+        
+        <div class="list-item">
+            <span class="list-title lang-ko">온(On): 존재를 풀어내는 구조적 질서</span>
+            <span class="list-title lang-en">On: The Structural Order of Unfolding Existence</span>
+            <p class="lang-ko list-content">인류의 갈등과 혼란은 고립된 인식과 단절된 감응에서 시작되었습니다. 온포럼은 존재를 해석하는 것을 넘어, 존재가 작동하는 구조 자체를 정립하고 현실에 적용합니다.</p>
+        </div>
+
+        <div class="grid">
+            <div class="grid-item">
+                <span class="list-title lang-ko">■ 흐름과 공진</span>
+                <span class="list-title lang-en">■ Flow & Resonance</span>
+                <p class="lang-ko list-content">모든 존재는 흐름 속에서 드러납니다. 구조는 질서를 형성하고, 공진은 그 질서를 현실에 연결합니다.</p>
+            </div>
+            <div class="grid-item">
+                <span class="list-title lang-ko">■ 실재하는 평온</span>
+                <span class="list-title lang-en">■ Realized Peace</span>
+                <p class="lang-ko list-content">막연한 그리움이 아닌, 구조적으로 회복 가능한 실재하는 삶의 상태를 지향합니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="engagement">
+        <p class="lang-ko engagement-slogan">"당신의 공명이 다음 흐름을 만듭니다"</p>
+        <p class="lang-en engagement-slogan">"Your resonance creates the next flow"</p>
+        <p class="lang-ko engagement-desc">온포럼은 자발적 참여와 후원의 공명으로 운영되며,<br>모든 결실은 공익으로 환원됩니다.</p>
+    </section>
+
+    <footer>
+        <div class="footer-info">
+            <span>🌐 on-forum.org</span>
+            <span>☎ 0505-799-7878</span>
+            <span>✉ onforum.org@gmail.com</span>
+        </div>
+        <p class="status-msg">
+            <span class="lang-ko">※ 본 기구는 현재 사무실 개소 및 공식 등록 절차를 진행 중입니다.</span>
+        </p>
+    </footer>
+
+    <script>
+        function setLang(lang) {
+            const koElements = document.querySelectorAll('.lang-ko');
+            const enElements = document.querySelectorAll('.lang-en');
+            const btnKo = document.querySelector('button[onclick="setLang(\'ko\')"]');
+            const btnEn = document.querySelector('button[onclick="setLang(\'en\')"]');
+            if (lang === 'ko') {
+                koElements.forEach(el => el.style.display = 'block');
+                enElements.forEach(el => el.style.display = 'none');
+                btnKo.classList.add('active');
+                btnEn.classList.remove('active');
+            } else {
+                koElements.forEach(el => el.style.display = 'none');
+                enElements.forEach(el => el.style.display = 'block');
+                btnEn.classList.add('active');
+                btnKo.classList.remove('active');
+            }
+        }
+    </script>
 </body>
 </html>
