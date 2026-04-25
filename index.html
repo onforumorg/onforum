@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ON-FORUM | 온포럼</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
-    <style>
-        :root {
-            --bg-paper: #f7f6f2; 
-            --point-gold: #b5945d; 
-            --deep-blue: #1a2a40; 
-            --text-main: #1a1a1a;
-            --transition: all 0.6s cubic-bezier(0.2, 1, 0.3, 1);
-        }
+<header style="padding: 80px 0 40px;">
+    <div class="logo-on" style="position: relative; width: 120px; height: 120px; margin: 0 auto 30px; display: flex; align-items: center; justify-content: center;">
+        <div style="position: absolute; width: 80px; height: 80px; border: 2.5px solid var(--deep-blue); border-radius: 50%;"></div>
+        
+        <div style="position: absolute; width: 10px; height: 10px; background: var(--deep-blue); border-radius: 50%; z-index: 2;"></div>
+        
+        <svg width="120" height="120" style="position: absolute; z-index: 1;">
+            <polygon points="60,35 95,95 25,95" fill="none" stroke="var(--deep-blue)" stroke-width="2.5" />
+        </svg>
+    </div>
+
+    <h1 class="main-title" style="font-size: 3.2rem; letter-spacing: 18px;">ON-FORUM</h1>
+    <p class="lang-ko sub-desc" style="font-weight: 500;">인류 지성의 통합과 존재 구조의 작동을 연구 실현하는 비영리 기구</p>
+</header>
 
         body { 
             font-family: 'Pretendard', sans-serif; background-color: var(--bg-paper);
