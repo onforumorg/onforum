@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연구보기 | 온-포럼(On-Forum)</title>
+    <style>
+        /* 기존 제공해드린 연구보기 스타일을 여기에 넣습니다 */
+        body { margin: 0; padding: 0; background-color: #ffffff; }
+        .research-container {
+            font-family: 'Pretendard', sans-serif;
+            line-height: 1.8;
+            color: #2d3436;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .res-header { text-align: center; margin-bottom: 80px; }
+        .res-header h1 { font-size: 2.5rem; color: #1a2a3a; margin-bottom: 10px; letter-spacing: 2px; }
+        .res-header p { font-size: 1.1rem; color: #7f8c8d; }
+
+        .res-intro {
+            background: #fdfdfd;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 80px;
+            font-size: 1.15rem;
+            color: #34495e;
+        }
+
+        .archive-item { margin-bottom: 60px; }
+        .archive-item h3 { font-size: 1.5rem; color: #2c3e50; border-bottom: 2px solid #3498db; display: inline-block; margin-bottom: 20px; }
+        .archive-text { color: #555; padding-left: 10px; }
+
+        .sample-section { background: #f8f9fa; padding: 40px; border-radius: 20px; margin: 80px 0; }
+        .sample-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 30px; }
+        .sample-card { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.03); }
+        .sample-title { font-weight: bold; color: #e67e22; margin-bottom: 15px; display: block; }
+        .compare-box { font-size: 0.9rem; margin-top: 10px; }
+        .compare-row { display: flex; margin-bottom: 5px; }
+        .label { width: 80px; font-weight: bold; color: #95a5a6; }
+
+        .in-progress { margin: 80px 0; }
+        .in-progress ul { list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .in-progress li { background: #fff; border: 1px solid #eee; padding: 15px; border-radius: 8px; color: #34495e; }
+        .in-progress li::before { content: "•"; color: #3498db; margin-right: 10px; }
+
+        .access-notice { background: #2c3e50; color: white; padding: 40px; border-radius: 15px; text-align: center; }
+        .access-notice h3 { margin-bottom: 15px; color: #ecf0f1; }
+        
+        /* 홈으로 돌아가기 버튼 */
+        .back-home { text-align: center; margin-top: 50px; }
+        .back-home a { text-decoration: none; color: #3498db; font-weight: bold; border: 1px solid #3498db; padding: 10px 20px; border-radius: 5px; transition: 0.3s; }
+        .back-home a:hover { background: #3498db; color: #fff; }
+
+        @media (max-width: 768px) { .sample-grid, .in-progress ul { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+<div class="research-container">
+    <header class="res-header">
+        <h1>연구보기</h1>
+        <p>현실을 해석하는 구조의 일부</p>
+    </header>
+
+    <section class="res-intro">
+        우리는 지식을 나열하지 않습니다.<br>
+        복잡한 현실 속에서 무엇이 맞는지 판단할 수 있도록<br>
+        <strong>그 이면에 작동하는 구조를 연구합니다.</strong><br>
+        <small style="display:block; margin-top:15px; color:#bdc3c7;">아래 내용은 전체 연구의 일부 단면입니다.</small>
+    </section>
+
+    <section class="archive-section">
+        <div class="archive-item">
+            <h3>① 판단의 혼란을 구조로 해소하다</h3>
+            <div class="archive-text">
+                기준이 없는 상태에서는 어떤 정보도 방향을 만들지 못합니다.<br>
+                온은 이 현상을 정보의 문제가 아닌 <strong>‘구조 부재’의 문제</strong>로 봅니다.<br>
+                구조가 형성되면 복잡한 정보는 자연스럽게 정리되고 판단은 단순해집니다.
+            </div>
+        </div>
+        <div class="archive-item">
+            <h3>② 감정과 사실은 왜 충돌하는가</h3>
+            <div class="archive-text">
+                사람은 사실을 알고도 다른 선택을 반복합니다.<br>
+                이는 의지의 문제가 아니라 <strong>감정 흐름과 판단 구조의 불일치</strong>에서 발생합니다.
+            </div>
+        </div>
+    </section>
+
+    <section class="sample-section">
+        <h2 style="text-align:center;">구조 적용 샘플</h2>
+        <div class="sample-grid">
+            <div class="sample-card">
+                <span class="sample-title">사례 1: 정보 과잉 → 판단 마비</span>
+                <div class="compare-box">
+                    <div class="compare-row"><span class="label">기존</span> <span>정보 추가로 해결 시도</span></div>
+                    <div class="compare-row"><span class="label">구조해석</span> <span>기준 부재로 인한 정지 상태</span></div>
+                </div>
+            </div>
+            </div>
+    </section>
+
+    <section class="access-notice">
+        <h3>일부 연구는 현재 공개되지 않습니다.</h3>
+        <p>연구 참여를 통해 더 깊은 내용에 접근할 수 있습니다.</p>
+    </section>
+
+    <div class="back-home">
+        <a href="index.html">홈으로 돌아가기</a>
+    </div>
+</div>
+
+</body>
+</html>
