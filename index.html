@@ -29,7 +29,6 @@
 
         .container { max-width: 1000px; margin: 0 auto; padding: 0 40px; }
 
-        /* 언어 스위치 */
         .lang-switch { position: fixed; top: 30px; right: 40px; z-index: 1000; display: flex; gap: 12px; }
         .lang-btn { background: none; border: none; font-size: 11px; letter-spacing: 2px; color: #ccc; cursor: pointer; font-weight: 800; transition: 0.3s; padding: 5px; }
         .lang-btn.active { color: var(--deep-blue); border-bottom: 2px solid var(--deep-blue); }
@@ -72,14 +71,14 @@
         .cta-area { text-align: center; padding: 100px 0; border-top: 1px solid #ddd; margin-top: 100px; }
         .cta-title { font-size: 1.8rem; font-weight: 800; color: var(--deep-blue); margin-bottom: 40px; }
 
-        footer { padding: 60px 0; border-top: 1px solid #eee; display: flex; justify-content: space-between; align-items: flex-start; }
+        footer { padding: 60px 0; border-top: 1px solid #eee; }
         .contact-link { font-size: 0.95rem; font-weight: 700; color: var(--deep-blue); text-decoration: none; display: block; margin-bottom: 8px; }
         .footer-right { text-align: right; color: #888; font-size: 0.85rem; }
 
         @media (max-width: 768px) {
             .main-title { font-size: 2.5rem; letter-spacing: 8px; }
             .concept-grid { grid-template-columns: 1fr; }
-            footer { flex-direction: column; gap: 30px; text-align: center; }
+            .footer-content { flex-direction: column; gap: 30px; text-align: center; }
             .footer-right { text-align: center; width: 100%; }
         }
     </style>
@@ -92,32 +91,33 @@
     </nav>
 
     <div style="text-align: center; padding: 60px 0 40px;">
-    <div style="margin-bottom: 30px; display: flex; justify-content: center; align-items: center;">
-        <svg viewBox="0 0 140 120" width="130" height="110" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="70" cy="50" r="42" fill="none" stroke="#1a2a40" stroke-width="4" />
-            <polygon points="70,68 105,108 35,108" fill="none" stroke="#1a2a40" stroke-width="4" />
-            <circle cx="70" cy="50" r="6" fill="#1a2a40" />
-        </svg>
+        <div style="margin-bottom: 30px; display: flex; justify-content: center; align-items: center;">
+            <svg viewBox="0 0 140 120" width="130" height="110" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="70" cy="50" r="42" fill="none" stroke="#1a2a40" stroke-width="4" />
+                <polygon points="70,68 105,108 35,108" fill="none" stroke="#1a2a40" stroke-width="4" />
+                <circle cx="70" cy="50" r="6" fill="#1a2a40" />
+            </svg>
+        </div>
+        <h1 class="main-title">ON-FORUM</h1>
     </div>
-    <h1 class="main-title">ON-FORUM</h1>
-</div>
 
-      <div class="hero-section">
-    <h2 class="lang-ko hero-title">복잡한 현실을 구조로 해석하는<br>새로운 인식 시스템</h2>
-    <h2 class="lang-en hero-title">A New Cognitive System for<br>Interpreting Reality Through Structure</h2>
-    
-    <p class="lang-ko hero-sub">현실의 문제는 감정이나 단편적 정보가 아닌 구조와 흐름으로 이해될 때 해결됩니다.<br>온포럼은 인간, 사회, 세계를 하나의 구조로 연결해 정확한 방향을 제시합니다.</p>
-    <p class="lang-en hero-sub">Problems are solved when understood through structure and flow.<br>On-Forum connects humanity and society into a single framework.</p>
+    <div class="container">
+        <div class="hero-section">
+            <h2 class="lang-ko hero-title">복잡한 현실을 구조로 해석하는<br>새로운 인식 시스템</h2>
+            <h2 class="lang-en hero-title">A New Cognitive System for<br>Interpreting Reality Through Structure</h2>
+            
+            <p class="lang-ko hero-sub">현실의 문제는 감정이나 단편적 정보가 아닌 구조와 흐름으로 이해될 때 해결됩니다.<br>온포럼은 인간, 사회, 세계를 하나의 구조로 연결해 정확한 방향을 제시합니다.</p>
+            <p class="lang-en hero-sub">Problems are solved when understood through structure and flow.<br>On-Forum connects humanity and society into a single framework.</p>
 
-    <div class="btn-group">
-        <a href="intro.html" class="btn btn-primary lang-ko">온포럼 소개</a>
-        <a href="cases.html" class="btn btn-outline lang-ko">적용 사례 보기</a>
-
-        <a href="intro.html?lang=en" class="btn btn-primary lang-en">About Us</a>
-        <a href="cases.html?lang=en" class="btn btn-outline lang-en">View Cases</a>
+            <div class="btn-group">
+                <a href="intro.html" class="btn btn-primary lang-ko">온포럼 소개</a>
+                <a href="cases.html" class="btn btn-outline lang-ko">적용 사례 보기</a>
+                <a href="intro.html?lang=en" class="btn btn-primary lang-en">About Us</a>
+                <a href="cases.html?lang=en" class="btn btn-outline lang-en">View Cases</a>
+            </div>
+        </div>
     </div>
-</div>
-       
+           
     <div class="definition-bar">
         <div class="container">
             <h2 class="lang-ko">온포럼은 현실을 구조로 분석하는 연구 플랫폼입니다</h2>
@@ -168,34 +168,31 @@
             </div>
         </section>
 
-       <section>
-    <span class="section-tag">APPLICATIONS</span>
-    <h3 class="lang-ko">이렇게 적용됩니다</h3>
-    <h3 class="lang-en">Practical Applications</h3>
-    <div class="card-grid">
-        <div class="card">
-            <span class="card-title lang-ko">✔ 개인 문제</span>
-            <span class="card-title lang-en">✔ Individual Issues</span>
-            
-            <p class="card-desc lang-ko">감정이 아닌 구조 분석으로 삶의 판단 기준을 정립합니다.</p>
-            <p class="card-desc lang-en">Establishing life criteria through structural analysis, moving beyond mere emotions.</p>
-        </div>
-        <div class="card">
-            <span class="card-title lang-ko">✔ 사회 분석</span>
-            <span class="card-title lang-en">✔ Social Analysis</span>
-            
-            <p class="card-desc lang-ko">사건이 아닌 구조 흐름으로 현상의 본질적 원인을 파악합니다.</p>
-            <p class="card-desc lang-en">Identifying the root causes of phenomena by focusing on structural flow rather than isolated incidents.</p>
-        </div>
-        <div class="card">
-            <span class="card-title lang-ko">✔ 정책 / 설계</span>
-            <span class="card-title lang-en">✔ Policy & Design</span>
-            
-            <p class="card-desc lang-ko">단기 대응이 아닌 구조 기반의 근본적인 시스템을 설계합니다.</p>
-            <p class="card-desc lang-en">Designing fundamental systems based on structure, rather than temporary short-term fixes.</p>
-        </div>
-    </div>
-</section>
+        <section>
+            <span class="section-tag">APPLICATIONS</span>
+            <h3 class="lang-ko">이렇게 적용됩니다</h3>
+            <h3 class="lang-en">Practical Applications</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <span class="card-title lang-ko">✔ 개인 문제</span>
+                    <span class="card-title lang-en">✔ Individual Issues</span>
+                    <p class="card-desc lang-ko">감정이 아닌 구조 분석으로 삶의 판단 기준을 정립합니다.</p>
+                    <p class="card-desc lang-en">Establishing life criteria through structural analysis, moving beyond mere emotions.</p>
+                </div>
+                <div class="card">
+                    <span class="card-title lang-ko">✔ 사회 분석</span>
+                    <span class="card-title lang-en">✔ Social Analysis</span>
+                    <p class="card-desc lang-ko">사건이 아닌 구조 흐름으로 현상의 본질적 원인을 파악합니다.</p>
+                    <p class="card-desc lang-en">Identifying the root causes of phenomena by focusing on structural flow rather than isolated incidents.</p>
+                </div>
+                <div class="card">
+                    <span class="card-title lang-ko">✔ 정책 / 설계</span>
+                    <span class="card-title lang-en">✔ Policy & Design</span>
+                    <p class="card-desc lang-ko">단기 대응이 아닌 구조 기반의 근본적인 시스템을 설계합니다.</p>
+                    <p class="card-desc lang-en">Designing fundamental systems based on structure, rather than temporary short-term fixes.</p>
+                </div>
+            </div>
+        </section>
 
         <section>
             <span class="section-tag">CORE CONCEPTS</span>
@@ -220,34 +217,31 @@
             </div>
         </section>
 
-    <div class="cta-area">
-    <h2 class="cta-title lang-ko">온포럼은 이론이 아니라<br>현실을 이해하고 바꾸기 위한 구조입니다</h2>
-    <h2 class="cta-title lang-en">On-Forum is not just a theory,<br>but a structure to change reality</h2>
-    
-    <div class="cta-area">
-        <h2 class="cta-title lang-ko">온포럼은 이론이 아니라<br>현실을 이해하고 바꾸기 위한 구조입니다</h2>
-        <h2 class="cta-title lang-en">On-Forum is not just a theory,<br>but a structure to change reality</h2>
-        
-        <div class="btn-group">
-            <a href="research.html" class="btn btn-primary lang-ko">연구보기</a>
-            <a href="contact.html" class="btn btn-outline lang-ko">참여·문의</a>
+        <div class="cta-area">
+            <h2 class="cta-title lang-ko">온포럼은 이론이 아니라<br>현실을 이해하고 바꾸기 위한 구조입니다</h2>
+            <h2 class="cta-title lang-en">On-Forum is not just a theory,<br>but a structure to change reality</h2>
+            
+            <div class="btn-group">
+                <a href="research.html" class="btn btn-primary lang-ko">연구보기</a>
+                <a href="contact.html" class="btn btn-outline lang-ko">참여·문의</a>
+                <a href="research.html?lang=en" class="btn btn-primary lang-en">View Research</a>
+                <a href="contact.html?lang=en" class="btn btn-outline lang-en">Contact</a>
+            </div>
+        </div>
 
-            <a href="research.html?lang=en" class="btn btn-primary lang-en">View Research</a>
-            <a href="contact.html?lang=en" class="btn btn-outline lang-en">Contact</a>
-        </div>
-    </div> </div> <footer>
-    <div class="container" style="display: flex; justify-content: space-between; align-items: flex-start;">
-        <div class="footer-left">
-            <a href="https://on-forum.org" class="contact-link">🌐 on-forum.org</a>
-            <span class="contact-link">☎ 0505-799-7878</span>
-            <span class="contact-link">✉ onforum.org@gmail.com</span>
-        </div>
-        <div class="footer-right">
-            <p>© 2026 ON-FORUM. ALL RIGHTS RESERVED.</p>
-            <p style="font-size: 0.8rem; opacity: 0.7; letter-spacing: 1px;">GONGJINJA SEON | PROJECT PLANNING REP.</p>
-        </div>
-    </div>
-</footer>
+        <footer>
+            <div class="footer-content" style="display: flex; justify-content: space-between; align-items: flex-start;">
+                <div class="footer-left">
+                    <a href="https://on-forum.org" class="contact-link">🌐 on-forum.org</a>
+                    <span class="contact-link">☎ 0505-799-7878</span>
+                    <span class="contact-link">✉ onforum.org@gmail.com</span>
+                </div>
+                <div class="footer-right">
+                    <p>© 2026 ON-FORUM. ALL RIGHTS RESERVED.</p>
+                    <p style="font-size: 0.8rem; opacity: 0.7; letter-spacing: 1px;">GONGJINJA SEON | PROJECT PLANNING REP.</p>
+                </div>
+            </div>
+        </footer>
     </div>
 
     <script>
@@ -269,7 +263,6 @@
                 btnKo.classList.remove('active');
             }
         }
-        // 페이지 로드 시 기본 언어를 한국어로 설정
         window.onload = function() {
             setLang('ko');
         };
