@@ -28,14 +28,7 @@
         }
 
         body
-        <div style="max-width: 900px; margin: 0 auto; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
-        <a href="index.html" style="text-decoration: none; color: #2c3e50; font-weight: bold; font-size: 0.9rem;">← HOME</a>
-        <div style="display: flex; gap: 15px;">
-            <button onclick="setLang('ko')" style="cursor:pointer; border:none; background:none; font-weight:bold; color:#2c3e50;">KOR</button>
-            <span style="color:#ccc;">|</span>
-            <button onclick="setLang('en')" style="cursor:pointer; border:none; background:none; font-weight:bold; color:#2c3e50;">ENG</button>
-        </div>
-    </div>
+        
         { margin: 0; padding: 0; background-color: var(--bg-color); color: var(--text-color); font-family: 'Pretendard', sans-serif; line-height: 1.8; }
         .research-container { max-width: 900px; margin: 0 auto; padding: 60px 20px; }
 
@@ -91,7 +84,15 @@
     </style>
 </head>
 <body>
-
+ <div style="max-width: 900px; margin: 0 auto; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
+        <a href="index.html" style="text-decoration: none; color: #2c3e50; font-weight: bold; font-size: 0.9rem;">← HOME</a>
+        <div style="display: flex; gap: 15px;">
+            <button onclick="setLang('ko')" style="cursor:pointer; border:none; background:none; font-weight:bold; color:#2c3e50;">KOR</button>
+            <span style="color:#ccc;">|</span>
+            <button onclick="setLang('en')" style="cursor:pointer; border:none; background:none; font-weight:bold; color:#2c3e50;">ENG</button>
+        </div>
+    </div>
+    
 <div class="research-container">
     <header class="res-header">
         <h1 lang="ko">연구보기</h1>
