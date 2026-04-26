@@ -5,65 +5,97 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ON-FORUM | Introduction</title>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css"/>
 
 <style>
 :root {
-    --primary-color: #2c3e50;
-    --bg-color: #f8f9fa;
-    --text-color: #333;
-    --accent-color: #3498db;
+  --bg-main:#f7f6f2;
+  --deep-blue:#1a2a40;
+  --gold:#b5945d;
+  --text:#1a1a1a;
+  --sub:#666;
 }
+
 body {
-    font-family: 'Pretendard', sans-serif;
-    background: var(--bg-color);
-    margin: 0;
+  font-family:'Pretendard',sans-serif;
+  margin:0;
+  color:var(--text);
+  background:
+    radial-gradient(circle at 20% 30%, rgba(181,148,93,0.08), transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(26,42,64,0.05), transparent 40%),
+    var(--bg-main);
 }
+
 .container {
-    max-width: 800px;
-    margin: auto;
-    padding: 40px 20px;
+  max-width:900px;
+  margin:auto;
+  padding:60px 20px;
 }
-.lang-switch {
-    position: fixed;
-    top: 20px;
-    right: 30px;
+
+.section {
+  margin:120px 0;
 }
-.lang-btn {
-    border: none;
-    background: none;
-    cursor: pointer;
-    font-weight: bold;
+
+.center { text-align:center; }
+
+h1 {
+  font-size:2.5rem;
+  letter-spacing:3px;
 }
-.lang-btn.active {
-    border-bottom: 2px solid #000;
-}
-header {
-    text-align: center;
-    margin-bottom: 40px;
-}
-.intro-box {
-    background: white;
-    padding: 30px;
-    border-radius: 10px;
-}
+
 h2 {
-    margin-top: 30px;
-    color: var(--accent-color);
+  font-size:1.6rem;
+  margin-bottom:30px;
+  color:var(--deep-blue);
 }
-ul {
-    background: #eee;
-    padding: 20px;
+
+p {
+  line-height:1.8;
+  color:var(--sub);
 }
-.process {
-    margin-top: 20px;
-    background: #ddd;
-    padding: 10px;
-    text-align: center;
+
+.highlight {
+  color:var(--gold);
+  font-weight:600;
 }
+
+.card {
+  background:#fff;
+  padding:35px;
+  border-radius:14px;
+  box-shadow:0 15px 40px rgba(0,0,0,0.05);
+  margin-top:30px;
+}
+
+.flow {
+  text-align:center;
+  font-size:1.2rem;
+  padding:30px;
+  background:#fff;
+  border-radius:12px;
+  border:1px solid #eee;
+}
+
+.lang-switch {
+  position:fixed;
+  top:20px;
+  right:30px;
+}
+
+.lang-btn {
+  border:none;
+  background:none;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.lang-btn.active {
+  border-bottom:2px solid #000;
+}
+
 .back {
-    text-align: center;
-    margin-top: 20px;
+  text-align:center;
+  margin-top:80px;
 }
 </style>
 </head>
@@ -71,117 +103,164 @@ ul {
 <body>
 
 <nav class="lang-switch">
-    <button id="btn-ko" class="lang-btn" onclick="setLang('ko')">KOR</button>
-    <button id="btn-en" class="lang-btn" onclick="setLang('en')">ENG</button>
+<button id="btn-ko" class="lang-btn" onclick="setLang('ko')">KOR</button>
+<button id="btn-en" class="lang-btn" onclick="setLang('en')">ENG</button>
 </nav>
 
 <div class="container">
 
-<header>
-    <h1 data-i18n="title"></h1>
-    <p data-i18n="subtitle"></p>
-</header>
+<!-- HERO -->
+<section class="section center">
+<h1>ON-FORUM</h1>
 
-<div class="intro-box">
+<h2 data-i18n="hero"></h2>
 
-<h2 data-i18n="sec1_title"></h2>
-<p data-i18n="sec1_desc"></p>
+<p class="highlight" data-i18n="hero_sub"></p>
+</section>
 
-<h2 data-i18n="sec2_title"></h2>
-<p data-i18n="sec2_desc"></p>
+<!-- 문제 인식 -->
+<section class="section">
+<h2 data-i18n="problem_title"></h2>
 
-<h2 data-i18n="sec3_title"></h2>
-<p data-i18n="sec3_desc"></p>
-
-<h2 data-i18n="sec4_title"></h2>
-<ul>
-<li data-i18n="domain1"></li>
-<li data-i18n="domain2"></li>
-<li data-i18n="domain3"></li>
-<li data-i18n="domain4"></li>
-<li data-i18n="domain5"></li>
-<li data-i18n="domain6"></li>
-</ul>
-
-<h2 data-i18n="sec5_title"></h2>
-<div class="process" data-i18n="process"></div>
-
+<div class="card">
+<p data-i18n="problem_desc"></p>
 </div>
+</section>
+
+<!-- 정의 -->
+<section class="section center">
+<h2 data-i18n="definition_title"></h2>
+<p data-i18n="definition_desc"></p>
+</section>
+
+<!-- 온의 관점 -->
+<section class="section">
+<h2 data-i18n="on_title"></h2>
+
+<div class="card">
+<p data-i18n="on_desc"></p>
+</div>
+</section>
+
+<!-- 영역 -->
+<section class="section">
+<h2 data-i18n="domain_title"></h2>
+
+<div class="card">
+<p data-i18n="domain_desc"></p>
+</div>
+</section>
+
+<!-- 흐름 -->
+<section class="section center">
+<h2 data-i18n="flow_title"></h2>
+
+<div class="flow" data-i18n="flow"></div>
+</section>
+
+<!-- 선언 -->
+<section class="section center">
+<h2 data-i18n="final"></h2>
+</section>
 
 <div class="back">
-    <a href="index.html" data-i18n="back"></a>
+<a href="index.html" data-i18n="back"></a>
 </div>
 
 </div>
 
 <script>
+
 const content = {
 
-title: {
-    ko: "온포럼 (On-Forum)",
-    en: "On-Forum"
-},
-subtitle: {
-    ko: "현실을 바라보는 기준을 다시 정의하다",
-    en: "Redefining the standards for perceiving reality"
+hero:{
+ko:"현실을 다시 보게 만드는 기준",
+en:"A new standard to see reality"
 },
 
-sec1_title: { ko: "1. 우리는 무엇을 하는가", en: "1. What We Do" },
-sec1_desc: {
-    ko: "온포럼은 현실을 바라보는 기준 자체를 다시 정의하는 연구·실천 공동체입니다.",
-    en: "On-Forum redefines the standards of perceiving reality."
+hero_sub:{
+ko:"문제는 정보가 아니라 구조입니다",
+en:"The problem is not information, but structure"
 },
 
-sec2_title: { ko: "2. 왜 온포럼이 필요한가", en: "2. Why On-Forum?" },
-sec2_desc: {
-    ko: "정보는 넘치지만 구조는 부재한 시대입니다.",
-    en: "We live in an era of information overload but structural absence."
+problem_title:{
+ko:"왜 같은 현실에서 다른 결론이 나올까요?",
+en:"Why do conclusions differ?"
 },
 
-sec3_title: { ko: "3. 온의 관점", en: "3. The Perspective of On" },
-sec3_desc: {
-    ko: "온은 있는 그대로를 보고 구조를 드러냅니다.",
-    en: "On reveals structures as they are."
+problem_desc:{
+ko:"정보는 넘치지만 기준은 없습니다.<br>그 결과 판단은 반복되지만 방향은 축적되지 않습니다.",
+en:"Information is abundant, but structure is missing."
 },
 
-sec4_title: { ko: "4. 우리가 다루는 영역", en: "4. Domains" },
-
-domain1: { ko: "철학 - 존재와 인식", en: "Philosophy - Being" },
-domain2: { ko: "과학 - 자연의 원리", en: "Science - Nature" },
-domain3: { ko: "수·정보 구조", en: "Math / Info" },
-domain4: { ko: "정치 - 권력 구조", en: "Politics - Power" },
-domain5: { ko: "경제 - 가치 흐름", en: "Economy - Value" },
-domain6: { ko: "기술 - 구현 구조", en: "Technology - Implementation" },
-
-sec5_title: { ko: "5. 온포럼의 방향", en: "5. Direction" },
-process: {
-    ko: "연구 → 구조 → 실천 → 확산",
-    en: "Research → Structure → Practice → Expansion"
+definition_title:{
+ko:"온포럼은 무엇인가",
+en:"What is On-Forum"
 },
 
-back: {
-    ko: "← 메인으로 돌아가기",
-    en: "← Back to Home"
+definition_desc:{
+ko:"온포럼은 현실을 구조로 분석하고,<br>그 구조를 통해 판단 기준을 만드는 연구 플랫폼입니다.",
+en:"A platform that builds structure for understanding reality."
+},
+
+on_title:{
+ko:"온의 관점",
+en:"Perspective of On"
+},
+
+on_desc:{
+ko:"온은 어떤 주장도 하지 않습니다.<br>있는 그대로를 보고,<br>그 안의 구조를 드러냅니다.",
+en:"On reveals structure without imposing ideas."
+},
+
+domain_title:{
+ko:"우리는 모든 영역을 하나로 봅니다",
+en:"All domains are one"
+},
+
+domain_desc:{
+ko:"철학, 과학, 사회, 경제, 기술…<br>모든 영역은 분리된 것이 아니라 하나의 구조입니다.",
+en:"All domains are interconnected structures."
+},
+
+flow_title:{
+ko:"온의 흐름",
+en:"Flow of On"
+},
+
+flow:{
+ko:"문제 → 구조 → 기준 → 인식 변화",
+en:"Problem → Structure → Criteria → Shift"
+},
+
+final:{
+ko:"온포럼은 세상을 설명하는 곳이 아니라<br>세상을 다시 보게 만드는 곳입니다",
+en:"Not explaining reality, but transforming perception"
+},
+
+back:{
+ko:"← 메인으로 돌아가기",
+en:"← Back to Home"
 }
 
 };
 
-function setLang(lang) {
-    localStorage.setItem("lang", lang);
+function setLang(lang){
+localStorage.setItem("lang",lang);
 
-    document.querySelectorAll("[data-i18n]").forEach(el => {
-        const key = el.dataset.i18n;
-        el.innerText = content[key][lang];
-    });
+document.querySelectorAll("[data-i18n]").forEach(el=>{
+const key = el.dataset.i18n;
+el.innerHTML = content[key][lang];
+});
 
-    document.getElementById("btn-ko").classList.toggle("active", lang === "ko");
-    document.getElementById("btn-en").classList.toggle("active", lang === "en");
+document.getElementById("btn-ko").classList.toggle("active",lang==="ko");
+document.getElementById("btn-en").classList.toggle("active",lang==="en");
 }
 
-window.onload = function() {
-    const lang = localStorage.getItem("lang") || "ko";
-    setLang(lang);
-};
+window.onload=function(){
+setLang(localStorage.getItem("lang")||"ko");
+}
+
 </script>
 
 </body>
