@@ -14,113 +14,41 @@
 
         body {
             font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
-            line-height: 1.8;
-            color: var(--text-color);
-            background-color: var(--bg-color);
-            margin: 0;
-            padding: 0;
+            line-height: 1.8; color: var(--text-color); background-color: var(--bg-color); margin: 0; padding: 0;
         }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
+        .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+        header { text-align: center; margin-bottom: 60px; border-bottom: 2px solid var(--primary-color); padding-bottom: 20px; }
+        h1 { color: var(--primary-color); font-size: 2.5rem; letter-spacing: 2px; }
 
-        header {
-            text-align: center;
-            margin-bottom: 60px;
-            border-bottom: 2px solid var(--primary-color);
-            padding-bottom: 20px;
-        }
-
-        h1 {
-            color: var(--primary-color);
-            font-size: 2.5rem;
-            letter-spacing: 2px;
-        }
-
-        .intro-section {
-            background: white;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            margin-bottom: 30px;
-        }
-
-        h2 {
-            color: var(--accent-color);
-            border-left: 4px solid var(--accent-color);
-            padding-left: 15px;
-            margin-top: 40px;
-            font-size: 1.5rem;
-        }
-
+        .intro-section { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 30px; }
+        h2 { color: var(--accent-color); border-left: 4px solid var(--accent-color); padding-left: 15px; margin-top: 40px; font-size: 1.5rem; }
         h2:first-of-type { margin-top: 0; }
-
         p { margin-bottom: 1.5rem; word-break: keep-all; }
 
-        .domain-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 10px;
-            list-style: none;
-            padding: 20px;
-            background: #f1f3f5;
-            border-radius: 8px;
-        }
-
+        .domain-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; list-style: none; padding: 20px; background: #f1f3f5; border-radius: 8px; }
         .domain-list li { font-weight: bold; font-size: 0.95rem; }
-        .domain-list li span {
-            font-weight: normal;
-            display: block;
-            font-size: 0.85rem;
-            color: #666;
-        }
+        .domain-list li span { font-weight: normal; display: block; font-size: 0.85rem; color: #666; }
 
-        .process {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: #e9ecef;
-            padding: 15px;
-            border-radius: 50px;
-            text-align: center;
-            margin: 20px 0;
-        }
+        .process { display: flex; justify-content: space-between; align-items: center; background: #e9ecef; padding: 15px; border-radius: 50px; text-align: center; margin: 20px 0; }
+        .footer-declaration { text-align: center; margin: 40px 0; padding: 30px; background: var(--primary-color); color: white; border-radius: 8px; font-size: 1.2rem; font-weight: bold; }
 
-        /* 푸터 및 버튼 스타일 */
-        .footer-declaration {
-            text-align: center;
-            margin: 40px 0;
-            padding: 30px;
-            background: var(--primary-color);
-            color: white;
-            border-radius: 8px;
-            font-size: 1.2rem;
-            font-weight: bold;
-        }
-
+        /* 버튼 스타일 */
         .btn-container { text-align: center; margin-top: 40px; }
-        .cta-btn {
-            display: inline-block;
-            padding: 15px 30px;
-            background-color: var(--accent-color);
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-        .cta-btn:hover { background-color: #2980b9; }
+        .cta-btn { display: inline-block; padding: 15px 30px; background-color: var(--accent-color); color: white !important; text-decoration: none; border-radius: 5px; font-weight: bold; transition: 0.3s; }
 
-        /* [다국어 제어] 홈페이지 엔진이 <html lang="en">으로 바꿀 때 연동됨 */
-        [lang="en"] { display: none; }
-        html[lang="en"] [lang="ko"] { display: none; }
-        html[lang="en"] [lang="en"] { display: block; }
-        /* 인라인 요소(span 등)가 block으로 변해 깨지는 현상 방지 */
-        html[lang="en"] span[lang="en"] { display: inline; }
-        html[lang="en"] .process[lang="en"] { display: flex; }
+        /* [다국어 삼중 보안 제어] */
+        /* 1. 기본 설정 */
+        [lang="en"] { display: none !important; }
+        [lang="ko"] { display: inline-block !important; }
+
+        /* 2. 영문 모드 전환 시 (html 속성 또는 body 클래스 감지) */
+        html[lang="en"] [lang="ko"], body.en [lang="ko"], .lang-en [lang="ko"] { display: none !important; }
+        html[lang="en"] [lang="en"], body.en [lang="en"], .lang-en [lang="en"] { display: inline-block !important; }
+
+        /* 3. 레이아웃 예외 처리 */
+        html[lang="en"] .process[lang="en"] { display: flex !important; }
+        html[lang="en"] h1[lang="en"], html[lang="en"] h2[lang="en"], html[lang="en"] p[lang="en"] { display: block !important; }
 
         @media (max-width: 600px) { .process { font-size: 0.8rem; } }
     </style>
@@ -138,12 +66,12 @@
     <div class="intro-section">
         <h2 lang="ko">1. 우리는 무엇을 하는가</h2>
         <h2 lang="en">1. What We Do</h2>
-        <p lang="ko">온포럼은 현실을 바라보는 기준 자체를 다시 정의하는 연구·실천 공동체입니다. 우리는 현상을 해석하는 데 머물지 않고, 그 현상이 만들어지는 구조와 원리를 탐구합니다. 모든 영역을 하나의 연결된 구조로 이해하고자 합니다.</p>
-        <p lang="en">On-Forum is a research and practice community that redefines the standards of perceiving reality. We explore the structures and principles behind phenomena, seeking to understand all domains as one interconnected structure.</p>
+        <p lang="ko">온포럼은 현실을 바라보는 기준 자체를 다시 정의하는 연구·실천 공동체입니다. 우리는 현상을 해석하는 데 머물지 않고, 그 현상이 만들어지는 구조와 원리를 탐구합니다.</p>
+        <p lang="en">On-Forum is a research and practice community that redefines the standards of perceiving reality. We explore the structures and principles behind phenomena.</p>
 
         <h2 lang="ko">2. 왜 온포럼이 필요한가</h2>
         <h2 lang="en">2. Why On-Forum?</h2>
-        <p lang="ko">오늘날 우리는 정보가 부족한 시대가 아니라, 정보는 넘치지만 구조는 부재한 시대에 살고 있습니다. 온포럼은 이 문제를 <strong>“세상을 해석하는 구조 자체의 부재”</strong> 에서 비롯된 것으로 봅니다.</p>
+        <p lang="ko">오늘날 우리는 정보는 넘치지만 구조는 부재한 시대에 살고 있습니다. 온포럼은 이 문제를 <strong>“세상을 해석하는 구조 자체의 부재”</strong>에서 비롯된 것으로 봅니다.</p>
         <p lang="en">Today, we live in an era of information overload but structural void. On-Forum identifies this as the <strong>"absence of a structure to interpret the world."</strong></p>
 
         <h2 lang="ko">3. 온의 관점</h2>
@@ -157,31 +85,22 @@
             <li><span lang="ko">철학 <span>존재와 인식</span></span><span lang="en">Philosophy <span>Being & Cognition</span></span></li>
             <li><span lang="ko">과학 <span>자연과 물질</span></span><span lang="en">Science <span>Nature & Matter</span></span></li>
             <li><span lang="ko">수·정보 <span>계산과 흐름</span></span><span lang="en">Math/Info <span>Flow & Data</span></span></li>
-            <li><span lang="ko">정치·경제 <span>권력과 가치</span></span><span lang="en">Politics/Econ <span>Power & Value</span></span></li>
             <li><span lang="ko">기술 <span>구조의 구현</span></span><span lang="en">Tech <span>Implementation</span></span></li>
-            <li><span lang="ko">우주 <span>전체 배경</span></span><span lang="en">Universe <span>Total Context</span></span></li>
         </ul>
 
-        <h2 lang="ko">5. 우리가 지향하는 것</h2>
-        <h2 lang="en">5. Our Aim</h2>
-        <p lang="ko">현실을 정확히 인식할 수 있는 기준을 만들어 본질을 스스로 판단할 수 있는 상태에 도달하는 것을 지향합니다.</p>
-        <p lang="en">We aim to establish standards for accurate perception, enabling individuals to discern the essence of reality independently.</p>
-
-        <h2 lang="ko">6. 온포럼의 방향</h2>
-        <h2 lang="en">6. Direction</h2>
-        <div class="process">
-            <span lang="ko">연구 ➔ 구조 정리 ➔ 실천 적용 ➔ 확산</span>
-            <span lang="en">Research ➔ Structuring ➔ Practice ➔ Expansion</span>
-        </div>
+        <h2 lang="ko">5. 온포럼의 방향</h2>
+        <h2 lang="en">5. Direction</h2>
+        <div class="process" lang="ko">연구 ➔ 구조 정리 ➔ 실천 적용 ➔ 확산</div>
+        <div class="process" lang="en">Research ➔ Structuring ➔ Practice ➔ Expansion</div>
     </div>
 
     <div class="footer-declaration">
-        <div lang="ko">7. 핵심 선언<br>"온포럼은 세상을 설명하는 곳이 아니라 세상을 다시 보게 만드는 곳입니다."</div>
-        <div lang="en">7. Core Declaration<br>"On-Forum is not a place that explains the world, but a place that makes you see it anew."</div>
+        <div lang="ko">"온포럼은 세상을 설명하는 곳이 아니라 세상을 다시 보게 만드는 곳입니다."</div>
+        <div lang="en">"On-Forum is not a place that explains the world, but a place that makes you see it anew."</div>
     </div>
 
     <div class="btn-container">
-        <a href="#case-study" class="cta-btn">
+        <a href="mailto:onforum.org@gmail.com" class="cta-btn">
             <span lang="ko">사례 연구 참여하기 ➔</span>
             <span lang="en">Join Case Study ➔</span>
         </a>
