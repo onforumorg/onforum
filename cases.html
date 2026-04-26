@@ -5,6 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>온포럼 - 적용 사례</title>
     <style>
+        <script>
+        function setLang(lang) {
+            if (lang === 'en') {
+                document.body.classList.add('en');
+                document.documentElement.lang = 'en';
+            } else {
+                document.body.classList.remove('en');
+                document.documentElement.lang = 'ko';
+            }
+        }
+        // 페이지 로드 시 기본값 설정
+        window.onload = function() {
+            setLang('ko'); 
+        };
+    </script>
         :root {
             --primary-color: #2c3e50;
             --bg-color: #f8f9fa;
@@ -14,7 +29,16 @@
             --on-color: #27ae60;
         }
 
-        body {
+        body
+        <div style="max-width: 850px; margin: 0 auto; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
+        <a href="index.html" style="text-decoration: none; color: #2c3e50; font-weight: bold; font-size: 0.9rem;">← HOME</a>
+        <div style="display: flex; gap: 15px;">
+            <button onclick="setLang('ko')" style="cursor:pointer; border:none; background:none; font-weight:bold; color:#2c3e50;">KOR</button>
+            <span style="color:#ccc;">|</span>
+            <button onclick="setLang('en')" style="cursor:pointer; border:none; background:none; font-weight:bold; color:#2c3e50;">ENG</button>
+        </div>
+    </div>
+        {
             font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
             line-height: 1.7;
             color: var(--text-color);
