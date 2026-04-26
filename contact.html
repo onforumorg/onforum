@@ -5,6 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>참여·문의 | 온-포럼(On-Forum)</title>
     <style>
+        <script>
+        function setLang(lang) {
+            if (lang === 'en') {
+                document.body.classList.add('en');
+                document.documentElement.lang = 'en';
+            } else {
+                document.body.classList.remove('en');
+                document.documentElement.lang = 'ko';
+            }
+        }
+        // 페이지 로드 시 기본값 설정
+        window.onload = function() {
+            setLang('ko'); 
+        };
+    </script>
         /* 기본 스타일 유지 */
         body { margin: 0; padding: 0; background-color: #ffffff; color: #2d3436; font-family: 'Pretendard', sans-serif; line-height: 1.8; }
         .container { max-width: 800px; margin: 0 auto; padding: 80px 20px; }
@@ -60,7 +75,14 @@
 </head>
 <body>
 
-<a href="index.html" class="nav-home">← Home</a>
+<div style="max-width: 800px; margin: 0 auto; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
+        <a href="index.html" style="text-decoration: none; color: #1a2a3a; font-weight: bold; font-size: 0.9rem;">← HOME</a>
+        <div style="display: flex; gap: 15px;">
+            <button onclick="setLang('ko')" style="cursor:pointer; border:none; background:none; font-weight:bold; color:#1a2a3a;">KOR</button>
+            <span style="color:#ccc;">|</span>
+            <button onclick="setLang('en')" style="cursor:pointer; border:none; background:none; font-weight:bold; color:#1a2a3a;">ENG</button>
+        </div>
+    </div>
 
 <div class="container">
     <header class="header">
