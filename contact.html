@@ -1,137 +1,200 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>참여·문의 | 온-포럼(On-Forum)</title>
-    <style>
-        /* [언어 제어] 초기 상태 설정: 영문 숨김 */
-        .lang-en { display: none; } 
-        
-        body { margin: 0; padding: 0; background-color: #ffffff; color: #2d3436; font-family: 'Pretendard', sans-serif; line-height: 1.8; }
-        .container { max-width: 800px; margin: 0 auto; padding: 80px 20px; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ON-FORUM | Contact</title>
 
-        .header { text-align: center; margin-bottom: 80px; }
-        .header h1 { font-size: 2.2rem; color: #1a2a3a; letter-spacing: 2px; margin-bottom: 10px; }
-        .header p { font-size: 1.1rem; color: #7f8c8d; }
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
 
-        .intro { text-align: center; font-size: 1.2rem; margin-bottom: 100px; color: #34495e; padding: 40px; background: #fcfcfc; border-radius: 20px; border: 1px solid #f0f0f0; }
-        .intro strong { color: #3498db; }
-
-        .target-section { margin-bottom: 80px; }
-        .target-title { font-size: 1.4rem; font-weight: 700; margin-bottom: 30px; text-align: center; }
-        .checklist { display: grid; gap: 15px; }
-        .check-item { background: #fff; border: 1.5px solid #e1e4e8; padding: 20px; border-radius: 12px; display: flex; align-items: flex-start; transition: 0.3s; }
-        .check-item:hover { border-color: #3498db; transform: translateX(5px); }
-        .check-icon { color: #3498db; margin-right: 15px; font-weight: bold; }
-
-        .method-section { margin-bottom: 80px; }
-        .method-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-top: 30px; }
-        .method-card { background: #f8f9fa; padding: 25px; border-radius: 15px; text-align: center; border: 1px solid #eee; }
-        .method-card h4 { margin-top: 0; color: #2c3e50; font-size: 1.1rem; }
-        .method-card p { font-size: 0.9rem; color: #666; margin-bottom: 0; }
-
-        .notice-section { background: #f1f5f9; padding: 40px; border-radius: 20px; margin-bottom: 80px; }
-        .notice-content { text-align: center; margin-bottom: 30px; border-bottom: 1px solid #cbd5e1; padding-bottom: 30px; }
-        .change-list { display: flex; flex-direction: column; gap: 10px; font-weight: 600; color: #475569; }
-
-        .cta-section { text-align: center; margin-bottom: 80px; }
-        .cta-btn { display: inline-block; background: #3498db; color: #fff !important; padding: 18px 40px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.1rem; transition: 0.3s; box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3); }
-        .cta-btn:hover { background: #2980b9; transform: translateY(-3px); }
-
-        .footer-quote { text-align: center; border-top: 1px solid #eee; padding-top: 50px; font-style: italic; color: #95a5a6; }
-
-        @media (max-width: 768px) {
-            .method-grid { grid-template-columns: 1fr; }
-        }
-    </style>
+<style>
+body {
+    font-family: 'Pretendard', sans-serif;
+    margin: 0;
+    background: #fff;
+}
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 60px 20px;
+}
+.lang-switch {
+    position: fixed;
+    top: 20px;
+    right: 30px;
+}
+.lang-btn {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+.lang-btn.active {
+    border-bottom: 2px solid #000;
+}
+.section {
+    margin-bottom: 60px;
+}
+.card {
+    margin-bottom: 15px;
+    padding: 15px;
+    border: 1px solid #ddd;
+}
+.center {
+    text-align: center;
+}
+</style>
 </head>
+
 <body>
 
-    <div style="max-width: 800px; margin: 0 auto; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
-        <a href="index.html" style="text-decoration: none; color: #1a2a3a; font-weight: bold; font-size: 0.9rem;">← HOME</a>
-        <div style="display: flex; gap: 15px;">
-            <button onclick="setLang('ko')" style="cursor:pointer; border:none; background:none; font-weight:bold; color:#1a2a3a;">KOR</button>
-            <span style="color:#ccc;">|</span>
-            <button onclick="setLang('en')" style="cursor:pointer; border:none; background:none; font-weight:bold; color:#1a2a3a;">ENG</button>
-        </div>
-    </div>
+<nav class="lang-switch">
+    <button id="btn-ko" class="lang-btn" onclick="setLang('ko')">KOR</button>
+    <button id="btn-en" class="lang-btn" onclick="setLang('en')">ENG</button>
+</nav>
 
-    <div class="container">
-        <header class="header">
-            <h1 class="lang-ko">참여·문의</h1>
-            <h1 class="lang-en">Contact·Inquiry</h1>
-            <p class="lang-ko">구조를 함께 이해하고 싶은 분들을 위한 안내</p>
-            <p class="lang-en">Guidance for those who wish to understand the structure</p>
-        </header>
+<div class="container">
 
-        <section class="intro">
-            <div class="lang-ko">
-                모든 사람이 이 연구를 이해할 필요는 없습니다.<br>
-                그러나 세상의 보편적인 설명들이 공허하게 느껴졌다면,<br>
-                이곳은 당신이 찾던 <strong>'이면의 구조'</strong>를 제시할 준비가 되어 있습니다.
-            </div>
-            <div class="lang-en">
-                Not everyone needs to understand this research.<br>
-                However, if universal explanations of the world feel empty to you,<br>
-                we are ready to present the <strong>'internal structure'</strong> you have been searching for.
-            </div>
-        </section>
+<header class="center">
+    <h1 data-i18n="title"></h1>
+    <p data-i18n="subtitle"></p>
+</header>
 
-        <section class="target-section">
-            <h3 class="target-title lang-ko">이런 분들에게 적합합니다</h3>
-            <h3 class="target-title lang-en">Suitable for these individuals</h3>
-            <div class="checklist">
-                <div class="check-item">
-                    <span class="check-icon">✓</span>
-                    <span class="lang-ko">현상(What)을 넘어 원인(Why)과 구조(How)를 끝까지 파헤치고 싶은 분</span>
-                    <span class="lang-en">Those who want to dig deep into the Cause (Why) and Structure (How)</span>
-                </div>
-                <div class="check-item">
-                    <span class="check-icon">✓</span>
-                    <span class="lang-ko">정보의 양에 압도되지 않고, 정보의 '자리'를 찾아주고 싶은 분</span>
-                    <span class="lang-en">Those who want to find the 'place' for information</span>
-                </div>
-                <div class="check-item">
-                    <span class="check-icon">✓</span>
-                    <span class="lang-ko">내 안의 감정과 이성이 왜 자꾸 어긋나는지 그 '설계도'를 보고 싶은 분</span>
-                    <span class="lang-en">Those who want to see the 'blueprint' of their mind</span>
-                </div>
-                <div class="check-item">
-                    <span class="check-icon">✓</span>
-                    <span class="lang-ko">삶의 반복되는 문제를 '의지'가 아닌 '구조적 해결'로 끊어내고 싶은 분</span>
-                    <span class="lang-en">Those seeking 'structural solutions' rather than 'willpower'</span>
-                </div>
-            </div>
-        </section>
+<section class="section center">
+    <div data-i18n="intro"></div>
+</section>
 
-        <section class="method-section">
-            <h3 class="target-title lang-ko">공명(Resonance)의 시작</h3>
-            <h3 class="target-title lang-en">The Start of Resonance</h3>
-            <div class="method-grid">
-                <div class="method-card">
-                    <h4 class="lang-ko">1. 관심의 공유</h4>
-                    <h4 class="lang-en">1. Sharing Interests</h4>
-                    <p class="lang-ko">현재 당신의 시선이 머무는 주제에 대한 이야기</p>
-                    <p class="lang-en">Conversations about your current focus</p>
-                </div>
-                <div class="method-card">
-                    <h4 class="lang-ko">2. 구조적 진단</h4>
-                    <h4 class="lang-en">2. Structural Diagnosis</h4>
-                    <p class="lang-ko">평소 반복적으로 부딪히는 문제의 단면 확인</p>
-                    <p class="lang-en">Identifying the cross-sections of problems</p>
-                </div>
-                <div class="method-card">
-                    <h4 class="lang-ko">3. 공명 확인</h4>
-                    <h4 class="lang-en">3. Confirming Resonance</h4>
-                    <p class="lang-ko">온-포럼의 연구가 줄 수 있는 가치 안내</p>
-                    <p class="lang-en">Guidance on values provided by On-Forum</p>
-                </div>
-            </div>
-        </section>
+<section class="section">
+    <h2 data-i18n="target_title"></h2>
+    <div id="target-list"></div>
+</section>
 
-        <section class="notice-section">
-            <div class="notice-content">
-                <h4 class="lang-ko">"우리는 즉효약 같은 정답을 팔지 않습니다."</h4>
-                <h4 class="lang-en">"We do not sell quick-fix answers."</h4>
-                <p class="lang-ko">현상은
+<section class="section">
+    <h2 data-i18n="method_title"></h2>
+    <div id="method-list"></div>
+</section>
+
+<section class="section center">
+    <h2 data-i18n="notice_title"></h2>
+    <p data-i18n="notice_desc"></p>
+</section>
+
+<section class="section center">
+    <a href="mailto:onforum.org@gmail.com" data-i18n="cta"></a>
+</section>
+
+<div class="center">
+    <a href="index.html" data-i18n="back"></a>
+</div>
+
+</div>
+
+<script>
+
+const content = {
+title: { ko: "참여·문의", en: "Contact" },
+subtitle: {
+    ko: "구조를 함께 이해하고 싶은 분들을 위한 안내",
+    en: "For those who seek structural understanding"
+},
+intro: {
+    ko: "세상의 설명이 공허하게 느껴졌다면,<br><strong>구조를 제시합니다</strong>",
+    en: "If explanations feel empty,<br><strong>we present structure</strong>"
+},
+target_title: {
+    ko: "이런 분들에게 적합합니다",
+    en: "Suitable for"
+},
+method_title: {
+    ko: "공명의 시작",
+    en: "Start of Resonance"
+},
+notice_title: {
+    ko: "우리는 즉답을 제공하지 않습니다",
+    en: "We do not provide quick answers"
+},
+notice_desc: {
+    ko: "구조를 통해 스스로 보게 합니다",
+    en: "We guide you to see through structure"
+},
+cta: {
+    ko: "문의하기",
+    en: "Contact Us"
+},
+back: {
+    ko: "← 홈으로 돌아가기",
+    en: "← Back to Home"
+}
+};
+
+const targets = [
+{
+    ko: "원인과 구조를 끝까지 이해하고 싶은 분",
+    en: "Those seeking deep structural understanding"
+},
+{
+    ko: "정보 속에서 기준을 찾고 싶은 분",
+    en: "Those seeking clarity in information"
+},
+{
+    ko: "감정과 이성의 구조를 이해하고 싶은 분",
+    en: "Understanding emotional and rational structures"
+},
+{
+    ko: "문제를 구조적으로 해결하고 싶은 분",
+    en: "Solving problems structurally"
+}
+];
+
+const methods = [
+{
+    ko: "1. 관심 공유",
+    en: "1. Share interest"
+},
+{
+    ko: "2. 구조 진단",
+    en: "2. Structural diagnosis"
+},
+{
+    ko: "3. 공명 확인",
+    en: "3. Confirm resonance"
+}
+];
+
+function renderList(lang) {
+    const targetEl = document.getElementById("target-list");
+    targetEl.innerHTML = "";
+    targets.forEach(t => {
+        targetEl.innerHTML += `<div class="card">${t[lang]}</div>`;
+    });
+
+    const methodEl = document.getElementById("method-list");
+    methodEl.innerHTML = "";
+    methods.forEach(m => {
+        methodEl.innerHTML += `<div class="card">${m[lang]}</div>`;
+    });
+}
+
+function setLang(lang) {
+    localStorage.setItem("lang", lang);
+
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.dataset.i18n;
+        el.innerHTML = content[key][lang];
+    });
+
+    renderList(lang);
+
+    document.getElementById("btn-ko").classList.toggle("active", lang === "ko");
+    document.getElementById("btn-en").classList.toggle("active", lang === "en");
+}
+
+window.onload = function() {
+    const lang = localStorage.getItem("lang") || "ko";
+    setLang(lang);
+};
+
+</script>
+
+</body>
+</html>
