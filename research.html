@@ -1,176 +1,201 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>연구보기 | 온-포럼(On-Forum)</title>
-    <style>
-        :root {
-            --primary-color: #2c3e50;
-            --bg-color: #ffffff;
-            --text-color: #2d3436;
-            --accent-color: #3498db;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ON-FORUM | Research</title>
 
-        body { margin: 0; padding: 0; background-color: var(--bg-color); color: var(--text-color); font-family: 'Pretendard', sans-serif; line-height: 1.8; }
-        .research-container { max-width: 900px; margin: 0 auto; padding: 60px 20px; }
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
 
-        .res-header { text-align: center; margin-bottom: 80px; }
-        .res-header h1 { font-size: 2.5rem; color: #1a2a3a; margin-bottom: 10px; letter-spacing: 2px; }
-        .res-header p { font-size: 1.1rem; color: #7f8c8d; }
-
-        .res-intro {
-            background: #fdfdfd;
-            border-top: 1px solid #eee;
-            border-bottom: 1px solid #eee;
-            padding: 40px;
-            text-align: center;
-            margin-bottom: 80px;
-            font-size: 1.15rem;
-            color: #34495e;
-        }
-        .res-intro strong { color: var(--accent-color); }
-
-        .archive-item { margin-bottom: 60px; }
-        .archive-item h3 { font-size: 1.5rem; color: #2c3e50; border-bottom: 2px solid var(--accent-color); display: inline-block; margin-bottom: 20px; }
-        .archive-text { color: #555; padding-left: 10px; }
-
-        .sample-section { background: #f8f9fa; padding: 40px; border-radius: 20px; margin: 80px 0; }
-        .sample-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 30px; }
-        .sample-card { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.03); }
-        .sample-title { font-weight: bold; color: #e67e22; margin-bottom: 15px; display: block; }
-        .compare-box { font-size: 0.9rem; margin-top: 10px; }
-        .compare-row { display: flex; margin-bottom: 5px; }
-        .label { width: 100px; font-weight: bold; color: #95a5a6; flex-shrink: 0; }
-
-        .access-notice { background: #2c3e50; color: white; padding: 40px; border-radius: 15px; text-align: center; }
-        .access-notice h3 { margin-bottom: 15px; color: #ecf0f1; }
-        
-        .back-home { text-align: center; margin-top: 50px; }
-        .back-home a { text-decoration: none; color: var(--accent-color); font-weight: bold; border: 1px solid var(--accent-color); padding: 10px 20px; border-radius: 5px; transition: 0.3s; }
-        .back-home a:hover { background: var(--accent-color); color: #fff !important; }
-
-        /* [언어 제어] 초기 상태 설정: 영문 숨김 */
-        .lang-en { display: none; }
-
-        @media (max-width: 768px) { .sample-grid { grid-template-columns: 1fr; } }
-    </style>
+<style>
+:root {
+    --primary-color: #2c3e50;
+    --bg-color: #ffffff;
+    --text-color: #2d3436;
+    --accent-color: #3498db;
+}
+body {
+    font-family: 'Pretendard', sans-serif;
+    margin: 0;
+    background: var(--bg-color);
+}
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 60px 20px;
+}
+.lang-switch {
+    position: fixed;
+    top: 20px;
+    right: 30px;
+}
+.lang-btn {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+.lang-btn.active {
+    border-bottom: 2px solid #000;
+}
+header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+.section {
+    margin-bottom: 60px;
+}
+.card {
+    margin-bottom: 40px;
+}
+.back {
+    text-align: center;
+    margin-top: 50px;
+}
+</style>
 </head>
+
 <body>
-    <div style="max-width: 900px; margin: 0 auto; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
-        <a href="index.html" style="text-decoration: none; color: #2c3e50; font-weight: bold; font-size: 0.9rem;">← HOME</a>
-        <div style="display: flex; gap: 15px;">
-            <button onclick="setLang('ko')" style="cursor:pointer; border:none; background:none; font-weight:bold; color:#2c3e50;">KOR</button>
-            <span style="color:#ccc;">|</span>
-            <button onclick="setLang('en')" style="cursor:pointer; border:none; background:none; font-weight:bold; color:#2c3e50;">ENG</button>
-        </div>
-    </div>
-    
-    <div class="research-container">
-        <header class="res-header">
-            <h1 class="lang-ko">연구보기</h1>
-            <h1 class="lang-en">Research</h1>
-            <p class="lang-ko">현실을 해석하는 구조의 일부</p>
-            <p class="lang-en">A cross-section of the structure for interpreting reality</p>
-        </header>
 
-        <section class="res-intro">
-            <div class="lang-ko">
-                우리는 지식을 나열하지 않습니다.<br>
-                복잡한 현실 속에서 무엇이 맞는지 판단할 수 있도록<br>
-                <strong>그 이면에 작동하는 구조를 연구합니다.</strong><br>
-                <small style="display:block; margin-top:15px; color:#bdc3c7;">아래 내용은 전체 연구의 일부 단면입니다.</small>
-            </div>
-            <div class="lang-en">
-                We do not simply list knowledge.<br>
-                We research the <strong>underlying structures</strong> that enable us to<br>
-                discern what is true within a complex reality.<br>
-                <small style="display:block; margin-top:15px; color:#bdc3c7;">The following is a partial cross-section of the entire research.</small>
-            </div>
-        </section>
+<nav class="lang-switch">
+    <button id="btn-ko" class="lang-btn" onclick="setLang('ko')">KOR</button>
+    <button id="btn-en" class="lang-btn" onclick="setLang('en')">ENG</button>
+</nav>
 
-        <section class="archive-section">
-            <div class="archive-item">
-                <h3 class="lang-ko">① 판단의 혼란을 구조로 해소하다</h3>
-                <h3 class="lang-en">① Resolving Confusion through Structure</h3>
-                <div class="archive-text">
-                    <p class="lang-ko">기준이 없는 상태에서는 어떤 정보도 방향을 만들지 못합니다. 온은 이 현상을 정보의 문제가 아닌 <strong>‘구조 부재’의 문제</strong>로 봅니다. 구조가 형성되면 복잡한 정보는 자연스럽게 정리되고 판단은 단순해집니다.</p>
-                    <p class="lang-en">Without standards, no information can create direction. On-Forum views this not as an information problem, but as a <strong>"structural void."</strong> Once structure is formed, information organizes itself.</p>
-                </div>
-            </div>
+<div class="container">
 
-            <div class="archive-item">
-                <h3 class="lang-ko">② 감정과 사실은 왜 충돌하는가</h3>
-                <h3 class="lang-en">② Why Emotions and Facts Clash</h3>
-                <div class="archive-text">
-                    <p class="lang-ko">사람은 사실을 알고도 다른 선택을 반복합니다. 이는 의지의 문제가 아니라 <strong>감정 흐름과 판단 구조의 불일치</strong>에서 발생합니다.</p>
-                    <p class="lang-en">People repeat choices even knowing the facts. This is not a matter of will, but a <strong>mismatch between emotional flow and judgment structure.</strong></p>
-                </div>
-            </div>
-        </section>
+<header>
+    <h1 data-i18n="title"></h1>
+    <p data-i18n="subtitle"></p>
+</header>
 
-        <section class="sample-section">
-            <h2 style="text-align:center;">
-                <span class="lang-ko">구조 적용 샘플</span>
-                <span class="lang-en">Structural Application Sample</span>
-            </h2>
-            <div class="sample-grid">
-                <div class="sample-card">
-                    <span class="sample-title lang-ko">사례 1: 정보 과잉 → 판단 마비</span>
-                    <span class="sample-title lang-en">Case 1: Info Overload → Paralysis</span>
-                    <div class="compare-box">
-                        <div class="compare-row">
-                            <span class="label lang-ko">기존</span><span class="label lang-en">Traditional</span>
-                            <span class="lang-ko">정보 추가로 해결 시도</span><span class="lang-en">Attempt to solve with more info</span>
-                        </div>
-                        <div class="compare-row">
-                            <span class="label lang-ko">구조해석</span><span class="label lang-en">Structural</span>
-                            <span class="lang-ko">기준 부재로 인한 정지 상태</span><span class="lang-en">Stagnation due to lack of standards</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+<section class="section">
+    <div data-i18n="intro"></div>
+</section>
 
-        <section class="access-notice">
-            <h3 class="lang-ko">일부 연구는 현재 공개되지 않습니다.</h3>
-            <h3 class="lang-en">Some research is currently restricted.</h3>
-            <p class="lang-ko">연구 참여를 통해 더 깊은 내용에 접근할 수 있습니다.</p>
-            <p class="lang-en">Deeper insights are accessible through participation.</p>
-        </section>
+<section id="research-list"></section>
 
-        <div class="back-home">
-            <a href="index.html">
-                <span class="lang-ko">홈으로 돌아가기</span>
-                <span class="lang-en">Back to Home</span>
-            </a>
-        </div>
-    </div>
+<section id="sample"></section>
 
-    <script>
-        function setLang(lang) {
-            const koEls = document.querySelectorAll('.lang-ko');
-            const enEls = document.querySelectorAll('.lang-en');
-            
-            if (lang === 'en') {
-                koEls.forEach(el => el.style.display = 'none');
-                enEls.forEach(el => el.style.display = 'block');
-                document.documentElement.lang = 'en';
-            } else {
-                koEls.forEach(el => el.style.display = 'block');
-                enEls.forEach(el => el.style.display = 'none');
-                document.documentElement.lang = 'ko';
-            }
-        }
+<section id="notice"></section>
 
-        window.onload = function() {
-            const params = new URLSearchParams(window.location.search);
-            if (params.get('lang') === 'en') {
-                setLang('en');
-            } else {
-                setLang('ko');
-            }
-        };
-    </script>
+<div class="back">
+    <a href="index.html" data-i18n="back"></a>
+</div>
+
+</div>
+
+<script>
+
+const content = {
+title: { ko: "연구보기", en: "Research" },
+subtitle: {
+    ko: "현실을 해석하는 구조의 일부",
+    en: "A cross-section of structural interpretation"
+},
+intro: {
+    ko: "우리는 지식을 나열하지 않습니다.<br><strong>구조를 연구합니다.</strong>",
+    en: "We do not list knowledge.<br><strong>We study structure.</strong>"
+},
+back: {
+    ko: "← 홈으로 돌아가기",
+    en: "← Back to Home"
+}
+};
+
+const researchData = [
+{
+    title: {
+        ko: "① 판단의 혼란을 구조로 해소하다",
+        en: "① Resolving Confusion through Structure"
+    },
+    desc: {
+        ko: "정보 문제가 아닌 구조 부재 문제",
+        en: "Not an information issue, but structural absence"
+    }
+},
+{
+    title: {
+        ko: "② 감정과 사실의 충돌",
+        en: "② Clash of Emotion and Fact"
+    },
+    desc: {
+        ko: "감정 흐름과 판단 구조 불일치",
+        en: "Mismatch between emotion and structure"
+    }
+}
+];
+
+const sampleData = {
+title: {
+    ko: "구조 적용 샘플",
+    en: "Structural Sample"
+},
+content: {
+    ko: "정보 과잉 → 판단 마비",
+    en: "Info overload → paralysis"
+}
+};
+
+const noticeData = {
+title: {
+    ko: "일부 연구는 공개되지 않습니다",
+    en: "Some research is restricted"
+},
+desc: {
+    ko: "참여를 통해 접근 가능합니다",
+    en: "Accessible through participation"
+}
+};
+
+function renderResearch(lang) {
+    const container = document.getElementById("research-list");
+    container.innerHTML = "";
+
+    researchData.forEach(r => {
+        const el = document.createElement("div");
+        el.className = "card";
+
+        el.innerHTML = `
+            <h3>${r.title[lang]}</h3>
+            <p>${r.desc[lang]}</p>
+        `;
+        container.appendChild(el);
+    });
+
+    const sample = document.getElementById("sample");
+    sample.innerHTML = `
+        <h2>${sampleData.title[lang]}</h2>
+        <p>${sampleData.content[lang]}</p>
+    `;
+
+    const notice = document.getElementById("notice");
+    notice.innerHTML = `
+        <h2>${noticeData.title[lang]}</h2>
+        <p>${noticeData.desc[lang]}</p>
+    `;
+}
+
+function setLang(lang) {
+    localStorage.setItem("lang", lang);
+
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.dataset.i18n;
+        el.innerHTML = content[key][lang];
+    });
+
+    renderResearch(lang);
+
+    document.getElementById("btn-ko").classList.toggle("active", lang === "ko");
+    document.getElementById("btn-en").classList.toggle("active", lang === "en");
+}
+
+window.onload = function() {
+    const lang = localStorage.getItem("lang") || "ko";
+    setLang(lang);
+};
+
+</script>
+
 </body>
 </html>
