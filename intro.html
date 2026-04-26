@@ -1,21 +1,170 @@
-<div class="intro-wrap" style="max-width: 800px; margin: 60px auto; text-align: center; line-height: 2.2;">
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>온포럼 (On-Forum)</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --bg-color: #f8f9fa;
+            --text-color: #333;
+            --accent-color: #3498db;
+        }
 
-    <div class="lang-ko" style="font-family: 'Noto Serif KR', serif; color: #2c3e50;">
-        <p>온-포럼은 지금,<br>
-        <strong>40년 연구의 정수</strong>를 이 공간에 옮겨 놓는 초기 단계에 있습니다.</p>
-        <p>이곳은 화려한 광장이 아니라<br>
-        <strong>필요한 이에게 발견되는 숨겨진 공간</strong>입니다.</p>
-        <p>아직은 비어 보일 수 있으나 그 안에 담긴 사유의 깊이는 결코 가볍지 않습니다.<br>
-        <strong>‘온(On)’은 앞으로 더욱 선명하게 드러날 것입니다.</strong></p>
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+            line-height: 1.8;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+        }
+
+        .intro-section {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: var(--accent-color);
+            border-left: 4px solid var(--accent-color);
+            padding-left: 15px;
+            margin-top: 40px;
+            font-size: 1.5rem;
+        }
+
+        h2:first-of-type { margin-top: 0; }
+
+        p {
+            margin-bottom: 1.5rem;
+            word-break: keep-all;
+        }
+
+        .domain-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 10px;
+            list-style: none;
+            padding: 0;
+            background: #f1f3f5;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .domain-list li {
+            font-weight: bold;
+            font-size: 0.95rem;
+        }
+
+        .domain-list li span {
+            font-weight: normal;
+            display: block;
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .footer-declaration {
+            text-align: center;
+            margin-top: 60px;
+            padding: 30px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .process {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #e9ecef;
+            padding: 15px;
+            border-radius: 50px;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 600px) {
+            .process { font-size: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>온포럼 (On-Forum)</h1>
+        <p>현실을 바라보는 기준을 다시 정의하다</p>
+    </header>
+
+    <div class="intro-section">
+        <h2>1. 우리는 무엇을 하는가</h2>
+        <p>온포럼은 현실을 바라보는 기준 자체를 다시 정의하는 연구·실천 공동체입니다. 우리는 현상을 해석하는 데 머물지 않고, 그 현상이 만들어지는 구조와 원리를 탐구합니다. 철학, 과학, 사회, 경제, 기술, 문화 등 모든 영역을 분리된 지식이 아닌 하나의 연결된 구조로 이해하고자 합니다.</p>
+
+        <h2>2. 왜 온포럼이 필요한가</h2>
+        <p>오늘날 우리는 정보가 부족한 시대가 아니라, 정보는 넘치지만 구조는 부재한 시대에 살고 있습니다. 사실은 빠르게 생산되지만 그 사실을 해석하는 기준은 각자 다르고, 지식은 축적되지만 그 지식들을 연결하는 원리는 사라졌습니다.</p>
+        <p>그 결과, 같은 현실을 두고도 전혀 다른 결론이 나오고 논리는 쌓이지만 서로 충돌하며 판단은 반복되지만 방향은 축적되지 않습니다. 또한 현대 사회는 자본은 효율을 기준으로 움직이고 정치는 권력을 기준으로 재편되며 기술은 속도를 기준으로 확장됩니다. 그러나 이 모든 기준은 서로 연결되지 않은 채 각자의 방향으로 작동하고 있습니다.</p>
+        <p>온포럼은 이 문제를 단순한 의견 차이나 정보 부족이 아닌, <strong>“세상을 해석하는 구조 자체의 부재”</strong> 에서 비롯된 것으로 봅니다. 그리고 이 구조를 다시 세우는 것이 지금 시대에 필요한 가장 근본적인 작업이라 판단합니다.</p>
+
+        <h2>3. 온의 관점</h2>
+        <p>온은 어떤 이념이나 주장에 속하지 않습니다. 온은 있는 그대로를 보고, 그 안에서 작동하는 관계와 구조를 드러냅니다. 사실과 해석을 구분하고 감정과 판단을 분리하며 부분이 아닌 전체 흐름 속에서 이해합니다. 온의 목적은 누군가를 설득하는 것이 아니라 누구나 스스로 명확하게 볼 수 있게 하는 것입니다.</p>
+
+        <h2>4. 우리가 다루는 영역</h2>
+        <p>이 모든 영역은 분리된 학문이 아니라 서로 연결된 하나의 구조입니다.</p>
+        <ul class="domain-list">
+            <li>철학 <span>존재와 인식의 구조</span></li>
+            <li>과학 <span>자연과 물질의 원리</span></li>
+            <li>수·정보 구조 <span>계산과 정보의 흐름</span></li>
+            <li>언어·기호 <span>의미와 표현의 체계</span></li>
+            <li>예술 <span>감응과 표현의 형태</span></li>
+            <li>정치 <span>권력과 질서의 구조</span></li>
+            <li>경제 <span>가치와 흐름의 메커니즘</span></li>
+            <li>역사 <span>시간 속 구조의 축적</span></li>
+            <li>환경 <span>자연과 인간의 상호작용</span></li>
+            <li>교육 <span>인식과 성장의 방식</span></li>
+            <li>기술 <span>구조의 구현과 확장</span></li>
+            <li>우주 <span>전체 존재의 배경</span></li>
+        </ul>
+
+        <h2>5. 우리가 지향하는 것</h2>
+        <p>온포럼은 지식을 축적하는 것을 넘어 현실을 정확히 인식할 수 있는 기준을 만드는 것을 목표로 합니다. 이를 통해 왜곡된 정보에 흔들리지 않고 감정에 휘둘리지 않으며 본질을 스스로 판단할 수 있는 상태에 도달하는 것을 지향합니다.</p>
+
+        <h2>6. 온포럼의 방향</h2>
+        <div class="process">
+            <span>연구</span> ➔ <span>구조 정리</span> ➔ <span>실천 적용</span> ➔ <span>확산</span>
+        </div>
+        <p>온포럼은 단순한 이론 공간이 아닙니다. 이 흐름을 통해 현실 속에서 작동하는 기준을 만들어갑니다. 작은 이해의 변화가 개인의 삶과 사회 전체의 방향을 바꿀 수 있다고 믿습니다.</p>
     </div>
 
-    <div class="lang-en" style="display: none; font-family: 'Segoe UI', sans-serif; color: #2c3e50;">
-        <p>On-Forum is currently in its initial stage of<br>
-        manifesting the <strong>essence of 40 years of research</strong>.</p>
-        <p>This is not a bustling plaza, but a<br>
-        <strong>hidden space discovered by those in need</strong>.</p>
-        <p>It may appear empty for now, but the depth of thought is by no means light.<br>
-        <strong>'On' will reveal itself more clearly in the days to come.</strong></p>
+    <div class="footer-declaration">
+        7. 핵심 선언<br>
+        "온포럼은 세상을 설명하는 곳이 아니라 세상을 다시 보게 만드는 곳입니다."
     </div>
-
 </div>
+
+</body>
+</html>
