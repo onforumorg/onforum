@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>참여·문의 | 온-포럼(On-Forum)</title>
+    <style>
+        /* 기본 스타일 */
+        body { margin: 0; padding: 0; background-color: #ffffff; color: #2d3436; font-family: 'Pretendard', sans-serif; line-height: 1.8; }
+        .container { max-width: 800px; margin: 0 auto; padding: 80px 20px; }
+
+        /* [SECTION 1] 헤더 */
+        .header { text-align: center; margin-bottom: 80px; }
+        .header h1 { font-size: 2.2rem; color: #1a2a3a; letter-spacing: 2px; margin-bottom: 10px; }
+        .header p { font-size: 1.1rem; color: #7f8c8d; }
+
+        /* [SECTION 2] 인트로 */
+        .intro { text-align: center; font-size: 1.2rem; margin-bottom: 100px; color: #34495e; padding: 40px; background: #fcfcfc; border-radius: 20px; border: 1px solid #f0f0f0; }
+        .intro strong { color: #3498db; }
+
+        /* [SECTION 3] 참여 대상 - 체크리스트 */
+        .target-section { margin-bottom: 80px; }
+        .target-title { font-size: 1.4rem; font-weight: 700; margin-bottom: 30px; text-align: center; }
+        .checklist { display: grid; gap: 15px; }
+        .check-item { background: #fff; border: 1.5px solid #e1e4e8; padding: 20px; border-radius: 12px; display: flex; align-items: flex-start; transition: 0.3s; }
+        .check-item:hover { border-color: #3498db; transform: translateX(5px); }
+        .check-icon { color: #3498db; margin-right: 15px; font-weight: bold; }
+
+        /* [SECTION 4] 참여 방식 - 카드형 */
+        .method-section { margin-bottom: 80px; }
+        .method-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-top: 30px; }
+        .method-card { background: #f8f9fa; padding: 25px; border-radius: 15px; text-align: center; border: 1px solid #eee; }
+        .method-card h4 { margin-top: 0; color: #2c3e50; font-size: 1.1rem; }
+        .method-card p { font-size: 0.9rem; color: #666; margin-bottom: 0; }
+
+        /* [SECTION 5] 안내 & [SECTION 6] 기대 변화 */
+        .notice-section { background: #f1f5f9; padding: 40px; border-radius: 20px; margin-bottom: 80px; }
+        .notice-content { text-align: center; margin-bottom: 30px; border-bottom: 1px solid #cbd5e1; padding-bottom: 30px; }
+        .change-list { display: flex; flex-direction: column; gap: 10px; font-weight: 600; color: #475569; }
+
+        /* [SECTION 7] 문의 안내 CTA */
+        .cta-section { text-align: center; margin-bottom: 80px; }
+        .cta-btn { display: inline-block; background: #3498db; color: #fff; padding: 18px 40px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.1rem; transition: 0.3s; box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3); }
+        .cta-btn:hover { background: #2980b9; transform: translateY(-3px); }
+
+        /* [SECTION 8] 마무리 문장 */
+        .footer-quote { text-align: center; border-top: 1px solid #eee; padding-top: 50px; font-style: italic; color: #95a5a6; }
+
+        /* 홈으로 가기 버튼 */
+        .nav-home { position: fixed; top: 20px; left: 20px; text-decoration: none; color: #3498db; font-size: 0.9rem; font-weight: bold; }
+
+        /* 반응형 */
+        @media (max-width: 768px) {
+            .method-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<a href="index.html" class="nav-home">← Home</a>
+
+<div class="container">
+    <header class="header">
+        <h1>참여·문의</h1>
+        <p>구조를 함께 이해하고 싶은 분들을 위한 안내</p>
+    </header>
+
+    <section class="intro">
+        모든 사람이 이 연구를 이해할 필요는 없습니다.<br>
+        그러나 세상의 보편적인 설명들이 공허하게 느껴졌다면,<br>
+        이곳은 당신이 찾던 <strong>'이면의 구조'</strong>를 제시할 준비가 되어 있습니다.
+    </section>
+
+    <section class="target-section">
+        <h3 class="target-title">이런 분들에게 적합합니다</h3>
+        <div class="checklist">
+            <div class="check-item">
+                <span class="check-icon">✓</span>
+                <span>현상(What)을 넘어 원인(Why)과 구조(How)를 끝까지 파헤치고 싶은 분</span>
+            </div>
+            <div class="check-item">
+                <span class="check-icon">✓</span>
+                <span>정보의 양에 압도되지 않고, 정보의 '자리'를 찾아주고 싶은 분</span>
+            </div>
+            <div class="check-item">
+                <span class="check-icon">✓</span>
+                <span>내 안의 감정과 이성이 왜 자꾸 어긋나는지 그 '설계도'를 보고 싶은 분</span>
+            </div>
+            <div class="check-item">
+                <span class="check-icon">✓</span>
+                <span>삶의 반복되는 문제를 '의지'가 아닌 '구조적 해결'로 끊어내고 싶은 분</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="method-section">
+        <h3 class="target-title">공명(Resonance)의 시작</h3>
+        <div class="method-grid">
+            <div class="method-card">
+                <h4>1. 관심의 공유</h4>
+                <p>현재 당신의 시선이 머무는 주제에 대한 이야기</p>
+            </div>
+            <div class="method-card">
+                <h4>2. 구조적 진단</h4>
+                <p>평소 반복적으로 부딪히는 문제의 단면 확인</p>
+            </div>
+            <div class="method-card">
+                <h4>3. 공명 확인</h4>
+                <p>온-포럼의 연구가 줄 수 있는 가치 안내</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="notice-section">
+        <div class="notice-content">
+            <h4>"우리는 즉효약 같은 정답을 팔지 않습니다."</h4>
+            <p>현상은 변하지만 구조는 변하지 않습니다. 우리는 당신이 어떤 폭풍우 속에서도 스스로 방향을 잡을 수 있도록 '삶의 나침반을 설계하는 법'을 함께 연구합니다.</p>
+        </div>
+        <div class="change-list" style="text-align: center;">
+            <span>• 복잡한 상황을 구조적으로 정리하는 관점</span>
+            <span>• 감정과 판단을 분리하여 인식하는 시각</span>
+            <span>• 반복되는 문제를 다르게 해석하는 접근</span>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <p style="margin-bottom: 30px; color: #7f8c8d;">참여 또는 문의를 원하시면 아래를 통해 남겨주시기 바랍니다.</p>
+        <a href="mailto:admin@on-forum.org" class="cta-btn">문의하기 (이메일 연결)</a>
+    </section>
+
+    <footer class="footer-quote">
+        "이곳은 많은 사람으로 붐비는 광장이 아니라,<br>
+        절실한 이에게만 발견되는 숨겨진 길입니다."
+    </footer>
+</div>
+
+</body>
+</html>
