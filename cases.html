@@ -1,95 +1,176 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>온포럼 (On-Forum) - 적용 사례</title>
-    <style>
-        /* [언어 제어] 초기 상태 설정: 영문 숨김 */
-        .lang-en { display: none; } 
-        
-        :root { --primary-color: #2c3e50; --bg-color: #f8f9fa; --text-color: #333; --accent-color: #b5945d; }
-        body { font-family: 'Pretendard', sans-serif; line-height: 1.8; color: var(--text-color); background-color: var(--bg-color); margin: 0; padding: 0; }
-        .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
-        header { text-align: center; margin-bottom: 60px; border-bottom: 2px solid var(--primary-color); padding-bottom: 20px; }
-        h1 { color: var(--primary-color); font-size: 2.5rem; letter-spacing: 2px; }
-        .case-section { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 30px; border-left: 5px solid var(--accent-color); }
-        h2 { color: var(--primary-color); margin-top: 0; font-size: 1.6rem; }
-        .tag { display: inline-block; padding: 4px 12px; background: #eee; border-radius: 4px; font-size: 0.85rem; margin-bottom: 15px; color: #666; font-weight: bold; }
-        p { margin-bottom: 1.5rem; word-break: keep-all; }
-        .btn-container { text-align: center; margin-top: 40px; }
-        .cta-btn { display: inline-block; padding: 15px 30px; background-color: var(--primary-color); color: white !important; text-decoration: none; border-radius: 5px; font-weight: bold; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ON-FORUM | Cases</title>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+
+<style>
+:root {
+    --primary-color: #2c3e50;
+    --bg-color: #f8f9fa;
+    --text-color: #333;
+    --accent-color: #b5945d;
+}
+body {
+    font-family: 'Pretendard', sans-serif;
+    background: var(--bg-color);
+    margin: 0;
+}
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 40px 20px;
+}
+.lang-switch {
+    position: fixed;
+    top: 20px;
+    right: 30px;
+}
+.lang-btn {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+.lang-btn.active {
+    border-bottom: 2px solid #000;
+}
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+.case {
+    background: white;
+    padding: 30px;
+    margin-bottom: 20px;
+    border-left: 5px solid var(--accent-color);
+    border-radius: 8px;
+}
+.tag {
+    font-size: 0.8rem;
+    background: #eee;
+    padding: 4px 10px;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+.back {
+    text-align: center;
+    margin-top: 30px;
+}
+</style>
 </head>
+
 <body>
-    <div style="text-align: right; padding: 20px 40px;">
-        <button onclick="setLang('ko')" style="cursor:pointer; border:none; background:none; font-weight:bold; color:#2c3e50;">KOR</button> | 
-        <button onclick="setLang('en')" style="cursor:pointer; border:none; background:none; font-weight:bold; color:#2c3e50;">ENG</button>
-    </div>
 
-    <div style="text-align: center; margin-bottom: 20px;">
-        <a href="index.html" class="lang-ko" style="text-decoration: none; color: #666; font-size: 0.9rem;">← 메인으로 돌아가기</a>
-        <a href="index.html" class="lang-en" style="text-decoration: none; color: #666; font-size: 0.9rem;">← Back to Home</a>
-    </div>
+<nav class="lang-switch">
+    <button id="btn-ko" class="lang-btn" onclick="setLang('ko')">KOR</button>
+    <button id="btn-en" class="lang-btn" onclick="setLang('en')">ENG</button>
+</nav>
 
-    <div class="container">
-        <header>
-            <h1 class="lang-ko">적용 사례 (Cases)</h1>
-            <h1 class="lang-en">Practical Cases</h1>
-            <p class="lang-ko">온포럼의 구조적 분석이 실제 현실에 적용된 사례들입니다.</p>
-            <p class="lang-en">Examples of how On-Forum's structural analysis is applied to reality.</p>
-        </header>
+<div class="container">
 
-        <div class="case-section">
-            <span class="tag lang-ko">개인 및 의사결정</span>
-            <span class="tag lang-en">Individual & Decision Making</span>
-            <h2 class="lang-ko">반복되는 판단 착오의 구조적 해결</h2>
-            <h2 class="lang-en">Solving Recurring Judgment Errors</h2>
-            <p class="lang-ko">특정 상황에서 반복적으로 잘못된 선택을 하는 개인의 사례를 분석하여, 감정이 아닌 '판단 지점의 구조적 결함'을 찾아내고 이를 교정하는 기준을 제시했습니다.</p>
-            <p class="lang-en">By analyzing individuals who repeatedly make wrong choices, we identified 'structural flaws in judgment' rather than emotions and provided criteria for correction.</p>
-        </div>
+<header>
+    <h1 data-i18n="title"></h1>
+    <p data-i18n="subtitle"></p>
+</header>
 
-        <div class="case-section">
-            <span class="tag lang-ko">조직 및 사회</span>
-            <span class="tag lang-en">Organization & Society</span>
-            <h2 class="lang-ko">갈등 구조의 가시화와 흐름 조정</h2>
-            <h2 class="lang-en">Visualizing Conflict Structures</h2>
-            <p class="lang-ko">집단 내에서 발생하는 만성적인 갈등을 개개인의 성격 탓이 아닌 '정보와 권한의 비대칭적 구조'로 해석하여, 흐름의 병목 현상을 해소하는 대안을 설계했습니다.</p>
-            <p class="lang-en">We interpreted chronic conflicts within groups as 'asymmetric structures of information' rather than personality issues, designing alternatives to resolve flow bottlenecks.</p>
-        </div>
+<div id="case-list"></div>
 
-        <div class="btn-container">
-            <a href="contact.html" class="cta-btn">
-                <span class="lang-ko">분석 문의하기 ➔</span>
-                <span class="lang-en">Inquire for Analysis ➔</span>
-            </a>
-        </div>
-    </div>
+<div class="back">
+    <a href="index.html" data-i18n="back"></a>
+</div>
 
-    <script>
-        function setLang(lang) {
-            const koEls = document.querySelectorAll('.lang-ko');
-            const enEls = document.querySelectorAll('.lang-en');
-            
-            if (lang === 'en') {
-                koEls.forEach(el => el.style.display = 'none');
-                enEls.forEach(el => el.style.display = 'block');
-                document.documentElement.lang = 'en';
-            } else {
-                koEls.forEach(el => el.style.display = 'block');
-                enEls.forEach(el => el.style.display = 'none');
-                document.documentElement.lang = 'ko';
-            }
-        }
+</div>
 
-        window.onload = function() {
-            const params = new URLSearchParams(window.location.search);
-            if (params.get('lang') === 'en') {
-                setLang('en');
-            } else {
-                setLang('ko');
-            }
-        };
-    </script>
+<script>
+
+const content = {
+    title: {
+        ko: "적용 사례",
+        en: "Practical Cases"
+    },
+    subtitle: {
+        ko: "구조 분석이 실제 현실에 적용된 사례",
+        en: "Applications of structural analysis"
+    },
+    back: {
+        ko: "← 메인으로 돌아가기",
+        en: "← Back to Home"
+    }
+};
+
+const cases = [
+{
+    tag: {
+        ko: "개인 및 의사결정",
+        en: "Individual & Decision"
+    },
+    title: {
+        ko: "반복되는 판단 착오의 구조적 해결",
+        en: "Solving Recurring Judgment Errors"
+    },
+    desc: {
+        ko: "감정이 아닌 판단 구조의 결함을 분석하여 해결 기준 제시",
+        en: "Identifying structural flaws in judgment instead of emotions"
+    }
+},
+{
+    tag: {
+        ko: "조직 및 사회",
+        en: "Organization & Society"
+    },
+    title: {
+        ko: "갈등 구조의 가시화와 흐름 조정",
+        en: "Visualizing Conflict Structures"
+    },
+    desc: {
+        ko: "정보와 권한 구조의 비대칭을 해결",
+        en: "Resolving asymmetry in information and authority"
+    }
+}
+];
+
+function renderCases(lang) {
+    const container = document.getElementById("case-list");
+    container.innerHTML = "";
+
+    cases.forEach(c => {
+        const el = document.createElement("div");
+        el.className = "case";
+
+        el.innerHTML = `
+            <div class="tag">${c.tag[lang]}</div>
+            <h2>${c.title[lang]}</h2>
+            <p>${c.desc[lang]}</p>
+        `;
+
+        container.appendChild(el);
+    });
+}
+
+function setLang(lang) {
+    localStorage.setItem("lang", lang);
+
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.dataset.i18n;
+        el.innerText = content[key][lang];
+    });
+
+    renderCases(lang);
+
+    document.getElementById("btn-ko").classList.toggle("active", lang === "ko");
+    document.getElementById("btn-en").classList.toggle("active", lang === "en");
+}
+
+window.onload = function() {
+    const lang = localStorage.getItem("lang") || "ko";
+    setLang(lang);
+};
+
+</script>
+
 </body>
 </html>
