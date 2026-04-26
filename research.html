@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>연구보기 | 온-포럼(On-Forum)</title>
     <style>
-        /* 기존 제공해드린 연구보기 스타일을 여기에 넣습니다 */
         body { margin: 0; padding: 0; background-color: #ffffff; }
         .research-container {
             font-family: 'Pretendard', sans-serif;
@@ -41,77 +40,118 @@
         .sample-title { font-weight: bold; color: #e67e22; margin-bottom: 15px; display: block; }
         .compare-box { font-size: 0.9rem; margin-top: 10px; }
         .compare-row { display: flex; margin-bottom: 5px; }
-        .label { width: 80px; font-weight: bold; color: #95a5a6; }
-
-        .in-progress { margin: 80px 0; }
-        .in-progress ul { list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        .in-progress li { background: #fff; border: 1px solid #eee; padding: 15px; border-radius: 8px; color: #34495e; }
-        .in-progress li::before { content: "•"; color: #3498db; margin-right: 10px; }
+        .label { width: 100px; font-weight: bold; color: #95a5a6; flex-shrink: 0; }
 
         .access-notice { background: #2c3e50; color: white; padding: 40px; border-radius: 15px; text-align: center; }
         .access-notice h3 { margin-bottom: 15px; color: #ecf0f1; }
         
-        /* 홈으로 돌아가기 버튼 */
         .back-home { text-align: center; margin-top: 50px; }
         .back-home a { text-decoration: none; color: #3498db; font-weight: bold; border: 1px solid #3498db; padding: 10px 20px; border-radius: 5px; transition: 0.3s; }
         .back-home a:hover { background: #3498db; color: #fff; }
 
-        @media (max-width: 768px) { .sample-grid, .in-progress ul { grid-template-columns: 1fr; } }
+        /* 다국어 제어 시스템 */
+        [lang="en"] { display: none; }
+        html[lang="en"] [lang="ko"] { display: none; }
+        html[lang="en"] [lang="en"] { display: block; }
+        html[lang="en"] .sample-grid { display: grid; } /* 그리드 유지 */
+        html[lang="en"] .compare-row { display: flex; } /* 플렉스 유지 */
+
+        @media (max-width: 768px) { .sample-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
 
 <div class="research-container">
     <header class="res-header">
-        <h1>연구보기</h1>
-        <p>현실을 해석하는 구조의 일부</p>
+        <h1 lang="ko">연구보기</h1>
+        <h1 lang="en">Research</h1>
+        <p lang="ko">현실을 해석하는 구조의 일부</p>
+        <p lang="en">A cross-section of the structure for interpreting reality</p>
     </header>
 
     <section class="res-intro">
-        우리는 지식을 나열하지 않습니다.<br>
-        복잡한 현실 속에서 무엇이 맞는지 판단할 수 있도록<br>
-        <strong>그 이면에 작동하는 구조를 연구합니다.</strong><br>
-        <small style="display:block; margin-top:15px; color:#bdc3c7;">아래 내용은 전체 연구의 일부 단면입니다.</small>
+        <div lang="ko">
+            우리는 지식을 나열하지 않습니다.<br>
+            복잡한 현실 속에서 무엇이 맞는지 판단할 수 있도록<br>
+            <strong>그 이면에 작동하는 구조를 연구합니다.</strong><br>
+            <small style="display:block; margin-top:15px; color:#bdc3c7;">아래 내용은 전체 연구의 일부 단면입니다.</small>
+        </div>
+        <div lang="en">
+            We do not simply list knowledge.<br>
+            We research the <strong>underlying structures</strong> that enable us to<br>
+            discern what is true within a complex reality.<br>
+            <small style="display:block; margin-top:15px; color:#bdc3c7;">The following is a partial cross-section of the entire research.</small>
+        </div>
     </section>
 
     <section class="archive-section">
         <div class="archive-item">
-            <h3>① 판단의 혼란을 구조로 해소하다</h3>
+            <h3 lang="ko">① 판단의 혼란을 구조로 해소하다</h3>
+            <h3 lang="en">① Resolving Confusion in Judgment through Structure</h3>
             <div class="archive-text">
-                기준이 없는 상태에서는 어떤 정보도 방향을 만들지 못합니다.<br>
-                온은 이 현상을 정보의 문제가 아닌 <strong>‘구조 부재’의 문제</strong>로 봅니다.<br>
-                구조가 형성되면 복잡한 정보는 자연스럽게 정리되고 판단은 단순해집니다.
+                <span lang="ko">
+                    기준이 없는 상태에서는 어떤 정보도 방향을 만들지 못합니다.<br>
+                    온은 이 현상을 정보의 문제가 아닌 <strong>‘구조 부재’의 문제</strong>로 봅니다.<br>
+                    구조가 형성되면 복잡한 정보는 자연스럽게 정리되고 판단은 단순해집니다.
+                </span>
+                <span lang="en">
+                    Without standards, no information can create direction.<br>
+                    On-Forum views this not as an information problem, but as a <strong>"structural void."</strong><br>
+                    Once a structure is formed, complex information organizes itself and judgment becomes simple.
+                </span>
             </div>
         </div>
         <div class="archive-item">
-            <h3>② 감정과 사실은 왜 충돌하는가</h3>
+            <h3 lang="ko">② 감정과 사실은 왜 충돌하는가</h3>
+            <h3 lang="en">② Why Emotions and Facts Clash</h3>
             <div class="archive-text">
-                사람은 사실을 알고도 다른 선택을 반복합니다.<br>
-                이는 의지의 문제가 아니라 <strong>감정 흐름과 판단 구조의 불일치</strong>에서 발생합니다.
+                <span lang="ko">
+                    사람은 사실을 알고도 다른 선택을 반복합니다.<br>
+                    이는 의지의 문제가 아니라 <strong>감정 흐름과 판단 구조의 불일치</strong>에서 발생합니다.
+                </span>
+                <span lang="en">
+                    People repeat choices even when they know the facts.<br>
+                    This is not a matter of will, but a <strong>mismatch between emotional flow and judgment structure.</strong>
+                </span>
             </div>
         </div>
     </section>
 
     <section class="sample-section">
-        <h2 style="text-align:center;">구조 적용 샘플</h2>
+        <h2 style="text-align:center;">
+            <span lang="ko">구조 적용 샘플</span>
+            <span lang="en">Structural Application Sample</span>
+        </h2>
         <div class="sample-grid">
             <div class="sample-card">
-                <span class="sample-title">사례 1: 정보 과잉 → 판단 마비</span>
+                <span class="sample-title" lang="ko">사례 1: 정보 과잉 → 판단 마비</span>
+                <span class="sample-title" lang="en">Case 1: Info Overload → Decision Paralysis</span>
                 <div class="compare-box">
-                    <div class="compare-row"><span class="label">기존</span> <span>정보 추가로 해결 시도</span></div>
-                    <div class="compare-row"><span class="label">구조해석</span> <span>기준 부재로 인한 정지 상태</span></div>
+                    <div class="compare-row">
+                        <span class="label" lang="ko">기존</span><span class="label" lang="en">Traditional</span>
+                        <span lang="ko">정보 추가로 해결 시도</span><span lang="en">Attempting to solve by adding info</span>
+                    </div>
+                    <div class="compare-row">
+                        <span class="label" lang="ko">구조해석</span><span class="label" lang="en">Structural</span>
+                        <span lang="ko">기준 부재로 인한 정지 상태</span><span lang="en">Stagnation due to lack of standards</span>
+                    </div>
                 </div>
             </div>
-            </div>
+        </div>
     </section>
 
     <section class="access-notice">
-        <h3>일부 연구는 현재 공개되지 않습니다.</h3>
-        <p>연구 참여를 통해 더 깊은 내용에 접근할 수 있습니다.</p>
+        <h3 lang="ko">일부 연구는 현재 공개되지 않습니다.</h3>
+        <h3 lang="en">Some research is currently restricted.</h3>
+        <p lang="ko">연구 참여를 통해 더 깊은 내용에 접근할 수 있습니다.</p>
+        <p lang="en">Deeper insights are accessible through research participation.</p>
     </section>
 
     <div class="back-home">
-        <a href="index.html">홈으로 돌아가기</a>
+        <a href="index.html">
+            <span lang="ko">홈으로 돌아가기</span>
+            <span lang="en">Back to Home</span>
+        </a>
     </div>
 </div>
 
