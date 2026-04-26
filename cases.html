@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>온포럼 (On-Forum) - 적용 사례</title>
     <style>
-        /* [언어 제어] 초기 상태 설정 */
+        /* [언어 제어] 초기 상태 설정: 영문 숨김 */
         .lang-en { display: none; } 
         
         :root { --primary-color: #2c3e50; --bg-color: #f8f9fa; --text-color: #333; --accent-color: #b5945d; }
@@ -20,31 +20,6 @@
         .btn-container { text-align: center; margin-top: 40px; }
         .cta-btn { display: inline-block; padding: 15px 30px; background-color: var(--primary-color); color: white !important; text-decoration: none; border-radius: 5px; font-weight: bold; }
     </style>
-<script>
-    function setLang(lang) {
-        const allKo = document.querySelectorAll('[lang="ko"], .lang-ko');
-        const allEn = document.querySelectorAll('[lang="en"], .lang-en');
-
-        if (lang === 'en') {
-            allKo.forEach(el => el.style.display = 'none');
-            allEn.forEach(el => el.style.display = 'block');
-            document.documentElement.lang = 'en';
-        } else {
-            allKo.forEach(el => el.style.display = 'block');
-            allEn.forEach(el => el.style.display = 'none');
-            document.documentElement.lang = 'ko';
-        }
-    }
-
-    window.onload = function() {
-        const params = new URLSearchParams(window.location.search);
-        if (params.get('lang') === 'en') {
-            setLang('en');
-        } else {
-            setLang('ko');
-        }
-    };
-</script>
 </head>
 <body>
     <div style="text-align: right; padding: 20px 40px;">
@@ -57,38 +32,64 @@
         <a href="index.html" class="lang-en" style="text-decoration: none; color: #666; font-size: 0.9rem;">← Back to Home</a>
     </div>
 
-<div class="container">
-    <header>
-        <h1 lang="ko">적용 사례 (Cases)</h1>
-        <h1 lang="en">Practical Cases</h1>
-        <p lang="ko">온포럼의 구조적 분석이 실제 현실에 적용된 사례들입니다.</p>
-        <p lang="en">Examples of how On-Forum's structural analysis is applied to reality.</p>
-    </header>
+    <div class="container">
+        <header>
+            <h1 class="lang-ko">적용 사례 (Cases)</h1>
+            <h1 class="lang-en">Practical Cases</h1>
+            <p class="lang-ko">온포럼의 구조적 분석이 실제 현실에 적용된 사례들입니다.</p>
+            <p class="lang-en">Examples of how On-Forum's structural analysis is applied to reality.</p>
+        </header>
 
-    <div class="case-section">
-        <span class="tag" lang="ko">개인 및 의사결정</span>
-        <span class="tag" lang="en">Individual & Decision Making</span>
-        <h2 lang="ko">반복되는 판단 착오의 구조적 해결</h2>
-        <h2 lang="en">Solving Recurring Judgment Errors</h2>
-        <p lang="ko">특정 상황에서 반복적으로 잘못된 선택을 하는 개인의 사례를 분석하여, 감정이 아닌 '판단 지점의 구조적 결함'을 찾아내고 이를 교정하는 기준을 제시했습니다.</p>
-        <p lang="en">By analyzing individuals who repeatedly make wrong choices, we identified 'structural flaws in judgment' rather than emotions and provided criteria for correction.</p>
+        <div class="case-section">
+            <span class="tag lang-ko">개인 및 의사결정</span>
+            <span class="tag lang-en">Individual & Decision Making</span>
+            <h2 class="lang-ko">반복되는 판단 착오의 구조적 해결</h2>
+            <h2 class="lang-en">Solving Recurring Judgment Errors</h2>
+            <p class="lang-ko">특정 상황에서 반복적으로 잘못된 선택을 하는 개인의 사례를 분석하여, 감정이 아닌 '판단 지점의 구조적 결함'을 찾아내고 이를 교정하는 기준을 제시했습니다.</p>
+            <p class="lang-en">By analyzing individuals who repeatedly make wrong choices, we identified 'structural flaws in judgment' rather than emotions and provided criteria for correction.</p>
+        </div>
+
+        <div class="case-section">
+            <span class="tag lang-ko">조직 및 사회</span>
+            <span class="tag lang-en">Organization & Society</span>
+            <h2 class="lang-ko">갈등 구조의 가시화와 흐름 조정</h2>
+            <h2 class="lang-en">Visualizing Conflict Structures</h2>
+            <p class="lang-ko">집단 내에서 발생하는 만성적인 갈등을 개개인의 성격 탓이 아닌 '정보와 권한의 비대칭적 구조'로 해석하여, 흐름의 병목 현상을 해소하는 대안을 설계했습니다.</p>
+            <p class="lang-en">We interpreted chronic conflicts within groups as 'asymmetric structures of information' rather than personality issues, designing alternatives to resolve flow bottlenecks.</p>
+        </div>
+
+        <div class="btn-container">
+            <a href="contact.html" class="cta-btn">
+                <span class="lang-ko">분석 문의하기 ➔</span>
+                <span class="lang-en">Inquire for Analysis ➔</span>
+            </a>
+        </div>
     </div>
 
-    <div class="case-section">
-        <span class="tag" lang="ko">조직 및 사회</span>
-        <span class="tag" lang="en">Organization & Society</span>
-        <h2 lang="ko">갈등 구조의 가시화와 흐름 조정</h2>
-        <h2 lang="en">Visualizing Conflict Structures</h2>
-        <p lang="ko">집단 내에서 발생하는 만성적인 갈등을 개개인의 성격 탓이 아닌 '정보와 권한의 비대칭적 구조'로 해석하여, 흐름의 병목 현상을 해소하는 대안을 설계했습니다.</p>
-        <p lang="en">We interpreted chronic conflicts within groups as 'asymmetric structures of information' rather than personality issues, designing alternatives to resolve flow bottlenecks.</p>
-    </div>
+    <script>
+        function setLang(lang) {
+            const koEls = document.querySelectorAll('.lang-ko');
+            const enEls = document.querySelectorAll('.lang-en');
+            
+            if (lang === 'en') {
+                koEls.forEach(el => el.style.display = 'none');
+                enEls.forEach(el => el.style.display = 'block');
+                document.documentElement.lang = 'en';
+            } else {
+                koEls.forEach(el => el.style.display = 'block');
+                enEls.forEach(el => el.style.display = 'none');
+                document.documentElement.lang = 'ko';
+            }
+        }
 
-    <div class="btn-container">
-        <a href="contact.html" class="cta-btn">
-            <span lang="ko">분석 문의하기 ➔</span>
-            <span lang="en">Inquire for Analysis ➔</span>
-        </a>
-    </div>
-</div>
+        window.onload = function() {
+            const params = new URLSearchParams(window.location.search);
+            if (params.get('lang') === 'en') {
+                setLang('en');
+            } else {
+                setLang('ko');
+            }
+        };
+    </script>
 </body>
 </html>
