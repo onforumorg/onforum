@@ -1,103 +1,188 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>온포럼 (On-Forum) - 소개</title>
-    <style>
-        /* [언어 제어] 초기 상태 설정: 영문은 기본적으로 숨김 */
-        .lang-en { display: none; } 
-        
-        :root { --primary-color: #2c3e50; --bg-color: #f8f9fa; --text-color: #333; --accent-color: #3498db; }
-        body { font-family: 'Pretendard', sans-serif; line-height: 1.8; color: var(--text-color); background-color: var(--bg-color); margin: 0; padding: 0; }
-        .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
-        header { text-align: center; margin-bottom: 60px; border-bottom: 2px solid var(--primary-color); padding-bottom: 20px; }
-        h1 { color: var(--primary-color); font-size: 2.5rem; letter-spacing: 2px; }
-        .intro-section { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 30px; }
-        h2 { color: var(--accent-color); border-left: 4px solid var(--accent-color); padding-left: 15px; margin-top: 40px; font-size: 1.5rem; }
-        h2:first-of-type { margin-top: 0; }
-        p { margin-bottom: 1.5rem; word-break: keep-all; }
-        .domain-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 10px; list-style: none; padding: 20px; background: #f1f3f5; border-radius: 8px; margin: 0; }
-        .domain-list li { font-weight: bold; font-size: 0.95rem; }
-        .domain-list li span { font-weight: normal; display: block; font-size: 0.85rem; color: #666; }
-        .process { display: flex; justify-content: space-between; align-items: center; background: #e9ecef; padding: 15px; border-radius: 50px; text-align: center; margin: 20px 0; }
-        .footer-declaration { text-align: center; margin-top: 60px; padding: 30px; background: var(--primary-color); color: white; border-radius: 8px; font-size: 1.2rem; font-weight: bold; }
-        .btn-container { text-align: center; margin-top: 40px; }
-        .cta-btn { display: inline-block; padding: 15px 30px; background-color: var(--accent-color); color: white !important; text-decoration: none; border-radius: 5px; font-weight: bold; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ON-FORUM | Introduction</title>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+
+<style>
+:root {
+    --primary-color: #2c3e50;
+    --bg-color: #f8f9fa;
+    --text-color: #333;
+    --accent-color: #3498db;
+}
+body {
+    font-family: 'Pretendard', sans-serif;
+    background: var(--bg-color);
+    margin: 0;
+}
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 40px 20px;
+}
+.lang-switch {
+    position: fixed;
+    top: 20px;
+    right: 30px;
+}
+.lang-btn {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+.lang-btn.active {
+    border-bottom: 2px solid #000;
+}
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+.intro-box {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+}
+h2 {
+    margin-top: 30px;
+    color: var(--accent-color);
+}
+ul {
+    background: #eee;
+    padding: 20px;
+}
+.process {
+    margin-top: 20px;
+    background: #ddd;
+    padding: 10px;
+    text-align: center;
+}
+.back {
+    text-align: center;
+    margin-top: 20px;
+}
+</style>
 </head>
+
 <body>
-    <div style="text-align: right; padding: 20px 40px;">
-        <button onclick="setLang('ko')" id="btn-ko" style="cursor:pointer; border:none; background:none; font-weight:bold; color:#2c3e50;">KOR</button> | 
-        <button onclick="setLang('en')" id="btn-en" style="cursor:pointer; border:none; background:none; font-weight:bold; color:#2c3e50;">ENG</button>
-    </div>
 
-    <div style="text-align: center; margin-bottom: 20px;">
-        <a href="index.html" class="lang-ko" style="text-decoration: none; color: #666; font-size: 0.9rem;">← 메인으로 돌아가기</a>
-        <a href="index.html" class="lang-en" style="text-decoration: none; color: #666; font-size: 0.9rem;">← Back to Home</a>
-    </div>
+<nav class="lang-switch">
+    <button id="btn-ko" class="lang-btn" onclick="setLang('ko')">KOR</button>
+    <button id="btn-en" class="lang-btn" onclick="setLang('en')">ENG</button>
+</nav>
 
-    <div class="container">
-        <header>
-            <h1 class="lang-ko">온포럼 (On-Forum)</h1>
-            <h1 class="lang-en">On-Forum</h1>
-            <p class="lang-ko">현실을 바라보는 기준을 다시 정의하다</p>
-            <p class="lang-en">Redefining the standards for perceiving reality</p>
-        </header>
+<div class="container">
 
-        <div class="intro-section">
-            <h2 class="lang-ko">1. 우리는 무엇을 하는가</h2>
-            <h2 class="lang-en">1. What We Do</h2>
-            <p class="lang-ko">온포럼은 현실을 바라보는 기준 자체를 다시 정의하는 연구·실천 공동체입니다. 우리는 현상을 해석하는 데 머물지 않고, 그 현상이 만들어지는 구조와 원리를 탐구합니다. 철학, 과학, 사회, 경제, 기술, 문화 등 모든 영역을 분리된 지식이 아닌 하나의 연결된 구조로 이해하고자 합니다.</p>
-            <p class="lang-en">On-Forum is a research and practice community that redefines the standards of perceiving reality. We explore the structures and principles behind phenomena, understanding all domains as one interconnected structure.</p>
+<header>
+    <h1 data-i18n="title"></h1>
+    <p data-i18n="subtitle"></p>
+</header>
 
-            <h2 class="lang-ko">2. 왜 온포럼이 필요한가</h2>
-            <h2 class="lang-en">2. Why On-Forum?</h2>
-            <p class="lang-ko">오늘날 우리는 정보가 부족한 시대가 아니라, 정보는 넘치지만 구조는 부재한 시대에 살고 있습니다. 사실은 빠르게 생산되지만 그 사실을 해석하는 기준은 각자 다르고, 지식은 축적되지만 그 지식들을 연결하는 원리는 사라졌습니다. 온포럼은 이 문제를 <strong>“세상을 해석하는 구조 자체의 부재”</strong> 에서 비롯된 것으로 봅니다. 그리고 이 구조를 다시 세우는 것이 지금 시대에 필요한 가장 근본적인 작업이라 판단합니다.</p>
-            <p class="lang-en">Today, we live in an era of information overload but structural void. On-Forum identifies this as the <strong>"absence of a structure to interpret the world."</strong> Re-establishing this structure is the most fundamental task of our time.</p>
+<div class="intro-box">
 
-            <h2 class="lang-ko">3. 온의 관점</h2>
-            <h2 class="lang-en">3. The Perspective of 'On'</h2>
-            <p class="lang-ko">온은 어떤 이념이나 주장에 속하지 않습니다. 온은 있는 그대로를 보고, 그 안에서 작동하는 관계와 구조를 드러냅니다. 온의 목적은 누군가를 설득하는 것이 아니라 누구나 스스로 명확하게 볼 수 있게 하는 것입니다.</p>
-            <p class="lang-en">'On' belongs to no ideology. It reveals the relationships and structures as they are, enabling everyone to see clearly for themselves.</p>
+<h2 data-i18n="sec1_title"></h2>
+<p data-i18n="sec1_desc"></p>
 
-            <h2 class="lang-ko">4. 우리가 다루는 영역</h2>
-            <h2 class="lang-en">4. Our Domains</h2>
-            <ul class="domain-list">
-                <li>
-                    <span class="lang-ko">철학 <span>존재와 인식의 구조</span></span>
-                    <span class="lang-en">Philosophy <span>Structure of Being</span></span>
-                </li>
-                <li>
-                    <span class="lang-ko">과학 <span>자연과 물질의 원리</span></span>
-                    <span class="lang-en">Science <span>Principles of Nature</span></span>
-                </li>
-                <li>
-                    <span class="lang-ko">수·정보 구조 <span>계산과 정보의 흐름</span></span>
-                    <span class="lang-en">Math/Info <span>Flow of Computation</span></span>
-                </li>
-                <li>
-                    <span class="lang-ko">정치 <span>권력과 질서의 구조</span></span>
-                    <span class="lang-en">Politics <span>Structure of Power</span></span>
-                </li>
-                <li>
-                    <span class="lang-ko">경제 <span>가치와 흐름의 메커니즘</span></span>
-                    <span class="lang-en">Economy <span>Mechanism of Value</span></span>
-                </li>
-                <li>
-                    <span class="lang-ko">기술 <span>구조의 구현과 확장</span></span>
-                    <span class="lang-en">Technology <span>Implementation & Expansion</span></span>
-                </li>
-            </ul>
+<h2 data-i18n="sec2_title"></h2>
+<p data-i18n="sec2_desc"></p>
 
-            <h2 class="lang-ko">5. 온포럼의 방향</h2>
-            <h2 class="lang-en">5. Direction</h2>
-            <div class="process">
-                <span class="lang-ko">연구 ➔ 구조 정리 ➔ 실천 적용 ➔ 확산</span>
-                <span class="lang-en">Research ➔ Structuring ➔ Practice ➔ Expansion</span>
-            </div>
-        </div>
+<h2 data-i18n="sec3_title"></h2>
+<p data-i18n="sec3_desc"></p>
 
-        <div class="footer-declaration">
-            <div class="lang-ko">6. 핵심 선언<br>"온포럼은 세상을 설명하는 곳이 아니라 세상을 다시 보게 만드는 곳입니다."</div>
-            <div class="
+<h2 data-i18n="sec4_title"></h2>
+<ul>
+<li data-i18n="domain1"></li>
+<li data-i18n="domain2"></li>
+<li data-i18n="domain3"></li>
+<li data-i18n="domain4"></li>
+<li data-i18n="domain5"></li>
+<li data-i18n="domain6"></li>
+</ul>
+
+<h2 data-i18n="sec5_title"></h2>
+<div class="process" data-i18n="process"></div>
+
+</div>
+
+<div class="back">
+    <a href="index.html" data-i18n="back"></a>
+</div>
+
+</div>
+
+<script>
+const content = {
+
+title: {
+    ko: "온포럼 (On-Forum)",
+    en: "On-Forum"
+},
+subtitle: {
+    ko: "현실을 바라보는 기준을 다시 정의하다",
+    en: "Redefining the standards for perceiving reality"
+},
+
+sec1_title: { ko: "1. 우리는 무엇을 하는가", en: "1. What We Do" },
+sec1_desc: {
+    ko: "온포럼은 현실을 바라보는 기준 자체를 다시 정의하는 연구·실천 공동체입니다.",
+    en: "On-Forum redefines the standards of perceiving reality."
+},
+
+sec2_title: { ko: "2. 왜 온포럼이 필요한가", en: "2. Why On-Forum?" },
+sec2_desc: {
+    ko: "정보는 넘치지만 구조는 부재한 시대입니다.",
+    en: "We live in an era of information overload but structural absence."
+},
+
+sec3_title: { ko: "3. 온의 관점", en: "3. The Perspective of On" },
+sec3_desc: {
+    ko: "온은 있는 그대로를 보고 구조를 드러냅니다.",
+    en: "On reveals structures as they are."
+},
+
+sec4_title: { ko: "4. 우리가 다루는 영역", en: "4. Domains" },
+
+domain1: { ko: "철학 - 존재와 인식", en: "Philosophy - Being" },
+domain2: { ko: "과학 - 자연의 원리", en: "Science - Nature" },
+domain3: { ko: "수·정보 구조", en: "Math / Info" },
+domain4: { ko: "정치 - 권력 구조", en: "Politics - Power" },
+domain5: { ko: "경제 - 가치 흐름", en: "Economy - Value" },
+domain6: { ko: "기술 - 구현 구조", en: "Technology - Implementation" },
+
+sec5_title: { ko: "5. 온포럼의 방향", en: "5. Direction" },
+process: {
+    ko: "연구 → 구조 → 실천 → 확산",
+    en: "Research → Structure → Practice → Expansion"
+},
+
+back: {
+    ko: "← 메인으로 돌아가기",
+    en: "← Back to Home"
+}
+
+};
+
+function setLang(lang) {
+    localStorage.setItem("lang", lang);
+
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.dataset.i18n;
+        el.innerText = content[key][lang];
+    });
+
+    document.getElementById("btn-ko").classList.toggle("active", lang === "ko");
+    document.getElementById("btn-en").classList.toggle("active", lang === "en");
+}
+
+window.onload = function() {
+    const lang = localStorage.getItem("lang") || "ko";
+    setLang(lang);
+};
+</script>
+
+</body>
+</html>
