@@ -16,211 +16,49 @@
 
         body {
             font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
-            line-height: 1.7;
-            color: var(--text-color);
-            background-color: var(--bg-color);
-            margin: 0;
-            padding: 0;
+            line-height: 1.7; color: var(--text-color); background-color: var(--bg-color); margin: 0; padding: 0;
         }
 
-        .container {
-            max-width: 850px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
+        .container { max-width: 850px; margin: 0 auto; padding: 40px 20px; }
+        header { text-align: center; margin-bottom: 50px; }
+        h1 { color: var(--primary-color); font-size: 2.2rem; border-bottom: 2px solid var(--primary-color); display: inline-block; padding-bottom: 10px; }
 
-        header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
+        .case-card { background: white; padding: 35px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-bottom: 40px; }
+        h2 { color: var(--primary-color); margin-top: 0; font-size: 1.6rem; display: flex; align-items: center; }
+        h2::before { content: 'Q'; color: var(--accent-color); font-size: 2rem; margin-right: 15px; font-weight: 900; }
 
-        h1 {
-            color: var(--primary-color);
-            font-size: 2.2rem;
-            border-bottom: 2px solid var(--primary-color);
-            display: inline-block;
-            padding-bottom: 10px;
-        }
-
-        .case-card {
-            background: white;
-            padding: 35px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            margin-bottom: 40px;
-        }
-
-        h2 {
-            color: var(--primary-color);
-            margin-top: 0;
-            font-size: 1.6rem;
-            display: flex;
-            align-items: center;
-        }
-
-        h2::before {
-            content: 'Q';
-            color: var(--accent-color);
-            font-size: 2rem;
-            margin-right: 15px;
-            font-weight: 900;
-        }
-
-        .grid-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
-            margin-top: 20px;
-        }
-
-        .section {
-            padding: 20px;
-            border-radius: 10px;
-        }
-
+        .grid-container { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-top: 20px; }
+        .section { padding: 20px; border-radius: 10px; }
         .problem { background: #fff5f5; border-left: 5px solid var(--problem-color); }
         .on-approach { background: #f0fff4; border-left: 5px solid var(--on-color); }
-
+        
         h3 { font-size: 1.1rem; margin-top: 0; }
         .problem h3 { color: var(--problem-color); }
         .on-approach h3 { color: var(--on-color); }
 
-        .result-box {
-            background: #e9ecef;
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 20px;
-            font-weight: bold;
-            color: var(--primary-color);
-        }
+        .result-box { background: #e9ecef; padding: 20px; border-radius: 10px; margin-top: 20px; font-weight: bold; }
+        .highlight-bar { background: var(--primary-color); color: white; padding: 15px; border-radius: 8px; text-align: center; margin-top: 20px; }
 
-        .highlight-bar {
-            background: var(--primary-color);
-            color: white;
-            padding: 15px;
-            border-radius: 8px;
-            text-align: center;
-            margin-top: 20px;
-            font-size: 1.1rem;
-        }
+        .on-title { font-size: 1.8rem; color: #1a2a3a; border-left: 5px solid #3498db; padding-left: 15px; margin: 60px 0 30px; font-weight: 700; }
+        .review-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+        .review-card { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
 
-        .on-title {
-            font-size: 1.8rem;
-            color: #1a2a3a;
-            border-left: 5px solid #3498db;
-            padding-left: 15px;
-            margin: 60px 0 30px;
-            font-weight: 700;
-        }
+        .summary-footer { text-align: center; padding: 40px; background: var(--primary-color); color: white; border-radius: 15px; margin-top: 50px; }
 
-        .review-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 25px;
-        }
+        /* [다국어 스위치 논리] */
+        [lang="en"] { display: none !important; }
+        html[lang="en"] [lang="ko"] { display: none !important; }
+        html[lang="en"] [lang="en"] { display: block !important; }
+        
+        /* 인라인 요소(버튼 글자 등)를 위한 예외 처리 */
+        html[lang="en"] span[lang="en"] { display: inline-block !important; }
+        html[lang="en"] .grid-container, html[lang="en"] .review-grid { display: grid !important; }
 
-        .review-card {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        }
-
-        .review-quote {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-bottom: 15px;
-            display: block;
-        }
-
-        .case-wrapper {
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
-        }
-
-        .case-item {
-            border: 1px solid #e1e4e8;
-            border-radius: 15px;
-            overflow: hidden;
-            background: #fff;
-        }
-
-        .case-header {
-            background: #2c3e50;
-            color: #fff;
-            padding: 15px 25px;
-            font-size: 1.15rem;
-            font-weight: 600;
-        }
-
-        .case-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            padding: 25px;
-            gap: 20px;
-        }
-
-        .case-box {
-            padding: 20px;
-            border-radius: 10px;
-        }
-
-        .box-before { background: #fff5f5; border: 1px solid #feb2b2; }
-        .box-after { background: #f0fff4; border: 1px solid #9ae6b4; }
-
-        .tag {
-            display: inline-block;
-            padding: 3px 10px;
-            border-radius: 5px;
-            font-size: 0.85rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        .tag-before { background: #fc8181; color: #fff; }
-        .tag-after { background: #48bb78; color: #fff; }
-
-        .result-highlight {
-            grid-column: 1 / -1;
-            padding: 15px 25px;
-            background: #ebf8ff;
-            border-top: 1px dashed #bee3f8;
-            font-weight: 600;
-            color: #2b6cb0;
-        }
-
-        .summary-banner {
-            background: #eef2f7;
-            padding: 25px;
-            border-radius: 10px;
-            text-align: center;
-            font-weight: 700;
-            font-size: 1.2rem;
-            color: #3498db;
-            margin-top: 30px;
-        }
-
-        .summary-footer {
-            text-align: center;
-            padding: 40px;
-            background: var(--primary-color);
-            color: white;
-            border-radius: 15px;
-            margin-top: 50px;
-        }
-
-        /* 다국어 제어 */
-        [lang="en"] { display: none; }
-        html[lang="en"] [lang="ko"] { display: none; }
-        html[lang="en"] [lang="en"] { display: block; }
-        html[lang="en"] .grid-container, 
-        html[lang="en"] .review-grid, 
-        html[lang="en"] .case-content { display: grid; }
-
-        @media (max-width: 768px) {
-            .grid-container, .review-grid, .case-content { grid-template-columns: 1fr; }
-        }
+        @media (max-width: 768px) { .grid-container, .review-grid { grid-template-columns: 1fr; } }
+        
+        /* 버튼 스타일 추가 */
+        .btn-wrap { text-align: center; margin-top: 30px; }
+        .cta-btn { display: inline-block; padding: 15px 30px; background: var(--accent-color); color: white; text-decoration: none; border-radius: 5px; font-weight: bold; }
     </style>
 </head>
 <body>
@@ -230,110 +68,57 @@
         <h1 lang="ko">적용 사례 보기</h1>
         <h1 lang="en">Application Cases</h1>
         <p lang="ko">구조의 변화가 만드는 현실의 차이</p>
-        <p lang="en">The Difference in Reality Created by Structural Change</p>
+        <p lang="en">Difference in Reality via Structural Change</p>
     </header>
 
     <div class="case-card">
-        <h2 lang="ko">1. 판단의 혼란을 구조로 해소하다</h2>
-        <h2 lang="en">1. Resolving Confusion in Judgment through Structure</h2>
+        <h2 lang="ko">1. 판단의 혼란을 해소하다</h2>
+        <h2 lang="en">1. Resolving Confusion</h2>
         <div class="grid-container">
             <div class="section problem">
                 <h3 lang="ko">문제 & 기존 방식</h3>
-                <h3 lang="en">Problem & Traditional Approach</h3>
-                <p lang="ko">결론이 다른 논쟁의 반복, 합의 부재. 정보만 추가하며 피로 누적.</p>
-                <p lang="en">Repetitive debates with conflicting conclusions, lack of consensus. Fatigue from endless info gathering.</p>
+                <h3 lang="en">The Problem</h3>
+                <p lang="ko">결론 없는 논쟁의 반복.</p>
+                <p lang="en">Repetitive, endless debates.</p>
             </div>
             <div class="section on-approach">
                 <h3 lang="ko">온의 접근</h3>
                 <h3 lang="en">The 'On' Approach</h3>
-                <p lang="ko">사실/해석/감정 층위 분리. 원인을 '기준의 불일치'로 규정.</p>
-                <p lang="en">Separating layers of fact, interpretation, and emotion. Identifying 'mismatched standards' as the cause.</p>
+                <p lang="ko">사실/해석/감정 분리.</p>
+                <p lang="en">Separating fact and emotion.</p>
             </div>
         </div>
         <div class="result-box">
-            <span lang="ko">결과: 논쟁의 핵심이 명확해지고 불필요한 감정 충돌 감소.</span>
-            <span lang="en">Result: Clarified the core of debate and reduced emotional conflict.</span>
-        </div>
-        <div class="highlight-bar">
-            <span lang="ko">👉 “문제를 해결하지 못하던 상태”에서 “문제를 정확히 볼 수 있는 상태”로 전환</span>
-            <span lang="en">👉 Transition from "Inability to solve" to "Ability to see accurately."</span>
-        </div>
-    </div>
-
-    <div class="case-card">
-        <h2 lang="ko">2. 조직 의사결정의 왜곡을 제거하다</h2>
-        <h2 lang="en">2. Eliminating Distortions in Organizational Decision-Making</h2>
-        <div class="grid-container">
-            <div class="section problem">
-                <h3 lang="ko">문제 & 기존 방식</h3>
-                <h3 lang="en">Problem & Traditional Approach</h3>
-                <p lang="ko">권력과 직관에 따른 왜곡된 결정. 회의와 보고서만 늘어남.</p>
-                <p lang="en">Distorted decisions based on power and intuition. Overwhelmed by meetings and reports.</p>
-            </div>
-            <div class="section on-approach">
-                <h3 lang="ko">온의 접근</h3>
-                <h3 lang="en">The 'On' Approach</h3>
-                <p lang="ko">데이터/해석/목적 요소 분리. 결정 과정 전체를 구조로 재정렬.</p>
-                <p lang="en">Isolating data, interpretation, and purpose. Realigning the entire process structurally.</p>
-            </div>
-        </div>
-        <div class="result-box">
-            <span lang="ko">결과: 판단 기준 명확화, 결정 속도 향상, 책임 구조 투명화.</span>
-            <span lang="en">Result: Clarified standards, faster decision-making, transparent responsibility.</span>
-        </div>
-        <div class="highlight-bar">
-            <span lang="ko">👉 “누가 맞는가”에서 “어떤 구조로 결정되는가”로 전환</span>
-            <span lang="en">👉 Shift from "Who is right" to "What structure decides."</span>
+            <span lang="ko">결과: 논쟁의 핵심이 명확해짐.</span>
+            <span lang="en">Result: Clarified the core issues.</span>
         </div>
     </div>
 
     <h2 class="on-title">
-        <span lang="ko">6. 핵심 후기 (실제 변화)</span>
-        <span lang="en">6. Key Reviews (Actual Changes)</span>
+        <span lang="ko">핵심 후기</span>
+        <span lang="en">Key Reviews</span>
     </h2>
     <div class="review-grid">
         <div class="review-card">
-            <span class="review-quote" lang="ko">“문제라는 덩어리에 압도당했었는데...”</span>
-            <span class="review-quote" lang="en">"I was overwhelmed by the mass of problems..."</span>
-            <span lang="ko">내용이 아니라 기준이 얽혀 있다는 걸 발견했습니다. 실타래 끝을 찾은 기분이에요.</span>
-            <span lang="en">I discovered it was mismatched standards, not the content. It felt like finding the end of a tangled thread.</span>
+            <p lang="ko">“실타래 끝을 찾은 기분이에요.”</p>
+            <p lang="en">"I found the end of the thread."</p>
         </div>
         <div class="review-card">
-            <span class="review-quote" lang="ko">“감정은 파도일 뿐, 나침반이 아니었습니다.”</span>
-            <span class="review-quote" lang="en">"Emotions were just waves, not a compass."</span>
-            <span lang="ko">감정과 판단을 분리하고 나서야 알았습니다. 상황은 여전하지만 제 배는 흔들리지 않습니다.</span>
-            <span lang="en">Only after separating emotion from judgment did I see. The situation remains, but my ship no longer shakes.</span>
-        </div>
-    </div>
-
-    <h2 class="on-title">
-        <span lang="ko">7. 확장 사례 (적용 영역)</span>
-        <span lang="en">7. Extended Cases (Domains)</span>
-    </h2>
-    <div class="case-wrapper">
-        <div class="case-item">
-            <div class="case-header" lang="ko">의사결정의 가속화</div>
-            <div class="case-header" lang="en">Accelerated Decision-Making</div>
-            <div class="case-content">
-                <div class="case-box box-before">
-                    <span class="tag tag-before" lang="ko">기존</span><span class="tag tag-before" lang="en">Before</span><br>
-                    <span lang="ko">정보를 더 수집해 불안을 없애려 함.</span>
-                    <span lang="en">Trying to ease anxiety by collecting more info.</span>
-                </div>
-                <div class="case-box box-after">
-                    <span class="tag tag-after" lang="ko">온 적용</span><span class="tag tag-after" lang="en">On Applied</span><br>
-                    <span lang="ko">결정의 골격을 먼저 세우고 정보를 배치.</span>
-                    <span lang="en">Building the framework first, then placing info.</span>
-                </div>
-            </div>
+            <p lang="ko">“제 배는 흔들리지 않습니다.”</p>
+            <p lang="en">"My ship no longer shakes."</p>
         </div>
     </div>
 
     <div class="summary-footer">
-        <h3 lang="ko">정리</h3>
-        <h3 lang="en">Summary</h3>
-        <p lang="ko">온포럼은 문제를 만들어내는 구조를 드러내고, 현실을 다시 인식하게 합니다.</p>
-        <p lang="en">On-Forum reveals the structures that create problems, enabling a new perception of reality.</p>
+        <p lang="ko">온포럼은 현실을 다시 인식하게 합니다.</p>
+        <p lang="en">On-Forum makes you see reality anew.</p>
+        
+        <div class="btn-wrap">
+            <a href="mailto:onforum.org@gmail.com" class="cta-btn">
+                <span lang="ko">사례 연구 참여하기 ➔</span>
+                <span lang="en">Join Case Study ➔</span>
+            </a>
+        </div>
     </div>
 </div>
 
