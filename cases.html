@@ -217,21 +217,246 @@
         </div>
     </div>
 
-    <h2>6. 핵심 후기</h2>
-    <div class="quote-grid">
-        <div class="quote-item">“기준을 나눠보니 어디서 막히는지 바로 보였습니다.”</div>
-        <div class="quote-item">“미루던 일을 구조로 정리하니 금방 해결됐습니다.”</div>
-        <div class="quote-item">“기준을 잡으니 흔들림이 줄어들었습니다.”</div>
-        <div class="quote-item">“나눠서 보니까 판단이 훨씬 단순해졌습니다.”</div>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <style>
+        /* 기본 스타일 및 폰트 설정 */
+        .on-section-container {
+            font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+            line-height: 1.7;
+            color: #333;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+
+        .on-title {
+            font-size: 1.8rem;
+            color: #1a2a3a;
+            border-left: 5px solid #3498db;
+            padding-left: 15px;
+            margin: 60px 0 30px;
+            font-weight: 700;
+        }
+
+        /* 6. 핵심 후기 스타일 */
+        .review-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 25px;
+        }
+
+        .review-card {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+            background: #fff;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .review-quote {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .review-detail {
+            font-size: 0.95rem;
+            color: #666;
+            display: block;
+        }
+
+        /* 7. 확장 사례 스타일 */
+        .case-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .case-item {
+            border: 1px solid #e1e4e8;
+            border-radius: 15px;
+            overflow: hidden;
+            background: #fff;
+        }
+
+        .case-header {
+            background: #2c3e50;
+            color: #fff;
+            padding: 15px 25px;
+            font-size: 1.15rem;
+            font-weight: 600;
+        }
+
+        .case-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding: 25px;
+            gap: 20px;
+            background: #fff;
+        }
+
+        .case-box {
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .box-before { background: #fff5f5; border: 1px solid #feb2b2; }
+        .box-after { background: #f0fff4; border: 1px solid #9ae6b4; }
+
+        .tag {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 5px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .tag-before { background: #fc8181; color: #fff; }
+        .tag-after { background: #48bb78; color: #fff; }
+
+        .result-highlight {
+            grid-column: 1 / -1;
+            padding: 15px 25px;
+            background: #ebf8ff;
+            border-top: 1px dashed #bee3f8;
+            font-weight: 600;
+            color: #2b6cb0;
+        }
+
+        /* 공통 변화 요약 */
+        .summary-banner {
+            background: #eef2f7;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #3498db;
+            margin-top: 30px;
+        }
+
+        /* CTA 질문 */
+        .cta-box {
+            text-align: center;
+            margin-top: 100px;
+            padding: 60px 20px;
+            border-top: 1px solid #eee;
+        }
+        .cta-box h3 {
+            font-size: 1.6rem;
+            color: #1a2a3a;
+            letter-spacing: -0.5px;
+        }
+
+        /* 모바일 대응 */
+        @media (max-width: 768px) {
+            .review-grid { grid-template-columns: 1fr; }
+            .case-content { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="on-section-container">
+
+    <h2 class="on-title">6. 핵심 후기 (구조 적용 이후 실제 변화)</h2>
+    <div class="review-grid">
+        <div class="review-card">
+            <span class="review-quote">“문제라는 덩어리에 압도당했었는데...”</span>
+            <span class="review-detail">내용(Content)이 아니라 기준(Criteria)이 얽혀 있다는 걸 발견했습니다. 실타래 끝을 찾은 기분이에요. 어디서부터 풀어야 할지 바로 보이기 시작했습니다.</span>
+        </div>
+        <div class="review-card">
+            <span class="review-quote">“머릿속 설계도 없이 벽돌만 쌓고 있었습니다.”</span>
+            <span class="review-detail">해야 할 일을 미뤘던 건 의지 부족이 아니라 구조의 부재였다는 걸 알았습니다. 생각을 '행동 가능한 구조'로 분해하니, 지금 당장 발을 뗄 곳이 보였습니다.</span>
+        </div>
+        <div class="review-card">
+            <span class="review-quote">“감정의 파도 위에서 판단이라는 배를 젓고 있었네요.”</span>
+            <span class="review-detail">감정과 판단을 분리하는 법을 배우고 나서야 알았습니다. 내 감정은 파도일 뿐, 나침반(기준)이 아니라는 것을요. 상황은 여전하지만 제 배는 흔들리지 않습니다.</span>
+        </div>
+        <div class="review-card">
+            <span class="review-quote">“복잡함은 정보의 양이 아니라, 분류의 부재였습니다.”</span>
+            <span class="review-detail">나열된 정보들을 '온'의 구조로 관통해 보니, 100가지 문제는 결국 3가지 본질적인 요소로 수렴되었습니다. 단순함이 주는 강력한 힘을 경험 중입니다.</span>
+        </div>
+    </div>
+    <div class="summary-banner">
+        👉 공통 변화: "압도당하던 상태(Passive)" → "관통하여 다루는 상태(Active)"로 전환
     </div>
 
-    <h2 style="margin-top:50px;">7. 확장 사례</h2>
-    <div class="story-section">
-        <p><strong>의사결정 지연 해결:</strong> 내용을 더 쌓는 방식에서 구조를 먼저 보는 방식으로 바뀌어 결정이 빨라졌습니다.</p>
+    <h2 class="on-title">7. 확장 사례 (실제 적용 영역)</h2>
+    <div class="case-wrapper">
+        <div class="case-item">
+            <div class="case-header">① 의사결정의 가속화 (Decision Speed)</div>
+            <div class="case-content">
+                <div class="case-box box-before">
+                    <span class="tag tag-before">기존</span><br>
+                    더 많은 정보를 수집해 불안을 없애려 함 → 결정 장애 발생
+                </div>
+                <div class="case-box box-after">
+                    <span class="tag tag-after">온 적용</span><br>
+                    결정의 '골격(목적/가용자원/리스크)'을 먼저 세우고 정보 배치
+                </div>
+                <div class="result-highlight">
+                    ✅ 결과: 불필요한 고민 제거 → 결정 속도와 확신 수치 대폭 상승
+                </div>
+            </div>
+        </div>
+
+        <div class="case-item">
+            <div class="case-header">② 실행의 연속성 확보 (Execution Flow)</div>
+            <div class="case-content">
+                <div class="case-box box-before">
+                    <span class="tag tag-before">기존</span><br>
+                    '열심히'에 의존 → 동기 부여가 떨어지면 중단 (단절된 흐름)
+                </div>
+                <div class="case-box box-after">
+                    <span class="tag tag-after">온 적용</span><br>
+                    선택의 고민이 필요 없는 '행동 구조(우선순위/루틴)' 설계
+                </div>
+                <div class="result-highlight">
+                    ✅ 결과: 의지력 소모 없이 행동이 다음 행동을 부르는 선순환 형성
+                </div>
+            </div>
+        </div>
+
+        <div class="case-item">
+            <div class="case-header">③ 문제 해결의 근본 패러다임 (Root Solution)</div>
+            <div class="case-content">
+                <div class="case-box box-before">
+                    <span class="tag tag-before">기존</span><br>
+                    현상(Symptom)을 지우는 데 급급 → 비슷한 문제의 반복 발생
+                </div>
+                <div class="case-box box-after">
+                    <span class="tag tag-after">온 적용</span><br>
+                    현상을 만드는 '발생 구조(Structure)'를 분해하고 재조립
+                </div>
+                <div class="result-highlight">
+                    ✅ 결과: 임시방편이 아닌 재발 방지 및 근본적 구조 개선 완료
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="story-section">
-        <p><strong>방향성 확보:</strong> 무엇을 할지 고민하던 상태에서 어떤 기준으로 갈지 정리하는 상태로 바뀌어 흐름이 생겼습니다.</p>
+    <div class="summary-banner">
+        👉 공통 변화: "문제에 반응하는 존재" → "구조를 운용하는 설계자"로 전환
     </div>
+
+    <div class="cta-box">
+        <h3>"당신은 문제를 풀고 있습니까, 구조를 만들고 있습니까?"</h3>
+    </div>
+
+</div>
+
+</body>
+</html>
 
     <div class="summary-footer">
         <h3>정리</h3>
