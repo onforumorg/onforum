@@ -75,6 +75,9 @@
         .contact-link { font-size: 0.95rem; font-weight: 700; color: var(--deep-blue); text-decoration: none; display: block; margin-bottom: 8px; }
         .footer-right { text-align: right; color: #888; font-size: 0.85rem; }
 
+        /* 초기 상태: 영문 숨김 */
+        .lang-en { display: none; }
+
         @media (max-width: 768px) {
             .main-title { font-size: 2.5rem; letter-spacing: 8px; }
             .concept-grid { grid-template-columns: 1fr; }
@@ -263,6 +266,7 @@
                 btnKo.classList.remove('active');
             }
         }
+        
         window.onload = function() {
             setLang('ko');
         };
