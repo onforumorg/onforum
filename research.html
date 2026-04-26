@@ -5,6 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>연구보기 | 온-포럼(On-Forum)</title>
     <style>
+        <script>
+        function setLang(lang) {
+            if (lang === 'en') {
+                document.body.classList.add('en');
+                document.documentElement.lang = 'en';
+            } else {
+                document.body.classList.remove('en');
+                document.documentElement.lang = 'ko';
+            }
+        }
+        // 페이지 로드 시 기본 언어를 한국어로 설정
+        window.onload = function() {
+            setLang('ko'); 
+        };
+    </script>
         :root {
             --primary-color: #2c3e50;
             --bg-color: #ffffff;
@@ -12,7 +27,16 @@
             --accent-color: #3498db;
         }
 
-        body { margin: 0; padding: 0; background-color: var(--bg-color); color: var(--text-color); font-family: 'Pretendard', sans-serif; line-height: 1.8; }
+        body
+        <div style="max-width: 900px; margin: 0 auto; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
+        <a href="index.html" style="text-decoration: none; color: #2c3e50; font-weight: bold; font-size: 0.9rem;">← HOME</a>
+        <div style="display: flex; gap: 15px;">
+            <button onclick="setLang('ko')" style="cursor:pointer; border:none; background:none; font-weight:bold; color:#2c3e50;">KOR</button>
+            <span style="color:#ccc;">|</span>
+            <button onclick="setLang('en')" style="cursor:pointer; border:none; background:none; font-weight:bold; color:#2c3e50;">ENG</button>
+        </div>
+    </div>
+        { margin: 0; padding: 0; background-color: var(--bg-color); color: var(--text-color); font-family: 'Pretendard', sans-serif; line-height: 1.8; }
         .research-container { max-width: 900px; margin: 0 auto; padding: 60px 20px; }
 
         .res-header { text-align: center; margin-bottom: 80px; }
