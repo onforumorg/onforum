@@ -18,7 +18,7 @@
         .intro { text-align: center; font-size: 1.2rem; margin-bottom: 100px; color: #34495e; padding: 40px; background: #fcfcfc; border-radius: 20px; border: 1px solid #f0f0f0; }
         .intro strong { color: #3498db; }
 
-        /* [SECTION 3] 참여 대상 - 체크리스트 */
+        /* [SECTION 3] 참여 대상 */
         .target-section { margin-bottom: 80px; }
         .target-title { font-size: 1.4rem; font-weight: 700; margin-bottom: 30px; text-align: center; }
         .checklist { display: grid; gap: 15px; }
@@ -26,14 +26,14 @@
         .check-item:hover { border-color: #3498db; transform: translateX(5px); }
         .check-icon { color: #3498db; margin-right: 15px; font-weight: bold; }
 
-        /* [SECTION 4] 참여 방식 - 카드형 */
+        /* [SECTION 4] 참여 방식 */
         .method-section { margin-bottom: 80px; }
         .method-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-top: 30px; }
         .method-card { background: #f8f9fa; padding: 25px; border-radius: 15px; text-align: center; border: 1px solid #eee; }
         .method-card h4 { margin-top: 0; color: #2c3e50; font-size: 1.1rem; }
         .method-card p { font-size: 0.9rem; color: #666; margin-bottom: 0; }
 
-        /* [SECTION 5] 안내 & [SECTION 6] 기대 변화 */
+        /* [SECTION 5/6] 안내 & 변화 */
         .notice-section { background: #f1f5f9; padding: 40px; border-radius: 20px; margin-bottom: 80px; }
         .notice-content { text-align: center; margin-bottom: 30px; border-bottom: 1px solid #cbd5e1; padding-bottom: 30px; }
         .change-list { display: flex; flex-direction: column; gap: 10px; font-weight: 600; color: #475569; }
@@ -43,25 +43,25 @@
         .cta-btn { display: inline-block; background: #3498db; color: #fff; padding: 18px 40px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.1rem; transition: 0.3s; box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3); }
         .cta-btn:hover { background: #2980b9; transform: translateY(-3px); }
 
-        /* [SECTION 8] 마무리 문장 */
+        /* [SECTION 8] 마무리 */
         .footer-quote { text-align: center; border-top: 1px solid #eee; padding-top: 50px; font-style: italic; color: #95a5a6; }
 
         /* 홈으로 가기 버튼 */
         .nav-home { position: fixed; top: 20px; left: 20px; text-decoration: none; color: #3498db; font-size: 0.9rem; font-weight: bold; }
 
-        /* 다국어 제어 시스템 */
-        [lang="en"] { display: none; }
-        html[lang="en"] [lang="ko"] { display: none; }
-        html[lang="en"] [lang="en"] { display: block; }
-        /* 그리드 및 플렉스 레이아웃 유지 */
+        /* [다국어 제어 핵심 - !important로 잠입 차단] */
+        [lang="en"] { display: none !important; }
+        html[lang="en"] [lang="ko"] { display: none !important; }
+        html[lang="en"] [lang="en"] { display: block !important; }
+        
+        /* 특수 레이아웃 유지 */
         html[lang="en"] .checklist,
-        html[lang="en"] .method-grid { display: grid; }
-        html[lang="en"] .check-item { display: flex; }
+        html[lang="en"] .method-grid { display: grid !important; }
+        html[lang="en"] .check-item { display: flex !important; }
+        html[lang="en"] span[lang="en"] { display: inline !important; }
+        html[lang="en"] .cta-btn span[lang="en"] { display: inline-block !important; }
 
-        /* 반응형 */
-        @media (max-width: 768px) {
-            .method-grid { grid-template-columns: 1fr; }
-        }
+        @media (max-width: 768px) { .method-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -73,45 +73,33 @@
         <h1 lang="ko">참여·문의</h1>
         <h1 lang="en">Contact·Inquiry</h1>
         <p lang="ko">구조를 함께 이해하고 싶은 분들을 위한 안내</p>
-        <p lang="en">Guidance for those who wish to understand the structure together</p>
+        <p lang="en">Guidance for exploring the structure together</p>
     </header>
 
     <section class="intro">
         <div lang="ko">
-            모든 사람이 이 연구를 이해할 필요는 없습니다.<br>
-            그러나 세상의 보편적인 설명들이 공허하게 느껴졌다면,<br>
+            세상의 보편적인 설명들이 공허하게 느껴졌다면,<br>
             이곳은 당신이 찾던 <strong>'이면의 구조'</strong>를 제시할 준비가 되어 있습니다.
         </div>
         <div lang="en">
-            Not everyone needs to understand this research.<br>
-            However, if universal explanations of the world feel empty to you,<br>
-            we are ready to present the <strong>'internal structure'</strong> you have been searching for.
+            If universal explanations feel empty to you,<br>
+            we are ready to present the <strong>'internal structure'</strong> you seek.
         </div>
     </section>
 
     <section class="target-section">
         <h3 class="target-title" lang="ko">이런 분들에게 적합합니다</h3>
-        <h3 class="target-title" lang="en">Suitable for these individuals</h3>
+        <h3 class="target-title" lang="en">Who this is for</h3>
         <div class="checklist">
             <div class="check-item">
                 <span class="check-icon">✓</span>
-                <span lang="ko">현상(What)을 넘어 원인(Why)과 구조(How)를 끝까지 파헤치고 싶은 분</span>
-                <span lang="en">Those who want to dig deep into the Cause (Why) and Structure (How) beyond the Phenomenon (What)</span>
+                <span lang="ko">현상(What)을 넘어 원인(Why)과 구조(How)를 파헤치고 싶은 분</span>
+                <span lang="en">Those seeking the Cause (Why) and Structure (How) beyond Phenomena (What)</span>
             </div>
             <div class="check-item">
                 <span class="check-icon">✓</span>
-                <span lang="ko">정보의 양에 압도되지 않고, 정보의 '자리'를 찾아주고 싶은 분</span>
-                <span lang="en">Those who want to find the 'place' for information without being overwhelmed by its quantity</span>
-            </div>
-            <div class="check-item">
-                <span class="check-icon">✓</span>
-                <span lang="ko">내 안의 감정과 이성이 왜 자꾸 어긋나는지 그 '설계도'를 보고 싶은 분</span>
-                <span lang="en">Those who want to see the 'blueprint' of why their emotions and reason clash</span>
-            </div>
-            <div class="check-item">
-                <span class="check-icon">✓</span>
-                <span lang="ko">삶의 반복되는 문제를 '의지'가 아닌 '구조적 해결'로 끊어내고 싶은 분</span>
-                <span lang="en">Those who want to break recurring life problems through 'structural solutions' rather than 'willpower'</span>
+                <span lang="ko">삶의 문제를 '의지'가 아닌 '구조적 해결'로 끊어내고 싶은 분</span>
+                <span lang="en">Those wanting to break recurring problems via 'structural solutions'</span>
             </div>
         </div>
     </section>
@@ -123,20 +111,20 @@
             <div class="method-card">
                 <h4 lang="ko">1. 관심의 공유</h4>
                 <h4 lang="en">1. Sharing Interests</h4>
-                <p lang="ko">현재 당신의 시선이 머무는 주제에 대한 이야기</p>
-                <p lang="en">A conversation about the themes your attention is currently on</p>
+                <p lang="ko">현재 당신의 시선이 머무는 주제</p>
+                <p lang="en">Themes your attention is currently on</p>
             </div>
             <div class="method-card">
                 <h4 lang="ko">2. 구조적 진단</h4>
                 <h4 lang="en">2. Structural Diagnosis</h4>
-                <p lang="ko">평소 반복적으로 부딪히는 문제의 단면 확인</p>
-                <p lang="en">Identifying the cross-sections of recurring problems</p>
+                <p lang="ko">반복되는 문제의 단면 확인</p>
+                <p lang="en">Identifying recurring problems</p>
             </div>
             <div class="method-card">
                 <h4 lang="ko">3. 공명 확인</h4>
                 <h4 lang="en">3. Confirming Resonance</h4>
-                <p lang="ko">온-포럼의 연구가 줄 수 있는 가치 안내</p>
-                <p lang="en">Guidance on the values that On-Forum’s research can provide</p>
+                <p lang="ko">온-포럼의 연구 가치 안내</p>
+                <p lang="en">Guidance on On-Forum’s value</p>
             </div>
         </div>
     </section>
@@ -145,22 +133,14 @@
         <div class="notice-content">
             <h4 lang="ko">"우리는 즉효약 같은 정답을 팔지 않습니다."</h4>
             <h4 lang="en">"We do not sell quick-fix answers."</h4>
-            <p lang="ko">현상은 변하지만 구조는 변하지 않습니다. 우리는 당신이 어떤 폭풍우 속에서도 스스로 방향을 잡을 수 있도록 '삶의 나침반을 설계하는 법'을 함께 연구합니다.</p>
-            <p lang="en">Phenomena change, but structures do not. We research 'how to design a life compass' together so that you can navigate through any storm independently.</p>
-        </div>
-        <div class="change-list" style="text-align: center;">
-            <span lang="ko">• 복잡한 상황을 구조적으로 정리하는 관점</span>
-            <span lang="en">• A perspective to structurally organize complex situations</span>
-            <span lang="ko">• 감정과 판단을 분리하여 인식하는 시각</span>
-            <span lang="en">• A vision to perceive emotion and judgment separately</span>
-            <span lang="ko">• 반복되는 문제를 다르게 해석하는 접근</span>
-            <span lang="en">• An approach to interpret recurring problems differently</span>
+            <p lang="ko">우리는 당신이 스스로 방향을 잡을 수 있도록 '삶의 나침반을 설계하는 법'을 연구합니다.</p>
+            <p lang="en">We research 'how to design a life compass' to help you navigate independently.</p>
         </div>
     </section>
 
     <section class="cta-section">
-        <p style="margin-bottom: 30px; color: #7f8c8d;" lang="ko">참여 또는 문의를 원하시면 아래를 통해 남겨주시기 바랍니다.</p>
-        <p style="margin-bottom: 30px; color: #7f8c8d;" lang="en">If you wish to participate or inquire, please leave a message below.</p>
+        <p style="margin-bottom: 30px; color: #7f8c8d;" lang="ko">참여 또는 문의를 원하시면 아래를 통해 남겨주세요.</p>
+        <p style="margin-bottom: 30px; color: #7f8c8d;" lang="en">If you wish to participate or inquire, please leave a message.</p>
         <a href="mailto:onforum.org@gmail.com" class="cta-btn">
             <span lang="ko">문의하기 (이메일 연결)</span>
             <span lang="en">Contact Us (via Email)</span>
@@ -168,8 +148,8 @@
     </section>
 
     <footer class="footer-quote">
-        <div lang="ko">"이곳은 많은 사람으로 붐비는 광장이 아니라,<br>절실한 이에게만 발견되는 숨겨진 길입니다."</div>
-        <div lang="en">"This is not a crowded square filled with many,<br>but a hidden path found only by those in desperate need."</div>
+        <div lang="ko">"절실한 이에게만 발견되는 숨겨진 길입니다."</div>
+        <div lang="en">"A hidden path found only by those in need."</div>
     </footer>
 </div>
 
