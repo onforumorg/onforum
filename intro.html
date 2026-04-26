@@ -58,10 +58,7 @@
 
         h2:first-of-type { margin-top: 0; }
 
-        p {
-            margin-bottom: 1.5rem;
-            word-break: keep-all;
-        }
+        p { margin-bottom: 1.5rem; word-break: keep-all; }
 
         .domain-list {
             display: grid;
@@ -73,27 +70,12 @@
             border-radius: 8px;
         }
 
-        .domain-list li {
-            font-weight: bold;
-            font-size: 0.95rem;
-        }
-
+        .domain-list li { font-weight: bold; font-size: 0.95rem; }
         .domain-list li span {
             font-weight: normal;
             display: block;
             font-size: 0.85rem;
             color: #666;
-        }
-
-        .footer-declaration {
-            text-align: center;
-            margin-top: 60px;
-            padding: 30px;
-            background: var(--primary-color);
-            color: white;
-            border-radius: 8px;
-            font-size: 1.2rem;
-            font-weight: bold;
         }
 
         .process {
@@ -107,17 +89,40 @@
             margin: 20px 0;
         }
 
-        /* 홈페이지 엔진이 언어에 따라 display를 제어한다고 가정합니다 */
+        /* 푸터 및 버튼 스타일 */
+        .footer-declaration {
+            text-align: center;
+            margin: 40px 0;
+            padding: 30px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .btn-container { text-align: center; margin-top: 40px; }
+        .cta-btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: var(--accent-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .cta-btn:hover { background-color: #2980b9; }
+
+        /* [다국어 제어] 홈페이지 엔진이 <html lang="en">으로 바꿀 때 연동됨 */
         [lang="en"] { display: none; }
         html[lang="en"] [lang="ko"] { display: none; }
         html[lang="en"] [lang="en"] { display: block; }
-        /* 리스트나 프로세스 내부 스팬 제어 */
-        html[lang="en"] .domain-list li span[lang="en"],
-        html[lang="en"] .process span[lang="en"] { display: inline; }
+        /* 인라인 요소(span 등)가 block으로 변해 깨지는 현상 방지 */
+        html[lang="en"] span[lang="en"] { display: inline; }
+        html[lang="en"] .process[lang="en"] { display: flex; }
 
-        @media (max-width: 600px) {
-            .process { font-size: 0.8rem; }
-        }
+        @media (max-width: 600px) { .process { font-size: 0.8rem; } }
     </style>
 </head>
 <body>
@@ -133,36 +138,34 @@
     <div class="intro-section">
         <h2 lang="ko">1. 우리는 무엇을 하는가</h2>
         <h2 lang="en">1. What We Do</h2>
-        <p lang="ko">온포럼은 현실을 바라보는 기준 자체를 다시 정의하는 연구·실천 공동체입니다. 우리는 현상을 해석하는 데 머물지 않고, 그 현상이 만들어지는 구조와 원리를 탐구합니다. 철학, 과학, 사회, 경제, 기술, 문화 등 모든 영역을 분리된 지식이 아닌 하나의 연결된 구조로 이해하고자 합니다.</p>
-        <p lang="en">On-Forum is a research and practice community that redefines the very standards of perceiving reality. We do not stop at interpreting phenomena; we explore the structures and principles behind them. We seek to understand all domains—philosophy, science, society, economy, technology, and culture—as a single, interconnected structure.</p>
+        <p lang="ko">온포럼은 현실을 바라보는 기준 자체를 다시 정의하는 연구·실천 공동체입니다. 우리는 현상을 해석하는 데 머물지 않고, 그 현상이 만들어지는 구조와 원리를 탐구합니다. 모든 영역을 하나의 연결된 구조로 이해하고자 합니다.</p>
+        <p lang="en">On-Forum is a research and practice community that redefines the standards of perceiving reality. We explore the structures and principles behind phenomena, seeking to understand all domains as one interconnected structure.</p>
 
         <h2 lang="ko">2. 왜 온포럼이 필요한가</h2>
         <h2 lang="en">2. Why On-Forum?</h2>
-        <p lang="ko">오늘날 우리는 정보가 부족한 시대가 아니라, 정보는 넘치지만 구조는 부재한 시대에 살고 있습니다. 사실은 빠르게 생산되지만 그 사실을 해석하는 기준은 각자 다르고, 지식은 축적되지만 그 지식들을 연결하는 원리는 사라졌습니다.</p>
-        <p lang="en">Today, we live in an era of information overload but structural void. While facts are produced rapidly, the standards for interpreting them are fragmented, and the principles connecting knowledge have vanished.</p>
-        <p lang="ko">온포럼은 이 문제를 <strong>“세상을 해석하는 구조 자체의 부재”</strong> 에서 비롯된 것으로 봅니다. 그리고 이 구조를 다시 세우는 것이 지금 시대에 필요한 가장 근본적인 작업이라 판단합니다.</p>
-        <p lang="en">On-Forum identifies this as the <strong>"absence of a structure to interpret the world."</strong> Re-establishing this structure is the most fundamental task of our time.</p>
+        <p lang="ko">오늘날 우리는 정보가 부족한 시대가 아니라, 정보는 넘치지만 구조는 부재한 시대에 살고 있습니다. 온포럼은 이 문제를 <strong>“세상을 해석하는 구조 자체의 부재”</strong> 에서 비롯된 것으로 봅니다.</p>
+        <p lang="en">Today, we live in an era of information overload but structural void. On-Forum identifies this as the <strong>"absence of a structure to interpret the world."</strong></p>
 
         <h2 lang="ko">3. 온의 관점</h2>
         <h2 lang="en">3. The Perspective of 'On'</h2>
-        <p lang="ko">온은 어떤 이념이나 주장에 속하지 않습니다. 온은 있는 그대로를 보고, 그 안에서 작동하는 관계와 구조를 드러냅니다. 온의 목적은 누군가를 설득하는 것이 아니라 누구나 스스로 명확하게 볼 수 있게 하는 것입니다.</p>
-        <p lang="en">'On' belongs to no ideology. It reveals the relationships and structures as they are. Our goal is not to persuade, but to enable everyone to see clearly for themselves.</p>
+        <p lang="ko">온은 있는 그대로를 보고, 그 안에서 작동하는 관계와 구조를 드러냅니다. 누구나 스스로 명확하게 볼 수 있게 하는 것이 목적입니다.</p>
+        <p lang="en">'On' sees things as they are and reveals the underlying structures. Our goal is to enable everyone to see clearly for themselves.</p>
 
         <h2 lang="ko">4. 우리가 다루는 영역</h2>
         <h2 lang="en">4. Our Domains</h2>
         <ul class="domain-list">
-            <li><span lang="ko">철학 <span>존재와 인식의 구조</span></span><span lang="en">Philosophy <span>Structure of Being</span></span></li>
-            <li><span lang="ko">과학 <span>자연과 물질의 원리</span></span><span lang="en">Science <span>Principles of Nature</span></span></li>
-            <li><span lang="ko">수·정보 구조 <span>계산과 정보의 흐름</span></span><span lang="en">Math/Info <span>Flow of Computation</span></span></li>
-            <li><span lang="ko">정치 <span>권력과 질서의 구조</span></span><span lang="en">Politics <span>Structure of Power</span></span></li>
-            <li><span lang="ko">경제 <span>가치와 흐름의 메커니즘</span></span><span lang="en">Economy <span>Mechanism of Value</span></span></li>
-            <li><span lang="ko">기술 <span>구조의 구현과 확장</span></span><span lang="en">Technology <span>Implementation of Structure</span></span></li>
+            <li><span lang="ko">철학 <span>존재와 인식</span></span><span lang="en">Philosophy <span>Being & Cognition</span></span></li>
+            <li><span lang="ko">과학 <span>자연과 물질</span></span><span lang="en">Science <span>Nature & Matter</span></span></li>
+            <li><span lang="ko">수·정보 <span>계산과 흐름</span></span><span lang="en">Math/Info <span>Flow & Data</span></span></li>
+            <li><span lang="ko">정치·경제 <span>권력과 가치</span></span><span lang="en">Politics/Econ <span>Power & Value</span></span></li>
+            <li><span lang="ko">기술 <span>구조의 구현</span></span><span lang="en">Tech <span>Implementation</span></span></li>
+            <li><span lang="ko">우주 <span>전체 배경</span></span><span lang="en">Universe <span>Total Context</span></span></li>
         </ul>
 
         <h2 lang="ko">5. 우리가 지향하는 것</h2>
         <h2 lang="en">5. Our Aim</h2>
-        <p lang="ko">온포럼은 지식을 축적하는 것을 넘어 현실을 정확히 인식할 수 있는 기준을 만드는 것을 목표로 합니다. 본질을 스스로 판단할 수 있는 상태에 도달하는 것을 지향합니다.</p>
-        <p lang="en">Beyond accumulating knowledge, we aim to create standards for accurate perception, enabling individuals to discern the essence of reality independently.</p>
+        <p lang="ko">현실을 정확히 인식할 수 있는 기준을 만들어 본질을 스스로 판단할 수 있는 상태에 도달하는 것을 지향합니다.</p>
+        <p lang="en">We aim to establish standards for accurate perception, enabling individuals to discern the essence of reality independently.</p>
 
         <h2 lang="ko">6. 온포럼의 방향</h2>
         <h2 lang="en">6. Direction</h2>
@@ -175,6 +178,13 @@
     <div class="footer-declaration">
         <div lang="ko">7. 핵심 선언<br>"온포럼은 세상을 설명하는 곳이 아니라 세상을 다시 보게 만드는 곳입니다."</div>
         <div lang="en">7. Core Declaration<br>"On-Forum is not a place that explains the world, but a place that makes you see it anew."</div>
+    </div>
+
+    <div class="btn-container">
+        <a href="#case-study" class="cta-btn">
+            <span lang="ko">사례 연구 참여하기 ➔</span>
+            <span lang="en">Join Case Study ➔</span>
+        </a>
     </div>
 </div>
 
