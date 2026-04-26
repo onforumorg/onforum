@@ -28,19 +28,33 @@
         .btn-container { text-align: center; margin-top: 40px; }
         .cta-btn { display: inline-block; padding: 15px 30px; background-color: var(--accent-color); color: white !important; text-decoration: none; border-radius: 5px; font-weight: bold; }
     </style>
-    <script>
-        function setLang(lang) {
-            if (lang === 'en') {
-                document.body.classList.add('en');
-            } else {
-                document.body.classList.remove('en');
-            }
+<script>
+    function setLang(lang) {
+        // lang-ko와 lang-en 클래스를 가진 모든 요소를 제어합니다.
+        const koEls = document.querySelectorAll('.lang-ko, [lang="ko"]');
+        const enEls = document.querySelectorAll('.lang-en, [lang="en"]');
+
+        if (lang === 'en') {
+            koEls.forEach(el => el.style.display = 'none');
+            enEls.forEach(el => el.style.display = 'block');
+            document.documentElement.lang = 'en';
+        } else {
+            koEls.forEach(el => el.style.display = 'block');
+            enEls.forEach(el => el.style.display = 'none');
+            document.documentElement.lang = 'ko';
         }
-        // 페이지 로드 시 기본값 설정 (필요 시 수정 가능)
-        window.onload = function() {
-            setLang('ko'); 
-        };
-    </script>
+    }
+
+    window.onload = function() {
+        // 주소창에 ?lang=en 신호가 있는지 확인하여 자동으로 언어를 선택합니다.
+        const isEnglish = window.location.search.includes('lang=en');
+        if (isEnglish) {
+            setLang('en');
+        } else {
+            setLang('ko');
+        }
+    };
+</script>
 </head>
 <body>
     <div style="text-align: right; padding: 20px 40px;">
