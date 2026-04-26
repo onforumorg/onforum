@@ -5,12 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>온포럼 (On-Forum) - 소개</title>
     <style>
-        /* [언어 제어] 영문 모드 시 한글 잠입을 물리적으로 차단 */
-        [lang="en"] { display: none !important; }
-        [lang="ko"] { display: block !important; }
-        html[lang="en"] [lang="ko"], body.en [lang="ko"] { display: none !important; }
-        html[lang="en"] [lang="en"], body.en [lang="en"] { display: block !important; }
-
+        /* [언어 제어] 초기 상태 설정 */
+        .lang-en { display: none; } 
+        
         :root { --primary-color: #2c3e50; --bg-color: #f8f9fa; --text-color: #333; --accent-color: #3498db; }
         body { font-family: 'Pretendard', sans-serif; line-height: 1.8; color: var(--text-color); background-color: var(--bg-color); margin: 0; padding: 0; }
         .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
@@ -20,7 +17,7 @@
         h2 { color: var(--accent-color); border-left: 4px solid var(--accent-color); padding-left: 15px; margin-top: 40px; font-size: 1.5rem; }
         h2:first-of-type { margin-top: 0; }
         p { margin-bottom: 1.5rem; word-break: keep-all; }
-        .domain-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 10px; list-style: none; padding: 20px; background: #f1f3f5; border-radius: 8px; }
+        .domain-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 10px; list-style: none; padding: 20px; background: #f1f3f5; border-radius: 8px; margin: 0; }
         .domain-list li { font-weight: bold; font-size: 0.95rem; }
         .domain-list li span { font-weight: normal; display: block; font-size: 0.85rem; color: #666; }
         .process { display: flex; justify-content: space-between; align-items: center; background: #e9ecef; padding: 15px; border-radius: 50px; text-align: center; margin: 20px 0; }
@@ -30,25 +27,25 @@
     </style>
 <script>
     function setLang(lang) {
-        // lang-ko와 lang-en 클래스를 가진 모든 요소를 제어합니다.
-        const koEls = document.querySelectorAll('.lang-ko, [lang="ko"]');
-        const enEls = document.querySelectorAll('.lang-en, [lang="en"]');
+        // lang 속성을 가진 요소와 lang-ko/en 클래스를 모두 찾습니다.
+        const allKo = document.querySelectorAll('[lang="ko"], .lang-ko');
+        const allEn = document.querySelectorAll('[lang="en"], .lang-en');
 
         if (lang === 'en') {
-            koEls.forEach(el => el.style.display = 'none');
-            enEls.forEach(el => el.style.display = 'block');
+            allKo.forEach(el => el.style.display = 'none');
+            allEn.forEach(el => el.style.display = 'block');
             document.documentElement.lang = 'en';
         } else {
-            koEls.forEach(el => el.style.display = 'block');
-            enEls.forEach(el => el.style.display = 'none');
+            allKo.forEach(el => el.style.display = 'block');
+            allEn.forEach(el => el.style.display = 'none');
             document.documentElement.lang = 'ko';
         }
     }
 
     window.onload = function() {
-        // 주소창에 ?lang=en 신호가 있는지 확인하여 자동으로 언어를 선택합니다.
-        const isEnglish = window.location.search.includes('lang=en');
-        if (isEnglish) {
+        // 메인에서 넘어온 ?lang=en 신호를 감지합니다.
+        const params = new URLSearchParams(window.location.search);
+        if (params.get('lang') === 'en') {
             setLang('en');
         } else {
             setLang('ko');
@@ -58,13 +55,15 @@
 </head>
 <body>
     <div style="text-align: right; padding: 20px 40px;">
-        <button onclick="setLang('ko')" style="cursor:pointer; border:none; background:none; font-weight:bold;">KOR</button> | 
-        <button onclick="setLang('en')" style="cursor:pointer; border:none; background:none; font-weight:bold;">ENG</button>
+        <button onclick="setLang('ko')" style="cursor:pointer; border:none; background:none; font-weight:bold; color:#2c3e50;">KOR</button> | 
+        <button onclick="setLang('en')" style="cursor:pointer; border:none; background:none; font-weight:bold; color:#2c3e50;">ENG</button>
     </div>
 
     <div style="text-align: center; margin-bottom: 20px;">
-        <a href="index.html" style="text-decoration: none; color: #666; font-size: 0.9rem;">← 메인으로 돌아가기 (Back to Home)</a>
+        <a href="index.html" class="lang-ko" style="text-decoration: none; color: #666; font-size: 0.9rem;">← 메인으로 돌아가기</a>
+        <a href="index.html" class="lang-en" style="text-decoration: none; color: #666; font-size: 0.9rem;">← Back to Home</a>
     </div>
+
 <div class="container">
     <header>
         <h1 lang="ko">온포럼 (On-Forum)</h1>
@@ -92,16 +91,34 @@
         <h2 lang="ko">4. 우리가 다루는 영역</h2>
         <h2 lang="en">4. Our Domains</h2>
         <ul class="domain-list">
-            <li><span lang="ko">철학 <span>존재와 인식의 구조</span></span><span lang="en">Philosophy <span>Structure of Being</span></span></li>
-            <li><span lang="ko">과학 <span>자연과 물질의 원리</span></span><span lang="en">Science <span>Principles of Nature</span></span></li>
-            <li><span lang="ko">수·정보 구조 <span>계산과 정보의 흐름</span></span><span lang="en">Math/Info <span>Flow of Computation</span></span></li>
-            <li><span lang="ko">정치 <span>권력과 질서의 구조</span></span><span lang="en">Politics <span>Structure of Power</span></span></li>
-            <li><span lang="ko">경제 <span>가치와 흐름의 메커니즘</span></span><span lang="en">Economy <span>Mechanism of Value</span></span></li>
-            <li><span lang="ko">기술 <span>구조의 구현과 확장</span></span><span lang="en">Technology <span>Implementation & Expansion</span></span></li>
+            <li>
+                <span lang="ko">철학 <span>존재와 인식의 구조</span></span>
+                <span lang="en">Philosophy <span>Structure of Being</span></span>
+            </li>
+            <li>
+                <span lang="ko">과학 <span>자연과 물질의 원리</span></span>
+                <span lang="en">Science <span>Principles of Nature</span></span>
+            </li>
+            <li>
+                <span lang="ko">수·정보 구조 <span>계산과 정보의 흐름</span></span>
+                <span lang="en">Math/Info <span>Flow of Computation</span></span>
+            </li>
+            <li>
+                <span lang="ko">정치 <span>권력과 질서의 구조</span></span>
+                <span lang="en">Politics <span>Structure of Power</span></span>
+            </li>
+            <li>
+                <span lang="ko">경제 <span>가치와 흐름의 메커니즘</span></span>
+                <span lang="en">Economy <span>Mechanism of Value</span></span>
+            </li>
+            <li>
+                <span lang="ko">기술 <span>구조의 구현과 확장</span></span>
+                <span lang="en">Technology <span>Implementation & Expansion</span></span>
+            </li>
         </ul>
 
-        <h2 lang="ko">6. 온포럼의 방향</h2>
-        <h2 lang="en">6. Direction</h2>
+        <h2 lang="ko">5. 온포럼의 방향</h2>
+        <h2 lang="en">5. Direction</h2>
         <div class="process">
             <span lang="ko">연구 ➔ 구조 정리 ➔ 실천 적용 ➔ 확산</span>
             <span lang="en">Research ➔ Structuring ➔ Practice ➔ Expansion</span>
@@ -109,8 +126,8 @@
     </div>
 
     <div class="footer-declaration">
-        <div lang="ko">7. 핵심 선언<br>"온포럼은 세상을 설명하는 곳이 아니라 세상을 다시 보게 만드는 곳입니다."</div>
-        <div lang="en">7. Core Declaration<br>"On-Forum is not a place that explains the world, but a place that makes you see it anew."</div>
+        <div lang="ko">6. 핵심 선언<br>"온포럼은 세상을 설명하는 곳이 아니라 세상을 다시 보게 만드는 곳입니다."</div>
+        <div lang="en">6. Core Declaration<br>"On-Forum is not a place that explains the world, but a place that makes you see it anew."</div>
     </div>
 
     <div class="btn-container">
