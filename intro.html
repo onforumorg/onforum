@@ -28,8 +28,29 @@
         .btn-container { text-align: center; margin-top: 40px; }
         .cta-btn { display: inline-block; padding: 15px 30px; background-color: var(--accent-color); color: white !important; text-decoration: none; border-radius: 5px; font-weight: bold; }
     </style>
+    <script>
+        function setLang(lang) {
+            if (lang === 'en') {
+                document.body.classList.add('en');
+            } else {
+                document.body.classList.remove('en');
+            }
+        }
+        // 페이지 로드 시 기본값 설정 (필요 시 수정 가능)
+        window.onload = function() {
+            setLang('ko'); 
+        };
+    </script>
 </head>
 <body>
+    <div style="text-align: right; padding: 20px 40px;">
+        <button onclick="setLang('ko')" style="cursor:pointer; border:none; background:none; font-weight:bold;">KOR</button> | 
+        <button onclick="setLang('en')" style="cursor:pointer; border:none; background:none; font-weight:bold;">ENG</button>
+    </div>
+
+    <div style="text-align: center; margin-bottom: 20px;">
+        <a href="index.html" style="text-decoration: none; color: #666; font-size: 0.9rem;">← 메인으로 돌아가기 (Back to Home)</a>
+    </div>
 <div class="container">
     <header>
         <h1 lang="ko">온포럼 (On-Forum)</h1>
