@@ -5,21 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>연구보기 | 온-포럼(On-Forum)</title>
     <style>
-        <script>
-        function setLang(lang) {
-            if (lang === 'en') {
-                document.body.classList.add('en');
-                document.documentElement.lang = 'en';
-            } else {
-                document.body.classList.remove('en');
-                document.documentElement.lang = 'ko';
-            }
+       <script>
+    function setLang(lang) {
+        // lang-ko와 lang-en 클래스를 가진 모든 요소를 제어합니다.
+        const koEls = document.querySelectorAll('.lang-ko, [lang="ko"]');
+        const enEls = document.querySelectorAll('.lang-en, [lang="en"]');
+
+        if (lang === 'en') {
+            koEls.forEach(el => el.style.display = 'none');
+            enEls.forEach(el => el.style.display = 'block');
+            document.documentElement.lang = 'en';
+        } else {
+            koEls.forEach(el => el.style.display = 'block');
+            enEls.forEach(el => el.style.display = 'none');
+            document.documentElement.lang = 'ko';
         }
-        // 페이지 로드 시 기본 언어를 한국어로 설정
-        window.onload = function() {
-            setLang('ko'); 
-        };
-    </script>
+    }
+
+    window.onload = function() {
+        // 주소창에 ?lang=en 신호가 있는지 확인하여 자동으로 언어를 선택합니다.
+        const isEnglish = window.location.search.includes('lang=en');
+        if (isEnglish) {
+            setLang('en');
+        } else {
+            setLang('ko');
+        }
+    };
+</script>
         :root {
             --primary-color: #2c3e50;
             --bg-color: #ffffff;
