@@ -3,133 +3,163 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ON-FORUM | 온포럼</title>
+<title>ON-FORUM</title>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css"/>
 
 <style>
-:root {
-    --bg-paper: #f7f6f2;
-    --point-gold: #b5945d;
-    --deep-blue: #1a2a40;
-    --text-main: #1a1a1a;
-}
-body {
-    font-family: 'Pretendard', sans-serif;
-    background-color: var(--bg-paper);
-    margin: 0;
-    padding: 0;
-    line-height: 1.7;
-}
-.container {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 0 40px;
-}
-.lang-switch {
-    position: fixed;
-    top: 30px;
-    right: 40px;
-}
-.lang-btn {
-    border: none;
-    background: none;
-    font-weight: bold;
-    cursor: pointer;
-    margin-left: 10px;
-}
-.lang-btn.active {
-    border-bottom: 2px solid #000;
-}
-.main-title {
-    text-align: center;
-    font-size: 3rem;
-    margin-top: 60px;
-}
-.hero {
-    text-align: center;
-    margin-top: 40px;
-}
-.btn-group {
-    margin-top: 30px;
-}
-.btn {
-    padding: 10px 20px;
-    text-decoration: none;
-    margin: 5px;
-    border: 1px solid #000;
-}
+body { font-family: 'Pretendard', sans-serif; margin:0; background:#f7f6f2; }
+.container { max-width:1000px; margin:auto; padding:40px 20px; }
+.center { text-align:center; }
+.section { margin:100px 0; }
+.card { background:#fff; padding:25px; margin:15px 0; border-left:4px solid #b5945d; }
+
+.lang-switch { position:fixed; top:20px; right:30px; }
+.lang-btn { border:none; background:none; font-weight:bold; cursor:pointer; }
+.lang-btn.active { border-bottom:2px solid #000; }
+
+.btn { display:inline-block; margin:10px; padding:10px 20px; border:1px solid #000; text-decoration:none; }
+.highlight { color:#b5945d; font-weight:bold; }
+
+.flow-box { background:#fff; padding:30px; text-align:center; border:1px solid #ddd; }
 </style>
 </head>
 
 <body>
 
 <nav class="lang-switch">
-    <button class="lang-btn" id="btn-ko" onclick="setLang('ko')">KOR</button>
-    <button class="lang-btn" id="btn-en" onclick="setLang('en')">ENG</button>
+<button id="btn-ko" class="lang-btn" onclick="setLang('ko')">KOR</button>
+<button id="btn-en" class="lang-btn" onclick="setLang('en')">ENG</button>
 </nav>
 
-<h1 class="main-title">ON-FORUM</h1>
-
 <div class="container">
-    <div class="hero">
-        <h2 data-i18n="hero_title"></h2>
-        <p data-i18n="hero_sub"></p>
 
-        <div class="btn-group">
-            <a href="intro.html" class="btn" data-i18n="btn_intro"></a>
-            <a href="cases.html" class="btn" data-i18n="btn_cases"></a>
-            <a href="research.html" class="btn" data-i18n="btn_research"></a>
-            <a href="contact.html" class="btn" data-i18n="btn_contact"></a>
-        </div>
-    </div>
+<!-- HERO -->
+<section class="section center">
+<h1>ON-FORUM</h1>
+<h2 data-i18n="hero"></h2>
+<p data-i18n="hero_sub"></p>
+
+<a href="intro.html" class="btn" data-i18n="btn_intro"></a>
+<a href="cases.html" class="btn" data-i18n="btn_cases"></a>
+<a href="research.html" class="btn" data-i18n="btn_research"></a>
+<a href="contact.html" class="btn" data-i18n="btn_contact"></a>
+</section>
+
+<!-- 정의 -->
+<section class="section center">
+<h2 data-i18n="definition"></h2>
+</section>
+
+<!-- WHAT -->
+<section class="section">
+<h2 data-i18n="what_title"></h2>
+
+<div class="card" data-i18n="what1"></div>
+<div class="card" data-i18n="what2"></div>
+<div class="card" data-i18n="what3"></div>
+<div class="card" data-i18n="what4"></div>
+</section>
+
+<!-- WHY -->
+<section class="section center">
+<h2 data-i18n="why_title"></h2>
+<p data-i18n="why_desc"></p>
+</section>
+
+<!-- 적용 -->
+<section class="section">
+<h2 data-i18n="apply_title"></h2>
+
+<div class="card" data-i18n="apply1"></div>
+<div class="card" data-i18n="apply2"></div>
+<div class="card" data-i18n="apply3"></div>
+</section>
+
+<!-- 시각화 -->
+<section class="section center">
+<h2 data-i18n="flow_title"></h2>
+<div class="flow-box" data-i18n="flow"></div>
+</section>
+
+<!-- CTA -->
+<section class="section center">
+<h2 data-i18n="cta"></h2>
+<a href="research.html" class="btn" data-i18n="btn_research"></a>
+<a href="contact.html" class="btn" data-i18n="btn_contact"></a>
+</section>
+
 </div>
 
 <script>
+
 const content = {
-    hero_title: {
-        ko: "복잡한 현실을 구조로 해석하는 새로운 인식 시스템",
-        en: "A New Cognitive System for Interpreting Reality Through Structure"
-    },
-    hero_sub: {
-        ko: "현실의 문제는 구조로 이해될 때 해결됩니다.",
-        en: "Problems are solved when understood through structure."
-    },
-    btn_intro: {
-        ko: "온포럼 소개",
-        en: "About Us"
-    },
-    btn_cases: {
-        ko: "적용 사례",
-        en: "Case Studies"
-    },
-    btn_research: {
-        ko: "연구 보기",
-        en: "Research"
-    },
-    btn_contact: {
-        ko: "문의",
-        en: "Contact"
-    }
-};
 
-function setLang(lang) {
-    localStorage.setItem("lang", lang);
+hero: {
+ko: "복잡한 현실을 구조로 해석하는 인식 시스템",
+en: "A system that interprets reality through structure"
+},
+hero_sub: {
+ko: "문제는 정보가 아니라 구조입니다",
+en: "The problem is not information, but structure"
+},
 
-    document.querySelectorAll("[data-i18n]").forEach(el => {
-        const key = el.dataset.i18n;
-        el.innerText = content[key][lang];
-    });
+btn_intro:{ko:"소개",en:"Intro"},
+btn_cases:{ko:"사례",en:"Cases"},
+btn_research:{ko:"연구",en:"Research"},
+btn_contact:{ko:"참여",en:"Contact"},
 
-    document.getElementById("btn-ko").classList.toggle("active", lang === "ko");
-    document.getElementById("btn-en").classList.toggle("active", lang === "en");
+definition:{
+ko:"온포럼은 현실을 구조로 분석하는 연구 플랫폼입니다",
+en:"A platform that analyzes reality through structure"
+},
+
+what_title:{ko:"우리는 무엇을 하는가",en:"What We Do"},
+what1:{ko:"✔ 인간의 판단과 감정을 구조로 분석",en:"✔ Analyze human behavior structurally"},
+what2:{ko:"✔ 사회 현상을 흐름으로 해석",en:"✔ Interpret society as flow"},
+what3:{ko:"✔ 의사결정 기준 제시",en:"✔ Provide decision frameworks"},
+what4:{ko:"✔ 새로운 언어 구조 연구",en:"✔ Develop new symbolic language"},
+
+why_title:{ko:"왜 필요한가",en:"Why Needed"},
+why_desc:{
+ko:"정보는 넘치지만 기준은 없습니다. 구조가 없으면 판단은 흔들립니다.",
+en:"Information is abundant, but structure is missing."
+},
+
+apply_title:{ko:"이렇게 적용됩니다",en:"Applications"},
+apply1:{ko:"개인: 판단 오류 해결",en:"Individual: decision clarity"},
+apply2:{ko:"사회: 갈등 구조 분석",en:"Society: conflict structure"},
+apply3:{ko:"정책: 구조 기반 설계",en:"Policy: structural design"},
+
+flow_title:{ko:"구조 흐름",en:"Flow"},
+flow:{
+ko:"문제 → 구조 분석 → 기준 생성 → 해결",
+en:"Problem → Structure → Criteria → Solution"
+},
+
+cta:{
+ko:"온은 설명이 아니라 인식의 전환입니다",
+en:"On is not explanation, but perception shift"
 }
 
-window.onload = function() {
-    const lang = localStorage.getItem("lang") || "ko";
-    setLang(lang);
 };
+
+function setLang(lang){
+localStorage.setItem("lang",lang);
+
+document.querySelectorAll("[data-i18n]").forEach(el=>{
+const key = el.dataset.i18n;
+el.innerHTML = content[key][lang];
+});
+
+document.getElementById("btn-ko").classList.toggle("active",lang==="ko");
+document.getElementById("btn-en").classList.toggle("active",lang==="en");
+}
+
+window.onload=function(){
+setLang(localStorage.getItem("lang")||"ko");
+}
+
 </script>
 
 </body>
