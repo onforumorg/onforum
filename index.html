@@ -22,6 +22,95 @@ body { font-family: 'Pretendard', sans-serif; margin:0; background:#f7f6f2; }
 .highlight { color:#b5945d; font-weight:bold; }
 
 .flow-box { background:#fff; padding:30px; text-align:center; border:1px solid #ddd; }
+  /* HERO 영역 확장 */
+.hero-advanced {
+  text-align:center;
+  padding:140px 20px 120px;
+  position:relative;
+}
+
+/* 로고 */
+.logo-wrap {
+  margin-bottom:30px;
+  color:#1a2a40;
+  opacity:0;
+  transform:translateY(20px);
+  animation:logoFade 1.2s ease forwards;
+}
+
+.logo-svg {
+  width:110px;
+  height:90px;
+}
+
+/* 타이틀 애니메이션 */
+.hero-title-advanced {
+  font-size:4rem;
+  font-weight:900;
+  letter-spacing:14px;
+
+  background: linear-gradient(
+    90deg,
+    rgba(26,42,64,0.15),
+    rgba(26,42,64,1),
+    rgba(26,42,64,0.15)
+  );
+
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: shineMove 4s linear infinite;
+}
+
+/* 배경 깊이 */
+.hero-advanced::before {
+  content:"";
+  position:absolute;
+  top:-100px;
+  left:0;
+  right:0;
+  height:400px;
+  background: radial-gradient(circle at center, rgba(181,148,93,0.12), transparent 70%);
+  z-index:-1;
+}
+
+/* 버튼 개선 */
+.btn-group {
+  margin-top:40px;
+}
+
+.btn {
+  padding:12px 28px;
+  margin:6px;
+  border-radius:6px;
+  border:1px solid #1a2a40;
+  color:#1a2a40;
+  transition:0.3s;
+}
+
+.btn:hover {
+  background:#1a2a40;
+  color:#fff;
+}
+
+/* 애니메이션 */
+@keyframes shineMove {
+  to { background-position:200% center; }
+}
+
+@keyframes logoFade {
+  to {
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+  body {
+  background:
+    radial-gradient(circle at 20% 20%, rgba(181,148,93,0.08), transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(26,42,64,0.06), transparent 40%),
+    linear-gradient(to bottom, #f7f6f2, #f2efe8);
+}
 </style>
 </head>
 
@@ -34,18 +123,43 @@ body { font-family: 'Pretendard', sans-serif; margin:0; background:#f7f6f2; }
 
 <div class="container">
 
-<!-- HERO -->
-<section class="section center">
-<h1>ON-FORUM</h1>
-<h2 data-i18n="hero"></h2>
-<p data-i18n="hero_sub"></p>
+<section class="hero-advanced">
 
-<a href="intro.html" class="btn" data-i18n="btn_intro"></a>
-<a href="cases.html" class="btn" data-i18n="btn_cases"></a>
-<a href="research.html" class="btn" data-i18n="btn_research"></a>
-<a href="contact.html" class="btn" data-i18n="btn_contact"></a>
+  <!-- 로고 -->
+  <div class="logo-wrap">
+    <svg viewBox="0 0 140 120" class="logo-svg">
+      <circle cx="70" cy="50" r="42" fill="none" stroke="currentColor" stroke-width="3"/>
+      <polygon points="70,68 105,108 35,108" fill="none" stroke="currentColor" stroke-width="3"/>
+      <circle cx="70" cy="50" r="5" fill="currentColor"/>
+    </svg>
+  </div>
+
+  <!-- 타이틀 -->
+  <h1 class="hero-title-advanced">ON-FORUM</h1>
+
+  <h2 data-i18n="hero"></h2>
+  <p data-i18n="hero_sub"></p>
+
+  <div class="btn-group">
+    <a href="intro.html" class="btn" data-i18n="btn_intro"></a>
+    <a href="cases.html" class="btn" data-i18n="btn_cases"></a>
+    <a href="research.html" class="btn" data-i18n="btn_research"></a>
+    <a href="contact.html" class="btn" data-i18n="btn_contact"></a>
+  </div>
+
 </section>
+  <section class="section center">
+  <h2>우리는 왜 계속 같은 문제를 반복할까요?</h2>
 
+  <p>
+  정보는 충분합니다.<br>
+  그러나 기준은 없습니다.
+  </p>
+
+  <p class="highlight">
+  온포럼은 정보가 아니라 구조를 다룹니다
+  </p>
+</section>
 <!-- 정의 -->
 <section class="section center">
 <h2 data-i18n="definition"></h2>
