@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ON-FORUM</title>
+
+<title id="page-title">ON-FORUM</title>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css"/>
 
@@ -24,12 +25,8 @@ body{
 .lang-btn{border:none;background:none;font-weight:bold;cursor:pointer;}
 .lang-btn.active{border-bottom:2px solid #000;}
 
-/* HERO */
-.hero{
-  padding:100px 20px 60px;
-}
+.hero{padding:100px 20px 60px;}
 
-/* ⭐ 추가된 구조 */
 .hero-inner{
   display:flex;
   justify-content:space-between;
@@ -52,7 +49,6 @@ body{
   text-align:center;
 }
 
-/* 기존 유지 */
 .hero-title{
   font-size:4.2rem;
   font-weight:900;
@@ -85,7 +81,6 @@ body{
 .question p{ font-size:1.15rem; margin:6px 0; }
 .question strong{ font-size:1.25rem; }
 
-/* bottom-band 분리 유지 */
 .bottom-band{
   margin-top:40px;
   padding:40px 20px;
@@ -147,26 +142,25 @@ body{
 <section class="hero">
   <div class="hero-inner">
 
-    <!-- LEFT -->
     <div class="hero-left">
       <h1 class="hero-title">ON-FORUM</h1>
-      <p class="main-text" data-i18n="hero">세상을 해석하는 기준을 다시 설계합니다</p>
-      <p class="sub-text" data-i18n="hero_sub">문제는 정보가 아니라 구조입니다</p>
+
+      <p class="main-text" data-i18n="hero"></p>
+      <p class="sub-text" data-i18n="hero_sub"></p>
 
       <div class="menu">
-        <a href="#intro" data-i18n="btn_intro">소개</a>
-        <a href="#cases" data-i18n="btn_cases">살펴보기</a>
-        <a href="#research" data-i18n="btn_research">연구 참여</a>
+        <a href="#intro" data-i18n="btn_intro"></a>
+        <a href="#cases" data-i18n="btn_cases"></a>
+        <a href="#research" data-i18n="btn_research"></a>
       </div>
 
       <div class="question">
-        <h2>우리는 왜 같은 문제를 반복할까요?</h2>
-        <p>정보는 충분합니다.</p>
-        <p><strong>그러나 기준은 없습니다.</strong></p>
+        <h2 data-i18n="q_title"></h2>
+        <p data-i18n="q_1"></p>
+        <p data-i18n="q_2"></p>
       </div>
     </div>
 
-    <!-- RIGHT -->
     <div class="hero-right">
       <div class="concept-box">
         <p>철학</p>
@@ -179,31 +173,28 @@ body{
   </div>
 </section>
 
-<!-- ⭐ 위치 이동 -->
-<div class="bottom-band" data-i18n="definition">
-온포럼은 현실을 구조로 분석하는 연구 플랫폼입니다
-</div>
+<div class="bottom-band" data-i18n="definition"></div>
 
 <section id="intro" class="container center">
-  <h2>온포럼 소개</h2>
-  <p>현실을 구조로 이해하는 새로운 접근</p>
+  <h2 data-i18n="intro_title"></h2>
+  <p data-i18n="intro_desc"></p>
 </section>
 
 <section id="cases" class="container center">
-  <h2>사례 보기</h2>
-  <p>구조의 변화가 만드는 현실의 차이</p>
+  <h2 data-i18n="cases_title"></h2>
+  <p data-i18n="cases_desc"></p>
 </section>
 
 <section id="research" class="container center">
-  <h2>연구 참여</h2>
-  <p>함께 구조를 탐구하고 확장합니다</p>
+  <h2 data-i18n="research_title"></h2>
+  <p data-i18n="research_desc"></p>
 </section>
 
 <footer class="footer">
 <div class="footer-inner">
   <div class="footer-brand">
     <strong>ON-FORUM</strong>
-    <p>현실을 구조로 분석하는 연구 플랫폼</p>
+    <p data-i18n="definition"></p>
   </div>
   <div class="footer-contact">
     <p>📞 0505-799-7878</p>
@@ -221,16 +212,37 @@ const content={
 hero:{ko:"세상을 해석하는 기준을 다시 설계합니다",en:"Redefining the way we interpret reality"},
 hero_sub:{ko:"문제는 정보가 아니라 구조입니다",en:"The problem is not information, but structure"},
 definition:{ko:"온포럼은 현실을 구조로 분석하는 연구 플랫폼입니다",en:"A platform that analyzes reality through structure"},
+
 btn_intro:{ko:"소개",en:"Intro"},
 btn_cases:{ko:"살펴보기",en:"Cases"},
-btn_research:{ko:"연구 참여",en:"Research"}
+btn_research:{ko:"연구 참여",en:"Research"},
+
+q_title:{ko:"우리는 왜 같은 문제를 반복할까요?",en:"Why do we keep repeating the same problems?"},
+q_1:{ko:"정보는 충분합니다.",en:"We already have enough information."},
+q_2:{ko:"<strong>그러나 기준은 없습니다.</strong>",en:"<strong>But we lack a standard.</strong>"},
+
+intro_title:{ko:"온포럼 소개",en:"About ON-FORUM"},
+intro_desc:{ko:"현실을 구조로 이해하는 새로운 접근",en:"A new approach to understanding reality through structure"},
+
+cases_title:{ko:"사례 보기",en:"Cases"},
+cases_desc:{ko:"구조의 변화가 만드는 현실의 차이",en:"How structural change transforms reality"},
+
+research_title:{ko:"연구 참여",en:"Research"},
+research_desc:{ko:"함께 구조를 탐구하고 확장합니다",en:"Explore and expand structure together"}
 };
 
 function setLang(lang){
 localStorage.setItem("lang",lang);
+
 document.querySelectorAll("[data-i18n]").forEach(el=>{
-if(content[el.dataset.i18n]) el.innerHTML=content[el.dataset.i18n][lang];
+if(content[el.dataset.i18n]){
+el.innerHTML=content[el.dataset.i18n][lang];
+}
 });
+
+document.getElementById("page-title").innerText =
+lang==="ko" ? "온포럼 | ON-FORUM" : "ON-FORUM";
+
 document.getElementById("btn-ko").classList.toggle("active",lang==="ko");
 document.getElementById("btn-en").classList.toggle("active",lang==="en");
 }
