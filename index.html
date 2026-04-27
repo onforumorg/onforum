@@ -115,7 +115,41 @@ body{
 
 @media(max-width:768px){
   .footer-inner{flex-direction:column;text-align:center;}
-  .hero-title{font-size:2.5rem; letter-spacing:5px;}
+  /* 1. 기본 상태 (PC 등 넓은 화면) */
+.hero-title {
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 900;
+  font-size: 4rem; /* PC에서의 크기 */
+  letter-spacing: 5px;
+  
+  /* 좌에서 우로 변하는 명암 그라데이션 */
+  background: linear-gradient(to right, #444444, #bbbbbb, #444444);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+
+/* 2. 마우스를 올렸을 때 (검정색으로 변화) */
+.hero-title:hover {
+  background: none;
+  -webkit-text-fill-color: #000000;
+  transform: translateY(-3px);
+}
+
+/* 3. 모바일 환경 (찾으신 부분에 적용) */
+@media(max-width: 768px) {
+  .footer-inner { flex-direction: column; text-align: center; }
+  .hero-inner { flex-direction: column; }
+  .hero-left { text-align: center; }
+
+  /* 모바일용 hero-title 설정: 크기만 줄이고 효과는 유지 */
+  .hero-title {
+    font-size: 2.5rem; /* 모바일에서 적절한 크기 */
+    letter-spacing: 5px;
+  }
+}
   .hero-inner{flex-direction:column;}
   .hero-left{text-align:center;}
 }
