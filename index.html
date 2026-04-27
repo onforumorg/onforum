@@ -135,20 +135,22 @@ body{
 <div class="onforum-logo-container">
   <svg viewBox="0 0 200 200" width="170" height="170">
 
-    <!-- 원 -->
+    <!-- 큰 원 (유일한 원) -->
     <circle cx="100" cy="100" r="70"
             stroke="#000" stroke-width="4"
             fill="none" />
 
-    <!-- 점 -->
+    <!-- 내부 점 -->
     <circle cx="100" cy="75" r="8"
             fill="#000" />
 
-    <!-- 삼각형 (정확한 방향 + 떨어짐 유지) -->
-    <path d="M70 140 L100 175 L130 140 Z"
-          stroke="#000"
-          stroke-width="4"
-          fill="none" />
+    <!-- 삼각형 -->
+    <!-- 꼭지점: 점을 향함 -->
+    <!-- 밑변: 원 아래 바깥 -->
+    <polygon points="100,95 140,180 60,180"
+             stroke="#000"
+             stroke-width="4"
+             fill="none" />
 
   </svg>
 </div>
