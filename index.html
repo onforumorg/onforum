@@ -136,26 +136,23 @@ body{
 </nav>
 
 <div class="onforum-logo-container">
-  <svg viewBox="0 0 200 200" width="170" height="170">
+<svg viewBox="0 0 200 200" width="170" height="170">
 
-    <!-- 큰 원 (유일한 원) -->
-    <circle cx="100" cy="100" r="70"
-            stroke="#000" stroke-width="4"
-            fill="none" />
+  <!-- 공통 스타일 -->
+  <g stroke="#111" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round">
 
-    <!-- 내부 점 -->
-    <circle cx="100" cy="75" r="8"
-            fill="#000" />
+    <!-- 원 -->
+    <circle cx="100" cy="100" r="70"/>
 
-    <!-- 삼각형 -->
-    <!-- 꼭지점: 점을 향함 -->
-    <!-- 밑변: 원 아래 바깥 -->
-    <polygon points="100,95 140,180 60,180"
-             stroke="#000"
-             stroke-width="4"
-             fill="none" />
+    <!-- 삼각형 (정확한 비율) -->
+    <polygon points="100,85 145,165 55,165"/>
 
-  </svg>
+  </g>
+
+  <!-- 중심 점 -->
+  <circle cx="100" cy="75" r="6" fill="#111"/>
+
+</svg>
 </div>
 <section class="hero">
 
