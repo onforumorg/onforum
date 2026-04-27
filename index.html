@@ -140,16 +140,15 @@ body{
             stroke="#000" stroke-width="4"
             fill="none" />
 
-    <!-- 점 (크게) -->
-    <circle cx="100" cy="78" r="8"
+    <!-- 점 -->
+    <circle cx="100" cy="75" r="8"
             fill="#000" />
 
-    <!-- 삼각형 (핵심) -->
-    <!-- 원 아래에서 살짝 튀어나온 형태 -->
-    <polygon points="100,165 140,115 60,115"
-             stroke="#000"
-             stroke-width="4"
-             fill="none" />
+    <!-- 삼각형 (정확한 방향 + 떨어짐 유지) -->
+    <path d="M70 140 L100 175 L130 140 Z"
+          stroke="#000"
+          stroke-width="4"
+          fill="none" />
 
   </svg>
 </div>
