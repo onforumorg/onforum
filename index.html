@@ -114,6 +114,49 @@ body{
 @media(max-width:768px){
   .footer-inner{flex-direction:column;text-align:center;}
 }
+
+.onforum-logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 300px;
+    position: relative;
+}
+
+.circle-outer {
+    width: 200px;
+    height: 200px;
+    border: 2px solid #333;
+    border-radius: 50%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.triangle-inner {
+    width: 0;
+    height: 0;
+    border-left: 60px solid transparent;
+    border-right: 60px solid transparent;
+    border-bottom: 104px solid #333;
+    position: absolute;
+    bottom: 48px;
+}
+
+.center-dot {
+    width: 12px;
+    height: 12px;
+    background-color: #ff0000;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -10%);
+    z-index: 10;
+}
+  
 </style>
 </head>
 
