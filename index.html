@@ -35,7 +35,72 @@ body{
   -webkit-text-fill-color:transparent;
 }
 .hero-definition{margin-top:12px;font-size:0.95rem;color:#777;}
+.hero {
+  padding: 100px 20px;
+  text-align: center;
+  background: #ffffff;
+}
 
+.hero-inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+/* 🔶 핵심 띠 */
+.highlight-band {
+  background: #f2f2f2;
+  padding: 30px 20px;
+  margin: 40px 0;
+  border-radius: 8px;
+}
+
+.highlight-band strong {
+  font-size: 28px;
+  line-height: 1.5;
+  display: block;
+}
+
+/* 설명 */
+.description {
+  font-size: 16px;
+  color: #444;
+  margin-bottom: 40px;
+}
+
+/* 메뉴 */
+.menu {
+  margin-bottom: 60px;
+}
+
+.menu a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+}
+
+/* 질문 영역 */
+.question h2 {
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+.question p {
+  color: #555;
+}
+  
 /* TEXT */
 p{line-height:1.9;color:#555;font-size:1.05rem;}
 h2{font-weight:700;color:#1a2a40;font-size:1.8rem;}
@@ -106,27 +171,35 @@ h2{font-weight:700;color:#1a2a40;font-size:1.8rem;}
 <div class="container">
 
 <!-- HERO -->
-<section class="hero-advanced">
+<section class="hero">
+  <div class="hero-inner">
+    <h1 class="title">ON-FORUM</h1>
 
-<svg viewBox="0 0 140 120" class="logo-svg">
-<circle cx="70" cy="50" r="42" fill="none" stroke="currentColor" stroke-width="3"/>
-<polygon points="70,68 105,108 35,108" fill="none" stroke="currentColor" stroke-width="3"/>
-<circle cx="70" cy="50" r="5" fill="currentColor"/>
-</svg>
+    <p class="subtitle">
+      온포럼은 현실을 분석하는 연구 플랫폼입니다
+    </p>
 
-<h1 class="hero-title-advanced">ON-FORUM</h1>
+    <!-- 🔶 강조 띠 (핵심) -->
+    <div class="highlight-band">
+      <strong>정보는 충분합니다.<br>그러나 기준은 없습니다.</strong>
+    </div>
 
-<p class="hero-definition" data-i18n="definition"></p>
-<h2 data-i18n="hero"></h2>
-<p data-i18n="hero_sub"></p>
+    <p class="description">
+      복잡한 현실을 해석하고 판단 기준을 만드는 인식 시스템
+    </p>
 
-<div class="btn-group">
-<a href="intro.html" class="btn" data-i18n="btn_intro"></a>
-<a href="cases.html" class="btn" data-i18n="btn_cases"></a>
-<a href="research.html" class="btn" data-i18n="btn_research"></a>
-<a href="contact.html" class="btn" data-i18n="btn_contact"></a>
-</div>
+    <div class="menu">
+      <a href="#">소개</a>
+      <a href="#">사례</a>
+      <a href="#">연구</a>
+      <a href="#">참여</a>
+    </div>
 
+    <div class="question">
+      <h2>우리는 왜 같은 문제를 반복할까요?</h2>
+      <p>정보는 넘치지만, 기준은 만들어지지 않습니다.</p>
+    </div>
+  </div>
 </section>
 
 <!-- 간단 내용 -->
