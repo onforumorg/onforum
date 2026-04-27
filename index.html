@@ -119,6 +119,20 @@ body{
   .hero-inner{flex-direction:column;}
   .hero-left{text-align:center;}
 }
+
+/* 로고가 부드럽게 커졌다 작아졌다 하는 효과 */
+  @keyframes breathe {
+    0% { opacity: 0.8; transform: scale(0.98); }
+    50% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0.8; transform: scale(0.98); }
+  }
+
+  .onforum-logo-animated {
+    animation: breathe 5s ease-in-out infinite; /* 5초 주기로 아주 천천히 */
+    display: inline-block;
+    transform-origin: center; /* 중심을 기준으로 움직이게 설정 */
+  }
+  
 </style>
 </head>
 
@@ -130,23 +144,26 @@ body{
 </nav>
 
 <div class="onforum-logo-container">
-<svg width="200" height="200" viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#d1d1d1; stop-opacity:1" />
-      <stop offset="50%" style="stop-color:#666666; stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#000000; stop-opacity:1" />
-    </linearGradient>
-  </defs>
+  <div class="onforum-logo-animated">
+    <svg width="200" height="200" viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="movingGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" style="stop-color:#d1d1d1; stop-opacity:1" />
+          <stop offset="50%" style="stop-color:#000000; stop-opacity:1">
+            <animate attributeName="offset" values="0.3; 0.7; 0.3" dur="6s" repeatCount="indefinite" />
+          </stop>
+          <stop offset="100%" style="stop-color:#d1d1d1; stop-opacity:1" />
+        </linearGradient>
+      </defs>
 
-  <circle cx="100" cy="100" r="80" stroke="url(#logoGradient)" stroke-width="12" fill="none" />
-  
-  <circle cx="100" cy="100" r="20" fill="url(#logoGradient)" />
-  
-  <polygon points="100,135 40,210 170,210" stroke="url(#logoGradient)" stroke-width="10" fill="none" />
-</svg>
+      <circle cx="100" cy="100" r="80" stroke="url(#movingGradient)" stroke-width="12" fill="none" />
+      
+      <circle cx="100" cy="100" r="20" fill="url(#movingGradient)" />
+      
+      <polygon points="100,135 40,210 170,210" stroke="url(#movingGradient)" stroke-width="10" fill="none" />
+    </svg>
+  </div>
 </div>
-
 <section class="hero">
   <div class="hero-inner">
 
