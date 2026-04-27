@@ -115,60 +115,12 @@ body{
   .footer-inner{flex-direction:column;text-align:center;}
 }
 
-/* 로고 컨테이너 */
-.onforum-logo-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 180px;
-    height: 180px;
-    margin: 0 auto 20px;
-    position: relative;
-}
 
-/* 큰 원 */
-.outer-circle {
-    width: 140px;
-    height: 140px;
-    border: 2px solid #1a2a40;
-    border-radius: 50%;
-    position: relative;
-}
-
-/* 중심 점 */
-.inner-dot {
-    width: 8px;
-    height: 8px;
-    background-color: #1a2a40;
-    border-radius: 50%;
-    position: absolute;
-    top: 38%;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-/* 삼각형 wrapper */
-.triangle-wrapper {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-}
-
-/* 삼각형 (원 밖 → 중심 향함) */
-.pointing-triangle {
-    width: 0;
-    height: 0;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-bottom: 28px solid #1a2a40;
-
-    position: absolute;
-    bottom: -14px;
-    left: 50%;
-    transform: translateX(-50%);
-}
+ .onforum-logo-container{
+  display:flex;
+  justify-content:center;
+  margin-bottom:20px;
+} 
 </style>
 </head>
 
@@ -183,13 +135,24 @@ body{
 <div class="container">
 
 <div class="onforum-logo-container">
-    <div class="outer-circle">
-        <div class="inner-dot"></div>
+  <svg viewBox="0 0 200 200" width="160" height="160">
 
-        <div class="triangle-wrapper">
-            <div class="pointing-triangle"></div>
-        </div>
-    </div>
+    <!-- 원 -->
+    <circle cx="100" cy="100" r="70"
+            stroke="#000" stroke-width="3"
+            fill="none" />
+
+    <!-- 점 -->
+    <circle cx="100" cy="78" r="5"
+            fill="#000" />
+
+    <!-- 선 삼각형 -->
+    <polygon points="100,40 150,140 50,140"
+             stroke="#000"
+             stroke-width="2.5"
+             fill="none" />
+
+  </svg>
 </div>
   
 <section class="hero">
