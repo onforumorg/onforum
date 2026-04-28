@@ -113,17 +113,19 @@ body{
   margin-top:10px;
 }
 
-/* 부드러운 안개 파노라마 효과: 
-   각 요소가 서로 다른 속도와 블러 수치로 옅어졌다 짙어지며 유기적으로 흐릅니다. 
+/* 동적인 파노라마 안개 효과: 
+  인위적인 순차 애니메이션이 아닌, 전체가 유기적으로 짙어졌다 흐려짐 
 */
-@keyframes dynamic-mist {
-  0%, 100% { opacity: 1; filter: blur(0px); transform: scale(1); }
-  50% { opacity: 0.2; filter: blur(6px); transform: scale(0.98); }
+@keyframes panoramic-mist {
+  0%, 100% { opacity: 1; filter: grayscale(0) blur(0px); }
+  45% { opacity: 0.3; filter: grayscale(0.5) blur(2px); }
+  55% { opacity: 0.25; filter: grayscale(0.7) blur(3px); }
 }
 
-.mist-element-1 { animation: dynamic-mist 7s ease-in-out infinite; }
-.mist-element-2 { animation: dynamic-mist 9s ease-in-out infinite 1s; }
-.mist-element-3 { animation: dynamic-mist 8s ease-in-out infinite 2s; }
+.logo-group-animated {
+  animation: panoramic-mist 8s ease-in-out infinite;
+  transform-origin: center;
+}
 
 @media(max-width:768px){
   .hero-inner{flex-direction:column;}
@@ -160,9 +162,11 @@ body{
 
 <div class="logo-container">
 <svg width="200" height="220" viewBox="0 0 200 240">
-  <circle class="mist-element-2" cx="100" cy="100" r="80" stroke="black" stroke-width="10" fill="none"/>
-  <circle class="mist-element-1" cx="100" cy="100" r="20" fill="black"/>
-  <path class="mist-element-3" d="M100 145 L45 225 L155 225 Z" stroke="black" stroke-width="8" fill="none"/>
+  <g class="logo-group-animated">
+    <circle cx="100" cy="100" r="80" stroke="black" stroke-width="10" fill="none"/>
+    <circle cx="100" cy="100" r="20" fill="black"/>
+    <path d="M100 145 L45 225 L155 225 Z" stroke="black" stroke-width="8" fill="none"/>
+  </g>
 </svg>
 </div>
 
