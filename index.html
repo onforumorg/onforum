@@ -113,38 +113,29 @@ body{
   color:#b5945d;
 }
 
-/* 로고 애니메이션 (위아래로 부드럽게) */
-@keyframes autonomousFloat {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
-    100% { transform: translateY(0); }
+/* 로고 애니메이션: 안개가 끼고 걷히듯 색감이 변하는 효과 */
+@keyframes mistFade {
+    0%, 100% { opacity: 0.1; }
+    50% { opacity: 1; }
 }
 
-/* 로고가 들어가는 박스 설정 */
 .logo-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 260px; /* 로고가 움직일 공간 */
+    min-height: 260px;
 }
 
-.logo-container svg {
-    animation: autonomousFloat 5s ease-in-out infinite; /* 5초 주기로 무한 반복 */
-    filter: drop-shadow(0 8px 12px rgba(0,0,0,0.08));
+.logo-container svg circle, 
+.logo-container svg path {
+    /* 선과 면에 안개 효과 적용 (6초 주기) */
+    animation: mistFade 6s ease-in-out infinite;
 }
 
-/* 질문하신 모바일 대응 코드 (보정됨) */
 @media(max-width:768px){
-    .hero-inner {
-        flex-direction: column; /* 위아래로 쌓이게 함 */
-    }
-    .hero-left {
-        text-align: center; /* 텍스트 중앙 정렬 */
-        margin-bottom: 40px; /* 로고와의 간격 */
-    }
-    .logo-container {
-        min-height: 200px; /* 모바일에서는 높이 살짝 조절 */
-    }
+  .hero-inner{flex-direction:column;}
+  .hero-left{text-align:center; margin-bottom: 40px;}
+  .logo-container { min-height: 200px; }
 }
 </style>
 </head>
@@ -172,11 +163,11 @@ body{
 </div>
 
 <div class="hero-right">
-<div class="logo-container" style="margin-bottom: 30px;">
+<div class="logo-container">
     <svg width="240" height="260" viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
         <circle cx="100" cy="100" r="80" stroke="black" stroke-width="12" fill="none" />
         <circle cx="100" cy="100" r="20" fill="black" />
-        <path d="M100 135 L35 235 L155 235 Z" stroke="black" stroke-width="10" fill="none" />
+        <path d="M100 135 L35 235 L165 235 Z" stroke="black" stroke-width="10" fill="none" stroke-linejoin="round" />
     </svg>
 </div>
 
