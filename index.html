@@ -92,81 +92,72 @@ body{
   letter-spacing:0.6px;
 }
 
-.footer{
-  margin-top:120px;
-  padding:60px 20px 40px;
-  background:linear-gradient(to top,#f0ede6,transparent);
+/* [1] 공통 및 PC용 설정 (어디서나 기본으로 적용됨) */
+.footer {
+  margin-top: 120px;
+  padding: 60px 20px 40px;
+  background: linear-gradient(to top, #f0ede6, transparent);
 }
-.footer-inner{
-  max-width:1000px;margin:auto;
-  display:flex;justify-content:space-between;flex-wrap:wrap;
+.footer-inner {
+  max-width: 1000px; margin: auto;
+  display: flex; justify-content: space-between; flex-wrap: wrap;
 }
-.footer-brand,.footer-contact,.footer-copy{flex:1;min-width:200px;}
-.footer-brand{text-align:left;}
-.footer-contact{text-align:center;}
-.footer-copy{text-align:right;}
+.footer-brand, .footer-contact, .footer-copy { flex: 1; min-width: 200px; }
+.footer-brand { text-align: left; }
+.footer-contact { text-align: center; }
+.footer-copy { text-align: right; }
 
-.onforum-logo-container{
-  display:flex;
-  justify-content:center;
+.onforum-logo-container {
+  display: flex;
+  justify-content: center;
   margin-top: 60px;
-  margin-bottom:-20px;
+  margin-bottom: -20px;
 }
 
-@media(max-width:768px){
-  .footer-inner{flex-direction:column;text-align:center;}
-  /* 1. 기본 상태 (PC 등 넓은 화면) */
+/* 온포럼 메인 타이틀 디자인 (기본) */
 .hero-title {
   font-family: 'Pretendard', sans-serif;
   font-weight: 900;
-  font-size: 4rem; /* PC에서의 크기 */
+  font-size: 4rem;
   letter-spacing: 5px;
-  
-  /* 좌에서 우로 변하는 명암 그라데이션 */
   background: linear-gradient(to right, #444444, #bbbbbb, #444444);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  
   transition: all 0.5s ease;
   cursor: pointer;
+  display: inline-block; /* 효과가 잘 먹도록 추가 */
 }
 
-/* 2. 마우스를 올렸을 때 (검정색으로 변화) */
+/* 마우스를 올렸을 때 검정색으로 변화 (공통) */
 .hero-title:hover {
-  background: none;
-  -webkit-text-fill-color: #000000;
+  background: none !important;
+  -webkit-text-fill-color: #000000 !important;
   transform: translateY(-3px);
 }
 
-/* 3. 모바일 환경 (찾으신 부분에 적용) */
+/* [2] 모바일 환경 설정 (768px 이하에서만 적용) */
 @media(max-width: 768px) {
   .footer-inner { flex-direction: column; text-align: center; }
   .hero-inner { flex-direction: column; }
   .hero-left { text-align: center; }
-
-  /* 모바일용 hero-title 설정: 크기만 줄이고 효과는 유지 */
   .hero-title {
-    font-size: 2.5rem; /* 모바일에서 적절한 크기 */
-    letter-spacing: 5px;
+    font-size: 2.5rem; /* 모바일에서는 글씨 크기 축소 */
+    letter-spacing: 3px;
   }
 }
-  .hero-inner{flex-direction:column;}
-  .hero-left{text-align:center;}
+
+/* [3] 애니메이션 효과 */
+@keyframes breathe {
+  0% { opacity: 0.8; transform: scale(0.98); }
+  50% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0.8; transform: scale(0.98); }
 }
 
-/* 로고가 부드럽게 커졌다 작아졌다 하는 효과 */
-  @keyframes breathe {
-    0% { opacity: 0.8; transform: scale(0.98); }
-    50% { opacity: 1; transform: scale(1); }
-    100% { opacity: 0.8; transform: scale(0.98); }
-  }
-
-  .onforum-logo-animated {
-    animation: breathe 5s ease-in-out infinite; /* 5초 주기로 아주 천천히 */
-    display: inline-block;
-    transform-origin: center; /* 중심을 기준으로 움직이게 설정 */
-  }
-  
+.onforum-logo-animated {
+  animation: breathe 5s ease-in-out infinite;
+  display: inline-block;
+  transform-origin: center;
+}
 </style>
 </head>
 
