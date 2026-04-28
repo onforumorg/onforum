@@ -45,20 +45,44 @@ header {
 .case {
     background: white;
     padding: 30px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     border-left: 5px solid var(--accent-color);
-    border-radius: 8px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.04);
 }
 .tag {
     font-size: 0.8rem;
     background: #eee;
     padding: 4px 10px;
     display: inline-block;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
+}
+.case h2 {
+    margin-bottom: 15px;
+}
+.block {
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+.block strong {
+    display: block;
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 3px;
+}
+.impact {
+    margin-top: 15px;
+    font-weight: 700;
+    color: var(--accent-color);
 }
 .back {
     text-align: center;
-    margin-top: 30px;
+    margin-top: 40px;
+}
+.back a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: 700;
 }
 </style>
 </head>
@@ -93,8 +117,8 @@ const content = {
         en: "Practical Cases"
     },
     subtitle: {
-        ko: "구조 분석이 실제 현실에 적용된 사례",
-        en: "Applications of structural analysis"
+        ko: "구조 분석이 현실을 어떻게 바꾸는가",
+        en: "How structural analysis transforms reality"
     },
     back: {
         ko: "← 메인으로 돌아가기",
@@ -104,31 +128,75 @@ const content = {
 
 const cases = [
 {
-    tag: {
-        ko: "개인 및 의사결정",
-        en: "Individual & Decision"
+    tag: { ko: "개인 및 의사결정", en: "Individual & Decision" },
+    title: { ko: "반복되는 판단 착오의 구조적 해결", en: "Breaking Repeated Judgment Errors" },
+    problem: {
+        ko: "같은 실수를 반복한다",
+        en: "Repeating the same mistakes"
     },
-    title: {
-        ko: "반복되는 판단 착오의 구조적 해결",
-        en: "Solving Recurring Judgment Errors"
+    existing: {
+        ko: "정보를 더 찾거나 감정을 통제하려 한다",
+        en: "Trying to control emotions or gather more information"
     },
-    desc: {
-        ko: "감정이 아닌 판단 구조의 결함을 분석하여 해결 기준 제시",
-        en: "Identifying structural flaws in judgment instead of emotions"
+    structure: {
+        ko: "판단 기준 자체가 구조적으로 부재",
+        en: "Lack of structural decision criteria"
+    },
+    result: {
+        ko: "기준이 생기면서 반복이 멈춘다",
+        en: "Once criteria form, repetition stops"
+    },
+    impact: {
+        ko: "문제 해결이 아니라 반복 자체가 사라진다",
+        en: "Not solving problems, but eliminating repetition"
     }
 },
 {
-    tag: {
-        ko: "조직 및 사회",
-        en: "Organization & Society"
+    tag: { ko: "조직 및 사회", en: "Organization & Society" },
+    title: { ko: "갈등 구조의 가시화와 흐름 조정", en: "Restructuring Conflict Dynamics" },
+    problem: {
+        ko: "같은 갈등이 반복된다",
+        en: "Recurring conflicts"
     },
-    title: {
-        ko: "갈등 구조의 가시화와 흐름 조정",
-        en: "Visualizing Conflict Structures"
+    existing: {
+        ko: "사람을 바꾸거나 소통을 늘린다",
+        en: "Replacing people or increasing communication"
     },
-    desc: {
-        ko: "정보와 권한 구조의 비대칭을 해결",
-        en: "Resolving asymmetry in information and authority"
+    structure: {
+        ko: "정보와 권한의 흐름이 비대칭",
+        en: "Asymmetry in information and authority flow"
+    },
+    result: {
+        ko: "구조 조정으로 갈등이 자연스럽게 감소",
+        en: "Conflict decreases through structural adjustment"
+    },
+    impact: {
+        ko: "갈등을 해결하는 것이 아니라 발생 조건이 사라진다",
+        en: "Not resolving conflict, but removing its cause"
+    }
+},
+{
+    tag: { ko: "학습 및 교육", en: "Learning & Education" },
+    title: { ko: "이해하지 못하는 학습의 구조적 전환", en: "Fixing Ineffective Learning Structures" },
+    problem: {
+        ko: "공부해도 이해되지 않는다",
+        en: "Studying but not understanding"
+    },
+    existing: {
+        ko: "더 많은 반복과 암기를 시도한다",
+        en: "More repetition and memorization"
+    },
+    structure: {
+        ko: "정보 흐름이 아닌 구조 이해가 결여됨",
+        en: "Lack of structural understanding of knowledge"
+    },
+    result: {
+        ko: "구조를 이해하면서 학습 효율이 급상승",
+        en: "Understanding structure boosts learning efficiency"
+    },
+    impact: {
+        ko: "양이 아니라 이해 구조가 학습을 결정한다",
+        en: "Learning depends on structure, not volume"
     }
 }
 ];
@@ -144,7 +212,30 @@ function renderCases(lang) {
         el.innerHTML = `
             <div class="tag">${c.tag[lang]}</div>
             <h2>${c.title[lang]}</h2>
-            <p>${c.desc[lang]}</p>
+
+            <div class="block">
+                <strong>문제</strong>
+                ${c.problem[lang]}
+            </div>
+
+            <div class="block">
+                <strong>기존 접근</strong>
+                ${c.existing[lang]}
+            </div>
+
+            <div class="block">
+                <strong>구조 분석</strong>
+                ${c.structure[lang]}
+            </div>
+
+            <div class="block">
+                <strong>변화</strong>
+                ${c.result[lang]}
+            </div>
+
+            <div class="impact">
+                ${c.impact[lang]}
+            </div>
         `;
 
         container.appendChild(el);
