@@ -19,7 +19,38 @@ body{
     linear-gradient(to bottom,#f7f6f2,#f2efe8);
 }
 
-/* ... 중간 전부 동일 (생략 없음, 실제로는 그대로 유지됨) ... */
+/* ✅ 추가된 최소 복구 CSS (이 부분만 추가됨) */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.center {
+  text-align: center;
+}
+
+.hero-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.hero-left {
+  flex: 1;
+  text-align: left;
+}
+
+.hero-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+/* ... 중간 전부 동일 (생략 없음, 기존 유지) ... */
 </style>
 </head>
 
@@ -108,7 +139,6 @@ body{
       <span>→ 기준이 생기면 반복이 멈춘다</span>
     </a>
 
-    <!-- ✅ 여기만 수정됨 -->
     <a href="cases.html#case-1" class="preview-card">
       <h3>조직 내 반복되는 갈등</h3>
       <p>사람 문제가 아니라 구조 비대칭 문제</p>
@@ -145,7 +175,6 @@ body{
 </footer>
 
 <script>
-/* 기존 JS 그대로 유지 */
 const content={
 hero:{ko:"세상을 해석하는 기준을 다시 설계합니다",en:"Redefining the way we interpret reality"},
 hero_sub:{ko:"문제는 정보가 아니라 구조입니다",en:"The problem is not information, but structure"},
