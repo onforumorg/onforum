@@ -1,214 +1,407 @@
 <!DOCTYPE html>
+
 <html lang="ko">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
 
 <title>ON-FORUM</title>
 
+
+
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css"/>
 
+
+
 <style>
+
 body{
+
   font-family:'Pretendard',sans-serif;
+
   margin:0;
+
   background:
+
     radial-gradient(circle at 20% 20%, rgba(181,148,93,0.08), transparent 40%),
+
     radial-gradient(circle at 80% 80%, rgba(26,42,64,0.06), transparent 40%),
+
     linear-gradient(to bottom,#f7f6f2,#f2efe8);
+
 }
+
+
 
 .container{max-width:1100px;margin:0 auto;padding:40px 20px;}
+
 .center{text-align:center;}
 
+
+
 .hero{padding:80px 20px 60px;}
+
 .hero-inner{
+
   display:flex;
+
   justify-content:space-between;
+
   align-items:center;
+
   gap:40px;
+
   max-width:1100px;
+
   margin:0 auto;
+
 }
+
 .hero-left{flex:1;}
+
 .hero-right{flex:1;display:flex;flex-direction:column;align-items:center;}
 
+
+
 .hero-title{
+
   font-size:3.5rem;
+
   font-weight:900;
+
   letter-spacing:6px;
+
   background:linear-gradient(to right,#444,#bbb,#444);
+
   -webkit-background-clip:text;
+
   -webkit-text-fill-color:transparent;
+
   margin-bottom:20px;
+
 }
+
+
 
 .main-text{font-size:1.4rem;font-weight:600;color:#222;margin-bottom:10px;}
+
 .sub-text{font-size:1.1rem;font-weight:700;margin-bottom:30px;}
 
+
+
 .menu a{
+
   display:inline-block;
+
   margin:5px;
+
   padding:12px 22px;
+
   border-radius:10px;
+
   border:1px solid rgba(26,42,64,0.2);
+
   background:rgba(255,255,255,0.7);
+
   color:#1a2a40;
+
   font-weight:700;
+
   text-decoration:none;
+
   transition:0.25s;
+
 }
+
 .menu a:hover{
+
   background:#1a2a40;
+
   color:#fff;
+
 }
+
+
 
 .concept-box{
+
   background:rgba(255,255,255,0.7);
+
   padding:25px;
+
   border-radius:14px;
+
   box-shadow:0 10px 25px rgba(0,0,0,0.05);
+
   font-weight:700;
+
   line-height:1.8;
+
   text-align:center;
+
   margin-top:20px;
+
 }
+
+
 
 .bottom-band{
+
   margin-top:40px;
+
   padding:30px 20px;
+
   background:#4b5320;
+
   color:#fff;
+
   text-align:center;
+
   font-weight:700;
+
 }
+
+
 
 .logo-container{
+
   margin-top:10px;
+
 }
 
+
+
 @media(max-width:768px){
+
   .hero-inner{flex-direction:column;}
+
   .hero-left{text-align:center;}
+
 }
+
 </style>
+
 </head>
+
+
 
 <body>
 
+
+
 <div style="text-align:right;padding:15px;">
+
 <button onclick="setLang('ko')">KOR</button>
+
 <button onclick="setLang('en')">ENG</button>
+
 </div>
+
+
 
 <section class="hero">
+
 <div class="hero-inner">
 
+
+
 <div class="hero-left">
+
 <h1 class="hero-title">ON-FORUM</h1>
 
+
+
 <p class="main-text" data-i18n="hero"></p>
+
 <p class="sub-text" data-i18n="hero_sub"></p>
 
+
+
 <div class="menu">
+
 <a href="#intro" data-i18n="btn_intro"></a>
+
 <a href="#structure" data-i18n="btn_structure"></a>
+
 <a href="cases.html" data-i18n="btn_cases"></a>
+
 <a href="#research" data-i18n="btn_research"></a>
+
 </div>
+
 </div>
+
+
 
 <div class="hero-right">
 
+
+
 <div class="logo-container">
+
 <svg width="200" height="220" viewBox="0 0 200 240">
 
+
+
 <defs>
+
+  <!-- 부드러운 안개 -->
+
   <radialGradient id="fog1">
-    <stop offset="0%" stop-color="white" stop-opacity="0.2"/>
+
+    <stop offset="0%" stop-color="white" stop-opacity="0.15"/>
+
     <stop offset="100%" stop-color="white" stop-opacity="0"/>
+
   </radialGradient>
+
+
 
   <radialGradient id="fog2">
-    <stop offset="0%" stop-color="white" stop-opacity="0.15"/>
-    <stop offset="100%" stop-color="white" stop-opacity="0"/>
-  </radialGradient>
 
-  <radialGradient id="fog3">
     <stop offset="0%" stop-color="white" stop-opacity="0.1"/>
+
     <stop offset="100%" stop-color="white" stop-opacity="0"/>
+
   </radialGradient>
 
-  <mask id="logoMask">
-    <rect width="200" height="240" fill="white"/>
-    
-    <circle r="60" fill="url(#fog1)">
-      <animate attributeName="cx" values="40;160;50;150;40" dur="18s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1; 0.4 0 0.2 1; 0.4 0 0.2 1"/>
-      <animate attributeName="cy" values="50;150;90;130;50" dur="20s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1; 0.4 0 0.2 1; 0.4 0 0.2 1"/>
-    </circle>
-    
-    <circle r="70" fill="url(#fog2)">
-      <animate attributeName="cx" values="150;50;140;60;150" dur="24s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1; 0.4 0 0.2 1; 0.4 0 0.2 1"/>
-      <animate attributeName="cy" values="130;70;160;100;130" dur="22s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1; 0.4 0 0.2 1; 0.4 0 0.2 1"/>
-    </circle>
-    
-    <circle r="80" fill="url(#fog3)">
-      <animate attributeName="cx" values="80;120;70;130;80" dur="28s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1; 0.4 0 0.2 1; 0.4 0 0.2 1"/>
-      <animate attributeName="cy" values="140;100;130;110;140" dur="26s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1; 0.4 0 0.2 1; 0.4 0 0.2 1"/>
-    </circle>
-  </mask>
 </defs>
 
-<g mask="url(#logoMask)">
+
+
+<!-- 로고 (절대 고정) -->
+
+<g>
+
   <circle cx="100" cy="100" r="80" stroke="black" stroke-width="10" fill="none"/>
+
   <circle cx="100" cy="100" r="20" fill="black"/>
+
   <path d="M100 145 L45 225 L155 225 Z" stroke="black" stroke-width="8" fill="none"/>
+
 </g>
 
+
+
+<!-- 안개 레이어 1 -->
+
+<circle r="80" fill="url(#fog1)" opacity="0.4">
+
+  <animate attributeName="cx" values="30;170;60;140;30" dur="20s" repeatCount="indefinite"/>
+
+  <animate attributeName="cy" values="60;140;80;120;60" dur="22s" repeatCount="indefinite"/>
+
+</circle>
+
+
+
+<!-- 안개 레이어 2 -->
+
+<circle r="90" fill="url(#fog2)" opacity="0.3">
+
+  <animate attributeName="cx" values="160;40;130;70;160" dur="26s" repeatCount="indefinite"/>
+
+  <animate attributeName="cy" values="120;60;150;90;120" dur="24s" repeatCount="indefinite"/>
+
+</circle>
+
+
+
 </svg>
+
 </div>
+
+
 
 <div class="concept-box">
+
 <p data-i18n="c_philosophy"></p>
+
 <p data-i18n="c_society"></p>
+
 <p data-i18n="c_economy"></p>
+
 <p data-i18n="c_education"></p>
+
+</div>
+
+
+
 </div>
 
 </div>
-</div>
+
 </section>
+
+
 
 <div class="bottom-band" data-i18n="definition"></div>
 
+
+
 <script>
+
 const content={
+
 hero:{ko:"세상을 해석하는 기준을 다시 설계합니다",en:"Redefining how we interpret reality"},
+
 hero_sub:{ko:"문제는 정보가 아니라 구조입니다",en:"The problem is structure, not information"},
+
 definition:{ko:"온포럼은 현실을 구조로 분석하는 연구 플랫폼입니다",en:"A platform analyzing reality through structure"},
 
+
+
 btn_intro:{ko:"소개",en:"Intro"},
+
 btn_structure:{ko:"구조 보기",en:"Structure"},
+
 btn_cases:{ko:"사례 보기",en:"Cases"},
+
 btn_research:{ko:"연구 참여",en:"Research"},
 
+
+
 c_philosophy:{ko:"철학",en:"Philosophy"},
+
 c_society:{ko:"사회",en:"Society"},
+
 c_economy:{ko:"경제",en:"Economy"},
+
 c_education:{ko:"교육",en:"Education"}
+
 };
 
+
+
 function setLang(lang){
+
 localStorage.setItem("lang",lang);
+
 document.querySelectorAll("[data-i18n]").forEach(el=>{
+
 el.innerHTML=content[el.dataset.i18n][lang];
+
 });
+
 }
+
+
 
 window.onload=function(){
+
 setLang(localStorage.getItem("lang")||"ko");
+
 }
+
 </script>
 
+
+
 </body>
+
 </html>
