@@ -113,15 +113,17 @@ body{
   margin-top:10px;
 }
 
-/* 동적인 파노라마 안개 효과 */
-@keyframes fog-flow {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
+/* 부드러운 안개 파노라마 효과: 
+   각 요소가 서로 다른 속도와 블러 수치로 옅어졌다 짙어지며 유기적으로 흐릅니다. 
+*/
+@keyframes dynamic-mist {
+  0%, 100% { opacity: 1; filter: blur(0px); transform: scale(1); }
+  50% { opacity: 0.2; filter: blur(6px); transform: scale(0.98); }
 }
 
-.mist-overlay {
-  animation: fog-flow 6s linear infinite;
-}
+.mist-element-1 { animation: dynamic-mist 7s ease-in-out infinite; }
+.mist-element-2 { animation: dynamic-mist 9s ease-in-out infinite 1s; }
+.mist-element-3 { animation: dynamic-mist 8s ease-in-out infinite 2s; }
 
 @media(max-width:768px){
   .hero-inner{flex-direction:column;}
@@ -158,25 +160,9 @@ body{
 
 <div class="logo-container">
 <svg width="200" height="220" viewBox="0 0 200 240">
-  <defs>
-    <linearGradient id="fogGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="black" stop-opacity="1" />
-      <stop offset="40%" stop-color="black" stop-opacity="0.3">
-        <animate attributeName="offset" values="0; 1; 0" dur="8s" repeatCount="indefinite" />
-      </stop>
-      <stop offset="100%" stop-color="black" stop-opacity="1" />
-    </linearGradient>
-    
-    <mask id="fogMask">
-      <rect x="0" y="0" width="200" height="240" fill="url(#fogGrad)" />
-    </mask>
-  </defs>
-
-  <g mask="url(#fogMask)">
-    <circle cx="100" cy="100" r="80" stroke="black" stroke-width="10" fill="none"/>
-    <circle cx="100" cy="100" r="20" fill="black"/>
-    <path d="M100 145 L45 225 L155 225 Z" stroke="black" stroke-width="8" fill="none"/>
-  </g>
+  <circle class="mist-element-2" cx="100" cy="100" r="80" stroke="black" stroke-width="10" fill="none"/>
+  <circle class="mist-element-1" cx="100" cy="100" r="20" fill="black"/>
+  <path class="mist-element-3" d="M100 145 L45 225 L155 225 Z" stroke="black" stroke-width="8" fill="none"/>
 </svg>
 </div>
 
