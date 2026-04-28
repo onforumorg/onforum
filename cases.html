@@ -55,11 +55,19 @@ h1{
 
 <body>
 
-<h1>적용 사례</h1>
+<h1 id="title"></h1>
 
 <div id="case-list"></div>
 
 <script>
+
+const labels = {
+title:{ko:"적용 사례", en:"Use Cases"},
+problem:{ko:"문제", en:"Problem"},
+existing:{ko:"기존 접근", en:"Existing Approach"},
+structure:{ko:"구조 분석", en:"Structural Analysis"},
+result:{ko:"변화", en:"Transformation"}
+};
 
 const cases = [
 
@@ -89,6 +97,8 @@ function renderCases(lang) {
     const container = document.getElementById("case-list");
     container.innerHTML = "";
 
+    document.getElementById("title").innerText = labels.title[lang];
+
     cases.forEach((c, index) => {
         const el = document.createElement("div");
         el.className = "case";
@@ -99,22 +109,22 @@ function renderCases(lang) {
             <h2>${c.title[lang]}</h2>
 
             <div class="block">
-                <strong>문제</strong>
+                <strong>${labels.problem[lang]}</strong>
                 ${c.problem[lang]}
             </div>
 
             <div class="block">
-                <strong>기존 접근</strong>
+                <strong>${labels.existing[lang]}</strong>
                 ${c.existing[lang]}
             </div>
 
             <div class="block">
-                <strong>구조 분석</strong>
+                <strong>${labels.structure[lang]}</strong>
                 ${c.structure[lang]}
             </div>
 
             <div class="block">
-                <strong>변화</strong>
+                <strong>${labels.result[lang]}</strong>
                 ${c.result[lang]}
             </div>
 
