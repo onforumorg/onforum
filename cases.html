@@ -1,4 +1,3 @@
-<!-- 핵심 부분만 표시 (전체 동일, 수정된 부분만 포함) -->
 <script>
 
 const cases = [
@@ -9,10 +8,10 @@ function renderCases(lang) {
     const container = document.getElementById("case-list");
     container.innerHTML = "";
 
-    cases.forEach((c, index) => {  <!-- ✅ 수정 -->
+    cases.forEach((c, index) => {
         const el = document.createElement("div");
         el.className = "case";
-        el.id = "case-" + index;   <!-- ✅ 추가 -->
+        el.id = "case-" + index;
 
         el.innerHTML = `
             <div class="tag">${c.tag[lang]}</div>
@@ -46,4 +45,5 @@ function renderCases(lang) {
         container.appendChild(el);
     });
 }
+
 </script>
