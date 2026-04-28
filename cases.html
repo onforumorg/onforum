@@ -1,7 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>적용 사례 | ON-FORUM</title>
+
+<style>
+body{
+    font-family:sans-serif;
+    margin:0;
+    padding:40px;
+    background:#f7f6f2;
+}
+
+h1{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.case{
+    max-width:800px;
+    margin:40px auto;
+    padding:25px;
+    background:#fff;
+    border-radius:12px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.06);
+}
+
+.tag{
+    font-size:0.9rem;
+    color:#b5945d;
+    font-weight:700;
+    margin-bottom:10px;
+}
+
+.block{
+    margin-top:15px;
+    line-height:1.6;
+}
+
+.block strong{
+    display:block;
+    margin-bottom:5px;
+}
+
+.impact{
+    margin-top:20px;
+    font-weight:700;
+    color:#1a2a40;
+}
+</style>
+</head>
+
+<body>
+
+<h1>적용 사례</h1>
+
+<div id="case-list"></div>
+
 <script>
 
 const cases = [
-/* 그대로 유지 */
+
+{
+tag:{ko:"사례 1", en:"Case 1"},
+title:{ko:"판단 오류의 반복", en:"Repeated Judgment Errors"},
+problem:{ko:"같은 실수를 반복하는 문제", en:"Repeated mistakes occur"},
+existing:{ko:"정보를 더 모으려 함", en:"Trying to gather more information"},
+structure:{ko:"기준 구조 자체가 없음", en:"No structural standard exists"},
+result:{ko:"기준이 생기며 반복 중단", en:"Repetition stops with structure"},
+impact:{ko:"판단 안정성 확보", en:"Stable decision making"}
+},
+
+{
+tag:{ko:"사례 2", en:"Case 2"},
+title:{ko:"조직 갈등", en:"Organizational Conflict"},
+problem:{ko:"갈등이 반복됨", en:"Conflicts repeat"},
+existing:{ko:"사람 문제로 접근", en:"Blaming individuals"},
+structure:{ko:"구조 비대칭 문제", en:"Structural imbalance"},
+result:{ko:"구조 조정으로 해결", en:"Resolved via restructuring"},
+impact:{ko:"갈등 감소", en:"Reduced conflict"}
+}
+
 ];
 
 function renderCases(lang) {
@@ -46,12 +127,11 @@ function renderCases(lang) {
     });
 }
 
-/* ✅ 추가된 부분 (렌더링 실행) */
 window.onload = function() {
     renderCases(localStorage.getItem("lang") || "ko");
 };
 
 </script>
 
-<!-- ✅ 추가된 부분 (컨테이너) -->
-<div id="case-list"></div>
+</body>
+</html>
