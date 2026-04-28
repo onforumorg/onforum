@@ -113,10 +113,10 @@ body{
   margin-top:10px;
 }
 
-/* --- 불규칙한 안개 명멸 효과 (하나의 도형 내에서도 부분적으로 작동) --- */
-.mist-filter {
-  filter: url(#fuzzy-mist);
-}
+/* --- 비선형적 안개 마스크 애니메이션 --- */
+.mask-dot { mask: url(#m-dot); }
+.mask-circle { mask: url(#m-circle); }
+.mask-tri { mask: url(#m-tri); }
 
 @media(max-width:768px){
   .hero-inner{flex-direction:column;}
@@ -154,29 +154,56 @@ body{
 <div class="logo-container">
 <svg width="200" height="220" viewBox="0 0 200 240">
   <defs>
-    <filter id="fuzzy-mist" x="-20%" y="-20%" width="140%" height="140%">
-      <feTurbulence type="fractalNoise" baseFrequency="0.015" numOctaves="3" seed="1">
-        <animate attributeName="baseFrequency" dur="15s" values="0.015;0.025;0.015" repeatCount="indefinite" />
-        <animate attributeName="seed" dur="20s" values="1;50;1" repeatCount="indefinite" />
-      </feTurbulence>
-      <feDisplacementMap in="SourceGraphic" scale="15">
-        <animate attributeName="scale" dur="10s" values="5;20;5" repeatCount="indefinite" />
-      </feDisplacementMap>
-      <feComponentTransfer>
-        <feFuncA type="table" tableValues="1 0.8 1 0.3 1">
-          <animate attributeName="tableValues" dur="12s" values="1 0.8 1 0.3 1; 0.4 1 0.6 1 0.5; 1 0.8 1 0.3 1" repeatCount="indefinite" />
-        </feFuncA>
-      </feComponentTransfer>
+    <mask id="m-circle">
+      <radialGradient id="g-circle" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="white">
+          <animate attributeName="offset" dur="7s" values="0%;100%;0%" repeatCount="indefinite" />
+        </stop>
+        <stop offset="100%" stop-color="black">
+          <animate attributeName="offset" dur="11s" values="100%;0%;100%" repeatCount="indefinite" />
+        </stop>
+      </radialGradient>
+      <circle cx="100" cy="100" r="100" fill="url(#g-circle)" />
+    </mask>
+
+    <mask id="m-dot">
+      <radialGradient id="g-dot" cx="30%" cy="30%" r="50%">
+        <stop offset="0%" stop-color="white">
+          <animate attributeName="offset" dur="5s" values="0%;80%;0%" repeatCount="indefinite" />
+        </stop>
+        <stop offset="100%" stop-color="black">
+          <animate attributeName="offset" dur="9s" values="100%;20%;100%" repeatCount="indefinite" />
+        </stop>
+      </radialGradient>
+      <rect x="0" y="0" width="200" height="240" fill="url(#g-dot)" />
+    </mask>
+
+    <mask id="m-tri">
+      <linearGradient id="g-tri" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="black">
+          <animate attributeName="offset" dur="13s" values="0%;100%;0%" repeatCount="indefinite" />
+        </stop>
+        <stop offset="50%" stop-color="white">
+          <animate attributeName="offset" dur="8s" values="20%;80%;20%" repeatCount="indefinite" />
+        </stop>
+        <stop offset="100%" stop-color="black">
+          <animate attributeName="offset" dur="15s" values="100%;0%;100%" repeatCount="indefinite" />
+        </stop>
+      </linearGradient>
+      <rect x="0" y="0" width="200" height="240" fill="url(#g-tri)" />
+    </mask>
+
+    <filter id="blur-filter">
       <feGaussianBlur stdDeviation="1.5">
-        <animate attributeName="stdDeviation" dur="8s" values="0;2.5;0.5;3;0" repeatCount="indefinite" />
+        <animate attributeName="stdDeviation" dur="6s" values="0;3;0.5;4;0" repeatCount="indefinite" />
       </feGaussianBlur>
     </filter>
   </defs>
 
-  <g class="mist-filter">
-    <circle cx="100" cy="100" r="80" stroke="black" stroke-width="10" fill="none"/>
-    <circle cx="100" cy="100" r="20" fill="black"/>
-    <path d="M100 145 L45 225 L155 225 Z" stroke="black" stroke-width="8" fill="none"/>
+  <g filter="url(#blur-filter)">
+    <circle class="mask-circle" cx="100" cy="100" r="80" stroke="black" stroke-width="10" fill="none"/>
+    <circle class="mask-dot" cx="100" cy="100" r="20" fill="black"/>
+    <path class="mask-tri" d="M100 145 L45 225 L155 225 Z" stroke="black" stroke-width="8" fill="none"/>
   </g>
 </svg>
 </div>
