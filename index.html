@@ -168,72 +168,84 @@ body{
 <div class="bottom-band" data-i18n="definition"></div>
 
 <section class="container center">
-<h2>적용 사례</h2>
+<h2 data-i18n="cases_title"></h2>
 
 <div class="preview-wrap">
 <a href="cases.html#case-0" class="preview-card">
-<h3>판단 오류 반복</h3>
-<p>정보 부족이 아닌 기준 구조 문제</p>
-<span>→ 구조가 기준이 된다</span>
+<h3 data-i18n="case1_title"></h3>
+<p data-i18n="case1_desc"></p>
+<span data-i18n="case1_result"></span>
 </a>
 
 <a href="cases.html#case-1" class="preview-card">
-<h3>조직 갈등 반복</h3>
-<p>사람이 아닌 구조 비대칭 문제</p>
-<span>→ 구조 수정으로 해결</span>
+<h3 data-i18n="case2_title"></h3>
+<p data-i18n="case2_desc"></p>
+<span data-i18n="case2_result"></span>
 </a>
 </div>
+
 <section id="research" style="background:#1a2a40; color:#fff; margin-top:60px;">
 
 <div style="max-width:1100px; margin:0 auto; padding:60px 20px;">
 
-    <!-- 상단 -->
-    <div style="display:flex; flex-wrap:wrap; justify-content:space-between; gap:40px;">
+<div style="display:flex; flex-wrap:wrap; justify-content:space-between; gap:40px;">
 
-        <!-- 좌측 -->
-        <div style="flex:1; min-width:260px;">
-            <h2 style="margin-bottom:20px; font-size:1.6rem;">ON-FORUM</h2>
-            <p style="line-height:1.8; color:#cfd6df;">
-                온포럼은 현실을 구조로 해석하고 재설계하는 연구 플랫폼입니다.<br>
-                정보가 아닌 기준을 통해, 반복되는 문제를 구조적으로 해결합니다.
-            </p>
-        </div>
+<div style="flex:1; min-width:260px;">
+<h2 style="margin-bottom:20px; font-size:1.6rem;">ON-FORUM</h2>
+<p style="line-height:1.8; color:#cfd6df;" data-i18n="footer_desc"></p>
+</div>
 
-        <!-- 우측 -->
-        <div style="flex:1; min-width:260px;">
-            <h3 style="margin-bottom:20px;">Contact</h3>
+<div style="flex:1; min-width:260px;">
+<h3 style="margin-bottom:20px;">Contact</h3>
 
-            <div style="line-height:2; font-weight:600;">
-                <div>📞 0505-799-7878</div>
-                <div>📧 onforum.org@gmail.com</div>
-                <div>🌐 https://on-forum.org/</div>
-            </div>
+<div style="line-height:2; font-weight:600;">
+<div>📞 0505-799-7878</div>
+<div>📧 onforum.org@gmail.com</div>
+<div>🌐 https://on-forum.org/</div>
+</div>
 
-        </div>
+</div>
 
-    </div>
+</div>
 
-    <!-- 하단 라인 -->
-    <div style="border-top:1px solid rgba(255,255,255,0.15); margin-top:40px; padding-top:20px; text-align:center; font-size:0.9rem; color:#aaa;">
-        © ON-FORUM. All rights reserved.
-    </div>
+<div style="border-top:1px solid rgba(255,255,255,0.15); margin-top:40px; padding-top:20px; text-align:center; font-size:0.9rem; color:#aaa;">
+© ON-FORUM. All rights reserved.
+</div>
 
 </div>
 
 </section>
+
 <script>
 const content={
 hero:{ko:"세상을 해석하는 기준을 다시 설계합니다",en:"Redefining how we interpret reality"},
 hero_sub:{ko:"문제는 정보가 아니라 구조입니다",en:"The problem is structure, not information"},
 definition:{ko:"온포럼은 현실을 구조로 분석하는 연구 플랫폼입니다",en:"A platform analyzing reality through structure"},
+
 btn_intro:{ko:"소개",en:"Intro"},
 btn_structure:{ko:"구조 보기",en:"Structure"},
 btn_cases:{ko:"사례 보기",en:"Cases"},
 btn_research:{ko:"연구 참여",en:"Research"},
+
 c_philosophy:{ko:"철학",en:"Philosophy"},
 c_society:{ko:"사회",en:"Society"},
 c_economy:{ko:"경제",en:"Economy"},
-c_education:{ko:"교육",en:"Education"}
+c_education:{ko:"교육",en:"Education"},
+
+cases_title:{ko:"적용 사례",en:"Use Cases"},
+
+case1_title:{ko:"판단 오류 반복",en:"Repeated Misjudgment"},
+case1_desc:{ko:"정보 부족이 아닌 기준 구조 문제",en:"Not lack of information, but structural criteria issue"},
+case1_result:{ko:"→ 구조가 기준이 된다",en:"→ Structure becomes the standard"},
+
+case2_title:{ko:"조직 갈등 반복",en:"Repeated Organizational Conflict"},
+case2_desc:{ko:"사람이 아닌 구조 비대칭 문제",en:"Not people, but structural asymmetry"},
+case2_result:{ko:"→ 구조 수정으로 해결",en:"→ Solved through structural change"},
+
+footer_desc:{
+ko:"온포럼은 현실을 구조로 해석하고 재설계하는 연구 플랫폼입니다.<br>정보가 아닌 기준을 통해, 반복되는 문제를 구조적으로 해결합니다.",
+en:"ON-FORUM is a research platform that interprets and redesigns reality through structure.<br>It solves recurring problems structurally through standards, not information."
+}
 };
 
 function setLang(lang){
