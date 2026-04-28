@@ -113,26 +113,7 @@ body{
   margin-top:10px;
 }
 
-/* --- 로고 애니메이션 추가 --- */
-/* 선을 따라 안개가 감돌듯 흐르는 애니메이션 */
-@keyframes fogFlow {
-  0% { stroke-dashoffset: 1000; }
-  100% { stroke-dashoffset: 0; }
-}
-
-.on-fog-line {
-  /* 선의 농담을 안개처럼 부드럽고 불규칙하게 배열 (진함-연함-진함) */
-  stroke-dasharray: 120, 50, 180, 70, 100;
-  stroke-linecap: round;
-  opacity: 0.8;
-  animation: fogFlow 30s linear infinite;
-}
-
-/* 각 요소의 흐름 속도를 다르게 하여 불규칙성을 부여 */
-.circle-flow { animation-duration: 40s; }
-.triangle-flow { animation-duration: 55s; animation-direction: reverse; }
-.dot-flow { animation: fogFlow 25s linear infinite; opacity: 0.6; }
-  
+ 
 @media(max-width:768px){
   .hero-inner{flex-direction:column;}
   .hero-left{text-align:center;}
@@ -168,16 +149,13 @@ body{
 
 <div class="logo-container">
 
-<svg width="200" height="240" viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
-  <circle class="on-fog-line circle-flow" cx="100" cy="100" r="80" 
-          stroke="black" stroke-width="10" fill="none" />
-  
-  <circle class="on-fog-line dot-flow" cx="100" cy="100" r="20" 
-          stroke="black" stroke-width="40" fill="none" stroke-dasharray="10, 30" />
-  
-  <path class="on-fog-line triangle-flow" d="M100 145 L45 225 L155 225 Z" 
-        stroke="black" stroke-width="8" fill="none" />
-</svg>
+<div class="logo-container">
+  <svg width="200" height="240" viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="100" cy="100" r="80" stroke="black" stroke-width="10" fill="none"/>
+    <circle cx="100" cy="100" r="20" fill="black"/>
+    <path d="M100 145 L45 225 L155 225 Z" stroke="black" stroke-width="8" fill="none"/>
+  </svg>
+</div>
 </div>
 </div>
 
