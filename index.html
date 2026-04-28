@@ -18,11 +18,9 @@ body{
     linear-gradient(to bottom,#f7f6f2,#f2efe8);
 }
 
-/* 전체 레이아웃 */
 .container{max-width:1100px;margin:0 auto;padding:40px 20px;}
 .center{text-align:center;}
 
-/* 히어로 */
 .hero{padding:80px 20px 60px;}
 .hero-inner{
   display:flex;
@@ -35,7 +33,6 @@ body{
 .hero-left{flex:1;}
 .hero-right{flex:1;display:flex;flex-direction:column;align-items:center;}
 
-/* 타이틀 */
 .hero-title{
   font-size:3.5rem;
   font-weight:900;
@@ -46,11 +43,9 @@ body{
   margin-bottom:20px;
 }
 
-/* 텍스트 */
 .main-text{font-size:1.4rem;font-weight:600;color:#222;margin-bottom:10px;}
 .sub-text{font-size:1.1rem;font-weight:700;margin-bottom:30px;}
 
-/* 버튼 */
 .menu a{
   display:inline-block;
   margin:5px;
@@ -68,7 +63,6 @@ body{
   color:#fff;
 }
 
-/* 개념 박스 */
 .concept-box{
   background:rgba(255,255,255,0.7);
   padding:25px;
@@ -80,7 +74,6 @@ body{
   margin-top:20px;
 }
 
-/* 하단 밴드 */
 .bottom-band{
   margin-top:40px;
   padding:30px 20px;
@@ -90,7 +83,6 @@ body{
   font-weight:700;
 }
 
-/* 카드 */
 .preview-wrap{
   display:flex;
   gap:20px;
@@ -117,12 +109,10 @@ body{
   color:#b5945d;
 }
 
-/* 로고 */
 .logo-container{
   margin-top:10px;
 }
 
-/* 반응형 */
 @media(max-width:768px){
   .hero-inner{flex-direction:column;}
   .hero-left{text-align:center;}
@@ -132,13 +122,11 @@ body{
 
 <body>
 
-<!-- 언어 버튼 -->
 <div style="text-align:right;padding:15px;">
 <button onclick="setLang('ko')">KOR</button>
 <button onclick="setLang('en')">ENG</button>
 </div>
 
-<!-- 메인 -->
 <section class="hero">
 <div class="hero-inner">
 
@@ -179,7 +167,6 @@ body{
 
 <div class="bottom-band" data-i18n="definition"></div>
 
-<!-- 사례 -->
 <section class="container center">
 <h2>적용 사례</h2>
 
@@ -195,6 +182,22 @@ body{
 <p>사람이 아닌 구조 비대칭 문제</p>
 <span>→ 구조 수정으로 해결</span>
 </a>
+</div>
+</section>
+
+<!-- ✅ 복구된 하단 -->
+<section class="container center" id="research">
+
+<h2>연구 참여 및 문의</h2>
+
+<p style="margin-top:20px;font-weight:600;">
+온포럼은 구조 기반 사고와 연구에 관심 있는 분들의 참여를 기다립니다.
+</p>
+
+<div style="margin-top:30px;line-height:2;font-weight:700;">
+<p>📞 0505-000-0000</p>
+<p>📧 onforum@naver.com</p>
+<p>🌐 https://on-forum.org</p>
 </div>
 
 </section>
