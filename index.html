@@ -113,15 +113,15 @@ body{
   margin-top:10px;
 }
 
-/* 안개처럼 흐릿해졌다가 검정으로 돌아오는 무한 반복 애니메이션 */
-@keyframes mist-loop {
-  0%, 100% { opacity: 1; filter: blur(0); }
-  50% { opacity: 0.15; filter: blur(4px); }
+/* 동적인 파노라마 안개 효과 */
+@keyframes fog-flow {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
 }
 
-.logo-circle-inner { animation: mist-loop 4s ease-in-out infinite; }
-.logo-circle-outer { animation: mist-loop 4s ease-in-out infinite 0.6s; }
-.logo-triangle { animation: mist-loop 4s ease-in-out infinite 1.2s; }
+.mist-overlay {
+  animation: fog-flow 6s linear infinite;
+}
 
 @media(max-width:768px){
   .hero-inner{flex-direction:column;}
@@ -158,9 +158,25 @@ body{
 
 <div class="logo-container">
 <svg width="200" height="220" viewBox="0 0 200 240">
-<circle class="logo-circle-outer" cx="100" cy="100" r="80" stroke="black" stroke-width="10" fill="none"/>
-<circle class="logo-circle-inner" cx="100" cy="100" r="20" fill="black"/>
-<path class="logo-triangle" d="M100 145 L45 225 L155 225 Z" stroke="black" stroke-width="8" fill="none"/>
+  <defs>
+    <linearGradient id="fogGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="black" stop-opacity="1" />
+      <stop offset="40%" stop-color="black" stop-opacity="0.3">
+        <animate attributeName="offset" values="0; 1; 0" dur="8s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="100%" stop-color="black" stop-opacity="1" />
+    </linearGradient>
+    
+    <mask id="fogMask">
+      <rect x="0" y="0" width="200" height="240" fill="url(#fogGrad)" />
+    </mask>
+  </defs>
+
+  <g mask="url(#fogMask)">
+    <circle cx="100" cy="100" r="80" stroke="black" stroke-width="10" fill="none"/>
+    <circle cx="100" cy="100" r="20" fill="black"/>
+    <path d="M100 145 L45 225 L155 225 Z" stroke="black" stroke-width="8" fill="none"/>
+  </g>
 </svg>
 </div>
 
