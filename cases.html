@@ -46,4 +46,12 @@ function renderCases(lang) {
     });
 }
 
+/* ✅ 추가된 부분 (렌더링 실행) */
+window.onload = function() {
+    renderCases(localStorage.getItem("lang") || "ko");
+};
+
 </script>
+
+<!-- ✅ 추가된 부분 (컨테이너) -->
+<div id="case-list"></div>
