@@ -113,15 +113,15 @@ body{
   margin-top:10px;
 }
 
-/* 로고 애니메이션 추가 */
-@keyframes mist-fade {
-  0% { opacity: 0.1; filter: blur(4px); }
-  100% { opacity: 1; filter: blur(0); }
+/* 안개처럼 흐릿해졌다가 검정으로 돌아오는 무한 반복 애니메이션 */
+@keyframes mist-loop {
+  0%, 100% { opacity: 1; filter: blur(0); }
+  50% { opacity: 0.15; filter: blur(4px); }
 }
 
-.logo-circle-inner { animation: mist-fade 2s ease-in-out forwards; }
-.logo-circle-outer { animation: mist-fade 2s ease-in-out 0.5s forwards; opacity: 0.1; }
-.logo-triangle { animation: mist-fade 2s ease-in-out 1s forwards; opacity: 0.1; }
+.logo-circle-inner { animation: mist-loop 4s ease-in-out infinite; }
+.logo-circle-outer { animation: mist-loop 4s ease-in-out infinite 0.6s; }
+.logo-triangle { animation: mist-loop 4s ease-in-out infinite 1.2s; }
 
 @media(max-width:768px){
   .hero-inner{flex-direction:column;}
