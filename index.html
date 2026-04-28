@@ -83,32 +83,6 @@ body{
   font-weight:700;
 }
 
-.preview-wrap{
-  display:flex;
-  gap:20px;
-  flex-wrap:wrap;
-  justify-content:center;
-}
-.preview-card{
-  background:#fff;
-  padding:20px;
-  border-radius:12px;
-  width:260px;
-  box-shadow:0 8px 20px rgba(0,0,0,0.06);
-  text-decoration:none;
-  color:inherit;
-  transition:0.25s;
-}
-.preview-card:hover{
-  transform:translateY(-5px);
-}
-.preview-card span{
-  display:block;
-  margin-top:10px;
-  font-weight:700;
-  color:#b5945d;
-}
-
 .logo-container{
   margin-top:10px;
 }
@@ -151,51 +125,26 @@ body{
 
 <defs>
 
-<!-- 자연 안개 노이즈 1 -->
-<filter id="fog1">
-  <feTurbulence type="fractalNoise" baseFrequency="0.015" numOctaves="3" seed="2">
-    <animate attributeName="baseFrequency" dur="18s" values="0.01;0.02;0.015;0.025;0.01" repeatCount="indefinite"/>
+<!-- 자연 안개 마스크 -->
+<filter id="fogMask">
+  <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="3" seed="5">
+    <animate attributeName="baseFrequency"
+      values="0.015;0.025;0.018;0.03;0.02"
+      dur="20s"
+      repeatCount="indefinite"/>
   </feTurbulence>
-  <feDisplacementMap in="SourceGraphic" scale="20"/>
-  <feGaussianBlur stdDeviation="1.5"/>
-</filter>
 
-<!-- 자연 안개 노이즈 2 -->
-<filter id="fog2">
-  <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="8">
-    <animate attributeName="baseFrequency" dur="25s" values="0.02;0.01;0.03;0.015;0.02" repeatCount="indefinite"/>
-  </feTurbulence>
-  <feDisplacementMap in="SourceGraphic" scale="15"/>
-  <feGaussianBlur stdDeviation="2"/>
-</filter>
+  <feColorMatrix type="saturate" values="0"/>
 
-<!-- 자연 안개 노이즈 3 -->
-<filter id="fog3">
-  <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="4" seed="15">
-    <animate attributeName="baseFrequency" dur="30s" values="0.025;0.035;0.02;0.04;0.025" repeatCount="indefinite"/>
-  </feTurbulence>
-  <feDisplacementMap in="SourceGraphic" scale="10"/>
-  <feGaussianBlur stdDeviation="1"/>
+  <feComponentTransfer>
+    <feFuncA type="table" tableValues="0 0.3 0.6 1"/>
+  </feComponentTransfer>
 </filter>
 
 </defs>
 
-<!-- 레이어 1 -->
-<g filter="url(#fog1)" opacity="0.6">
-  <circle cx="100" cy="100" r="80" stroke="black" stroke-width="10" fill="none"/>
-  <circle cx="100" cy="100" r="20" fill="black"/>
-  <path d="M100 145 L45 225 L155 225 Z" stroke="black" stroke-width="8" fill="none"/>
-</g>
-
-<!-- 레이어 2 -->
-<g filter="url(#fog2)" opacity="0.4">
-  <circle cx="100" cy="100" r="80" stroke="black" stroke-width="10" fill="none"/>
-  <circle cx="100" cy="100" r="20" fill="black"/>
-  <path d="M100 145 L45 225 L155 225 Z" stroke="black" stroke-width="8" fill="none"/>
-</g>
-
-<!-- 레이어 3 -->
-<g filter="url(#fog3)" opacity="0.3">
+<!-- 고정된 형태 -->
+<g filter="url(#fogMask)">
   <circle cx="100" cy="100" r="80" stroke="black" stroke-width="10" fill="none"/>
   <circle cx="100" cy="100" r="20" fill="black"/>
   <path d="M100 145 L45 225 L155 225 Z" stroke="black" stroke-width="8" fill="none"/>
