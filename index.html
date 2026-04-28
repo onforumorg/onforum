@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title id="page-title">ON-FORUM</title>
+<title>ON-FORUM</title>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css"/>
 
@@ -18,10 +18,12 @@ body{
     linear-gradient(to bottom,#f7f6f2,#f2efe8);
 }
 
+/* 전체 레이아웃 */
 .container{max-width:1100px;margin:0 auto;padding:40px 20px;}
 .center{text-align:center;}
 
-.hero{padding:100px 20px 60px;}
+/* 히어로 */
+.hero{padding:80px 20px 60px;}
 .hero-inner{
   display:flex;
   justify-content:space-between;
@@ -30,32 +32,29 @@ body{
   max-width:1100px;
   margin:0 auto;
 }
-.hero-left{flex:1;text-align:left;}
-.hero-right{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.hero-left{flex:1;}
+.hero-right{flex:1;display:flex;flex-direction:column;align-items:center;}
 
+/* 타이틀 */
 .hero-title{
-  font-size:4rem;
+  font-size:3.5rem;
   font-weight:900;
-  letter-spacing:8px;
+  letter-spacing:6px;
   background:linear-gradient(to right,#444,#bbb,#444);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
-  margin-bottom:30px;
-  transition:0.4s;
-}
-.hero-title:hover{
-  -webkit-text-fill-color:#000;
-  transform:translateY(-3px);
+  margin-bottom:20px;
 }
 
-.main-text{font-size:1.5rem;font-weight:600;color:#222;}
-.sub-text{font-size:1.2rem;font-weight:700;margin-bottom:40px;}
+/* 텍스트 */
+.main-text{font-size:1.4rem;font-weight:600;color:#222;margin-bottom:10px;}
+.sub-text{font-size:1.1rem;font-weight:700;margin-bottom:30px;}
 
-.menu{margin-top:30px;margin-bottom:40px;}
+/* 버튼 */
 .menu a{
   display:inline-block;
-  margin:0 10px 10px 0;
-  padding:12px 26px;
+  margin:5px;
+  padding:12px 22px;
   border-radius:10px;
   border:1px solid rgba(26,42,64,0.2);
   background:rgba(255,255,255,0.7);
@@ -64,47 +63,52 @@ body{
   text-decoration:none;
   transition:0.25s;
 }
-.menu a:hover{background:#1a2a40;color:#fff;}
-
-.concept-box{
-  background:rgba(255,255,255,0.6);
-  padding:30px;
-  border-radius:14px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.05);
-  font-weight:700;
-  line-height:2;
-  text-align:center;
-  width:100%;
+.menu a:hover{
+  background:#1a2a40;
+  color:#fff;
 }
 
+/* 개념 박스 */
+.concept-box{
+  background:rgba(255,255,255,0.7);
+  padding:25px;
+  border-radius:14px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.05);
+  font-weight:700;
+  line-height:1.8;
+  text-align:center;
+  margin-top:20px;
+}
+
+/* 하단 밴드 */
 .bottom-band{
   margin-top:40px;
-  padding:40px 20px;
+  padding:30px 20px;
   background:#4b5320;
   color:#fff;
   text-align:center;
   font-weight:700;
 }
 
+/* 카드 */
 .preview-wrap{
   display:flex;
   gap:20px;
-  margin-top:30px;
   flex-wrap:wrap;
   justify-content:center;
 }
 .preview-card{
-  background:rgba(255,255,255,0.75);
-  padding:22px;
-  border-radius:14px;
-  width:280px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.06);
-  transition:0.3s;
+  background:#fff;
+  padding:20px;
+  border-radius:12px;
+  width:260px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.06);
   text-decoration:none;
   color:inherit;
+  transition:0.25s;
 }
 .preview-card:hover{
-  transform:translateY(-6px);
+  transform:translateY(-5px);
 }
 .preview-card span{
   display:block;
@@ -113,47 +117,37 @@ body{
   color:#b5945d;
 }
 
-/* 로고 애니메이션: 안개가 끼고 걷히듯 색감이 변하는 효과 */
-@keyframes mistFade {
-    0%, 100% { opacity: 0.1; }
-    50% { opacity: 1; }
+/* 로고 */
+.logo-container{
+  margin-top:10px;
 }
 
-.logo-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 260px;
-}
-
-.logo-container svg circle, 
-.logo-container svg path {
-    /* 선과 면에 안개 효과 적용 (6초 주기) */
-    animation: mistFade 6s ease-in-out infinite;
-}
-
+/* 반응형 */
 @media(max-width:768px){
   .hero-inner{flex-direction:column;}
-  .hero-left{text-align:center; margin-bottom: 40px;}
-  .logo-container { min-height: 200px; }
+  .hero-left{text-align:center;}
 }
 </style>
 </head>
 
 <body>
 
-<nav class="lang-switch" style="text-align: right; padding: 20px;">
-<button id="btn-ko" onclick="setLang('ko')">KOR</button>
-<button id="btn-en" onclick="setLang('en')">ENG</button>
-</nav>
+<!-- 언어 버튼 -->
+<div style="text-align:right;padding:15px;">
+<button onclick="setLang('ko')">KOR</button>
+<button onclick="setLang('en')">ENG</button>
+</div>
 
+<!-- 메인 -->
 <section class="hero">
 <div class="hero-inner">
 
 <div class="hero-left">
 <h1 class="hero-title">ON-FORUM</h1>
+
 <p class="main-text" data-i18n="hero"></p>
 <p class="sub-text" data-i18n="hero_sub"></p>
+
 <div class="menu">
 <a href="#intro" data-i18n="btn_intro"></a>
 <a href="#structure" data-i18n="btn_structure"></a>
@@ -163,12 +157,13 @@ body{
 </div>
 
 <div class="hero-right">
+
 <div class="logo-container">
-    <svg width="240" height="260" viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="100" cy="100" r="80" stroke="black" stroke-width="12" fill="none" />
-        <circle cx="100" cy="100" r="20" fill="black" />
-        <path d="M100 135 L35 235 L165 235 Z" stroke="black" stroke-width="10" fill="none" stroke-linejoin="round" />
-    </svg>
+<svg width="200" height="220" viewBox="0 0 200 240">
+<circle cx="100" cy="100" r="80" stroke="black" stroke-width="10" fill="none"/>
+<circle cx="100" cy="100" r="20" fill="black"/>
+<path d="M100 135 L35 235 L165 235 Z" stroke="black" stroke-width="8" fill="none"/>
+</svg>
 </div>
 
 <div class="concept-box">
@@ -177,34 +172,38 @@ body{
 <p data-i18n="c_economy"></p>
 <p data-i18n="c_education"></p>
 </div>
-</div>
 
+</div>
 </div>
 </section>
 
 <div class="bottom-band" data-i18n="definition"></div>
 
-<section id="cases-preview" class="container center">
-<h2>적용 사례 미리보기</h2>
+<!-- 사례 -->
+<section class="container center">
+<h2>적용 사례</h2>
+
 <div class="preview-wrap">
 <a href="cases.html#case-0" class="preview-card">
-<h3>반복되는 판단 착오</h3>
-<p>정보가 아니라 기준 구조의 부재에서 발생</p>
-<span>→ 기준이 생기면 반복이 멈춘다</span>
+<h3>판단 오류 반복</h3>
+<p>정보 부족이 아닌 기준 구조 문제</p>
+<span>→ 구조가 기준이 된다</span>
 </a>
+
 <a href="cases.html#case-1" class="preview-card">
-<h3>조직 내 반복되는 갈등</h3>
-<p>사람 문제가 아니라 구조 비대칭 문제</p>
-<span>→ 구조 조정으로 갈등이 감소한다</span>
+<h3>조직 갈등 반복</h3>
+<p>사람이 아닌 구조 비대칭 문제</p>
+<span>→ 구조 수정으로 해결</span>
 </a>
 </div>
+
 </section>
 
 <script>
 const content={
-hero:{ko:"세상을 해석하는 기준을 다시 설계합니다",en:"Redefining the way we interpret reality"},
-hero_sub:{ko:"문제는 정보가 아니라 구조입니다",en:"The problem is not information, but structure"},
-definition:{ko:"온포럼은 현실을 구조로 분석하는 연구 플랫폼입니다",en:"A platform that analyzes reality through structure"},
+hero:{ko:"세상을 해석하는 기준을 다시 설계합니다",en:"Redefining how we interpret reality"},
+hero_sub:{ko:"문제는 정보가 아니라 구조입니다",en:"The problem is structure, not information"},
+definition:{ko:"온포럼은 현실을 구조로 분석하는 연구 플랫폼입니다",en:"A platform analyzing reality through structure"},
 btn_intro:{ko:"소개",en:"Intro"},
 btn_structure:{ko:"구조 보기",en:"Structure"},
 btn_cases:{ko:"사례 보기",en:"Cases"},
