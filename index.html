@@ -124,31 +124,36 @@ body{
 <svg width="200" height="220" viewBox="0 0 200 240">
 
 <defs>
+  <!-- 부드러운 안개 -->
+  <radialGradient id="fog1">
+    <stop offset="0%" stop-color="white" stop-opacity="0.15"/>
+    <stop offset="100%" stop-color="white" stop-opacity="0"/>
+  </radialGradient>
 
-<!-- 자연 안개 마스크 -->
-<filter id="fogMask">
-  <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="3" seed="5">
-    <animate attributeName="baseFrequency"
-      values="0.015;0.025;0.018;0.03;0.02"
-      dur="20s"
-      repeatCount="indefinite"/>
-  </feTurbulence>
-
-  <feColorMatrix type="saturate" values="0"/>
-
-  <feComponentTransfer>
-    <feFuncA type="table" tableValues="0 0.3 0.6 1"/>
-  </feComponentTransfer>
-</filter>
-
+  <radialGradient id="fog2">
+    <stop offset="0%" stop-color="white" stop-opacity="0.1"/>
+    <stop offset="100%" stop-color="white" stop-opacity="0"/>
+  </radialGradient>
 </defs>
 
-<!-- 고정된 형태 -->
-<g filter="url(#fogMask)">
+<!-- 로고 (절대 고정) -->
+<g>
   <circle cx="100" cy="100" r="80" stroke="black" stroke-width="10" fill="none"/>
   <circle cx="100" cy="100" r="20" fill="black"/>
   <path d="M100 145 L45 225 L155 225 Z" stroke="black" stroke-width="8" fill="none"/>
 </g>
+
+<!-- 안개 레이어 1 -->
+<circle r="80" fill="url(#fog1)" opacity="0.4">
+  <animate attributeName="cx" values="30;170;60;140;30" dur="20s" repeatCount="indefinite"/>
+  <animate attributeName="cy" values="60;140;80;120;60" dur="22s" repeatCount="indefinite"/>
+</circle>
+
+<!-- 안개 레이어 2 -->
+<circle r="90" fill="url(#fog2)" opacity="0.3">
+  <animate attributeName="cx" values="160;40;130;70;160" dur="26s" repeatCount="indefinite"/>
+  <animate attributeName="cy" values="120;60;150;90;120" dur="24s" repeatCount="indefinite"/>
+</circle>
 
 </svg>
 </div>
