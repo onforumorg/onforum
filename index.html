@@ -113,6 +113,16 @@ body{
   margin-top:10px;
 }
 
+/* 로고 애니메이션 추가 */
+@keyframes mist-fade {
+  0% { opacity: 0.1; filter: blur(4px); }
+  100% { opacity: 1; filter: blur(0); }
+}
+
+.logo-circle-inner { animation: mist-fade 2s ease-in-out forwards; }
+.logo-circle-outer { animation: mist-fade 2s ease-in-out 0.5s forwards; opacity: 0.1; }
+.logo-triangle { animation: mist-fade 2s ease-in-out 1s forwards; opacity: 0.1; }
+
 @media(max-width:768px){
   .hero-inner{flex-direction:column;}
   .hero-left{text-align:center;}
@@ -148,9 +158,9 @@ body{
 
 <div class="logo-container">
 <svg width="200" height="220" viewBox="0 0 200 240">
-<circle cx="100" cy="100" r="80" stroke="black" stroke-width="10" fill="none"/>
-<circle cx="100" cy="100" r="20" fill="black"/>
-<path d="M100 135 L35 235 L165 235 Z" stroke="black" stroke-width="8" fill="none"/>
+<circle class="logo-circle-outer" cx="100" cy="100" r="80" stroke="black" stroke-width="10" fill="none"/>
+<circle class="logo-circle-inner" cx="100" cy="100" r="20" fill="black"/>
+<path class="logo-triangle" d="M100 145 L45 225 L155 225 Z" stroke="black" stroke-width="8" fill="none"/>
 </svg>
 </div>
 
@@ -229,7 +239,7 @@ btn_research:{ko:"연구 참여",en:"Research"},
 
 c_philosophy:{ko:"철학",en:"Philosophy"},
 c_society:{ko:"사회",en:"Society"},
-c_economy:{ko:"경제",en:"Economy"},
+c_economy:{ko:"Economy"},
 c_education:{ko:"교육",en:"Education"},
 
 cases_title:{ko:"적용 사례",en:"Use Cases"},
