@@ -18,7 +18,6 @@ body{
     linear-gradient(to bottom,#f7f6f2,#f2efe8);
 }
 
-/* 핵심 레이아웃 복구 */
 .container{max-width:1100px;margin:0 auto;padding:40px 20px;}
 .center{text-align:center;}
 
@@ -34,7 +33,6 @@ body{
 .hero-left{flex:1;text-align:left;}
 .hero-right{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;}
 
-/* 타이틀 */
 .hero-title{
   font-size:4rem;
   font-weight:900;
@@ -50,11 +48,9 @@ body{
   transform:translateY(-3px);
 }
 
-/* 텍스트 */
 .main-text{font-size:1.5rem;font-weight:600;color:#222;}
 .sub-text{font-size:1.2rem;font-weight:700;margin-bottom:40px;}
 
-/* 메뉴 */
 .menu{margin-top:30px;margin-bottom:40px;}
 .menu a{
   display:inline-block;
@@ -70,7 +66,6 @@ body{
 }
 .menu a:hover{background:#1a2a40;color:#fff;}
 
-/* 개념 박스 */
 .concept-box{
   background:rgba(255,255,255,0.6);
   padding:30px;
@@ -82,7 +77,6 @@ body{
   width:100%;
 }
 
-/* 하단 */
 .bottom-band{
   margin-top:40px;
   padding:40px 20px;
@@ -92,7 +86,6 @@ body{
   font-weight:700;
 }
 
-/* 카드 */
 .preview-wrap{
   display:flex;
   gap:20px;
@@ -120,32 +113,9 @@ body{
   color:#b5945d;
 }
 
-/* 푸터 */
-.footer{
-  margin-top:120px;
-  padding:60px 20px 40px;
-  background:linear-gradient(to top,#f0ede6,transparent);
-}
-.footer-inner{
-  max-width:1000px;
-  margin:auto;
-  display:flex;
-  justify-content:space-between;
-  flex-wrap:wrap;
-}
-.footer-brand,.footer-contact,.footer-copy{
-  flex:1;
-  min-width:200px;
-}
-.footer-brand{text-align:left;}
-.footer-contact{text-align:center;}
-.footer-copy{text-align:right;}
-
-/* 모바일 */
 @media(max-width:768px){
   .hero-inner{flex-direction:column;}
   .hero-left{text-align:center;}
-  .footer-inner{flex-direction:column;text-align:center;}
 }
 </style>
 </head>
@@ -162,10 +132,8 @@ body{
 
 <div class="hero-left">
 <h1 class="hero-title">ON-FORUM</h1>
-
 <p class="main-text" data-i18n="hero"></p>
 <p class="sub-text" data-i18n="hero_sub"></p>
-
 <div class="menu">
 <a href="#intro" data-i18n="btn_intro"></a>
 <a href="#structure" data-i18n="btn_structure"></a>
@@ -176,10 +144,10 @@ body{
 
 <div class="hero-right">
 <div class="logo-container" style="margin-bottom: 30px;">
-    <svg width="220" height="240" viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="100" cy="100" r="80" stroke="black" stroke-width="14" fill="none" />
-        <circle cx="100" cy="100" r="8" fill="black" />
-        <path d="M100 120 L55 235 L145 235 Z" fill="black" />
+    <svg width="240" height="260" viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="100" cy="100" r="80" stroke="black" stroke-width="12" fill="none" />
+        <circle cx="100" cy="100" r="7" fill="black" />
+        <path d="M100 125 L35 235 L165 235 Z" stroke="black" stroke-width="10" fill="none" />
     </svg>
 </div>
 
@@ -198,23 +166,18 @@ body{
 
 <section id="cases-preview" class="container center">
 <h2>적용 사례 미리보기</h2>
-
 <div class="preview-wrap">
-
 <a href="cases.html#case-0" class="preview-card">
 <h3>반복되는 판단 착오</h3>
 <p>정보가 아니라 기준 구조의 부재에서 발생</p>
 <span>→ 기준이 생기면 반복이 멈춘다</span>
 </a>
-
 <a href="cases.html#case-1" class="preview-card">
 <h3>조직 내 반복되는 갈등</h3>
 <p>사람 문제가 아니라 구조 비대칭 문제</p>
 <span>→ 구조 조정으로 갈등이 감소한다</span>
 </a>
-
 </div>
-
 </section>
 
 <script>
