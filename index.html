@@ -43,8 +43,9 @@ body{
   margin-bottom:20px;
 }
 
+/* 1.4rem으로 크기 통일 */
 .main-text{font-size:1.4rem;font-weight:600;color:#222;margin-bottom:10px;}
-.sub-text{font-size:1.1rem;font-weight:700;margin-bottom:30px;}
+.sub-text{font-size:1.4rem;font-weight:600;color:#222;margin-bottom:30px;line-height:1.6;}
 
 .menu a{
   display:inline-block;
@@ -74,13 +75,15 @@ body{
   margin-top:20px;
 }
 
+/* 하단 띠 글자 크기 확대 */
 .bottom-band{
   margin-top:40px;
-  padding:30px 20px;
+  padding:35px 20px;
   background:#4b5320;
   color:#fff;
   text-align:center;
   font-weight:700;
+  font-size:1.4rem;
 }
 
 .preview-wrap{
@@ -113,7 +116,6 @@ body{
   margin-top:10px;
 }
 
- 
 @media(max-width:768px){
   .hero-inner{flex-direction:column;}
   .hero-left{text-align:center;}
@@ -146,9 +148,6 @@ body{
 </div>
 
 <div class="hero-right">
-
-<div class="logo-container">
-
 <div class="logo-container">
   <svg width="200" height="240" viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
     <circle cx="100" cy="100" r="80" stroke="black" stroke-width="10" fill="none"/>
@@ -157,17 +156,14 @@ body{
   </svg>
 </div>
 </div>
-</div>
 
+</div>
 
 <div class="concept-box">
 <p data-i18n="c_philosophy"></p>
 <p data-i18n="c_society"></p>
 <p data-i18n="c_economy"></p>
 <p data-i18n="c_education"></p>
-</div>
-
-</div>
 </div>
 </section>
 
@@ -192,33 +188,24 @@ body{
 </section>
 
 <section id="research" style="background:#1a2a40; color:#fff; margin-top:60px;">
-
 <div style="max-width:1100px; margin:0 auto; padding:60px 20px;">
-
 <div style="display:flex; flex-wrap:wrap; justify-content:space-between; gap:40px;">
-
 <div style="flex:1; min-width:260px;">
 <h2 style="margin-bottom:20px; font-size:1.6rem;">ON-FORUM</h2>
 <p style="line-height:1.8; color:#cfd6df;" data-i18n="footer_desc"></p>
 </div>
-
 <div style="flex:1; min-width:260px;">
 <h3 style="margin-bottom:20px;">Contact</h3>
-
 <div style="line-height:2; font-weight:600;">
 <div>📞 0505-799-7878</div>
 <div>📧 onforum.org@gmail.com</div>
 <div>🌐 https://on-forum.org/</div>
 </div>
-
 </div>
-
 </div>
-
 <div style="border-top:1px solid rgba(255,255,255,0.15); margin-top:40px; padding-top:20px; text-align:center; font-size:0.9rem; color:#aaa;">
 © ON-FORUM. All rights reserved.
 </div>
-
 </div>
 </section>
 
@@ -227,11 +214,6 @@ const content = {
   hero: {
     ko: "세상을 해석하는 기준을 제시합니다.",
     en: "Providing a standard for interpreting the world."
-  },
-
-  hero_emphasis: {
-    ko: "구조",
-    en: "Structure"
   },
 
   hero_sub: {
@@ -249,7 +231,6 @@ const content = {
   btn_cases:{ko:"사례 보기",en:"Cases"},
   btn_research:{ko:"연구 참여",en:"Research"},
 
-  // 🔥 여기부터가 핵심: 전부 content 안으로 넣기
   c_philosophy:{ko:"철학",en:"Philosophy"},
   c_society:{ko:"사회",en:"Society"},
   c_economy:{ko:"경제",en:"Economy"},
@@ -274,7 +255,9 @@ const content = {
 function setLang(lang){
   localStorage.setItem("lang",lang);
   document.querySelectorAll("[data-i18n]").forEach(el=>{
-    el.innerHTML = content[el.dataset.i18n][lang];
+    if(content[el.dataset.i18n]) {
+      el.innerHTML = content[el.dataset.i18n][lang];
+    }
   });
 }
 
