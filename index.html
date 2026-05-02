@@ -247,41 +247,40 @@ const content = {
   btn_intro:{ko:"소개",en:"Intro"},
   btn_structure:{ko:"구조 보기",en:"Structure"},
   btn_cases:{ko:"사례 보기",en:"Cases"},
-  btn_research:{ko:"연구 참여",en:"Research"}
-};
+  btn_research:{ko:"연구 참여",en:"Research"},
 
-c_philosophy:{ko:"철학",en:"Philosophy"},
-c_society:{ko:"사회",en:"Society"},
-c_economy:{ko:"경제",en:"Economy"},
-c_education:{ko:"교육",en:"Education"},
+  // 🔥 여기부터가 핵심: 전부 content 안으로 넣기
+  c_philosophy:{ko:"철학",en:"Philosophy"},
+  c_society:{ko:"사회",en:"Society"},
+  c_economy:{ko:"경제",en:"Economy"},
+  c_education:{ko:"교육",en:"Education"},
 
-cases_title:{ko:"적용 사례",en:"Use Cases"},
+  cases_title:{ko:"적용 사례",en:"Use Cases"},
 
-case1_title:{ko:"판단 오류 반복",en:"Repeated Misjudgment"},
-case1_desc:{ko:"정보 부족이 아닌 기준 구조 문제",en:"Not lack of information, but structural criteria issue"},
-case1_result:{ko:"→ 구조가 기준이 된다",en:"→ Structure becomes the standard"},
+  case1_title:{ko:"판단 오류 반복",en:"Repeated Misjudgment"},
+  case1_desc:{ko:"정보 부족이 아닌 기준 구조 문제",en:"Not lack of information, but structural criteria issue"},
+  case1_result:{ko:"→ 구조가 기준이 된다",en:"→ Structure becomes the standard"},
 
-case2_title:{ko:"조직 갈등 반복",en:"Repeated Organizational Conflict"},
-case2_desc:{ko:"사람이 아닌 구조 비대칭 문제",en:"Not people, but structural asymmetry"},
-case2_result:{ko:"→ 구조 수정으로 해결",en:"→ Solved through structural change"},
+  case2_title:{ko:"조직 갈등 반복",en:"Repeated Organizational Conflict"},
+  case2_desc:{ko:"사람이 아닌 구조 비대칭 문제",en:"Not people, but structural asymmetry"},
+  case2_result:{ko:"→ 구조 수정으로 해결",en:"→ Solved through structural change"},
 
-footer_desc:{
-ko:"온포럼은 현실을 구조로 해석하고 재설계하는 연구 플랫폼입니다.<br>정보가 아닌 기준을 통해, 반복되는 문제를 구조적으로 해결합니다.",
-en:"ON-FORUM is a research platform that interprets and redesigns reality through structure.<br>It solves recurring problems structurally through standards, not information."
-}
+  footer_desc:{
+    ko:"온포럼은 현실을 구조로 해석하고 재설계하는 연구 플랫폼입니다.<br>정보가 아닌 기준을 통해, 반복되는 문제를 구조적으로 해결합니다.",
+    en:"ON-FORUM is a research platform that interprets and redesigns reality through structure.<br>It solves recurring problems structurally through standards, not information."
+  }
 };
 
 function setLang(lang){
-localStorage.setItem("lang",lang);
-document.querySelectorAll("[data-i18n]").forEach(el=>{
-el.innerHTML=content[el.dataset.i18n][lang];
-});
+  localStorage.setItem("lang",lang);
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    el.innerHTML = content[el.dataset.i18n][lang];
+  });
 }
 
 window.onload=function(){
-setLang(localStorage.getItem("lang")||"ko");
+  setLang(localStorage.getItem("lang") || "ko");
 }
 </script>
-
 </body>
 </html>
