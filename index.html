@@ -43,7 +43,6 @@ body{
   margin-bottom:20px;
 }
 
-/* 1.4rem으로 크기 통일 */
 .main-text{font-size:1.4rem;font-weight:600;color:#222;margin-bottom:10px;}
 .sub-text{font-size:1.4rem;font-weight:600;color:#222;margin-bottom:30px;line-height:1.6;}
 
@@ -64,18 +63,18 @@ body{
   color:#fff;
 }
 
+/* 수정된 concept-box */
 .concept-box{
   background:rgba(255,255,255,0.7);
-  padding:25px;
+  padding:20px;
   border-radius:14px;
   box-shadow:0 10px 25px rgba(0,0,0,0.05);
   font-weight:700;
   line-height:1.8;
-  text-align:center;
-  margin-top:20px;
+  text-align:left;
+  margin-top:0;
 }
 
-/* 하단 띠 글자 크기 확대 */
 .bottom-band{
   margin-top:40px;
   padding:35px 20px;
@@ -116,6 +115,13 @@ body{
   margin-top:10px;
 }
 
+/* 추가된 코드 */
+.logo-row{
+  display:flex;
+  align-items:center;
+  gap:20px;
+}
+
 @media(max-width:768px){
   .hero-inner{flex-direction:column;}
   .hero-left{text-align:center;}
@@ -148,6 +154,9 @@ body{
 </div>
 
 <div class="hero-right">
+
+<div class="logo-row">
+
 <div class="logo-container">
   <svg width="200" height="240" viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
     <circle cx="100" cy="100" r="80" stroke="black" stroke-width="10" fill="none"/>
@@ -155,16 +164,20 @@ body{
     <path d="M100 145 L45 225 L155 225 Z" stroke="black" stroke-width="8" fill="none"/>
   </svg>
 </div>
-</div>
-
-</div>
 
 <div class="concept-box">
-<p data-i18n="c_philosophy"></p>
-<p data-i18n="c_society"></p>
-<p data-i18n="c_economy"></p>
-<p data-i18n="c_education"></p>
+  <p data-i18n="c_philosophy"></p>
+  <p data-i18n="c_society"></p>
+  <p data-i18n="c_economy"></p>
+  <p data-i18n="c_education"></p>
 </div>
+
+</div>
+
+</div>
+
+</div>
+
 </section>
 
 <div class="bottom-band" data-i18n="definition"></div>
