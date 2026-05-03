@@ -36,7 +36,9 @@ body {
   margin:120px 0;
 }
 
-.center { text-align:center; }
+.center {
+  text-align:center;
+}
 
 h1 {
   font-size:2.5rem;
@@ -44,14 +46,22 @@ h1 {
 }
 
 h2 {
-  font-size:1.6rem;
-  margin-bottom:30px;
+  font-size:1.8rem;
+  margin-bottom:25px;
   color:var(--deep-blue);
 }
 
+h3 {
+  font-size:1.3rem;
+  margin-top:50px;
+  margin-bottom:20px;
+  color:var(--gold);
+}
+
 p {
-  line-height:1.8;
+  line-height:2;
   color:var(--sub);
+  font-size:1.02rem;
 }
 
 .highlight {
@@ -61,19 +71,10 @@ p {
 
 .card {
   background:#fff;
-  padding:35px;
-  border-radius:14px;
+  padding:40px;
+  border-radius:16px;
   box-shadow:0 15px 40px rgba(0,0,0,0.05);
   margin-top:30px;
-}
-
-.flow {
-  text-align:center;
-  font-size:1.2rem;
-  padding:30px;
-  background:#fff;
-  border-radius:12px;
-  border:1px solid #eee;
 }
 
 .lang-switch {
@@ -95,7 +96,13 @@ p {
 
 .back {
   text-align:center;
-  margin-top:80px;
+  margin-top:100px;
+}
+
+.back a {
+  color:var(--deep-blue);
+  text-decoration:none;
+  font-weight:600;
 }
 </style>
 </head>
@@ -118,49 +125,24 @@ p {
 <p class="highlight" data-i18n="hero_sub"></p>
 </section>
 
-<!-- 문제 인식 -->
+<!-- INTRO -->
 <section class="section">
-<h2 data-i18n="problem_title"></h2>
 
 <div class="card">
-<p data-i18n="problem_desc"></p>
+
+<h2 data-i18n="intro_title"></h2>
+
+<h3 data-i18n="part1_title"></h3>
+<p data-i18n="part1_desc"></p>
+
+<h3 data-i18n="part2_title"></h3>
+<p data-i18n="part2_desc"></p>
+
+<h3 data-i18n="part3_title"></h3>
+<p data-i18n="part3_desc"></p>
+
 </div>
-</section>
 
-<!-- 정의 -->
-<section class="section center">
-<h2 data-i18n="definition_title"></h2>
-<p data-i18n="definition_desc"></p>
-</section>
-
-<!-- 온의 관점 -->
-<section class="section">
-<h2 data-i18n="on_title"></h2>
-
-<div class="card">
-<p data-i18n="on_desc"></p>
-</div>
-</section>
-
-<!-- 영역 -->
-<section class="section">
-<h2 data-i18n="domain_title"></h2>
-
-<div class="card">
-<p data-i18n="domain_desc"></p>
-</div>
-</section>
-
-<!-- 흐름 -->
-<section class="section center">
-<h2 data-i18n="flow_title"></h2>
-
-<div class="flow" data-i18n="flow"></div>
-</section>
-
-<!-- 선언 -->
-<section class="section center">
-<h2 data-i18n="final"></h2>
 </section>
 
 <div class="back">
@@ -174,68 +156,51 @@ p {
 const content = {
 
 hero:{
-ko:"현실을 다시 보게 만드는 기준",
-en:"A new standard to see reality"
+ko:"현실을 구조로 분석하는 연구 플랫폼",
+en:"A research platform analyzing reality through structure"
 },
 
 hero_sub:{
-ko:"문제는 정보가 아니라 구조입니다",
-en:"The problem is not information, but structure"
+ko:"존재와 문명을 온적으로 재구성하는 시도",
+en:"A new attempt to reconstruct existence and civilization"
 },
 
-problem_title:{
-ko:"왜 같은 현실에서 다른 결론이 나올까요?",
-en:"Why do conclusions differ?"
+intro_title:{
+ko:"0. 인트로",
+en:"0. Introduction"
 },
 
-problem_desc:{
-ko:"정보는 넘치지만 기준은 없습니다.<br>그 결과 판단은 반복되지만 방향은 축적되지 않습니다.",
-en:"Information is abundant, but structure is missing."
+part1_title:{
+ko:"온포럼이란 무엇인가",
+en:"What is ON-FORUM"
 },
 
-definition_title:{
-ko:"온포럼은 무엇인가",
-en:"What is On-Forum"
+part1_desc:{
+ko:"ON-FORUM 은 현실을 단순한 현상이나 정보의 집합으로 보지 않고, 그 안에서 작용하는 구조와 흐름, 관계와 감응을 탐구하는 연구 플랫폼입니다.<br><br>온포럼은 인간·사회·문명·기술·자연·우주를 서로 분리된 대상으로 바라보기보다, 하나의 연결된 구조 속에서 이해하고자 합니다. 또한 존재하는 것뿐 아니라 아직 설명되지 않은 영역과 비가시적 구조까지 포함하여, 현실 전체를 더 깊고 넓게 해석하려는 시도를 이어가고 있습니다.",
+
+en:"ON-FORUM is a research platform that explores the structures, flows, relationships, and resonances operating within reality, rather than viewing reality merely as a collection of phenomena or information.<br><br>It seeks to understand humanity, society, civilization, technology, nature, and the universe not as isolated domains, but as interconnected structures. ON-FORUM also continues its exploration toward unseen and not-yet-explained dimensions of reality."
 },
 
-definition_desc:{
-ko:"온포럼은 현실을 구조로 분석하고,<br>그 구조를 통해 판단 기준을 만드는 연구 플랫폼입니다.",
-en:"A platform that builds structure for understanding reality."
+part2_title:{
+ko:"현실을 구조로 분석하는 연구 플랫폼",
+en:"A Platform for Structural Analysis of Reality"
 },
 
-on_title:{
-ko:"온의 관점",
-en:"Perspective of On"
+part2_desc:{
+ko:"온포럼은 사건이나 결과만을 바라보는 것이 아니라, 그 배후에서 반복되고 연결되는 구조를 연구합니다.<br><br>철학·과학·언어·정치·경제·기술·교육·우주 등 다양한 영역을 개별적으로 분리하지 않고 상호작용하는 하나의 흐름으로 바라보며, 현실 속 갈등과 변화, 발전과 왜곡이 어떤 구조 속에서 발생하는지를 분석합니다.<br><br>온포럼의 연구는 단순한 정보 축적이 아니라, 구조·관계·감응·공진을 기반으로 현실을 이해하고 재구성하려는 장기적 연구에 가깝습니다.",
+
+en:"ON-FORUM studies not only events and outcomes, but also the underlying structures that repeatedly connect and shape them.<br><br>Philosophy, science, language, politics, economics, technology, education, and the universe are approached as interacting flows rather than isolated fields.<br><br>The research of ON-FORUM is not merely the accumulation of information, but a long-term exploration aimed at understanding and reconstructing reality through structure, relationship, resonance, and interconnectedness."
 },
 
-on_desc:{
-ko:"온은 어떤 주장도 하지 않습니다.<br>있는 그대로를 보고,<br>그 안의 구조를 드러냅니다.",
-en:"On reveals structure without imposing ideas."
+part3_title:{
+ko:"존재와 문명을 온적으로 재구성하는 시도",
+en:"Reconstructing Existence and Civilization through ON"
 },
 
-domain_title:{
-ko:"우리는 모든 영역을 하나로 봅니다",
-en:"All domains are one"
-},
+part3_desc:{
+ko:"온포럼은 기존 문명의 틀을 단순히 비판하거나 부정하는 데 머무르지 않습니다.<br><br>오히려 인간과 사회, 기술과 자연, 국가와 세계가 보다 조화롭고 지속 가능한 방향으로 나아가기 위해 어떠한 구조가 필요한지를 연구하며, 이를 ‘온(ON)’이라는 관점으로 정리하고 있습니다.<br><br>온은 부분보다 전체를, 분리보다 연결을, 고정된 사고보다 살아 있는 흐름과 공진을 중요하게 바라봅니다.<br><br>온포럼은 이러한 관점을 바탕으로, 현실 세계 속에서 실제로 작동하고 적용될 수 있는 새로운 문명 구조와 가능성을 탐구해 나가고 있습니다.",
 
-domain_desc:{
-ko:"철학, 과학, 사회, 경제, 기술…<br>모든 영역은 분리된 것이 아니라 하나의 구조입니다.",
-en:"All domains are interconnected structures."
-},
-
-flow_title:{
-ko:"온의 흐름",
-en:"Flow of On"
-},
-
-flow:{
-ko:"문제 → 구조 → 기준 → 인식 변화",
-en:"Problem → Structure → Criteria → Shift"
-},
-
-final:{
-ko:"온포럼은 세상을 설명하는 곳이 아니라<br>세상을 다시 보게 만드는 곳입니다",
-en:"Not explaining reality, but transforming perception"
+en:"ON-FORUM does not remain merely at criticizing or denying existing civilization.<br><br>Instead, it researches what kinds of structures are necessary for humanity, society, technology, nature, nations, and the world to move toward a more harmonious and sustainable direction, organizing these perspectives through the concept of 'ON'.<br><br>ON values wholeness over fragmentation, connection over separation, and living flow and resonance over fixed thinking.<br><br>Based on this perspective, ON-FORUM continues exploring new possibilities and civilizational structures that can practically operate within the real world."
 },
 
 back:{
