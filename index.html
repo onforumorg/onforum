@@ -395,23 +395,16 @@ line-height:1.9;
 font-size:1.05rem;
 color:#444;
 font-weight:500;
-">
-현실은 단순한 사건의 반복이 아니라,
-보이지 않는 구조와 흐름의 결과일 수 있습니다.<br><br>
-
-온포럼(ON-FORUM)은 개인, 사회, 기술, 문명 속에서 반복되는 문제를
-구조·흐름·감응·공진의 관점으로 분석합니다.
-</p>
+" data-i18n="cases_intro"></p>
 
 <div class="preview-wrap">
 
 <a href="cases.html#case-1" class="preview-card">
-<h3>개인 판단 구조</h3>
-<p>
-반복되는 선택 실패와 방향 혼란의 원인을
-기준 구조와 감응 흐름 관점에서 분석합니다.
-</p>
-<span>→ 판단의 중심 구조</span>
+<h3 data-i18n="case1_card_title"></h3>
+
+<p data-i18n="case1_card_desc"></p>
+
+<span data-i18n="case1_card_span"></span>
 </a>
 
 <a href="cases.html#case-2" class="preview-card">
@@ -531,12 +524,31 @@ const content = {
   case2_desc:{ko:"온포럼(ON-FORUM)은 사람이 아닌 구조 비대칭 문제로 본다",en:"ON-FORUM (온포럼) sees it as structural asymmetry, not people"},
   case2_result:{ko:"→ 구조 수정으로 해결",en:"→ Solved through structural change"},
 
-  footer_desc:{
-    ko:"온포럼(ON-FORUM)은 현실을 구조로 해석하고 재설계하는 연구 플랫폼입니다.<br>정보가 아닌 기준을 통해, 반복되는 문제를 구조적으로 해결합니다.",
-    en:"ON-FORUM (온포럼) is a research platform that interprets and redesigns reality through structure.<br>It solves recurring problems structurally through standards, not information."
-  }
-};
+footer_desc:{
+  ko:"온포럼(ON-FORUM)은 현실을 구조로 해석하고 재설계하는 연구 플랫폼입니다.<br>정보가 아닌 기준을 통해, 반복되는 문제를 구조적으로 해결합니다.",
+  en:"ON-FORUM (온포럼) is a research platform that interprets and redesigns reality through structure.<br>It solves recurring problems structurally through standards, not information."
+},
 
+cases_intro:{
+  ko:"현실은 단순한 사건의 반복이 아니라,<br>보이지 않는 구조와 흐름의 결과일 수 있습니다.<br><br>온포럼(ON-FORUM)은 개인, 사회, 기술, 문명 속에서 반복되는 문제를 구조·흐름·감응·공진의 관점으로 분석합니다.",
+  en:"Reality may not simply be a repetition of events, but the result of unseen structures and flows.<br><br>ON-FORUM analyzes recurring issues within individuals, society, technology, and civilization through the perspectives of structure, flow, resonance, and responsive interaction."
+},
+
+case1_card_title:{
+  ko:"개인 판단 구조",
+  en:"Personal Judgment Structure"
+},
+
+case1_card_desc:{
+  ko:"반복되는 선택 실패와 방향 혼란의 원인을 기준 구조와 감응 흐름 관점에서 분석합니다.",
+  en:"Analyzes repeated failures in decision-making and directional confusion through structural standards and responsive flow."
+},
+
+case1_card_span:{
+  ko:"→ 판단의 중심 구조",
+  en:"→ The Structural Core of Judgment"
+}
+};
 function setLang(lang){
   localStorage.setItem("lang",lang);
   document.querySelectorAll("[data-i18n]").forEach(el=>{
