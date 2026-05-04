@@ -9,7 +9,6 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css"/>
 
 <style>
-/* (CSS 전부 그대로 유지) */
 body{
   font-family:'Pretendard',sans-serif;
   margin:0;
@@ -23,16 +22,24 @@ body{
 .center{text-align:center;}
 
 .hero{padding:80px 20px 60px;}
+
 .hero-inner{
   display:flex;
-  justify-content:space-between;
   align-items:center;
-  gap:40px;
-  max-width:1100px;
+  gap:70px;
+  max-width:1200px;
   margin:0 auto;
 }
-.hero-left{flex:1;}
-.hero-right{flex:1;display:flex;flex-direction:column;align-items:center;}
+
+.hero-left{
+  flex:0 0 260px;
+  display:flex;
+  justify-content:center;
+}
+
+.hero-right{
+  flex:1;
+}
 
 .hero-title{
   font-size:3.5rem;
@@ -44,35 +51,44 @@ body{
   margin-bottom:20px;
 }
 
-.main-text{font-size:1.4rem;font-weight:600;color:#222;margin-bottom:10px;}
-.sub-text{font-size:1.4rem;font-weight:600;color:#222;margin-bottom:30px;line-height:1.6;}
+.main-text{
+  font-size:1.4rem;
+  font-weight:600;
+  color:#222;
+  margin-bottom:18px;
+  line-height:1.6;
+}
+
+.sub-text{
+  font-size:1.4rem;
+  font-weight:600;
+  color:#222;
+  margin-bottom:38px;
+  line-height:1.9;
+}
+
+.menu{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+}
 
 .menu a{
   display:inline-block;
-  margin:5px;
-  padding:12px 22px;
-  border-radius:10px;
+  padding:14px 28px;
+  border-radius:12px;
   border:1px solid rgba(26,42,64,0.2);
   background:rgba(255,255,255,0.7);
   color:#1a2a40;
   font-weight:700;
   text-decoration:none;
   transition:0.25s;
+  font-size:1.02rem;
 }
+
 .menu a:hover{
   background:#1a2a40;
   color:#fff;
-}
-
-.concept-box{
-  background:rgba(255,255,255,0.7);
-  padding:20px;
-  border-radius:14px;
-  box-shadow:0 10px 25px rgba(0,0,0,0.05);
-  font-weight:700;
-  line-height:1.8;
-  text-align:left;
-  margin-top:0;
 }
 
 .bottom-band{
@@ -91,6 +107,7 @@ body{
   flex-wrap:wrap;
   justify-content:center;
 }
+
 .preview-card{
   background:#fff;
   padding:20px;
@@ -101,9 +118,11 @@ body{
   color:inherit;
   transition:0.25s;
 }
+
 .preview-card:hover{
   transform:translateY(-5px);
 }
+
 .preview-card span{
   display:block;
   margin-top:10px;
@@ -111,12 +130,25 @@ body{
   color:#b5945d;
 }
 
-.logo-container{margin-top:10px;}
-.logo-row{display:flex;align-items:center;gap:100px;}
+.logo-container{
+  margin-top:10px;
+}
 
 @media(max-width:768px){
-  .hero-inner{flex-direction:column;}
-  .hero-left{text-align:center;}
+
+  .hero-inner{
+    flex-direction:column;
+    text-align:center;
+    gap:40px;
+  }
+
+  .hero-left{
+    flex:none;
+  }
+
+  .menu{
+    justify-content:center;
+  }
 }
 </style>
 </head>
@@ -132,6 +164,19 @@ body{
 <div class="hero-inner">
 
 <div class="hero-left">
+
+<div class="logo-container">
+  <svg width="200" height="240" viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="100" cy="100" r="80" stroke="black" stroke-width="10" fill="none"/>
+    <circle cx="100" cy="100" r="20" fill="black"/>
+    <path d="M100 145 L45 225 L155 225 Z" stroke="black" stroke-width="8" fill="none"/>
+  </svg>
+</div>
+
+</div>
+
+<div class="hero-right">
+
 <h1 class="hero-title">ON-FORUM</h1>
 
 <p class="main-text" data-i18n="hero"></p>
@@ -143,27 +188,7 @@ body{
 <a href="cases.html" data-i18n="btn_cases"></a>
 <a href="#research" data-i18n="btn_research"></a>
 </div>
-</div>
 
-<div class="hero-right">
-<div class="logo-row">
-
-<div class="logo-container">
-  <svg width="200" height="240" viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="100" cy="100" r="80" stroke="black" stroke-width="10" fill="none"/>
-    <circle cx="100" cy="100" r="20" fill="black"/>
-    <path d="M100 145 L45 225 L155 225 Z" stroke="black" stroke-width="8" fill="none"/>
-  </svg>
-</div>
-
-<div class="concept-box">
-  <p data-i18n="c_philosophy"></p>
-  <p data-i18n="c_society"></p>
-  <p data-i18n="c_economy"></p>
-  <p data-i18n="c_education"></p>
-</div>
-
-</div>
 </div>
 
 </div>
@@ -296,6 +321,7 @@ const content = {
     ko: "<span style='font-size:0.92em;'>문제는 정보나 현상이 아니라 <strong>구조</strong>입니다.<br><br>세상을 구조로 바라보는 새로운 시각,<br>당신의 일상을 변화시키는 실질적 대안,<br>바로 <strong>온포럼(ON-FORUM)</strong>입니다.</span>",
     en: "<span style='font-size:0.92em;'>The issue is not information or phenomena, but <strong>structure</strong>.<br><br>A new way of seeing the world through structure,<br>a practical alternative that transforms your reality,<br><strong>ON-FORUM (온포럼)</strong>.</span>"
   },
+
   definition: {
     ko: "온포럼(ON-FORUM)은 현실을 구조로 분석하는 연구 플랫폼입니다",
     en: "ON-FORUM (온포럼) is a research platform that analyzes reality through structure"
@@ -305,11 +331,6 @@ const content = {
   btn_structure:{ko:"구조 보기",en:"Structure"},
   btn_cases:{ko:"사례 보기",en:"Cases"},
   btn_research:{ko:"연구 참여",en:"Research"},
-
-  c_philosophy:{ko:"철학",en:"Philosophy"},
-  c_society:{ko:"사회",en:"Society"},
-  c_economy:{ko:"경제",en:"Economy"},
-  c_education:{ko:"교육",en:"Education"},
 
   cases_title:{ko:"적용 사례",en:"Use Cases"},
 
