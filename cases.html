@@ -6,139 +6,323 @@
 
 <title>적용 사례 | ON-FORUM</title>
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css"/>
+
 <style>
+
 body{
-    font-family:sans-serif;
+    font-family:'Pretendard',sans-serif;
     margin:0;
-    padding:40px;
-    background:#f7f6f2;
+    background:
+    radial-gradient(circle at 20% 20%, rgba(181,148,93,0.08), transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(26,42,64,0.06), transparent 40%),
+    linear-gradient(to bottom,#f7f6f2,#f2efe8);
+    color:#222;
 }
 
-h1{
+.top-bar{
+    text-align:right;
+    padding:20px 20px 0;
+}
+
+.top-bar button{
+    padding:8px 14px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:700;
+    background:#1a2a40;
+    color:#fff;
+    margin-left:5px;
+}
+
+.hero{
+    padding:60px 20px 40px;
     text-align:center;
-    margin-bottom:40px;
+}
+
+.hero h1{
+    font-size:2.8rem;
+    margin-bottom:20px;
+    color:#1a2a40;
+}
+
+.hero p{
+    max-width:900px;
+    margin:0 auto;
+    line-height:2;
+    font-size:1.08rem;
+    color:#444;
 }
 
 .case{
-    max-width:800px;
-    margin:40px auto;
-    padding:25px;
-    background:#fff;
-    border-radius:12px;
-    box-shadow:0 8px 20px rgba(0,0,0,0.06);
+    max-width:1100px;
+    margin:60px auto;
+    padding:45px;
+    background:rgba(255,255,255,0.88);
+    border-radius:22px;
+    box-shadow:0 12px 30px rgba(0,0,0,0.06);
 }
 
 .tag{
+    display:inline-block;
+    padding:8px 14px;
+    border-radius:999px;
+    background:rgba(181,148,93,0.12);
+    color:#8b6b35;
     font-size:0.9rem;
-    color:#b5945d;
     font-weight:700;
-    margin-bottom:10px;
+    margin-bottom:18px;
+}
+
+.case h2{
+    margin-top:0;
+    margin-bottom:25px;
+    color:#1a2a40;
+    font-size:2rem;
+}
+
+.case-intro{
+    line-height:2;
+    color:#444;
+    margin-bottom:40px;
+    font-size:1.03rem;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:22px;
 }
 
 .block{
-    margin-top:15px;
-    line-height:1.6;
+    background:#fff;
+    padding:24px;
+    border-radius:16px;
+    box-shadow:0 8px 18px rgba(0,0,0,0.04);
+    line-height:1.9;
 }
 
 .block strong{
     display:block;
-    margin-bottom:5px;
+    margin-bottom:12px;
+    color:#1a2a40;
+    font-size:1.05rem;
 }
 
 .impact{
-    margin-top:20px;
-    font-weight:700;
-    color:#1a2a40;
+    margin-top:35px;
+    padding:28px;
+    border-radius:16px;
+    background:#1a2a40;
+    color:#fff;
+    line-height:2;
+    text-align:center;
+    font-size:1.02rem;
 }
+
+@media(max-width:768px){
+
+    body{
+        padding:0;
+    }
+
+    .hero h1{
+        font-size:2.2rem;
+    }
+
+    .case{
+        margin:30px 15px;
+        padding:28px;
+    }
+
+}
+
 </style>
 </head>
 
 <body>
 
+<div class="top-bar">
+<button onclick="setLang('ko')">KOR</button>
+<button onclick="setLang('en')">ENG</button>
+</div>
+
+<section class="hero">
+
 <h1 id="title"></h1>
+
+<p id="hero-desc"></p>
+
+</section>
 
 <div id="case-list"></div>
 
 <script>
 
-const labels = {
-title:{ko:"적용 사례", en:"Use Cases"},
-problem:{ko:"문제", en:"Problem"},
-existing:{ko:"기존 접근", en:"Existing Approach"},
-structure:{ko:"구조 분석", en:"Structural Analysis"},
-result:{ko:"변화", en:"Transformation"}
+const content = {
+
+title:{
+ko:"적용 사례",
+en:"Use Cases"
+},
+
+hero:{
+ko:"온포럼(ON-FORUM)은 반복되는 현실 문제를 단순한 현상이 아니라 구조와 흐름의 결과로 바라봅니다.<br><br>개인, 사회, 기술, 문명 속에서 발생하는 다양한 문제를 구조·흐름·감응·공진의 관점에서 분석합니다.",
+en:"ON-FORUM analyzes recurring real-world problems not as isolated phenomena, but as results of deeper structures and flows."
+},
+
+labels:{
+problem:{ko:"1. 현실 현상", en:"1. Reality"},
+existing:{ko:"2. 기존 접근 방식", en:"2. Existing Approach"},
+structure:{ko:"3. 구조 분석", en:"3. Structural Analysis"},
+flow:{ko:"4. 흐름 분석", en:"4. Flow Analysis"},
+resonance:{ko:"5. 공진 분석", en:"5. Resonance Analysis"},
+transition:{ko:"6. 구조 전환", en:"6. Structural Transition"}
+}
+
 };
 
 const cases = [
 
 {
-tag:{ko:"사례 1", en:"Case 1"},
-title:{ko:"판단 오류의 반복", en:"Repeated Judgment Errors"},
-problem:{ko:"같은 실수를 반복하는 문제", en:"Repeated mistakes occur"},
-existing:{ko:"정보를 더 모으려 함", en:"Trying to gather more information"},
-structure:{ko:"기준 구조 자체가 없음", en:"No structural standard exists"},
-result:{ko:"기준이 생기며 반복 중단", en:"Repetition stops with structure"},
-impact:{ko:"판단 안정성 확보", en:"Stable decision making"}
+
+id:"case-1",
+
+tag:{
+ko:"개인 판단 구조",
+en:"Personal Judgment Structure"
 },
 
-{
-tag:{ko:"사례 2", en:"Case 2"},
-title:{ko:"조직 갈등", en:"Organizational Conflict"},
-problem:{ko:"갈등이 반복됨", en:"Conflicts repeat"},
-existing:{ko:"사람 문제로 접근", en:"Blaming individuals"},
-structure:{ko:"구조 비대칭 문제", en:"Structural imbalance"},
-result:{ko:"구조 조정으로 해결", en:"Resolved via restructuring"},
-impact:{ko:"갈등 감소", en:"Reduced conflict"}
+title:{
+ko:"반복되는 선택 실패와 방향 혼란",
+en:"Repeated Failure of Judgment"
+},
+
+intro:{
+ko:"반복되는 판단 오류와 방향 상실은 단순한 정보 부족이 아니라 기준 구조와 감응 흐름의 불안정에서 비롯될 수 있습니다.",
+en:""
+},
+
+problem:{
+ko:"많은 사람들은 충분한 정보를 가지고 있음에도 반복적인 후회와 방향 혼란을 경험합니다.<br><br>비슷한 선택 실패가 반복되고, 결정 이후에도 쉽게 흔들리며 판단 피로가 누적됩니다.",
+en:""
+},
+
+existing:{
+ko:"기존에는 이를 정보 부족, 경험 부족, 감정 문제로 보는 경우가 많았습니다.<br><br>그래서 더 많은 정보와 조언, 동기부여를 통해 해결하려 합니다.",
+en:""
+},
+
+structure:{
+ko:"온포럼(ON-FORUM)은 이를 단순 능력 문제가 아니라 기준 구조의 불안정 문제로 봅니다.<br><br>판단 중심 구조가 형성되지 않으면 외부 환경과 자극에 따라 선택 기준이 계속 흔들릴 수 있습니다.",
+en:""
+},
+
+flow:{
+ko:"정보 과잉 환경 속에서 사람은 비교 → 불안 → 반응 → 재선택의 흐름을 반복하기 쉽습니다.<br><br>이 과정에서 자신의 기준보다 외부 흐름에 반응하는 구조가 강화됩니다.",
+en:""
+},
+
+resonance:{
+ko:"선택과 존재 방향이 분리될 경우 행동은 이루어져도 내면의 안정은 형성되지 않을 수 있습니다.<br><br>온포럼은 이를 존재와 판단의 비공진 상태로 해석합니다.",
+en:""
+},
+
+transition:{
+ko:"온포럼은 문제 해결 이전에 판단의 중심 구조를 먼저 회복하는 접근을 제안합니다.<br><br>정보 이전에 기준, 반응 이전에 방향, 선택 이전에 존재 흐름을 재정립하는 것입니다.",
+en:""
+},
+
+impact:{
+ko:"판단은 단순한 선택 기술이 아니라,<br>어떤 구조 위에서 현실을 바라보는가의 문제일 수 있습니다.",
+en:""
+}
+
 }
 
 ];
 
-function renderCases(lang) {
-    const container = document.getElementById("case-list");
-    container.innerHTML = "";
+function renderCases(lang){
 
-    document.getElementById("title").innerText = labels.title[lang];
+const container = document.getElementById("case-list");
 
-    cases.forEach((c, index) => {
-        const el = document.createElement("div");
-        el.className = "case";
-        el.id = "case-" + index;
+container.innerHTML = "";
 
-        el.innerHTML = `
-            <div class="tag">${c.tag[lang]}</div>
-            <h2>${c.title[lang]}</h2>
+document.getElementById("title").innerHTML = content.title[lang];
+document.getElementById("hero-desc").innerHTML = content.hero[lang];
 
-            <div class="block">
-                <strong>${labels.problem[lang]}</strong>
-                ${c.problem[lang]}
-            </div>
+cases.forEach(c=>{
 
-            <div class="block">
-                <strong>${labels.existing[lang]}</strong>
-                ${c.existing[lang]}
-            </div>
+const el = document.createElement("section");
 
-            <div class="block">
-                <strong>${labels.structure[lang]}</strong>
-                ${c.structure[lang]}
-            </div>
+el.className = "case";
 
-            <div class="block">
-                <strong>${labels.result[lang]}</strong>
-                ${c.result[lang]}
-            </div>
+el.id = c.id;
 
-            <div class="impact">
-                ${c.impact[lang]}
-            </div>
-        `;
+el.innerHTML = `
 
-        container.appendChild(el);
-    });
+<div class="tag">${c.tag[lang]}</div>
+
+<h2>${c.title[lang]}</h2>
+
+<div class="case-intro">
+${c.intro[lang]}
+</div>
+
+<div class="grid">
+
+<div class="block">
+<strong>${content.labels.problem[lang]}</strong>
+${c.problem[lang]}
+</div>
+
+<div class="block">
+<strong>${content.labels.existing[lang]}</strong>
+${c.existing[lang]}
+</div>
+
+<div class="block">
+<strong>${content.labels.structure[lang]}</strong>
+${c.structure[lang]}
+</div>
+
+<div class="block">
+<strong>${content.labels.flow[lang]}</strong>
+${c.flow[lang]}
+</div>
+
+<div class="block">
+<strong>${content.labels.resonance[lang]}</strong>
+${c.resonance[lang]}
+</div>
+
+<div class="block">
+<strong>${content.labels.transition[lang]}</strong>
+${c.transition[lang]}
+</div>
+
+</div>
+
+<div class="impact">
+${c.impact[lang]}
+</div>
+
+`;
+
+container.appendChild(el);
+
+});
+
 }
 
-window.onload = function() {
-    renderCases(localStorage.getItem("lang") || "ko");
+function setLang(lang){
+localStorage.setItem("lang",lang);
+renderCases(lang);
+}
+
+window.onload=function(){
+renderCases(localStorage.getItem("lang") || "ko");
 };
 
 </script>
