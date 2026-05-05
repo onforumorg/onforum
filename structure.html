@@ -8,23 +8,28 @@
 
 <style>
 
-*{
+/* =========================
+   ON STRUCTURE ONLY
+========================= */
+
+.on-structure-page *{
   margin:0;
   padding:0;
   box-sizing:border-box;
 }
 
-body{
+.on-structure-page{
   background:#05070a;
   color:#e8edf2;
   font-family:'Pretendard',sans-serif;
   overflow-x:hidden;
   line-height:1.9;
+  min-height:100vh;
 }
 
 /* 전체 영역 */
 
-.structure-view{
+.on-structure-wrap{
   width:100%;
   max-width:1100px;
   margin:0 auto;
@@ -32,9 +37,9 @@ body{
   position:relative;
 }
 
-/* 배경 흐름 */
+/* 중앙 흐름선 */
 
-.structure-view::before{
+.on-structure-wrap::before{
   content:"";
   position:absolute;
   top:0;
@@ -45,7 +50,7 @@ body{
   background:linear-gradient(
     to bottom,
     rgba(255,255,255,0),
-    rgba(255,255,255,0.06),
+    rgba(255,255,255,0.07),
     rgba(255,255,255,0)
   );
   pointer-events:none;
@@ -53,78 +58,75 @@ body{
 
 /* 타이틀 */
 
-.structure-title-wrap{
+.on-structure-title{
   text-align:center;
   margin-bottom:90px;
 }
 
-.structure-title-wrap h2{
+.on-structure-title h2{
   font-size:42px;
   font-weight:300;
   letter-spacing:8px;
-  margin-bottom:30px;
   color:#ffffff;
+  margin-bottom:28px;
 }
 
-.structure-title-line{
+.on-structure-line{
   width:120px;
   height:1px;
   margin:0 auto 40px;
   background:rgba(255,255,255,0.18);
 }
 
-.structure-intro{
+.on-structure-intro{
   max-width:760px;
   margin:0 auto;
-  text-align:center;
   color:rgba(255,255,255,0.72);
   font-size:17px;
   line-height:2.1;
 }
 
-/* 흐름 구조 */
+/* 흐름 */
 
-.structure-flow{
+.on-structure-flow{
   margin-top:120px;
-  position:relative;
 }
 
-/* 흐름 아이템 */
+/* 아이템 */
 
-.flow-item{
+.on-structure-item{
   position:relative;
   width:100%;
   max-width:760px;
   margin:0 auto 120px;
   padding:48px;
-  border:1px solid rgba(255,255,255,0.06);
-  background:rgba(255,255,255,0.02);
-  backdrop-filter:blur(4px);
   border-radius:28px;
-  transition:0.5s ease;
+  background:rgba(255,255,255,0.02);
+  border:1px solid rgba(255,255,255,0.06);
   overflow:hidden;
+  transition:0.45s ease;
 }
 
-/* 은은한 반응 */
+/* 미세 반응 */
 
-.flow-item::before{
+.on-structure-item::before{
   content:"";
   position:absolute;
   inset:0;
   background:radial-gradient(
     circle at top left,
-    rgba(255,255,255,0.06),
+    rgba(255,255,255,0.05),
     transparent 60%
   );
   opacity:0;
-  transition:0.5s ease;
+  transition:0.45s ease;
 }
 
-.flow-item:hover::before{
+.on-structure-item:hover::before{
   opacity:1;
 }
 
-.flow-item:hover{
+.on-structure-item:hover{
   transform:translateY(-6px);
   border-color:rgba(255,255,255,0.12);
   background:rgba(255,255,255,0.03);
@@ -132,27 +134,26 @@ body{
 
 /* 번호 */
 
-.flow-number{
+.on-structure-number{
   display:block;
   font-size:13px;
   letter-spacing:5px;
   color:rgba(255,255,255,0.35);
-  margin-bottom:22px;
+  margin-bottom:20px;
 }
 
 /* 제목 */
 
-.flow-item h3{
+.on-structure-item h3{
   font-size:34px;
   font-weight:300;
-  margin-bottom:28px;
   color:#ffffff;
-  letter-spacing:1px;
+  margin-bottom:30px;
 }
 
-/* 핵심 연결 문장 */
+/* 연결 문장 */
 
-.flow-connect{
+.on-structure-connect{
   font-size:20px;
   line-height:1.9;
   color:rgba(255,255,255,0.92);
@@ -162,15 +163,15 @@ body{
 
 /* 설명 */
 
-.flow-item p{
+.on-structure-item p{
   color:rgba(255,255,255,0.62);
   font-size:16px;
   line-height:2;
 }
 
-/* 연결 라인 */
+/* 연결선 */
 
-.flow-line{
+.on-structure-flow-line{
   width:1px;
   height:80px;
   margin:0 auto 40px;
@@ -181,34 +182,34 @@ body{
   );
 }
 
-/* 하단 문장 */
+/* 하단 */
 
-.structure-bottom{
+.on-structure-bottom{
+  text-align:center;
   margin-top:60px;
-  text-align:center;
 }
 
-.structure-bottom p{
-  color:rgba(255,255,255,0.58);
-  font-size:17px;
+.on-structure-bottom p{
+  color:rgba(255,255,255,0.56);
   line-height:2.2;
+  font-size:17px;
 }
 
-/* 마지막 흐름 강조 */
+/* 마지막 구조 */
 
-.structure-ending{
-  margin-top:120px;
+.on-structure-ending{
   text-align:center;
+  margin-top:120px;
 }
 
-.structure-ending h4{
+.on-structure-ending h4{
   font-size:28px;
   font-weight:300;
-  margin-bottom:28px;
   color:#ffffff;
+  margin-bottom:28px;
 }
 
-.structure-ending p{
+.on-structure-ending p{
   color:rgba(255,255,255,0.6);
   line-height:2.1;
   font-size:16px;
@@ -218,29 +219,29 @@ body{
 
 @media(max-width:768px){
 
-  .structure-view{
+  .on-structure-wrap{
     padding:90px 20px 120px;
   }
 
-  .structure-title-wrap h2{
+  .on-structure-title h2{
     font-size:30px;
     letter-spacing:5px;
   }
 
-  .flow-item{
+  .on-structure-item{
     padding:34px 28px;
     margin-bottom:90px;
   }
 
-  .flow-item h3{
+  .on-structure-item h3{
     font-size:26px;
   }
 
-  .flow-connect{
+  .on-structure-connect{
     font-size:18px;
   }
 
-  .structure-intro{
+  .on-structure-intro{
     font-size:15px;
   }
 
@@ -249,17 +250,20 @@ body{
 </style>
 </head>
 
-<body>
+<body class="on-structure-page">
 
-<section class="structure-view">
+<section class="on-structure-wrap">
 
   <!-- 타이틀 -->
 
-  <div class="structure-title-wrap">
-    <h2>구조 보기</h2>
-    <div class="structure-title-line"></div>
+  <div class="on-structure-title">
 
-    <p class="structure-intro">
+    <h2>구조 보기</h2>
+
+    <div class="on-structure-line"></div>
+
+    <div class="on-structure-intro">
+
       온은 하나의 주장이나 단일 학문으로 이루어진 체계가 아닙니다.<br><br>
 
       존재와 인간, 언어와 문명, 기술과 우주까지<br>
@@ -268,21 +272,24 @@ body{
 
       아래의 흐름은 현재까지 정리된 하나의 연결 구조이며,<br>
       앞으로도 계속 변화하고 확장될 수 있습니다.
-    </p>
+
+    </div>
+
   </div>
 
   <!-- 흐름 -->
 
-  <div class="structure-flow">
+  <div class="on-structure-flow">
 
     <!-- 1 -->
 
-    <div class="flow-item">
-      <span class="flow-number">01</span>
+    <div class="on-structure-item">
+
+      <span class="on-structure-number">01</span>
 
       <h3>존재와 인식</h3>
 
-      <div class="flow-connect">
+      <div class="on-structure-connect">
         존재를 바라보는 방식은<br>
         인간의 인식 구조를 형성합니다.
       </div>
@@ -294,18 +301,20 @@ body{
         인식은 단순한 정보 처리 이전에,<br>
         존재를 어떻게 받아들이는가에 대한 방향성과 연결됩니다.
       </p>
+
     </div>
 
-    <div class="flow-line"></div>
+    <div class="on-structure-flow-line"></div>
 
     <!-- 2 -->
 
-    <div class="flow-item">
-      <span class="flow-number">02</span>
+    <div class="on-structure-item">
+
+      <span class="on-structure-number">02</span>
 
       <h3>언어와 기호</h3>
 
-      <div class="flow-connect">
+      <div class="on-structure-connect">
         인간의 인식은 언어를 만들고,<br>
         언어는 다시 세계를 해석하는 틀이 됩니다.
       </div>
@@ -317,18 +326,20 @@ body{
         언어는 단순 전달 수단이 아니라,<br>
         인간 사고와 문명 구조를 형성하는 핵심 흐름으로 연결됩니다.
       </p>
+
     </div>
 
-    <div class="flow-line"></div>
+    <div class="on-structure-flow-line"></div>
 
     <!-- 3 -->
 
-    <div class="flow-item">
-      <span class="flow-number">03</span>
+    <div class="on-structure-item">
+
+      <span class="on-structure-number">03</span>
 
       <h3>인간과 문명</h3>
 
-      <div class="flow-connect">
+      <div class="on-structure-connect">
         인간의 사고 구조는 문명을 만들고,<br>
         문명은 다시 인간의 삶을 변화시킵니다.
       </div>
@@ -340,18 +351,20 @@ body{
         사회와 제도, 문화와 가치관 역시<br>
         서로 독립된 요소가 아니라 연결된 구조 안에서 움직입니다.
       </p>
+
     </div>
 
-    <div class="flow-line"></div>
+    <div class="on-structure-flow-line"></div>
 
     <!-- 4 -->
 
-    <div class="flow-item">
-      <span class="flow-number">04</span>
+    <div class="on-structure-item">
+
+      <span class="on-structure-number">04</span>
 
       <h3>과학과 기술</h3>
 
-      <div class="flow-connect">
+      <div class="on-structure-connect">
         기술은 단순한 도구가 아니라,<br>
         인간 문명의 방향성을 반영합니다.
       </div>
@@ -363,18 +376,20 @@ body{
         과학과 기술은 인간, 사회, 감정, 환경과 분리되지 않으며,<br>
         결국 문명의 미래 방향과 연결됩니다.
       </p>
+
     </div>
 
-    <div class="flow-line"></div>
+    <div class="on-structure-flow-line"></div>
 
     <!-- 5 -->
 
-    <div class="flow-item">
-      <span class="flow-number">05</span>
+    <div class="on-structure-item">
+
+      <span class="on-structure-number">05</span>
 
       <h3>생명과 환경</h3>
 
-      <div class="flow-connect">
+      <div class="on-structure-connect">
         생명의 변화는 환경에 영향을 주고,<br>
         환경의 변화는 다시 인간에게 돌아옵니다.
       </div>
@@ -386,18 +401,20 @@ body{
         인간 사회 또한 자연과 분리된 존재가 아니며,<br>
         생태와 감정, 환경과 문명은 서로 깊게 연결되어 있습니다.
       </p>
+
     </div>
 
-    <div class="flow-line"></div>
+    <div class="on-structure-flow-line"></div>
 
     <!-- 6 -->
 
-    <div class="flow-item">
-      <span class="flow-number">06</span>
+    <div class="on-structure-item">
+
+      <span class="on-structure-number">06</span>
 
       <h3>우주와 미래</h3>
 
-      <div class="flow-connect">
+      <div class="on-structure-connect">
         인간의 시선을 넘어,<br>
         보다 보편적인 존재 구조를 탐색합니다.
       </div>
@@ -409,20 +426,25 @@ body{
         온은 특정 시대의 정답보다,<br>
         계속 연결되고 확장될 수 있는 구조 자체를 중요하게 바라봅니다.
       </p>
+
     </div>
 
   </div>
 
   <!-- 하단 -->
 
-  <div class="structure-bottom">
+  <div class="on-structure-bottom">
+
     <p>
       온의 구조는 완성된 결론을 제시하기보다,<br>
       서로 분리되어 있던 영역들을 다시 연결하고 탐색하기 위한 흐름에 가깝습니다.
     </p>
+
   </div>
 
-  <div class="structure-ending">
+  <!-- 마지막 흐름 -->
+
+  <div class="on-structure-ending">
 
     <h4>
       존재 → 인간 → 언어 → 문명 → 기술 → 우주
