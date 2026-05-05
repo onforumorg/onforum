@@ -9,7 +9,7 @@
 <style>
 
 /* =========================
-   ON STRUCTURE ONLY
+   ON STRUCTURE SYSTEM
 ========================= */
 
 .on-structure-page *{
@@ -19,21 +19,22 @@
 }
 
 .on-structure-page{
-  background:#05070a;
-  color:#e8edf2;
+  background:#06080c;
+  color:#edf2f7;
   font-family:'Pretendard',sans-serif;
   overflow-x:hidden;
   line-height:1.9;
   min-height:100vh;
+  letter-spacing:0.2px;
 }
 
 /* 전체 영역 */
 
 .on-structure-wrap{
   width:100%;
-  max-width:1100px;
+  max-width:1120px;
   margin:0 auto;
-  padding:120px 24px 160px;
+  padding:130px 28px 180px;
   position:relative;
 }
 
@@ -50,7 +51,7 @@
   background:linear-gradient(
     to bottom,
     rgba(255,255,255,0),
-    rgba(255,255,255,0.07),
+    rgba(255,255,255,0.08),
     rgba(255,255,255,0)
   );
   pointer-events:none;
@@ -60,54 +61,55 @@
 
 .on-structure-title{
   text-align:center;
-  margin-bottom:90px;
+  margin-bottom:110px;
 }
 
 .on-structure-title h2{
-  font-size:42px;
+  font-size:46px;
   font-weight:300;
-  letter-spacing:8px;
-  color:#ffffff;
-  margin-bottom:28px;
+  letter-spacing:9px;
+  color:rgba(255,255,255,0.95);
+  margin-bottom:30px;
 }
 
 .on-structure-line{
-  width:120px;
+  width:130px;
   height:1px;
-  margin:0 auto 40px;
-  background:rgba(255,255,255,0.18);
+  margin:0 auto 46px;
+  background:rgba(255,255,255,0.2);
 }
 
 .on-structure-intro{
-  max-width:760px;
+  max-width:780px;
   margin:0 auto;
-  color:rgba(255,255,255,0.72);
-  font-size:17px;
-  line-height:2.1;
+  font-size:18px;
+  line-height:2.2;
+  color:rgba(255,255,255,0.76);
 }
 
 /* 흐름 */
 
 .on-structure-flow{
-  margin-top:120px;
+  margin-top:130px;
 }
 
-/* 아이템 */
+/* 카드 */
 
 .on-structure-item{
   position:relative;
   width:100%;
-  max-width:760px;
+  max-width:790px;
   margin:0 auto 120px;
-  padding:48px;
-  border-radius:28px;
-  background:rgba(255,255,255,0.02);
+  padding:58px 56px;
+  border-radius:30px;
+  background:rgba(255,255,255,0.025);
   border:1px solid rgba(255,255,255,0.06);
   overflow:hidden;
-  transition:0.45s ease;
+  transition:0.5s ease;
+  backdrop-filter:blur(3px);
 }
 
-/* 미세 반응 */
+/* 미세한 반응 */
 
 .on-structure-item::before{
   content:"";
@@ -116,10 +118,10 @@
   background:radial-gradient(
     circle at top left,
     rgba(255,255,255,0.05),
-    transparent 60%
+    transparent 62%
   );
   opacity:0;
-  transition:0.45s ease;
+  transition:0.5s ease;
 }
 
 .on-structure-item:hover::before{
@@ -129,55 +131,82 @@
 .on-structure-item:hover{
   transform:translateY(-6px);
   border-color:rgba(255,255,255,0.12);
-  background:rgba(255,255,255,0.03);
+  background:rgba(255,255,255,0.035);
+}
+
+/* 카드별 분위기 */
+
+.on-structure-item.exist{
+  background:rgba(255,255,255,0.018);
+}
+
+.on-structure-item.language{
+  background:rgba(240,245,255,0.02);
+}
+
+.on-structure-item.civil{
+  background:rgba(255,250,245,0.02);
+}
+
+.on-structure-item.tech{
+  background:rgba(235,245,255,0.022);
+}
+
+.on-structure-item.life{
+  background:rgba(235,255,245,0.022);
+}
+
+.on-structure-item.universe{
+  background:rgba(245,245,255,0.024);
 }
 
 /* 번호 */
 
 .on-structure-number{
   display:block;
-  font-size:13px;
+  font-size:14px;
   letter-spacing:5px;
-  color:rgba(255,255,255,0.35);
-  margin-bottom:20px;
+  color:rgba(255,255,255,0.38);
+  margin-bottom:24px;
 }
 
 /* 제목 */
 
 .on-structure-item h3{
-  font-size:34px;
+  font-size:38px;
   font-weight:300;
-  color:#ffffff;
-  margin-bottom:30px;
+  color:rgba(255,255,255,0.96);
+  margin-bottom:34px;
+  line-height:1.4;
 }
 
 /* 연결 문장 */
 
 .on-structure-connect{
-  font-size:20px;
-  line-height:1.9;
-  color:rgba(255,255,255,0.92);
-  margin-bottom:30px;
+  font-size:22px;
+  line-height:2;
+  color:rgba(255,255,255,0.9);
+  margin-bottom:34px;
   font-weight:300;
 }
 
 /* 설명 */
 
 .on-structure-item p{
-  color:rgba(255,255,255,0.62);
-  font-size:16px;
-  line-height:2;
+  font-size:17px;
+  line-height:2.2;
+  color:rgba(255,255,255,0.72);
 }
 
 /* 연결선 */
 
 .on-structure-flow-line{
   width:1px;
-  height:80px;
-  margin:0 auto 40px;
+  height:88px;
+  margin:0 auto 32px;
   background:linear-gradient(
     to bottom,
-    rgba(255,255,255,0.12),
+    rgba(255,255,255,0.15),
     rgba(255,255,255,0)
   );
 }
@@ -186,33 +215,34 @@
 
 .on-structure-bottom{
   text-align:center;
-  margin-top:60px;
+  margin-top:70px;
 }
 
 .on-structure-bottom p{
-  color:rgba(255,255,255,0.56);
-  line-height:2.2;
-  font-size:17px;
+  font-size:18px;
+  line-height:2.3;
+  color:rgba(255,255,255,0.7);
 }
 
-/* 마지막 구조 */
+/* 마지막 흐름 */
 
 .on-structure-ending{
   text-align:center;
-  margin-top:120px;
+  margin-top:130px;
 }
 
 .on-structure-ending h4{
-  font-size:28px;
+  font-size:30px;
   font-weight:300;
-  color:#ffffff;
-  margin-bottom:28px;
+  line-height:1.9;
+  color:rgba(255,255,255,0.96);
+  margin-bottom:32px;
 }
 
 .on-structure-ending p{
-  color:rgba(255,255,255,0.6);
-  line-height:2.1;
-  font-size:16px;
+  font-size:17px;
+  line-height:2.2;
+  color:rgba(255,255,255,0.68);
 }
 
 /* 모바일 */
@@ -220,29 +250,56 @@
 @media(max-width:768px){
 
   .on-structure-wrap{
-    padding:90px 20px 120px;
+    padding:90px 20px 130px;
+  }
+
+  .on-structure-title{
+    margin-bottom:80px;
   }
 
   .on-structure-title h2{
-    font-size:30px;
+    font-size:32px;
     letter-spacing:5px;
   }
 
+  .on-structure-intro{
+    font-size:16px;
+    line-height:2.1;
+  }
+
+  .on-structure-flow{
+    margin-top:90px;
+  }
+
   .on-structure-item{
-    padding:34px 28px;
+    padding:40px 30px;
     margin-bottom:90px;
+    border-radius:24px;
   }
 
   .on-structure-item h3{
-    font-size:26px;
+    font-size:28px;
+    margin-bottom:26px;
   }
 
   .on-structure-connect{
-    font-size:18px;
+    font-size:19px;
+    line-height:1.9;
   }
 
-  .on-structure-intro{
-    font-size:15px;
+  .on-structure-item p{
+    font-size:16px;
+    line-height:2.05;
+  }
+
+  .on-structure-bottom p,
+  .on-structure-ending p{
+    font-size:16px;
+  }
+
+  .on-structure-ending h4{
+    font-size:24px;
+    line-height:1.8;
   }
 
 }
@@ -283,7 +340,7 @@
 
     <!-- 1 -->
 
-    <div class="on-structure-item">
+    <div class="on-structure-item exist">
 
       <span class="on-structure-number">01</span>
 
@@ -308,23 +365,23 @@
 
     <!-- 2 -->
 
-    <div class="on-structure-item">
+    <div class="on-structure-item language">
 
       <span class="on-structure-number">02</span>
 
       <h3>언어와 기호</h3>
 
       <div class="on-structure-connect">
-        인간의 인식은 언어를 만들고,<br>
-        언어는 다시 세계를 해석하는 틀이 됩니다.
+        인식은 언어를 만들고,<br>
+        언어는 다시 세계를 해석합니다.
       </div>
 
       <p>
         현재 언어 구조가 가지는 한계와 왜곡 가능성을 탐구하며,<br>
         새로운 의미 구조와 감응 기반 언어 체계를 연구합니다.<br><br>
 
-        언어는 단순 전달 수단이 아니라,<br>
-        인간 사고와 문명 구조를 형성하는 핵심 흐름으로 연결됩니다.
+        언어는 단순한 전달 수단이 아니라,<br>
+        인간 사고와 문명 구조를 형성하는 흐름과 연결됩니다.
       </p>
 
     </div>
@@ -333,23 +390,23 @@
 
     <!-- 3 -->
 
-    <div class="on-structure-item">
+    <div class="on-structure-item civil">
 
       <span class="on-structure-number">03</span>
 
       <h3>인간과 문명</h3>
 
       <div class="on-structure-connect">
-        인간의 사고 구조는 문명을 만들고,<br>
-        문명은 다시 인간의 삶을 변화시킵니다.
+        인간의 사고는 문명을 만들고,<br>
+        문명은 다시 인간을 변화시킵니다.
       </div>
 
       <p>
         현대 문명이 형성해 온 구조적 흐름과 문제들을 분석하며,<br>
         인간 중심 사고의 방향성과 그 영향을 함께 탐색합니다.<br><br>
 
-        사회와 제도, 문화와 가치관 역시<br>
-        서로 독립된 요소가 아니라 연결된 구조 안에서 움직입니다.
+        사회와 문화, 가치와 제도 역시<br>
+        서로 독립된 것이 아닌 연결된 구조 속에서 움직입니다.
       </p>
 
     </div>
@@ -358,7 +415,7 @@
 
     <!-- 4 -->
 
-    <div class="on-structure-item">
+    <div class="on-structure-item tech">
 
       <span class="on-structure-number">04</span>
 
@@ -366,15 +423,15 @@
 
       <div class="on-structure-connect">
         기술은 단순한 도구가 아니라,<br>
-        인간 문명의 방향성을 반영합니다.
+        문명의 방향을 반영합니다.
       </div>
 
       <p>
-        기술의 발전 속도 자체보다,<br>
+        기술의 발전 자체보다,<br>
         그것이 어떤 구조와 가치 위에서 사용되는가를 중요하게 바라봅니다.<br><br>
 
-        과학과 기술은 인간, 사회, 감정, 환경과 분리되지 않으며,<br>
-        결국 문명의 미래 방향과 연결됩니다.
+        과학과 기술은 인간과 사회, 감정과 환경까지<br>
+        다양한 영역과 연결되며 미래의 방향에 영향을 줍니다.
       </p>
 
     </div>
@@ -383,7 +440,7 @@
 
     <!-- 5 -->
 
-    <div class="on-structure-item">
+    <div class="on-structure-item life">
 
       <span class="on-structure-number">05</span>
 
@@ -399,7 +456,7 @@
         연결과 공존의 흐름 속에서 이해하려 합니다.<br><br>
 
         인간 사회 또한 자연과 분리된 존재가 아니며,<br>
-        생태와 감정, 환경과 문명은 서로 깊게 연결되어 있습니다.
+        생태와 환경, 감정과 문명은 서로 깊게 연결되어 있습니다.
       </p>
 
     </div>
@@ -408,7 +465,7 @@
 
     <!-- 6 -->
 
-    <div class="on-structure-item">
+    <div class="on-structure-item universe">
 
       <span class="on-structure-number">06</span>
 
