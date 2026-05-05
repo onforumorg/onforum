@@ -364,26 +364,20 @@ body{
 
   <defs>
 
-    <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#1d2430"/>
-      <stop offset="45%" stop-color="#aab2bf"/>
-      <stop offset="100%" stop-color="#1a1f28"/>
-    </linearGradient>
-
     <linearGradient id="triGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#232a36"/>
-      <stop offset="50%" stop-color="#b0b0b0"/>
-      <stop offset="100%" stop-color="#1b1f27"/>
+      <stop offset="0%" stop-color="#3a4352"/>
+      <stop offset="50%" stop-color="#c3c8d1"/>
+      <stop offset="100%" stop-color="#2b313d"/>
     </linearGradient>
 
     <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#5d6675"/>
-      <stop offset="50%" stop-color="#d7dce5"/>
-      <stop offset="100%" stop-color="#5d6675"/>
+      <stop offset="0%" stop-color="#667080"/>
+      <stop offset="50%" stop-color="#d8dde5"/>
+      <stop offset="100%" stop-color="#667080"/>
     </linearGradient>
 
     <filter id="softGlow">
-      <feGaussianBlur stdDeviation="2.8" result="blur"/>
+      <feGaussianBlur stdDeviation="2.2" result="blur"/>
       <feMerge>
         <feMergeNode in="blur"/>
         <feMergeNode in="SourceGraphic"/>
@@ -392,14 +386,25 @@ body{
 
   </defs>
 
-  <!-- 뒤쪽 원 -->
-  <path
-    d="M120 40
-       A80 80 0 1 1 119.9 40"
-    stroke="url(#ringGrad)"
-    stroke-width="10"
+  <!-- 원 -->
+  <circle
+    cx="120"
+    cy="120"
+    r="80"
+    stroke="url(#triGrad)"
+    stroke-width="8"
     fill="none"
-    opacity="0.26"
+    opacity="0.78"
+    filter="url(#softGlow)"
+  />
+
+  <!-- 중심점 -->
+  <circle
+    cx="120"
+    cy="120"
+    r="17"
+    fill="url(#triGrad)"
+    filter="url(#softGlow)"
   />
 
   <!-- 삼각형 -->
@@ -411,36 +416,17 @@ body{
     filter="url(#softGlow)"
   />
 
-  <!-- 앞쪽 원 -->
-  <path
-    d="M120 40
-       A80 80 0 0 1 200 120"
-    stroke="url(#ringGrad)"
-    stroke-width="10"
-    fill="none"
-    stroke-linecap="round"
-    filter="url(#softGlow)"
-  />
-
-  <!-- 중심점 -->
-  <circle
-    cx="120"
-    cy="120"
-    r="17"
-    fill="url(#ringGrad)"
-    filter="url(#softGlow)"
-  />
-
   <!-- ON-FORUM 텍스트 -->
   <text
     x="120"
-    y="292"
+    y="296"
     text-anchor="middle"
-    font-size="18"
+    font-size="22"
+    font-weight="600"
     font-family="Pretendard, sans-serif"
-    letter-spacing="5"
+    letter-spacing="4"
     fill="url(#textGrad)"
-    opacity="0.92"
+    opacity="0.96"
   >
     ON-FORUM
   </text>
