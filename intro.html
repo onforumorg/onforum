@@ -1633,39 +1633,35 @@ item.classList.toggle('active');
 
 setLang('ko');
 
-/* FLOW ACCORDION & LANGUAGE INITIALIZATION */
-window.onload = function() {
-    // 1. 저장된 언어 불러오기 및 적용
-    const savedLang = localStorage.getItem("lang") || "ko";
-    setLang(savedLang);
-
-    // 2. 아코디언 클릭 이벤트 등록
-    const flowBtns = document.querySelectorAll('.flow-btn');
-    flowBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const item = btn.parentElement;
-            item.classList.toggle('active');
-        });
+/* FLOW ACCORDION */
+document.querySelectorAll('.flow-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        item.classList.toggle('active');
     });
-};
+});
 
-/* 언어 전환 실행 함수 */
-function setLang(lang) {
+/* LANGUAGE SETTING */
+function setLang(lang){
     localStorage.setItem("lang", lang);
 
     document.querySelectorAll("[data-i18n]").forEach(el => {
         const key = el.dataset.i18n;
-        if (content[key] && content[key][lang]) {
+        if(content[key] && content[key][lang]){
             el.innerHTML = content[key][lang];
         }
     });
 
-    // 버튼 활성 상태 표시
-    const btnKo = document.getElementById("btn-ko");
-    const btnEn = document.getElementById("btn-en");
-    if (btnKo) btnKo.classList.toggle("active", lang === "ko");
-    if (btnEn) btnEn.classList.toggle("active", lang === "en");
+    const koBtn = document.getElementById("btn-ko");
+    const enBtn = document.getElementById("btn-en");
+    if(koBtn) koBtn.classList.toggle("active", lang === "ko");
+    if(enBtn) enBtn.classList.toggle("active", lang === "en");
 }
+
+window.onload = function(){
+    const savedLang = localStorage.getItem("lang") || "ko";
+    setLang(savedLang);
+};
 </script>
 
 </body>
