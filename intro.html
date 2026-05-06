@@ -1634,50 +1634,31 @@ item.classList.toggle('active');
 setLang('ko');
 
 /* FLOW ACCORDION */
+window.onload = function() {
+    const savedLang = localStorage.getItem("lang") || "ko";
+    setLang(savedLang);
 
-const flowBtns = document.querySelectorAll('.flow-btn');
+    document.querySelectorAll(".flow-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+            const item = btn.parentElement;
+            item.classList.toggle("active");
+        });
+    });
+};
 
-flowBtns.forEach(btn => {
+function setLang(lang) {
+    localStorage.setItem("lang", lang);
 
-btn.addEventListener('click', () => {
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.dataset.i18n;
+        if (content[key] && content[key][lang]) {
+            el.innerHTML = content[key][lang];
+        }
+    });
 
-const item = btn.parentElement;
-
-item.classList.toggle('active');
-
-function setLang(lang){
-
-document.querySelectorAll("[data-i18n]").forEach(el=>{
-
-const key = el.dataset.i18n;
-
-if(content[key] && content[key][lang]){
-el.innerHTML = content[key][lang];
+    document.getElementById("btn-ko").classList.toggle("active", lang === "ko");
+    document.getElementById("btn-en").classList.toggle("active", lang === "en");
 }
-
-});
-
-document.getElementById("btn-ko").classList.remove("active");
-document.getElementById("btn-en").classList.remove("active");
-
-document.getElementById("btn-"+lang).classList.add("active");
-
-}
-
-setLang("ko");
-
-document.querySelectorAll(".flow-btn").forEach(btn=>{
-
-btn.addEventListener("click", ()=>{
-
-const item = btn.parentElement;
-
-item.classList.toggle("active");
-  
-});
-
-});
-
 </script>
 
 </body>
