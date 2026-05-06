@@ -209,8 +209,6 @@ transform:rotate(45deg);
 
 <!-- ON FLOW NAVIGATION -->
 
-<section class="section">
-
 <div class="flow-wrap">
 
 <div class="flow-intro">
@@ -1575,9 +1573,27 @@ const item = btn.parentElement;
 
 item.classList.toggle('active');
 
+...
+
+setLang('ko');
+
+/* FLOW ACCORDION */
+
+const flowBtns = document.querySelectorAll('.flow-btn');
+
+flowBtns.forEach(btn => {
+
+btn.addEventListener('click', () => {
+
+const item = btn.parentElement;
+
+item.classList.toggle('active');
+
 });
 
 });
+
+</script>
   
 </script>
 
