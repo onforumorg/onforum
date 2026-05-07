@@ -217,7 +217,10 @@ transform:rotate(45deg);
 </section>
 
 <!-- INTRO -->
+
 <section class="section">
+
+<div id="ko-content">
 
 <!-- ON FLOW NAVIGATION -->
 
@@ -270,6 +273,7 @@ ON-FORUM은 현실을 단순한 정보나 현상의 집합으로 바라보기보
 </div>
 </div>
 
+  <div id="en-content" style="display:none;">
 <!-- 1. What Does ON-FORUM Seek? -->
 
 <div class="flow-desc">
@@ -1825,7 +1829,8 @@ Beyond philosophy, science, language, technology, society, and culture, the flow
 
 </div>
 </div>
-
+</div>
+  
 <!-- 8 -->
 
 <div class="flow-desc">
@@ -1911,7 +1916,8 @@ thought and civilization.
 
 </div>
 </div>
-
+</div>
+  
 <div class="back">
 <a href="index.html" data-i18n="back"></a>
 </div>
@@ -2876,6 +2882,16 @@ window.onload = function(){
 
 };
 
+function showKorean() {
+  document.getElementById("ko-content").style.display = "block";
+  document.getElementById("en-content").style.display = "none";
+}
+
+function showEnglish() {
+  document.getElementById("ko-content").style.display = "none";
+  document.getElementById("en-content").style.display = "block";
+}
+  
 </script>
 
 </body>
