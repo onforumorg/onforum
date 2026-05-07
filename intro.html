@@ -1658,6 +1658,14 @@ window.onload = function(){
         btn.addEventListener('click', () => {
             const item = btn.parentElement;
             item.classList.toggle('active');
+
+document.querySelectorAll('.flow-btn').forEach(button => {
+  button.addEventListener('click', () => {
+
+    const item = button.parentElement;
+
+    item.classList.toggle('active');
+          
         });
     });
 };
