@@ -2435,24 +2435,6 @@ document.getElementById("btn-ko").classList.toggle("active",lang==="ko");
 document.getElementById("btn-en").classList.toggle("active",lang==="en");
 }
 
-window.onload=function(){
-setLang(localStorage.getItem("lang")||"ko");
-}
-
-/* FLOW ACCORDION */
-
-const flowBtns = document.querySelectorAll('.flow-btn');
-
-flowBtns.forEach(btn => {
-
-btn.addEventListener('click', () => {
-
-const item = btn.parentElement;
-
-item.classList.toggle('active');
-
-...
-
 setLang('ko');
 
 /* FLOW ACCORDION */
