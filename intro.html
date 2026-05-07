@@ -1634,14 +1634,6 @@ item.classList.toggle('active');
 setLang('ko');
 
 /* FLOW ACCORDION */
-document.querySelectorAll('.flow-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-        const item = btn.parentElement;
-        item.classList.toggle('active');
-    });
-});
-
-/* LANGUAGE SETTING */
 function setLang(lang){
     localStorage.setItem("lang", lang);
 
@@ -1661,6 +1653,13 @@ function setLang(lang){
 window.onload = function(){
     const savedLang = localStorage.getItem("lang") || "ko";
     setLang(savedLang);
+
+    document.querySelectorAll('.flow-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const item = btn.parentElement;
+            item.classList.toggle('active');
+        });
+    });
 };
 </script>
 
