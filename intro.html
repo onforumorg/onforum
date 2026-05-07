@@ -1634,41 +1634,53 @@ item.classList.toggle('active');
 setLang('ko');
 
 /* FLOW ACCORDION */
+
 function setLang(lang){
+
     localStorage.setItem("lang", lang);
 
     document.querySelectorAll("[data-i18n]").forEach(el => {
+
         const key = el.dataset.i18n;
+
         if(content[key] && content[key][lang]){
+
             el.innerHTML = content[key][lang];
+
         }
+
     });
 
     const koBtn = document.getElementById("btn-ko");
     const enBtn = document.getElementById("btn-en");
+
     if(koBtn) koBtn.classList.toggle("active", lang === "ko");
     if(enBtn) enBtn.classList.toggle("active", lang === "en");
+
 }
 
+
 window.onload = function(){
+
     const savedLang = localStorage.getItem("lang") || "ko";
+
     setLang(savedLang);
 
+    
     document.querySelectorAll('.flow-btn').forEach(btn => {
+
         btn.addEventListener('click', () => {
+
             const item = btn.parentElement;
+
             item.classList.toggle('active');
 
-document.querySelectorAll('.flow-btn').forEach(button => {
-  button.addEventListener('click', () => {
-
-    const item = button.parentElement;
-
-    item.classList.toggle('active');
-          
         });
+
     });
+
 };
+
 </script>
 
 </body>
