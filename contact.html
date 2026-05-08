@@ -144,7 +144,36 @@ const targets = [
     ko: "문제를 구조적으로 해결하고 싶은 분",
     en: "Solving problems structurally"
 }
-];
+],
+
+<!-- 연구 참여 확장 영역 시작 -->
+
+<section class="section center">
+    <h2 data-i18n="participation_title"></h2>
+    <p data-i18n="participation_subtitle"></p>
+</section>
+
+<section class="section">
+    <h2 data-i18n="field_title"></h2>
+    <div id="field-list"></div>
+</section>
+
+<section class="section center">
+    <h2 data-i18n="resonance_title"></h2>
+    <div id="resonance-list"></div>
+</section>
+
+<section class="section center">
+    <h2 data-i18n="process_title"></h2>
+    <div id="process-list"></div>
+</section>
+
+<section class="section center">
+    <h2 data-i18n="private_title"></h2>
+    <p data-i18n="private_desc"></p>
+</section>
+
+<!-- 연구 참여 확장 영역 끝 -->    
 
 const methods = [
 {
@@ -161,7 +190,95 @@ const methods = [
 }
 ];
 
+participation_title: {
+    ko: "연구 참여",
+    en: "Research Participation"
+},
+participation_subtitle: {
+    ko: "온포럼은 완성된 결론보다 함께 탐구하는 흐름을 지향합니다",
+    en: "ON-FORUM values shared exploration over fixed conclusions"
+},
+
+field_title: {
+    ko: "참여 가능한 영역",
+    en: "Participation Areas"
+},
+
+resonance_title: {
+    ko: "우리가 중요하게 보는 것",
+    en: "What We Value"
+},
+
+process_title: {
+    ko: "참여 흐름",
+    en: "Participation Flow"
+},
+
+private_title: {
+    ko: "일부 연구는 단계적으로 공개됩니다",
+    en: "Some research is gradually disclosed"
+},
+
+private_desc: {
+    ko: "정리와 검증이 진행 중인 일부 구조는 제한적으로 공유됩니다",
+    en: "Some structures under refinement are selectively shared"
+},
+
+const fields = [
+{
+    ko: "생각과 관점 제안",
+    en: "Ideas and Perspectives"
+},
+{
+    ko: "자료 및 사례 연결",
+    en: "Research and References"
+},
+{
+    ko: "번역 및 정리 참여",
+    en: "Translation and Structuring"
+},
+{
+    ko: "장기 연구 협력",
+    en: "Long-term Collaboration"
+}
+];
+
+const resonance = [
+{
+    ko: "빠른 결론보다 구조를 중시합니다",
+    en: "Structure over quick conclusions"
+},
+{
+    ko: "질문과 탐구의 지속성을 중요하게 봅니다",
+    en: "Sustained inquiry matters"
+},
+{
+    ko: "현실과 존재를 함께 바라보려 합니다",
+    en: "Seeking reality and existence together"
+}
+];
+
+const process = [
+{
+    ko: "1. 관심 공유",
+    en: "1. Share Interest"
+},
+{
+    ko: "2. 공명 확인",
+    en: "2. Confirm Resonance"
+},
+{
+    ko: "3. 구조 대화",
+    en: "3. Structural Dialogue"
+},
+{
+    ko: "4. 장기 협력 가능성",
+    en: "4. Long-term Collaboration"
+}
+];
+    
 function renderList(lang) {
+
     const targetEl = document.getElementById("target-list");
     targetEl.innerHTML = "";
     targets.forEach(t => {
@@ -172,6 +289,24 @@ function renderList(lang) {
     methodEl.innerHTML = "";
     methods.forEach(m => {
         methodEl.innerHTML += `<div class="card">${m[lang]}</div>`;
+    });
+
+    const fieldEl = document.getElementById("field-list");
+    fieldEl.innerHTML = "";
+    fields.forEach(f => {
+        fieldEl.innerHTML += `<div class="card">${f[lang]}</div>`;
+    });
+
+    const resonanceEl = document.getElementById("resonance-list");
+    resonanceEl.innerHTML = "";
+    resonance.forEach(r => {
+        resonanceEl.innerHTML += `<div class="card">${r[lang]}</div>`;
+    });
+
+    const processEl = document.getElementById("process-list");
+    processEl.innerHTML = "";
+    process.forEach(p => {
+        processEl.innerHTML += `<div class="card">${p[lang]}</div>`;
     });
 }
 
