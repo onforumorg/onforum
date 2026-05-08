@@ -13,33 +13,46 @@ body {
     margin: 0;
     background: #fff;
 }
+
 .container {
     max-width: 800px;
     margin: auto;
     padding: 60px 20px;
 }
+
 .lang-switch {
     position: fixed;
     top: 20px;
     right: 30px;
 }
+
 .lang-btn {
     border: none;
     background: none;
     cursor: pointer;
     font-weight: bold;
 }
+
 .lang-btn.active {
     border-bottom: 2px solid #000;
 }
+
 .section {
     margin-bottom: 60px;
 }
+
 .card {
     margin-bottom: 15px;
     padding: 15px;
     border: 1px solid #ddd;
+    background: #f7f8fa;
+    transition: 0.2s;
 }
+
+.card:hover {
+    transform: translateY(-2px);
+}
+
 .center {
     text-align: center;
 }
@@ -79,74 +92,7 @@ body {
     <p data-i18n="notice_desc"></p>
 </section>
 
-<section class="section center">
-    <a href="mailto:onforum.org@gmail.com" data-i18n="cta"></a>
-</section>
-
-<div class="center">
-    <a href="index.html" data-i18n="back"></a>
-</div>
-
-</div>
-
-<script>
-
-const content = {
-title: { ko: "참여·문의", en: "Contact" },
-subtitle: {
-    ko: "구조를 함께 이해하고 싶은 분들을 위한 안내",
-    en: "For those who seek structural understanding"
-},
-intro: {
-    ko: "세상의 설명이 공허하게 느껴졌다면,<br><strong>구조를 제시합니다</strong>",
-    en: "If explanations feel empty,<br><strong>we present structure</strong>"
-},
-target_title: {
-    ko: "이런 분들에게 적합합니다",
-    en: "Suitable for"
-},
-method_title: {
-    ko: "공명의 시작",
-    en: "Start of Resonance"
-},
-notice_title: {
-    ko: "우리는 즉답을 제공하지 않습니다",
-    en: "We do not provide quick answers"
-},
-notice_desc: {
-    ko: "구조를 통해 스스로 보게 합니다",
-    en: "We guide you to see through structure"
-},
-cta: {
-    ko: "문의하기",
-    en: "Contact Us"
-},
-back: {
-    ko: "← 홈으로 돌아가기",
-    en: "← Back to Home"
-}
-};
-
-const targets = [
-{
-    ko: "원인과 구조를 끝까지 이해하고 싶은 분",
-    en: "Those seeking deep structural understanding"
-},
-{
-    ko: "정보 속에서 기준을 찾고 싶은 분",
-    en: "Those seeking clarity in information"
-},
-{
-    ko: "감정과 이성의 구조를 이해하고 싶은 분",
-    en: "Understanding emotional and rational structures"
-},
-{
-    ko: "문제를 구조적으로 해결하고 싶은 분",
-    en: "Solving problems structurally"
-}
-],
-
-<!-- 연구 참여 확장 영역 시작 -->
+<!-- 연구 참여 영역 시작 -->
 
 <section class="section center">
     <h2 data-i18n="participation_title"></h2>
@@ -173,27 +119,62 @@ const targets = [
     <p data-i18n="private_desc"></p>
 </section>
 
-<!-- 연구 참여 확장 영역 끝 -->    
+<!-- 연구 참여 영역 끝 -->
 
-const methods = [
-{
-    ko: "1. 관심 공유",
-    en: "1. Share interest"
+<section class="section center">
+    <a href="mailto:onforum.org@gmail.com" data-i18n="cta"></a>
+</section>
+
+<div class="center">
+    <a href="index.html" data-i18n="back"></a>
+</div>
+
+</div>
+
+<script>
+
+const content = {
+
+title: {
+    ko: "참여·문의",
+    en: "Contact"
 },
-{
-    ko: "2. 구조 진단",
-    en: "2. Structural diagnosis"
+
+subtitle: {
+    ko: "구조를 함께 이해하고 싶은 분들을 위한 안내",
+    en: "For those who seek structural understanding"
 },
-{
-    ko: "3. 공명 확인",
-    en: "3. Confirm resonance"
-}
-];
+
+intro: {
+    ko: "세상의 설명이 공허하게 느껴졌다면,<br><strong>구조를 제시합니다</strong>",
+    en: "If explanations feel empty,<br><strong>we present structure</strong>"
+},
+
+target_title: {
+    ko: "이런 분들에게 적합합니다",
+    en: "Suitable for"
+},
+
+method_title: {
+    ko: "공명의 시작",
+    en: "Start of Resonance"
+},
+
+notice_title: {
+    ko: "우리는 즉답을 제공하지 않습니다",
+    en: "We do not provide quick answers"
+},
+
+notice_desc: {
+    ko: "구조를 통해 스스로 보게 합니다",
+    en: "We guide you to see through structure"
+},
 
 participation_title: {
     ko: "연구 참여",
     en: "Research Participation"
 },
+
 participation_subtitle: {
     ko: "온포럼은 완성된 결론보다 함께 탐구하는 흐름을 지향합니다",
     en: "ON-FORUM values shared exploration over fixed conclusions"
@@ -223,6 +204,52 @@ private_desc: {
     ko: "정리와 검증이 진행 중인 일부 구조는 제한적으로 공유됩니다",
     en: "Some structures under refinement are selectively shared"
 },
+
+cta: {
+    ko: "문의하기",
+    en: "Contact Us"
+},
+
+back: {
+    ko: "← 홈으로 돌아가기",
+    en: "← Back to Home"
+}
+
+};
+
+const targets = [
+{
+    ko: "원인과 구조를 끝까지 이해하고 싶은 분",
+    en: "Those seeking deep structural understanding"
+},
+{
+    ko: "정보 속에서 기준을 찾고 싶은 분",
+    en: "Those seeking clarity in information"
+},
+{
+    ko: "감정과 이성의 구조를 이해하고 싶은 분",
+    en: "Understanding emotional and rational structures"
+},
+{
+    ko: "문제를 구조적으로 해결하고 싶은 분",
+    en: "Solving problems structurally"
+}
+];
+
+const methods = [
+{
+    ko: "1. 관심 공유",
+    en: "1. Share Interest"
+},
+{
+    ko: "2. 구조 진단",
+    en: "2. Structural Diagnosis"
+},
+{
+    ko: "3. 공명 확인",
+    en: "3. Confirm Resonance"
+}
+];
 
 const fields = [
 {
@@ -276,7 +303,7 @@ const process = [
     en: "4. Long-term Collaboration"
 }
 ];
-    
+
 function renderList(lang) {
 
     const targetEl = document.getElementById("target-list");
@@ -311,6 +338,7 @@ function renderList(lang) {
 }
 
 function setLang(lang) {
+
     localStorage.setItem("lang", lang);
 
     document.querySelectorAll("[data-i18n]").forEach(el => {
@@ -325,8 +353,10 @@ function setLang(lang) {
 }
 
 window.onload = function() {
+
     const lang = localStorage.getItem("lang") || "ko";
     setLang(lang);
+
 };
 
 </script>
