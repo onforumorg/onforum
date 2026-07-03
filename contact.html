@@ -176,8 +176,8 @@ participation_title: {
 },
 
 participation_subtitle: {
-    ko: "공명후원은 연구와 비영리 운영을 함께 이어 가는 참여입니다.",
-    en: "Resonance Support helps sustain both our research and nonprofit operations."
+    ko: "공진후원은 온포럼의 연구와 비영리 운영을 지속 가능하게 하는 참여입니다.",
+    en: "Support helps sustain ON-FORUM's research and nonprofit activities."
 },
 
 field_title: {
@@ -227,7 +227,7 @@ const targets = [
     en: "Full Member\nActively participate in research and organizational activities"
 },
 {
-    ko: "공명후원\n질문을 다음 세대까지 이어 가는 연구와 비영리 운영을 후원",
+    ko: "공진후원\n온포럼의 연구와 비영리 운영을 지속적으로 후원",
     en: "Resonance Support\nSupport research that carries meaningful questions into the future"
 },
 {
@@ -246,26 +246,27 @@ const methods = [
     en: "2. Find the participation option that best fits you."
 },
 {
-    ko: "3. 회원, 연구 또는 공명후원 중 원하는 방식으로 함께 합니다.",
+    ko: "3. 회원, 공진후원 또는 연구참여 가운데 원하는 방식으로 함께합니다.",
     en: "3. Join us as a member, researcher, or supporter."
 }
 ];
 
 const fields = [
 {
-    ko: "일반회원으로 함께하기",
+    ko: "일반회원 가입",
     en: "Join as a General Member"
 },
 {
-    ko: "정회원으로 함께하기",
+    ko: "정회원 가입",
     en: "Join as a Full Member"
 },
 {
-    ko: "공명후원으로 함께하기",
-    en: "Support through Resonance Giving"
+    ko: "공진후원하기",
+    en: "Support ON-FORUM",
+    link: "support.html"
 },
 {
-    ko: "연구참여로 함께하기",
+    ko: "연구참여 신",
     en: "Participate in Research"
 }
 ];
@@ -315,10 +316,10 @@ function renderList(lang) {
     });
 
     const fieldEl = document.getElementById("field-list");
-    fieldEl.innerHTML = "";
-    fields.forEach(f => {
-        fieldEl.innerHTML += `<div class="card">${f[lang]}</div>`;
-    });
+fieldEl.innerHTML = "";
+fields.forEach(f => {
+    fieldEl.innerHTML += `<div class="card" style="cursor:pointer;" onclick="location.href='${f.link}'">${f[lang]}</div>`;
+});
 
     const resonanceEl = document.getElementById("resonance-list");
     resonanceEl.innerHTML = "";
