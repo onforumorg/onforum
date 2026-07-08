@@ -1,1 +1,162 @@
-member-withdrawal.html
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>회원 및 연구참여 철회 | ON-FORUM</title>
+
+<style>
+body{
+    margin:0;
+    font-family:'Noto Sans KR',sans-serif;
+    background:#f5f7fa;
+    color:#333;
+}
+
+.container{
+    max-width:700px;
+    margin:60px auto;
+    background:#fff;
+    padding:40px;
+    border-radius:12px;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+}
+
+h1{
+    text-align:center;
+    margin-bottom:15px;
+}
+
+.notice{
+    background:#f8f9fa;
+    border-left:4px solid #2c5aa0;
+    padding:18px;
+    line-height:1.8;
+    margin-bottom:30px;
+}
+
+label{
+    display:block;
+    margin-top:18px;
+    margin-bottom:6px;
+    font-weight:bold;
+}
+
+input,
+select,
+textarea{
+    width:100%;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:6px;
+    box-sizing:border-box;
+    font-size:15px;
+}
+
+textarea{
+    resize:vertical;
+}
+
+button{
+    width:100%;
+    margin-top:30px;
+    padding:15px;
+    background:#2c5aa0;
+    color:#fff;
+    border:none;
+    border-radius:6px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#20457d;
+}
+
+.footer{
+    margin-top:30px;
+    text-align:center;
+    font-size:14px;
+    color:#666;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>회원 및 연구참여 철회</h1>
+
+<div class="notice">
+
+ON-FORUM은 회원님의 의사를 존중합니다.<br><br>
+
+본 신청서를 제출하시면 확인 후 다음 사항이 처리됩니다.
+
+<ul>
+<li>일반회원 탈퇴</li>
+<li>정회원 탈퇴</li>
+<li>연구참여 종료</li>
+<li>회원정보 삭제(관련 법령에 따라 보관이 필요한 정보 제외)</li>
+</ul>
+
+</div>
+
+<form action="https://formsubmit.co/여기에토큰적용메일주소" method="POST">
+
+<input type="hidden" name="_subject" value="회원 및 연구참여 철회 신청">
+
+<input type="hidden" name="_captcha" value="false">
+
+<input type="hidden" name="_next" value="https://on-forum.org/thankyou.html">
+
+<label>성명 *</label>
+<input type="text" name="성명" required>
+
+<label>휴대전화 *</label>
+<input type="tel" name="연락처" required>
+
+<label>이메일</label>
+<input type="email" name="이메일">
+
+<label>신청 구분 *</label>
+
+<select name="철회구분" required>
+
+<option value="">선택하세요</option>
+
+<option>일반회원 탈퇴</option>
+
+<option>정회원 탈퇴</option>
+
+<option>연구참여 종료</option>
+
+<option>회원 탈퇴 및 연구참여 종료</option>
+
+</select>
+
+<label>사유(선택)</label>
+
+<textarea
+name="사유"
+rows="6"
+placeholder="의견이나 개선사항이 있으시면 자유롭게 작성해 주십시오."></textarea>
+
+<button type="submit">
+철회 신청하기
+</button>
+
+</form>
+
+<div class="footer">
+
+문의 : onforum2026@gmail.com
+
+</div>
+
+</div>
+
+</body>
+</html>
