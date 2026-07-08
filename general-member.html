@@ -144,7 +144,9 @@ button:hover{
 <input type="hidden" name="_captcha" value="false">
 <input type="hidden" name="_next" value="https://on-forum.org/thankyou.html">
 <input type="hidden" name="_template" value="table">
-<input type="hidden" name="application_type" value="일반회원">
+<textarea
+name="가입동기"
+placeholder="관심 있는 주제나 함께 나누고 싶은 생각을 자유롭게 적어 주세요."></textarea>
 
 <h1>일반회원 가입 신청</h1>
 
@@ -164,7 +166,7 @@ button:hover{
 <label>성명 *</label>
 <input
     type="text"
-    name="name"
+    name="성명"
     autocomplete="name"
     maxlength="20"
     placeholder="홍길동"
@@ -173,7 +175,7 @@ button:hover{
 <label>연락처 *</label>
 <input
     type="tel"
-    name="phone"
+    name="연락처"
     autocomplete="tel"
     inputmode="tel"
     placeholder="010-1234-5678"
@@ -183,7 +185,7 @@ button:hover{
 <label>이메일 *</label>
 <input
     type="email"
-    name="email"
+    name="이메일"
     autocomplete="email"
     placeholder="example@email.com"
     required>
@@ -191,7 +193,7 @@ button:hover{
 <label>거주지역 (선택)</label>
 
 <label>시·도</label>
-<select name="province">
+<select name="시·도">
     <option value="">선택하세요</option>
     <option>서울특별시</option>
     <option>부산광역시</option>
@@ -215,21 +217,21 @@ button:hover{
 <label>시·군·구</label>
 <input
     type="text"
-    name="city"
+    name="시·군·구"
     autocomplete="address-level2"
     placeholder="예: 전주시 완산구">
 
 <label>직업·소속 (선택)</label>
 <input
     type="text"
-    name="job"
+    name="직업·소속"
     autocomplete="organization-title"
     placeholder="예: 연구원, 교사, 자영업">
 
 <label>생년 (선택)</label>
 <input
     type="text"
-    name="birth"
+    name="출생연도"
     placeholder="1990"
     pattern="[0-9]{4}"
     maxlength="4"
@@ -242,9 +244,8 @@ button:hover{
 <h2>가입 동기 또는 관심 분야 (선택)</h2>
 
 <textarea
-name="interest"
+name="가입동기"
 placeholder="관심 있는 주제나 함께 나누고 싶은 생각을 자유롭게 적어 주세요."></textarea>
-
 </div>
 
 <div class="section">
