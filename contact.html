@@ -102,11 +102,6 @@ body {
     <p data-i18n="participation_subtitle"></p>
 </section>
 
-<section class="section">
-    <h2 data-i18n="field_title"></h2>
-    <div id="field-list"></div>
-</section>
-
 <section class="section center">
     <h2 data-i18n="resonance_title"></h2>
     <div id="resonance-list"></div>
@@ -174,18 +169,13 @@ notice_desc: {
 },
 
 participation_title: {
-    ko: "공진후원과 연구참여",
+    ko: "함께하는 가",
     en: "Support & Research Participation"
 },
 
 participation_subtitle: {
-    ko: "공진후원은 온포럼의 연구와 비영리 운영을 지속 가능하게 하는 참여입니다.",
+    ko: "회원, 연구, 공진후원은 모두 온포럼의 연구와 비영리 운영을 지속적으로 함께 이어가는 참여입니다.",
     en: "Support helps sustain ON-FORUM's research and nonprofit activities."
-},
-
-field_title: {
-    ko: "참여 분야",
-    en: "Ways to Participate"
 },
 
 resonance_title: {
@@ -258,26 +248,6 @@ const methods = [
 }
 ];
 
-const fields = [
-{
-    ko: "일반회원 가입",
-    en: "Join as a General Member"
-},
-{
-    ko: "정회원 가입",
-    en: "Join as a Full Member"
-},
-{
-    ko: "공진후원하기",
-    en: "Support ON-FORUM",
-   link: "donate.html"
-},
-{
-    ko: "연구참여 신",
-    en: "Participate in Research"
-}
-];
-
 const resonance = [
 {
     ko: "서로를 존중하며 함께 배우는 자세",
@@ -326,12 +296,6 @@ function renderList(lang) {
     methods.forEach(m => {
         methodEl.innerHTML += `<div class="card">${m[lang]}</div>`;
     });
-
-    const fieldEl = document.getElementById("field-list");
-fieldEl.innerHTML = "";
-fields.forEach(f => {
-    fieldEl.innerHTML += `<div class="card" style="cursor:pointer;" onclick="location.href='${f.link}'">${f[lang]}</div>`;
-});
 
     const resonanceEl = document.getElementById("resonance-list");
     resonanceEl.innerHTML = "";
