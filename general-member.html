@@ -1,1 +1,224 @@
-general-member.html
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>일반회원 가입 | ON-FORUM</title>
+
+<style>
+body{
+    margin:0;
+    font-family:'Noto Sans KR',sans-serif;
+    background:#f5f7fa;
+    color:#333;
+    line-height:1.8;
+}
+
+.container{
+    max-width:760px;
+    margin:60px auto;
+    background:#fff;
+    padding:50px;
+    border-radius:16px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+h1{
+    color:#1a2a40;
+    margin-bottom:10px;
+}
+
+.subtitle{
+    color:#666;
+    margin-bottom:40px;
+}
+
+.section{
+    margin-top:40px;
+}
+
+.section h2{
+    color:#1a2a40;
+    font-size:1.25rem;
+    margin-bottom:15px;
+}
+
+label{
+    display:block;
+    margin-top:18px;
+    font-weight:600;
+}
+
+input,
+textarea{
+    width:100%;
+    padding:12px;
+    margin-top:8px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:15px;
+    box-sizing:border-box;
+}
+
+textarea{
+    min-height:140px;
+    resize:vertical;
+}
+
+.notice{
+    background:#f8f9fb;
+    padding:20px;
+    border-radius:10px;
+    margin-top:15px;
+}
+
+.notice ul{
+    margin:0;
+    padding-left:20px;
+}
+
+.checkbox{
+    margin-top:20px;
+}
+
+button{
+    width:100%;
+    margin-top:40px;
+    padding:16px;
+    background:#1a2a40;
+    color:#fff;
+    border:none;
+    border-radius:10px;
+    font-size:17px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#304563;
+}
+
+.small{
+    font-size:.9rem;
+    color:#777;
+    margin-top:18px;
+    text-align:center;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>일반회원 가입 신청</h1>
+
+<p class="subtitle">
+함께 질문하고, 함께 탐구하는 여정에 참여해 주세요.<br>
+온포럼은 다양한 관점 속에서 삶과 사회, 문명의 구조를 함께 탐구하는 비영리 연구 공동체입니다.
+</p>
+
+<div class="section">
+
+<h2>신청인 정보</h2>
+
+<label>성명 *</label>
+<input type="text" required>
+
+<label>연락처 *</label>
+<input type="tel" required>
+
+<label>이메일 *</label>
+<input type="email" required>
+
+<label>생년 (선택)</label>
+<input type="text">
+
+<label>직업·소속 (선택)</label>
+<input type="text">
+
+<label>거주지역 (선택)</label>
+<input type="text" placeholder="읍·면·동까지">
+
+</div>
+
+<div class="section">
+
+<h2>가입 동기 또는 관심 분야 (선택)</h2>
+
+<textarea placeholder="관심 있는 주제나 함께 나누고 싶은 생각을 자유롭게 적어 주세요."></textarea>
+
+</div>
+
+<div class="section">
+
+<h2>일반회원 안내</h2>
+
+<div class="notice">
+
+<ul>
+<li>연회비 : <strong>1만 원</strong></li>
+<li>가입 즉시 회비를 납부하지 않습니다.</li>
+<li>연회비는 회원으로 활동한 후 해당 연도 12월에 안내드립니다.</li>
+<li>회원 가입과 탈퇴는 언제든 자유롭게 가능합니다.</li>
+<li>탈퇴 시 연회비 납부 의무는 없습니다.</li>
+</ul>
+
+</div>
+
+</div>
+
+<div class="section">
+
+<h2>개인정보 수집 및 이용</h2>
+
+<div class="notice">
+
+수집 항목 : 성명, 연락처, 이메일, (선택) 생년, 직업·소속, 거주지역<br>
+이용 목적 : 회원 관리, 행사 안내, 운영 공지, 회비 안내<br>
+보유 기간 : 회원 탈퇴 시까지
+
+</div>
+
+<div class="checkbox">
+<label>
+<input type="checkbox" required>
+개인정보 수집 및 이용에 동의합니다.
+</label>
+</div>
+
+</div>
+
+<div class="section">
+
+<h2>회원 서약</h2>
+
+<div class="notice">
+
+본인은 온포럼의 취지와 목적을 존중하며,
+다양한 관점 속에서 삶과 사회의 구조를 함께 탐구하고,
+상호 존중의 원칙에 따라 자유롭고 책임 있는 대화에 참여하겠습니다.
+
+</div>
+
+<div class="checkbox">
+<label>
+<input type="checkbox" required>
+위 내용에 동의하며 일반회원 가입을 신청합니다.
+</label>
+</div>
+
+</div>
+
+<button type="submit">
+일반회원 가입 신청
+</button>
+
+<p class="small">
+신청이 접수되면 확인 후 안내해 드립니다.<br>
+신청 일시는 시스템에 자동으로 기록됩니다.
+</p>
+
+</div>
+
+</body>
+</html>
