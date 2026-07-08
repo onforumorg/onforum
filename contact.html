@@ -306,7 +306,12 @@ gap:20px;
 ${
 targets.map(t => `
 <div class="card"
-     style="cursor:pointer;margin-bottom:0;"
+     style="
+     cursor:pointer;
+     margin-bottom:0;
+     background:#fdfaf3;
+     border:1px solid #e9dfc9;
+     "
      onclick="location.href='${t.link}'">
      ${t[lang]}
 </div>
