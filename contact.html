@@ -296,15 +296,23 @@ const process = [
 function renderList(lang) {
 
     const targetEl = document.getElementById("target-list");
-    targetEl.innerHTML = "";
-   targets.forEach(t => {
-    targetEl.innerHTML += `
-    <div class="card"
-         style="cursor:pointer;"
-         onclick="location.href='${t.link}'">
-         ${t[lang]}
-    </div>`;
-});
+
+targetEl.innerHTML = `
+<div style="
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:20px;
+">
+${
+targets.map(t => `
+<div class="card"
+     style="cursor:pointer;margin-bottom:0;"
+     onclick="location.href='${t.link}'">
+     ${t[lang]}
+</div>
+`).join("")
+}
+</div>`;
 
     const methodEl = document.getElementById("method-list");
     methodEl.innerHTML = "";
