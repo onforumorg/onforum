@@ -42,15 +42,18 @@ body {
 }
 
 .card {
-    margin-bottom: 15px;
-    padding: 15px;
+    margin-bottom: 20px;
+    padding: 28px 24px;
     border: 1px solid #ddd;
-    background: #f7f8fa;
-    transition: 0.2s;
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 8px 24px rgba(0,0,0,.05);
+    transition: all .2s ease;
 }
 
 .card:hover {
-    transform: translateY(-2px);
+    transform: translateY(-4px);
+    box-shadow: 0 14px 36px rgba(0,0,0,.10);
 }
 
 .center {
@@ -219,20 +222,24 @@ back: {
 
 const targets = [
 {
-    ko: "일반회원\n온포럼의 활동과 연구를 함께하는 기본 회원",
-    en: "General Member\nJoin ON-FORUM's activities and research"
+    ko: "일반회원 가입하기<br><small>온포럼의 활동과 연구를 함께하는 기본 회원입니다.</small>",
+    en: "Join as a General Member<br><small>Join ON-FORUM's activities and research.</small>",
+    link: "#"
 },
 {
-    ko: "정회원\n운영과 연구에 적극적으로 참여하는 회원",
-    en: "Full Member\nActively participate in research and organizational activities"
+    ko: "정회원 가입하기<br><small>운영과 연구에 적극적으로 참여하는 회원입니다.</small>",
+    en: "Join as a Full Member<br><small>Actively participate in research and organizational activities.</small>",
+    link: "#"
 },
 {
-    ko: "공진후원\n온포럼의 연구와 비영리 운영을 지속적으로 후원",
-    en: "Resonance Support\nSupport research that carries meaningful questions into the future"
+    ko: "공진후원하기<br><small>온포럼의 연구와 비영리 운영을 지속적으로 후원합니다.</small>",
+    en: "Support ON-FORUM<br><small>Support ON-FORUM's research and nonprofit activities.</small>",
+    link: "donate.html"
 },
 {
-    ko: "연구참여\n연구 제안, 협력, 번역, 프로젝트 등 다양한 방식으로 참여",
-    en: "Research Participation\nContribute through proposals, collaboration, translation, or projects"
+    ko: "연구참여 신청하기<br><small>연구 제안, 협력, 번역, 프로젝트 등에 참여합니다.</small>",
+    en: "Apply for Research Participation<br><small>Participate through proposals, collaboration, translation, or projects.</small>",
+    link: "#"
 }
 ];
 
@@ -305,9 +312,14 @@ function renderList(lang) {
 
     const targetEl = document.getElementById("target-list");
     targetEl.innerHTML = "";
-    targets.forEach(t => {
-        targetEl.innerHTML += `<div class="card">${t[lang]}</div>`;
-    });
+   targets.forEach(t => {
+    targetEl.innerHTML += `
+    <div class="card"
+         style="cursor:pointer;"
+         onclick="location.href='${t.link}'">
+         ${t[lang]}
+    </div>`;
+});
 
     const methodEl = document.getElementById("method-list");
     methodEl.innerHTML = "";
