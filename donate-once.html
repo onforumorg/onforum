@@ -75,8 +75,10 @@ color:var(--sub);
 <p><strong>은행</strong><br>
 농협</p>
 
-<p><strong>계좌번호</strong><br>
-301-0799-7878-21</p>
+<p>
+<strong>계좌번호</strong><br>
+<span id="account-number">301-0799-7878-21</span>
+</p>
 
 <p><strong>예금주</strong><br>
 온포럼</p>
@@ -92,6 +94,23 @@ style="display:inline-block; margin-top:20px; padding:12px 22px; background:var(
   계좌번호 복사
 </a>
 
+<div style="margin-top:45px; text-align:center;">
+
+  <h3 style="color:var(--deep-blue); margin-bottom:20px;">
+    QR코드 후원
+  </h3>
+
+<img src="images/donation-qr.png"
+     alt="공진후원 QR코드"
+     style="width:180px; height:180px; border-radius:12px; border:1px solid #ddd;">
+
+  <p style="margin-top:15px; font-size:0.95rem;">
+    모바일에서 QR코드를 스캔하여<br>
+    바로 후원하실 수 있습니다.
+  </p>
+
+</div>
+  
 </div>
 
 </div>
@@ -100,7 +119,7 @@ style="display:inline-block; margin-top:20px; padding:12px 22px; background:var(
 
 function copyAccount(){
 
-  const account = "301-0799-7878-21";
+ const account = document.getElementById("account-number").innerText;
 
   navigator.clipboard.writeText(account);
 
