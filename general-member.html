@@ -50,6 +50,7 @@ label{
 }
 
 input,
+select,
 textarea{
     width:100%;
     padding:12px;
@@ -110,7 +111,19 @@ button:hover{
 
 <div class="container">
 
-<form action="https://formsubmit.co/onforum.org@gmail.com" method="POST">
+<form
+    action="https://formsubmit.co/onforum.org@gmail.com"
+    method="POST"
+    onsubmit="
+        const btn=this.querySelector('button[type=submit]');
+        btn.disabled=true;
+        btn.innerText='신청 중입니다...';
+    ">
+
+<input type="hidden" name="_subject" value="ON-FORUM 일반회원 가입 신청">
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_next" value="https://on-forum.org/thankyou.html">
+<input type="hidden" name="_template" value="table">
 
 <h1>일반회원 가입 신청</h1>
 
@@ -124,22 +137,78 @@ button:hover{
 <h2>신청인 정보</h2>
 
 <label>성명 *</label>
-<input type="text" required>
+<input
+    type="text"
+    name="name"
+    autocomplete="name"
+    maxlength="20"
+    placeholder="홍길동"
+    required>
 
 <label>연락처 *</label>
-<input type="tel" required>
+<input
+    type="tel"
+    name="phone"
+    autocomplete="tel"
+    inputmode="tel"
+    placeholder="010-1234-5678"
+    pattern="^01[0-9]-?[0-9]{3,4}-?[0-9]{4}$"
+    required>
 
 <label>이메일 *</label>
-<input type="email" required>
-
-<label>생년 (선택)</label>
-<input type="text">
-
-<label>직업·소속 (선택)</label>
-<input type="text">
+<input
+    type="email"
+    name="email"
+    autocomplete="email"
+    placeholder="example@email.com"
+    required>
 
 <label>거주지역 (선택)</label>
-<input type="text" placeholder="읍·면·동까지">
+
+<label>시·도</label>
+<select name="province">
+    <option value="">선택하세요</option>
+    <option>서울특별시</option>
+    <option>부산광역시</option>
+    <option>대구광역시</option>
+    <option>인천광역시</option>
+    <option>광주광역시</option>
+    <option>대전광역시</option>
+    <option>울산광역시</option>
+    <option>세종특별자치시</option>
+    <option>경기도</option>
+    <option>강원특별자치도</option>
+    <option>충청북도</option>
+    <option>충청남도</option>
+    <option>전북특별자치도</option>
+    <option>전라남도</option>
+    <option>경상북도</option>
+    <option>경상남도</option>
+    <option>제주특별자치도</option>
+</select>
+
+<label>시·군·구</label>
+<input
+    type="text"
+    name="city"
+    autocomplete="address-level2"
+    placeholder="예: 전주시 완산구">
+
+<label>직업·소속 (선택)</label>
+<input
+    type="text"
+    name="job"
+    autocomplete="organization-title"
+    placeholder="예: 연구원, 교사, 자영업">
+
+<label>생년 (선택)</label>
+<input
+    type="text"
+    name="birth"
+    placeholder="1990"
+    pattern="[0-9]{4}"
+    maxlength="4"
+    inputmode="numeric">
 
 </div>
 
@@ -147,7 +216,9 @@ button:hover{
 
 <h2>가입 동기 또는 관심 분야 (선택)</h2>
 
-<textarea placeholder="관심 있는 주제나 함께 나누고 싶은 생각을 자유롭게 적어 주세요."></textarea>
+<textarea
+name="interest"
+placeholder="관심 있는 주제나 함께 나누고 싶은 생각을 자유롭게 적어 주세요."></textarea>
 
 </div>
 
@@ -183,7 +254,7 @@ button:hover{
 
 <div class="checkbox">
 <label>
-<input type="checkbox" required>
+<input type="checkbox" name="privacy_agree" required>
 개인정보 수집 및 이용에 동의합니다.
 </label>
 </div>
@@ -204,7 +275,7 @@ button:hover{
 
 <div class="checkbox">
 <label>
-<input type="checkbox" required>
+<input type="checkbox" name="member_agree" required>
 위 내용에 동의하며 일반회원 가입을 신청합니다.
 </label>
 </div>
