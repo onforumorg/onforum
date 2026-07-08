@@ -79,34 +79,43 @@ body{
 }
 
 .main-text{
-  font-size:1.55rem;
-  font-weight:700;
-  color:#1f1f1f;
-  line-height:1.72;
-  margin-bottom:18px;
+  font-size:2.15rem;
+  font-weight:800;
+  color:#1b1b1b;
+  line-height:1.85;
+  letter-spacing:-0.02em;
+  margin-bottom:42px;
+  text-align:center;
 }
 
 .sub-text{
-  font-size:1.22rem;
+  font-size:1.34rem;
   font-weight:500;
-  color:#2f2f2f;
-  line-height:1.82;
-  margin-bottom:24px;
+  color:#353535;
+  line-height:2.15;
+  letter-spacing:-0.01em;
+  margin-bottom:46px;
+  text-align:center;
 }
 
 .sub-text strong{
-  font-size:1.05em;
-  font-weight:900;
+  font-weight:800;
   color:#111;
 }
 
 .closing-text{
-  font-size:1.42rem;
-  font-weight:700;
-  color:#1d2430;
-  line-height:1.78;
-  margin-top:-2px;
-  margin-bottom:36px;
+  font-size:1.56rem;
+  font-weight:600;
+  color:#202733;
+  line-height:2.0;
+  letter-spacing:-0.015em;
+  margin-top:8px;
+  margin-bottom:50px;
+  text-align:center;
+}
+
+.closing-text strong{
+  font-weight:800;
 }
 
 .menu{
@@ -484,11 +493,23 @@ box-shadow:0 8px 25px rgba(0,0,0,0.08);
 
 </section>
 
-<p class="main-text" data-i18n="hero"></p>
+<div class="hero-message">
 
-<p class="sub-text" data-i18n="hero_sub"></p>
+    <div class="hero-block hero-main" data-i18n="hero"></div>
 
-<p class="closing-text" data-i18n="hero_closing"></p>
+    <div class="hero-divider"></div>
+
+    <div class="hero-block hero-question" data-i18n="hero_question"></div>
+
+    <div class="hero-divider"></div>
+
+    <div class="hero-block hero-about" data-i18n="hero_about"></div>
+
+    <div class="hero-divider"></div>
+
+    <div class="hero-block hero-closing" data-i18n="hero_closing"></div>
+
+</div>
 
 <div class="menu">
 <a href="intro.html" data-i18n="btn_intro"></a>
@@ -633,22 +654,24 @@ https://blog.naver.com/on-forum
 
 <script>
 const content = {
-hero: {
-ko: "모든 것이 빨라졌습니다.<br>정보도, 기술도, 세상의 변화도.",
-
-en: "Everything has become faster.<br>Information, technology, and the pace of change."
+hero:{
+ko:"<strong>모든 것이 빨라졌습니다.</strong><br><br>정보도,<br><br>기술도,<br><br>세상의 변화도.",
+en:"..."
 },
 
-hero_sub: {
-ko: "그런데 왜 우리의 현실은 <strong>더 여유로워지지 않는 걸까요?</strong><br><br>왜 사람들은 서로를 오해하고, 세상사의 많은 문제들은 반복되는 것일까요?<br><br>왜 우리는 많은 것을 알게 되었는데도, 무엇을 위해 살아가야 하는지에는 쉽게 답하지 못하는 것일까요?<br><br>온포럼(ON-FORUM)은 인간과 사회, 기술과 문명, 그리고 우리의 삶을 움직이는 구조를 함께 탐구하는 <strong>열린 연구 공동체</strong>입니다.",
-
-en: "Yet why does our reality <strong>not feel any more at ease?</strong><br><br>Why do people misunderstand one another, and why do so many problems of society continue to repeat?<br><br>Why is it that although we know more than ever, we still struggle to answer what we should live for?<br><br>ON-FORUM is an <strong>open research community</strong> exploring the structures that shape humanity and society, technology and civilization, and the realities of our lives."
+hero_question:{
+ko:"그런데<br><br><strong>왜 우리의 현실은<br>더 공허해지는 걸까요?</strong>",
+en:"..."
 },
 
-hero_closing: {
-ko: "세상을 이해하는 일이 <strong>결국 자신의 삶을 이해하는 일이라면,</strong><br><br>그 여정은 여기서부터 시작될 수 있습니다.<br><br>어쩌면 당신이 오래전부터 품어왔던 질문도, 지금까지 막연하게만 느껴졌던 고민도,<br><strong>보다 넓고 깊은 시선</strong>으로 바라보며 <strong>삶의 새로운 가능성</strong>을 발견하게 될지도 모릅니다.",
+hero_about:{
+ko:"<strong>온포럼(ON-FORUM)은</strong><br><br>삶을 움직이는 구조를<br><br>함께 탐구하는 열린 연구 공동체입니다.",
+en:"..."
+},
 
-en: "If understanding the world <strong>ultimately means understanding one's own life,</strong><br><br>then that journey may begin here.<br><br>Perhaps the questions you have carried for years and the concerns that once felt vague and distant may be viewed through a <strong>broader and deeper perspective</strong>, discovering <strong>new possibilities for life</strong>."
+hero_closing:{
+ko:"<strong>세상을 이해하는 일이<br>결국 자신의 삶을 이해하는 일이라면,</strong><br><br><strong>그 여정은 여기서부터 시작될 수 있습니다.</strong><br><br>어쩌면 오래전부터 품어온 질문과<br><br>막연하게만 느껴졌던 고민을,<br><br>보다 넓고 깊은 시선으로 바라보며<br><br><strong>일상의 새로운 가능성을 발견하게 될지도 모릅니다.</strong>",
+en:"..."
 },
 
 
