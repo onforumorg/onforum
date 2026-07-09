@@ -1,10 +1,350 @@
-cases/
-├── index.html
-├── personal-judgment.html
-├── relationships-organization.html
-├── information-media.html
-├── society-politics.html
-├── economy-labor.html
-├── technology-ai.html
-├── education.html
-└── civilization-existence.html
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>경제 · 노동 구조 | ON-FORUM</title>
+
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css"/>
+
+<style>
+
+body{
+    font-family:'Pretendard',sans-serif;
+    margin:0;
+    background:
+    radial-gradient(circle at 20% 20%, rgba(181,148,93,0.08), transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(26,42,64,0.06), transparent 40%),
+    linear-gradient(to bottom,#f7f6f2,#f2efe8);
+    color:#222;
+}
+
+.top-bar{
+    text-align:right;
+    padding:20px 20px 0;
+}
+
+.top-bar button{
+    padding:8px 14px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:700;
+    background:#1a2a40;
+    color:#fff;
+    margin-left:5px;
+}
+
+.hero{
+    padding:60px 20px 40px;
+    text-align:center;
+}
+
+.hero h1{
+    font-size:2.8rem;
+    color:#1a2a40;
+    margin-bottom:20px;
+}
+
+.hero p{
+    max-width:900px;
+    margin:0 auto;
+    line-height:2;
+    font-size:1.08rem;
+    color:#444;
+}
+
+.case{
+    max-width:1100px;
+    margin:60px auto;
+    padding:45px;
+    background:rgba(255,255,255,.88);
+    border-radius:22px;
+    box-shadow:0 12px 30px rgba(0,0,0,.06);
+}
+
+.tag{
+    display:inline-block;
+    padding:8px 14px;
+    border-radius:999px;
+    background:rgba(181,148,93,.12);
+    color:#8b6b35;
+    font-size:.9rem;
+    font-weight:700;
+    margin-bottom:18px;
+}
+
+.case h2{
+    margin-top:0;
+    margin-bottom:25px;
+    color:#1a2a40;
+    font-size:2rem;
+}
+
+.case-intro{
+    line-height:2;
+    color:#444;
+    margin-bottom:40px;
+    font-size:1.03rem;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:22px;
+}
+
+.block{
+    background:#fff;
+    padding:24px;
+    border-radius:16px;
+    box-shadow:0 8px 18px rgba(0,0,0,.04);
+    line-height:1.9;
+}
+
+.block strong{
+    display:block;
+    margin-bottom:12px;
+    color:#1a2a40;
+    font-size:1.05rem;
+}
+
+.impact{
+    margin-top:40px;
+    padding:28px;
+    border-left:5px solid #b5945d;
+    background:#faf8f2;
+    font-size:1.08rem;
+    line-height:2;
+    font-weight:600;
+}
+
+.back{
+    text-align:center;
+    margin:60px 0;
+}
+
+.back a{
+    display:inline-block;
+    padding:12px 24px;
+    border-radius:10px;
+    text-decoration:none;
+    background:#1a2a40;
+    color:#fff;
+    font-weight:700;
+}
+
+.back a:hover{
+    opacity:.9;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:2.2rem;
+}
+
+.case{
+    margin:30px 15px;
+    padding:28px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="top-bar">
+    <button onclick="setLang('ko')">KOR</button>
+    <button onclick="setLang('en')">ENG</button>
+</div>
+
+<section class="hero">
+
+    <h1 id="title"></h1>
+
+    <p id="hero-desc"></p>
+
+</section>
+
+<section class="case">
+
+    <div class="tag" id="tag"></div>
+
+    <h2 id="case-title"></h2>
+
+    <div class="case-intro" id="case-intro"></div>
+
+    <div class="grid">
+
+        <div class="block">
+            <strong id="label-problem"></strong>
+            <div id="problem"></div>
+        </div>
+
+        <div class="block">
+            <strong id="label-existing"></strong>
+            <div id="existing"></div>
+        </div>
+
+        <div class="block">
+            <strong id="label-structure"></strong>
+            <div id="structure"></div>
+        </div>
+
+        <div class="block">
+            <strong id="label-flow"></strong>
+            <div id="flow"></div>
+        </div>
+
+        <div class="block">
+            <strong id="label-resonance"></strong>
+            <div id="resonance"></div>
+        </div>
+
+        <div class="block">
+            <strong id="label-transition"></strong>
+            <div id="transition"></div>
+        </div>
+
+    </div>
+
+    <div class="impact" id="impact"></div>
+
+</section>
+
+<div class="back">
+    <a href="index.html" id="back-btn"></a>
+</div>
+
+<script>  
+
+const content = {
+
+title:{
+    ko:"경제 · 노동 구조",
+    en:"Economic & Labor Structure"
+},
+
+hero:{
+    ko:"현대의 경제와 노동 구조에서는 생산성과 효율이 강화될수록 오히려 존재 피로와 방향 상실이 함께 증가하는 현상이 나타날 수 있습니다.",
+    en:"Within modern economic and labor systems, increasing productivity and efficiency may simultaneously intensify existential exhaustion and loss of direction."
+},
+
+back:{
+    ko:"← 사례 목록으로",
+    en:"← Back to Cases"
+},
+
+labels:{
+    problem:{ko:"1. 현실 현상", en:"1. Reality"},
+    existing:{ko:"2. 기존 접근 방식", en:"2. Existing Approach"},
+    structure:{ko:"3. 구조 분석", en:"3. Structural Analysis"},
+    flow:{ko:"4. 흐름 분석", en:"4. Flow Analysis"},
+    resonance:{ko:"5. 공진 분석", en:"5. Resonance Analysis"},
+    transition:{ko:"6. 구조 전환", en:"6. Structural Transition"}
+}
+
+};
+
+const data={
+
+tag:{
+    ko:"경제 · 노동 구조",
+    en:"Economic & Labor Structure"
+},
+
+title:{
+    ko:"생산성과 존재 가치 사이의 충돌",
+    en:"Conflict Between Productivity and Human Value"
+},
+
+intro:{
+    ko:"현대의 경제와 노동 구조에서는 생산성과 효율이 강화될수록 오히려 존재 피로와 방향 상실이 함께 증가하는 현상이 나타날 수 있습니다.",
+    en:"Within modern economic and labor systems, increasing productivity and efficiency may simultaneously intensify existential exhaustion and loss of direction."
+},
+
+problem:{
+    ko:"많은 사람들은 끊임없이 일하고 성과를 추구하지만 내면의 안정과 만족은 쉽게 회복되지 않는다고 느끼기도 합니다.<br><br>노력은 반복되지만 삶의 방향성과 존재 의미가 점차 희미해지는 피로 구조가 누적되기도 합니다.",
+    en:"Many people continue working relentlessly and pursuing achievement, yet struggle to recover inner stability and fulfillment.<br><br>As effort endlessly repeats, structures of exhaustion may accumulate while meaning and direction gradually fade."
+},
+
+existing:{
+    ko:"기존에는 이를 개인 역량 부족, 동기 저하, 경제 문제 중심으로 해석하는 경우가 많았습니다.<br><br>그래서 더 높은 성과, 효율 향상, 경쟁 강화 중심의 해결 방식이 반복되기도 합니다.",
+    en:"Conventional approaches often interpret these problems through personal capability, motivation, or economic performance.<br><br>As a result, solutions tend to emphasize greater efficiency, higher productivity, and intensified competition."
+},
+
+  structure:{
+    ko:"온포럼(ON-FORUM)은 경제와 노동 문제를 단순한 생산 구조 문제가 아니라 존재 가치 구조의 불균형 문제로 바라봅니다.<br><br>사람이 존재 자체보다 기능과 성과 중심으로 평가될수록 구조 내부의 피로는 점차 누적될 수 있습니다.",
+    en:"ON-FORUM views economic and labor issues not merely as problems of production systems, but as imbalances within structures of existential value.<br><br>As people become evaluated more through function and performance than existence itself, structural exhaustion gradually deepens."
+},
+
+flow:{
+    ko:"현대 노동 환경에서는 경쟁 → 성과 → 불안 → 재경쟁의 흐름이 반복되기 쉽습니다.<br><br>이 과정에서 사람은 자신의 존재 방향보다 외부 기준과 속도에 반응하는 구조 안으로 점점 더 끌려갈 수 있습니다.",
+    en:"Modern labor environments often reinforce cycles of competition, achievement, anxiety, and renewed competition.<br><br>Over time, individuals may become increasingly pulled toward external standards and accelerating systems rather than their own existential direction."
+},
+
+resonance:{
+    ko:"행동과 성과는 유지되더라도 존재 가치와 삶의 방향이 분리될 경우 내면의 공진은 점차 약화될 수 있습니다.<br><br>온포럼은 이를 경제 구조 내부의 비공진 상태로 해석합니다.",
+    en:"Even when productivity and performance continue, inner resonance may weaken if existential value becomes disconnected from the direction of life itself.<br><br>ON-FORUM interprets this as a state of dissonance within economic structures."
+},
+
+transition:{
+    ko:"온포럼은 단순한 생산성 향상 이전에 존재와 가치의 균형 구조를 회복하는 접근을 제안합니다.<br><br>얼마나 많이 생산하는가 이전에 어떤 방향 속에서 살아가고 있는가를 다시 바라보는 것입니다.",
+    en:"ON-FORUM proposes restoring balance between existence and value before pursuing productivity alone.<br><br>The focus shifts from how much is produced to the direction through which human life itself is being lived."
+},
+
+impact:{
+    ko:"경제와 노동의 문제는 단순한 성과의 문제가 아니라,<br>존재와 가치가 어떤 구조 안에서 연결되고 있는가의 문제일 수 있습니다.",
+    en:"The problems of economy and labor may not simply concern performance,<br>but the structures through which existence and value remain connected."
+}
+
+};
+
+  function render(lang){
+
+    document.getElementById("title").innerHTML = content.title[lang];
+    document.getElementById("hero-desc").innerHTML = content.hero[lang];
+
+    document.getElementById("tag").innerHTML = data.tag[lang];
+    document.getElementById("case-title").innerHTML = data.title[lang];
+    document.getElementById("case-intro").innerHTML = data.intro[lang];
+
+    document.getElementById("label-problem").innerHTML = content.labels.problem[lang];
+    document.getElementById("label-existing").innerHTML = content.labels.existing[lang];
+    document.getElementById("label-structure").innerHTML = content.labels.structure[lang];
+    document.getElementById("label-flow").innerHTML = content.labels.flow[lang];
+    document.getElementById("label-resonance").innerHTML = content.labels.resonance[lang];
+    document.getElementById("label-transition").innerHTML = content.labels.transition[lang];
+
+    document.getElementById("problem").innerHTML = data.problem[lang];
+    document.getElementById("existing").innerHTML = data.existing[lang];
+    document.getElementById("structure").innerHTML = data.structure[lang];
+    document.getElementById("flow").innerHTML = data.flow[lang];
+    document.getElementById("resonance").innerHTML = data.resonance[lang];
+    document.getElementById("transition").innerHTML = data.transition[lang];
+
+    document.getElementById("impact").innerHTML = data.impact[lang];
+
+    document.getElementById("back-btn").innerHTML = content.back[lang];
+}
+
+function setLang(lang){
+    localStorage.setItem("lang", lang);
+    render(lang);
+}
+
+window.onload = function(){
+    render(localStorage.getItem("lang") || "ko");
+};
+
+</script>
+
+</body>
+</html>
