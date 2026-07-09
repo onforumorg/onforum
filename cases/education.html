@@ -1,10 +1,350 @@
-cases/
-├── index.html
-├── personal-judgment.html
-├── relationships-organization.html
-├── information-media.html
-├── society-politics.html
-├── economy-labor.html
-├── technology-ai.html
-├── education.html
-└── civilization-existence.html
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>교육 구조 | ON-FORUM</title>
+
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css"/>
+
+<style>
+
+body{
+    font-family:'Pretendard',sans-serif;
+    margin:0;
+    background:
+    radial-gradient(circle at 20% 20%, rgba(181,148,93,0.08), transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(26,42,64,0.06), transparent 40%),
+    linear-gradient(to bottom,#f7f6f2,#f2efe8);
+    color:#222;
+}
+
+.top-bar{
+    text-align:right;
+    padding:20px 20px 0;
+}
+
+.top-bar button{
+    padding:8px 14px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:700;
+    background:#1a2a40;
+    color:#fff;
+    margin-left:5px;
+}
+
+.hero{
+    padding:60px 20px 40px;
+    text-align:center;
+}
+
+.hero h1{
+    font-size:2.8rem;
+    color:#1a2a40;
+    margin-bottom:20px;
+}
+
+.hero p{
+    max-width:900px;
+    margin:0 auto;
+    line-height:2;
+    font-size:1.08rem;
+    color:#444;
+}
+
+.case{
+    max-width:1100px;
+    margin:60px auto;
+    padding:45px;
+    background:rgba(255,255,255,.88);
+    border-radius:22px;
+    box-shadow:0 12px 30px rgba(0,0,0,.06);
+}
+
+.tag{
+    display:inline-block;
+    padding:8px 14px;
+    border-radius:999px;
+    background:rgba(181,148,93,.12);
+    color:#8b6b35;
+    font-size:.9rem;
+    font-weight:700;
+    margin-bottom:18px;
+}
+
+.case h2{
+    margin-top:0;
+    margin-bottom:25px;
+    color:#1a2a40;
+    font-size:2rem;
+}
+
+.case-intro{
+    line-height:2;
+    color:#444;
+    margin-bottom:40px;
+    font-size:1.03rem;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:22px;
+}
+
+.block{
+    background:#fff;
+    padding:24px;
+    border-radius:16px;
+    box-shadow:0 8px 18px rgba(0,0,0,.04);
+    line-height:1.9;
+}
+
+.block strong{
+    display:block;
+    margin-bottom:12px;
+    color:#1a2a40;
+    font-size:1.05rem;
+}
+
+.impact{
+    margin-top:40px;
+    padding:28px;
+    border-left:5px solid #b5945d;
+    background:#faf8f2;
+    font-size:1.08rem;
+    line-height:2;
+    font-weight:600;
+}
+
+.back{
+    text-align:center;
+    margin:60px 0;
+}
+
+.back a{
+    display:inline-block;
+    padding:12px 24px;
+    border-radius:10px;
+    text-decoration:none;
+    background:#1a2a40;
+    color:#fff;
+    font-weight:700;
+}
+
+.back a:hover{
+    opacity:.9;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:2.2rem;
+}
+
+.case{
+    margin:30px 15px;
+    padding:28px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="top-bar">
+    <button onclick="setLang('ko')">KOR</button>
+    <button onclick="setLang('en')">ENG</button>
+</div>
+
+<section class="hero">
+
+    <h1 id="title"></h1>
+
+    <p id="hero-desc"></p>
+
+</section>
+
+<section class="case">
+
+    <div class="tag" id="tag"></div>
+
+    <h2 id="case-title"></h2>
+
+    <div class="case-intro" id="case-intro"></div>
+
+    <div class="grid">
+
+        <div class="block">
+            <strong id="label-problem"></strong>
+            <div id="problem"></div>
+        </div>
+
+        <div class="block">
+            <strong id="label-existing"></strong>
+            <div id="existing"></div>
+        </div>
+
+        <div class="block">
+            <strong id="label-structure"></strong>
+            <div id="structure"></div>
+        </div>
+
+        <div class="block">
+            <strong id="label-flow"></strong>
+            <div id="flow"></div>
+        </div>
+
+        <div class="block">
+            <strong id="label-resonance"></strong>
+            <div id="resonance"></div>
+        </div>
+
+        <div class="block">
+            <strong id="label-transition"></strong>
+            <div id="transition"></div>
+        </div>
+
+    </div>
+
+    <div class="impact" id="impact"></div>
+
+</section>
+
+<div class="back">
+    <a href="index.html" id="back-btn"></a>
+</div>
+
+<script>  
+
+const content = {
+
+title:{
+    ko:"교육 구조",
+    en:"Educational Structure"
+},
+
+hero:{
+    ko:"현대 교육은 방대한 지식 전달에는 성공했지만, 존재 방향과 사고 구조 형성 측면에서는 한계를 드러내고 있을 수 있습니다.",
+    en:"Modern education has succeeded in delivering vast amounts of knowledge, yet it may still reveal limitations in forming existential direction and structures of thought."
+},
+
+back:{
+    ko:"← 사례 목록으로",
+    en:"← Back to Cases"
+},
+
+labels:{
+    problem:{ko:"1. 현실 현상", en:"1. Reality"},
+    existing:{ko:"2. 기존 접근 방식", en:"2. Existing Approach"},
+    structure:{ko:"3. 구조 분석", en:"3. Structural Analysis"},
+    flow:{ko:"4. 흐름 분석", en:"4. Flow Analysis"},
+    resonance:{ko:"5. 공진 분석", en:"5. Resonance Analysis"},
+    transition:{ko:"6. 구조 전환", en:"6. Structural Transition"}
+}
+
+};
+
+const data={
+
+tag:{
+    ko:"교육 구조",
+    en:"Educational Structure"
+},
+
+title:{
+    ko:"지식 중심 교육과 사고 구조의 한계",
+    en:"Limits of Knowledge-Centered Education"
+},
+
+intro:{
+    ko:"현대 교육은 방대한 지식 전달에는 성공했지만, 존재 방향과 사고 구조 형성 측면에서는 한계를 드러내고 있을 수 있습니다.",
+    en:"Modern education has succeeded in delivering vast amounts of knowledge, yet it may still reveal limitations in forming existential direction and structures of thought."
+},
+
+problem:{
+    ko:"많은 사람들은 오랜 교육 과정을 거치고도 스스로 사고하고 방향을 설정하는 데 어려움을 경험하기도 합니다.<br><br>정보 암기와 성과 경쟁은 반복되지만 존재 기준과 사고의 중심 구조는 충분히 형성되지 못하는 경우가 나타나기도 합니다.",
+    en:"Even after years of education, many people still struggle to think independently and establish their own direction.<br><br>While memorization and performance competition continue repeatedly, the central structures of thought and existential orientation often remain underdeveloped."
+},
+
+existing:{
+    ko:"기존에는 이를 학습 능력 부족이나 교육 환경 문제 중심으로 해석하는 경우가 많았습니다.<br><br>그래서 더 많은 정보 제공과 성과 향상 중심의 교육 방식이 반복되기도 합니다.",
+    en:"Conventional perspectives often interpret these issues through learning ability or educational environment.<br><br>As a result, educational systems frequently continue emphasizing greater information delivery and performance improvement."
+},
+
+  structure:{
+    ko:"온포럼(ON-FORUM)은 교육 문제를 단순한 지식 전달 문제가 아니라 사고 구조 형성의 문제로 바라봅니다.<br><br>생각의 방향 구조가 형성되지 않을 경우 사람은 많은 정보를 배우고도 외부 흐름에 쉽게 흔들릴 수 있습니다.",
+    en:"ON-FORUM views educational problems not merely as issues of knowledge transmission, but as problems in the formation of thought structures.<br><br>Without a stable directional structure of thinking, people may easily become influenced by external flows despite possessing large amounts of information."
+},
+
+flow:{
+    ko:"현대 교육 환경에서는 학습 → 평가 → 경쟁 → 불안의 흐름이 반복되기 쉽습니다.<br><br>이 과정에서 사람은 사고 자체보다 정답 반응과 결과 중심 구조에 익숙해질 가능성이 커집니다.",
+    en:"Modern educational environments often reinforce cycles of learning, evaluation, competition, and anxiety.<br><br>Over time, individuals may become conditioned toward correct-answer responses and result-oriented systems rather than independent thinking itself."
+},
+
+resonance:{
+    ko:"지식은 축적되더라도 존재 방향과 사고 흐름이 연결되지 않을 경우 내면의 공진은 약화될 수 있습니다.<br><br>온포럼은 이를 교육 구조 내부의 비공진 상태로 해석합니다.",
+    en:"Even when knowledge accumulates, inner resonance may weaken if existential direction becomes disconnected from the flow of thought.<br><br>ON-FORUM interprets this as a state of dissonance within educational structures."
+},
+
+transition:{
+    ko:"온포럼은 단순한 정보 전달 이전에 사고 구조 자체를 회복하는 접근을 제안합니다.<br><br>무엇을 얼마나 아는가 이전에 어떤 방향으로 사고하고 존재하는가를 먼저 바라보는 것입니다.",
+    en:"ON-FORUM proposes restoring the structure of thought itself before focusing solely on information delivery.<br><br>The focus shifts from how much one knows to the direction through which one thinks and exists."
+},
+
+impact:{
+    ko:"교육의 핵심은 단순한 지식 축적이 아니라,<br>어떤 사고 구조 위에서 현실과 존재를 바라보는가의 문제일 수 있습니다.",
+    en:"The essence of education may not simply be the accumulation of knowledge,<br>but the structures through which reality and existence are perceived."
+}
+
+};
+
+  function render(lang){
+
+    document.getElementById("title").innerHTML = content.title[lang];
+    document.getElementById("hero-desc").innerHTML = content.hero[lang];
+
+    document.getElementById("tag").innerHTML = data.tag[lang];
+    document.getElementById("case-title").innerHTML = data.title[lang];
+    document.getElementById("case-intro").innerHTML = data.intro[lang];
+
+    document.getElementById("label-problem").innerHTML = content.labels.problem[lang];
+    document.getElementById("label-existing").innerHTML = content.labels.existing[lang];
+    document.getElementById("label-structure").innerHTML = content.labels.structure[lang];
+    document.getElementById("label-flow").innerHTML = content.labels.flow[lang];
+    document.getElementById("label-resonance").innerHTML = content.labels.resonance[lang];
+    document.getElementById("label-transition").innerHTML = content.labels.transition[lang];
+
+    document.getElementById("problem").innerHTML = data.problem[lang];
+    document.getElementById("existing").innerHTML = data.existing[lang];
+    document.getElementById("structure").innerHTML = data.structure[lang];
+    document.getElementById("flow").innerHTML = data.flow[lang];
+    document.getElementById("resonance").innerHTML = data.resonance[lang];
+    document.getElementById("transition").innerHTML = data.transition[lang];
+
+    document.getElementById("impact").innerHTML = data.impact[lang];
+
+    document.getElementById("back-btn").innerHTML = content.back[lang];
+}
+
+function setLang(lang){
+    localStorage.setItem("lang", lang);
+    render(lang);
+}
+
+window.onload = function(){
+    render(localStorage.getItem("lang") || "ko");
+};
+
+</script>
+
+</body>
+</html>
