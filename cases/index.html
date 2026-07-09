@@ -704,7 +704,18 @@ const el=document.createElement("a");
 
 el.className="preview-card";
 
-el.href="#"+c.id;
+const links = {
+    "case-1":"personal-judgment.html",
+    "case-2":"relationships-organization.html",
+    "case-3":"information-media.html",
+    "case-4":"society-politics.html",
+    "case-5":"economy-labor.html",
+    "case-6":"technology-ai.html",
+    "case-7":"education.html",
+    "case-8":"civilization-existence.html"
+};
+
+el.href = links[c.id];
 
 el.innerHTML=`
 
