@@ -48,7 +48,7 @@ body{
 }
 
 .hero p{
-    max-width:900px;
+    max-wth:900px;
     margin:0 auto;
     line-height:2;
     font-size:1.08rem;
@@ -110,15 +110,47 @@ body{
     font-size:1.05rem;
 }
 
-.impact{
-    margin-top:35px;
-    padding:28px;
-    border-radius:16px;
-    background:#1a2a40;
-    color:#fff;
-    line-height:2;
+.container{
+    max-width:1100px;
+    margin:0 auto;
+    padding:40px 20px;
+}
+
+.center{
     text-align:center;
-    font-size:1.02rem;
+}
+
+.preview-wrap{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:20px;
+}
+
+.preview-card{
+    background:#fff;
+    width:260px;
+    padding:20px;
+    border-radius:14px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.06);
+    text-decoration:none;
+    color:inherit;
+    transition:.25s;
+}
+
+.preview-card:hover{
+    transform:translateY(-5px);
+}
+
+.preview-card h3{
+    color:#1a2a40;
+}
+
+.preview-card span{
+    display:block;
+    margin-top:14px;
+    color:#b5945d;
+    font-weight:700;
 }
 
 @media(max-width:768px){
@@ -156,7 +188,22 @@ body{
 
 </section>
 
-<div id="case-list"></div>
+<section class="container center">
+
+<h2 id="cases-title"></h2>
+
+<p id="cases-intro" style="
+max-width:900px;
+margin:0 auto 40px;
+line-height:1.9;
+font-size:1.05rem;
+color:#444;
+font-weight:500;
+"></p>
+
+<div class="preview-wrap" id="case-list"></div>
+
+</section>
 
 <script>
 
@@ -170,6 +217,16 @@ en:"Use Cases"
 hero:{
 ko:"온포럼(ON-FORUM)은 반복되는 현실 문제를 단순한 현상이 아니라 구조와 흐름의 결과로 바라봅니다.<br><br>개인, 사회, 기술, 문명 속에서 발생하는 다양한 문제를 구조·흐름·감응·공진의 관점에서 분석합니다.",
 en:"ON-FORUM analyzes recurring real-world problems not as isolated phenomena, but as results of deeper structures and flows."
+},
+    
+casesTitle:{
+ko:"사례 보기",
+en:"Use Cases"
+},
+
+casesIntro:{
+ko:"현실은 단순한 사건의 반복이 아니라,<br>보이지 않는 구조와 흐름의 결과일 수 있습니다.<br><br>관심 있는 분야를 선택하여 구조적 관점에서 살펴보세요.",
+en:"Reality may be the result of unseen structures and flows.<br><br>Select an area below to explore it from a structural perspective."
 },
 
 labels:{
@@ -638,62 +695,26 @@ container.innerHTML = "";
 
 document.getElementById("title").innerHTML = content.title[lang];
 document.getElementById("hero-desc").innerHTML = content.hero[lang];
+document.getElementById("cases-title").innerHTML = content.casesTitle[lang];
+document.getElementById("cases-intro").innerHTML = content.casesIntro[lang];    
 
 cases.forEach(c=>{
 
-const el = document.createElement("section");
+const el=document.createElement("a");
 
-el.className = "case";
+el.className="preview-card";
 
-el.id = c.id;
+el.href="#"+c.id;
 
-el.innerHTML = `
+el.innerHTML=`
 
-<div class="tag">${c.tag[lang]}</div>
+<h3>${c.tag[lang]}</h3>
 
-<h2>${c.title[lang]}</h2>
-
-<div class="case-intro">
+<p>
 ${c.intro[lang]}
-</div>
+</p>
 
-<div class="grid">
-
-<div class="block">
-<strong>${content.labels.problem[lang]}</strong>
-${c.problem[lang]}
-</div>
-
-<div class="block">
-<strong>${content.labels.existing[lang]}</strong>
-${c.existing[lang]}
-</div>
-
-<div class="block">
-<strong>${content.labels.structure[lang]}</strong>
-${c.structure[lang]}
-</div>
-
-<div class="block">
-<strong>${content.labels.flow[lang]}</strong>
-${c.flow[lang]}
-</div>
-
-<div class="block">
-<strong>${content.labels.resonance[lang]}</strong>
-${c.resonance[lang]}
-</div>
-
-<div class="block">
-<strong>${content.labels.transition[lang]}</strong>
-${c.transition[lang]}
-</div>
-
-</div>
-
-<div class="impact">
-${c.impact[lang]}
-</div>
+<span>자세히 보기 →</span>
 
 `;
 
