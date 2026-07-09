@@ -227,6 +227,8 @@ body{
 
 const content = {
 
+const content = {
+
 title:{
     ko:"정보 · 미디어 구조",
     en:"Information & Media Structure"
@@ -278,7 +280,33 @@ problem:{
 existing:{
     ko:"기존에는 이를 단순한 가짜뉴스 문제나 정보 부족 문제로 해석하는 경우가 많았습니다.<br><br>그래서 더 빠른 정보 제공과 팩트 확인 중심의 대응이 강조되기도 합니다.",
     en:"Conventional approaches often frame this as a problem of misinformation or insufficient factual verification.<br><br>As a result, responses tend to focus on faster information delivery and fact-checking systems."
-}, 
+},
+
+  structure:{
+    ko:"온포럼(ON-FORUM)은 문제의 핵심이 단순 정보량이 아니라 정보 구조 자체에 있다고 봅니다.<br><br>어떤 정보가 어떻게 연결되고 반복되며 감정을 자극하는가에 따라 인식 구조와 판단 방향이 형성될 수 있습니다.",
+    en:"ON-FORUM views the core issue not simply as the quantity of information, but as the structure of information itself.<br><br>The way information connects, repeats, and stimulates emotional reactions can shape both perception structures and directions of judgment."
+},
+
+flow:{
+    ko:"정보 환경 안에서는 관심 → 자극 → 반응 → 확산의 흐름이 빠르게 반복됩니다.<br><br>특히 감정 반응 중심 구조가 강화될수록 사람은 정보 자체보다 흐름에 끌려가게 될 가능성이 커집니다.",
+    en:"Within information environments, cycles of attention → stimulation → reaction → amplification repeat rapidly.<br><br>As emotionally reactive systems become stronger, people are increasingly drawn not by information itself, but by the surrounding flow."
+},
+
+resonance:{
+    ko:"정보와 존재 기준이 분리될 경우 사람은 수많은 정보를 접해도 내면의 방향성과 안정감을 유지하기 어려워질 수 있습니다.<br><br>온포럼은 이를 정보 구조 내부의 비공진 상태로 해석합니다.",
+    en:"When information becomes disconnected from one's existential foundation, maintaining inner direction and stability may become increasingly difficult despite constant access to knowledge.<br><br>ON-FORUM interprets this as a state of dissonance within information structures."
+},
+
+transition:{
+    ko:"온포럼은 단순히 더 많은 정보를 제공하는 것을 넘어, 정보 흐름 구조 자체를 분석하는 접근을 제안합니다.<br><br>무엇을 보는가 이전에 어떤 구조 속에서 인식이 형성되고 있는가를 먼저 이해하는 것입니다.",
+    en:"ON-FORUM proposes analyzing the structure of informational flow itself rather than merely increasing the amount of available information.<br><br>The focus shifts from what people see to the structures through which perception itself is formed."
+},
+
+impact:{
+    ko:"정보 문제의 핵심은 단순한 양이 아니라,<br>어떤 구조가 사람의 인식과 흐름을 움직이고 있는가의 문제일 수 있습니다.",
+    en:"The central issue of information may not simply be quantity,<br>but the structures that shape human perception and behavioral flow."
+}  
+};    
 
   function render(lang){
 
@@ -308,33 +336,6 @@ existing:{
     document.getElementById("back-btn").innerHTML = content.back[lang];
 }
 
-structure:{
-    ko:"온포럼(ON-FORUM)은 문제의 핵심이 단순 정보량이 아니라 정보 구조 자체에 있다고 봅니다.<br><br>어떤 정보가 어떻게 연결되고 반복되며 감정을 자극하는가에 따라 인식 구조와 판단 방향이 형성될 수 있습니다.",
-    en:"ON-FORUM views the core issue not simply as the quantity of information, but as the structure of information itself.<br><br>The way information connects, repeats, and stimulates emotional reactions can shape both perception structures and directions of judgment."
-},
-
-flow:{
-    ko:"정보 환경 안에서는 관심 → 자극 → 반응 → 확산의 흐름이 빠르게 반복됩니다.<br><br>특히 감정 반응 중심 구조가 강화될수록 사람은 정보 자체보다 흐름에 끌려가게 될 가능성이 커집니다.",
-    en:"Within information environments, cycles of attention, stimulation, reaction, and amplification repeat rapidly.<br><br>As emotionally reactive systems become stronger, people are increasingly drawn not by information itself, but by the surrounding flow."
-},
-
-resonance:{
-    ko:"정보와 존재 기준이 분리될 경우 사람은 수많은 정보를 접해도 내면의 방향성과 안정감을 유지하기 어려워질 수 있습니다.<br><br>온포럼은 이를 정보 구조 내부의 비공진 상태로 해석합니다.",
-    en:"When information becomes disconnected from one's existential foundation, maintaining inner direction and stability may become increasingly difficult despite constant access to knowledge.<br><br>ON-FORUM interprets this as a state of dissonance within information structures."
-},
-
-transition:{
-    ko:"온포럼은 단순히 더 많은 정보를 제공하는 것을 넘어, 정보 흐름 구조 자체를 분석하는 접근을 제안합니다.<br><br>무엇을 보는가 이전에 어떤 구조 속에서 인식이 형성되고 있는가를 먼저 이해하는 것입니다.",
-    en:"ON-FORUM proposes analyzing the structure of informational flow itself rather than merely increasing the amount of available information.<br><br>The focus shifts from what people see to the structures through which perception itself is formed."
-},
-
-impact:{
-    ko:"정보 문제의 핵심은 단순한 양이 아니라,<br>어떤 구조가 사람의 인식과 흐름을 움직이고 있는가의 문제일 수 있습니다.",
-    en:"The central issue of information may not simply be quantity,<br>but the structures that shape human perception and behavioral flow."
-}
-
-};
-  
 function setLang(lang){
     localStorage.setItem("lang", lang);
     render(lang);
