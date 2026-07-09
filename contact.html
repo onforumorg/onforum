@@ -48,12 +48,31 @@ body {
     border-radius: 14px;
     background: #fff;
     box-shadow: 0 8px 24px rgba(0,0,0,.05);
-    transition: all .2s ease;
+    transition: all .25s ease;
 }
 
 .card:hover {
     transform: translateY(-4px);
     box-shadow: 0 14px 36px rgba(0,0,0,.10);
+    background:#1a2a40;
+    color:#fff;
+}
+
+.card-title{
+    font-size:1.25rem;
+    color:#1a2a40;
+    transition:color .25s ease;
+}
+
+.card-desc{
+    color:#666;
+    line-height:1.8;
+    transition:color .25s ease;
+}
+
+.card:hover .card-title,
+.card:hover .card-desc{
+    color:#fff;
 }
 
 .center {
@@ -149,13 +168,11 @@ title: {
 },
 
 subtitle: {
-    ko: "온포럼에 함께하는 다양한 방법을 안내합니다.",
-    en: "Explore the different ways to get involved with ON-FORUM."
+    ko: "온포럼은 다양한 방식으로 함께할 수 있습니다.",
 },
-
+    
 intro: {
-    ko: "회원으로,<br>연구자로,<br>후원자로.<br><br>온포럼에 함께하는 길은<br><strong>하나가 아닙니다.</strong>",
-    en: "As a member,<br>as a researcher,<br>or as a supporter.<br><br>There is more than one way<br><strong>to get involved with ON-FORUM.</strong>"
+    ko: "회원으로, 연구자로, 또는 공진후원자로.<br>자신에게 맞는 방식으로 함께해 보세요.<br>온포럼은 여러분의 참여를 기다립니다.",
 },
     
 target_title: {
@@ -227,22 +244,22 @@ back: {
 
 const targets = [
 {
-    ko: "<strong style='font-size:1.25rem;color:#1a2a40;'>일반회원 가입하기</strong><br><br><span style='color:#666;line-height:1.8;'>온포럼의 취지에 공감하며 함께 배우고, 대화와 탐구에 참여하는 기본 회원입니다.</span>",
+    ko: "<strong class='card-title'>일반회원 가입하기</strong><br><br><span class='card-desc'>온포럼의 취지에 공감하며 함께 배우고, 대화와 탐구에 참여하는 기본 회원입니다.</span>",
     en: "Join as a General Member<br><small>Join ON-FORUM as a general member.</small>",
     link: "general-member.html"
 },
 {
-    ko: "<strong style='font-size:1.25rem;color:#1a2a40;'>정회원 가입하기</strong><br><br><span style='color:#666;line-height:1.8;'>온포럼의 운영과 연구에 보다 깊이 참여하는 회원입니다.</span>",
-    en: "Join as a Full Member<br><small>Actively participate in research and organizational activities.</small>",
-    link: "full-member.html"
-},
-{
-    ko: "<strong style='font-size:1.25rem;color:#1a2a40;'>공진후원하기</strong><br><br><span style='color:#666;line-height:1.8;'>온포럼의 연구와 비영리 운영을 지속적으로 후원합니다.</span>",
+    ko: "<strong class='card-title'>공진후원하기</strong><br><br><span class='card-desc'>온포럼의 연구와 비영리 운영을 지속적으로 후원합니다.</span>",
     en: "Support ON-FORUM<br><small>Support ON-FORUM's research and nonprofit activities.</small>",
     link: "donate.html"
 },
 {
-    ko: "<strong style='font-size:1.25rem;color:#1a2a40;'>연구참여 신청하기</strong><br><br><span style='color:#666;line-height:1.8;'>연구 제안, 협력, 번역, 프로젝트 등에 참여합니다.</span>",
+    ko: "<strong class='card-title'>정회원 가입하기</strong><br><br><span class='card-desc'>온포럼의 운영과 연구에 보다 깊이 참여하는 회원입니다.</span>",
+    en: "Join as a Full Member<br><small>Actively participate in research and organizational activities.</small>",
+    link: "full-member.html"
+},
+{
+    ko: "<strong class='card-title'>연구참여 신청하기</strong><br><br><span class='card-desc'>연구 제안, 협력, 번역, 프로젝트 등에 참여합니다.</span>",
     en: "Apply for Research Participation<br><small>Participate through proposals, collaboration, translation, or projects.</small>",
     link: "research-apply.html"
 }
