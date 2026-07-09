@@ -1,10 +1,350 @@
-cases/
-├── index.html
-├── personal-judgment.html
-├── relationships-organization.html
-├── information-media.html
-├── society-politics.html
-├── economy-labor.html
-├── technology-ai.html
-├── education.html
-└── civilization-existence.html
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>인간관계 · 조직 구조 | ON-FORUM</title>
+
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css"/>
+
+<style>
+
+body{
+    font-family:'Pretendard',sans-serif;
+    margin:0;
+    background:
+    radial-gradient(circle at 20% 20%, rgba(181,148,93,0.08), transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(26,42,64,0.06), transparent 40%),
+    linear-gradient(to bottom,#f7f6f2,#f2efe8);
+    color:#222;
+}
+
+.top-bar{
+    text-align:right;
+    padding:20px 20px 0;
+}
+
+.top-bar button{
+    padding:8px 14px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:700;
+    background:#1a2a40;
+    color:#fff;
+    margin-left:5px;
+}
+
+.hero{
+    padding:60px 20px 40px;
+    text-align:center;
+}
+
+.hero h1{
+    font-size:2.8rem;
+    color:#1a2a40;
+    margin-bottom:20px;
+}
+
+.hero p{
+    max-width:900px;
+    margin:0 auto;
+    line-height:2;
+    font-size:1.08rem;
+    color:#444;
+}
+
+.case{
+    max-width:1100px;
+    margin:60px auto;
+    padding:45px;
+    background:rgba(255,255,255,.88);
+    border-radius:22px;
+    box-shadow:0 12px 30px rgba(0,0,0,.06);
+}
+
+.tag{
+    display:inline-block;
+    padding:8px 14px;
+    border-radius:999px;
+    background:rgba(181,148,93,.12);
+    color:#8b6b35;
+    font-size:.9rem;
+    font-weight:700;
+    margin-bottom:18px;
+}
+
+.case h2{
+    margin-top:0;
+    margin-bottom:25px;
+    color:#1a2a40;
+    font-size:2rem;
+}
+
+.case-intro{
+    line-height:2;
+    color:#444;
+    margin-bottom:40px;
+    font-size:1.03rem;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:22px;
+}
+
+.block{
+    background:#fff;
+    padding:24px;
+    border-radius:16px;
+    box-shadow:0 8px 18px rgba(0,0,0,.04);
+    line-height:1.9;
+}
+
+.block strong{
+    display:block;
+    margin-bottom:12px;
+    color:#1a2a40;
+    font-size:1.05rem;
+}
+
+.impact{
+    margin-top:40px;
+    padding:28px;
+    border-left:5px solid #b5945d;
+    background:#faf8f2;
+    font-size:1.08rem;
+    line-height:2;
+    font-weight:600;
+}
+
+.back{
+    text-align:center;
+    margin:60px 0;
+}
+
+.back a{
+    display:inline-block;
+    padding:12px 24px;
+    border-radius:10px;
+    text-decoration:none;
+    background:#1a2a40;
+    color:#fff;
+    font-weight:700;
+}
+
+.back a:hover{
+    opacity:.9;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:2.2rem;
+}
+
+.case{
+    margin:30px 15px;
+    padding:28px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="top-bar">
+    <button onclick="setLang('ko')">KOR</button>
+    <button onclick="setLang('en')">ENG</button>
+</div>
+
+<section class="hero">
+
+    <h1 id="title"></h1>
+
+    <p id="hero-desc"></p>
+
+</section>
+
+<section class="case">
+
+    <div class="tag" id="tag"></div>
+
+    <h2 id="case-title"></h2>
+
+    <div class="case-intro" id="case-intro"></div>
+
+    <div class="grid">
+
+        <div class="block">
+            <strong id="label-problem"></strong>
+            <div id="problem"></div>
+        </div>
+
+        <div class="block">
+            <strong id="label-existing"></strong>
+            <div id="existing"></div>
+        </div>
+
+        <div class="block">
+            <strong id="label-structure"></strong>
+            <div id="structure"></div>
+        </div>
+
+        <div class="block">
+            <strong id="label-flow"></strong>
+            <div id="flow"></div>
+        </div>
+
+        <div class="block">
+            <strong id="label-resonance"></strong>
+            <div id="resonance"></div>
+        </div>
+
+        <div class="block">
+            <strong id="label-transition"></strong>
+            <div id="transition"></div>
+        </div>
+
+    </div>
+
+    <div class="impact" id="impact"></div>
+
+</section>
+
+<div class="back">
+    <a href="index.html" id="back-btn"></a>
+</div>
+
+<script>  
+
+const content = {
+
+title:{
+    ko:"인간관계 · 조직 구조",
+    en:"Relationship & Organizational Structure"
+},
+
+hero:{
+    ko:"지속되는 인간관계 문제와 조직 내부 피로는 단순한 성격 차이나 감정 문제가 아니라 구조 비대칭과 공진 실패에서 비롯될 수 있습니다.",
+    en:"Persistent relational conflict and emotional exhaustion within groups may arise not simply from personality differences, but from structural imbalance and failed resonance."
+},
+
+back:{
+    ko:"← 사례 목록으로",
+    en:"← Back to Cases"
+},
+
+labels:{
+    problem:{ko:"1. 현실 현상", en:"1. Reality"},
+    existing:{ko:"2. 기존 접근 방식", en:"2. Existing Approach"},
+    structure:{ko:"3. 구조 분석", en:"3. Structural Analysis"},
+    flow:{ko:"4. 흐름 분석", en:"4. Flow Analysis"},
+    resonance:{ko:"5. 공진 분석", en:"5. Resonance Analysis"},
+    transition:{ko:"6. 구조 전환", en:"6. Structural Transition"}
+}
+
+};
+
+const data={
+
+tag:{
+    ko:"인간관계 · 조직 구조",
+    en:"Relationship & Organizational Structure"
+},
+
+title:{
+    ko:"반복되는 갈등과 관계 피로",
+    en:"Recurring Conflict and Relational Fatigue"
+},
+
+intro:{
+    ko:"지속되는 인간관계 문제와 조직 내부 피로는 단순한 성격 차이나 감정 문제가 아니라 구조 비대칭과 공진 실패에서 비롯될 수 있습니다.",
+    en:"Persistent relational conflict and emotional exhaustion within groups may arise not simply from personality differences, but from structural imbalance and failed resonance."
+},
+
+problem:{
+    ko:"많은 관계에서는 비슷한 갈등과 감정 소모가 반복됩니다.<br><br>대화 이후에도 피로가 남고, 시간이 지나도 관계 흐름이 안정되지 않으며 같은 문제가 형태만 바뀐 채 반복되기도 합니다.",
+    en:"Many relationships repeatedly fall into similar patterns of conflict and emotional fatigue.<br><br>Even after conversations end, tension often remains unresolved, while the same underlying problems continue to reappear in different forms."
+},
+
+existing:{
+    ko:"기존에는 이를 성격 충돌, 소통 부족, 감정 조절 문제로 해석하는 경우가 많았습니다.<br><br>그래서 설득, 인내, 감정 표현 방식 변화 등을 중심으로 해결하려 합니다.",
+    en:"Conventional perspectives often explain these problems through personality clashes, communication failure, or emotional control issues.<br><br>As a result, solutions tend to focus on persuasion, endurance, or adjustments in emotional expression."
+},
+
+  structure:{
+    ko:"온포럼(ON-FORUM)은 관계 문제를 단순 감정 충돌이 아니라 관계 구조의 비대칭 문제로 바라봅니다.<br><br>역할, 기대, 책임, 감정 소비의 흐름이 한쪽으로 집중될 경우 구조 내부의 불균형이 점차 누적될 수 있습니다.",
+    en:"ON-FORUM views relational conflict not merely as emotional collision, but as structural asymmetry within relationships.<br><br>When roles, expectations, responsibilities, and emotional burdens become concentrated unevenly, imbalance within the relationship gradually accumulates."
+},
+
+flow:{
+    ko:"관계 안에서는 말보다 흐름이 먼저 축적됩니다.<br><br>반복적인 긴장, 침묵, 눈치, 반응 패턴은 관계 내부의 흐름 구조를 형성하며, 이러한 흐름이 장기간 지속되면 자연스러운 공진이 약화될 수 있습니다.",
+    en:"Within relationships, flows often accumulate before words do.<br><br>Repeated tension, silence, emotional caution, and reaction patterns gradually shape relational flow structures, weakening natural resonance over time."
+},
+
+resonance:{
+    ko:"겉으로는 관계가 유지되어도 존재 흐름이 연결되지 않으면 심리적 거리감과 피로는 계속 누적될 수 있습니다.<br><br>온포럼은 이를 관계 내부의 비공진 상태로 해석합니다.",
+    en:"Even when relationships appear intact externally, psychological distance and exhaustion may continue to grow if deeper existential flows remain disconnected.<br><br>ON-FORUM interprets this as a state of dissonance within relational structures."
+},
+
+transition:{
+    ko:"온포럼은 단순한 감정 대응 이전에 관계 구조와 흐름 자체를 재정렬하는 접근을 제안합니다.<br><br>누가 옳은가 이전에 어떤 흐름이 반복되고 있는가를 분석함으로써 관계의 방향성을 다시 회복하는 것입니다.",
+    en:"ON-FORUM proposes reorganizing the structure and flow of relationships before focusing solely on emotional reactions.<br><br>Rather than asking who is right, the focus shifts toward understanding which patterns and flows continue to repeat."
+},
+
+impact:{
+    ko:"관계는 단순한 감정 교환이 아니라,<br>어떤 흐름 구조 위에서 서로 연결되고 있는가의 문제일 수 있습니다.",
+    en:"Relationships may not simply be exchanges of emotion,<br>but reflections of the flow structures through which people remain connected."
+}
+
+};
+
+  function render(lang){
+
+    document.getElementById("title").innerHTML = content.title[lang];
+    document.getElementById("hero-desc").innerHTML = content.hero[lang];
+
+    document.getElementById("tag").innerHTML = data.tag[lang];
+    document.getElementById("case-title").innerHTML = data.title[lang];
+    document.getElementById("case-intro").innerHTML = data.intro[lang];
+
+    document.getElementById("label-problem").innerHTML = content.labels.problem[lang];
+    document.getElementById("label-existing").innerHTML = content.labels.existing[lang];
+    document.getElementById("label-structure").innerHTML = content.labels.structure[lang];
+    document.getElementById("label-flow").innerHTML = content.labels.flow[lang];
+    document.getElementById("label-resonance").innerHTML = content.labels.resonance[lang];
+    document.getElementById("label-transition").innerHTML = content.labels.transition[lang];
+
+    document.getElementById("problem").innerHTML = data.problem[lang];
+    document.getElementById("existing").innerHTML = data.existing[lang];
+    document.getElementById("structure").innerHTML = data.structure[lang];
+    document.getElementById("flow").innerHTML = data.flow[lang];
+    document.getElementById("resonance").innerHTML = data.resonance[lang];
+    document.getElementById("transition").innerHTML = data.transition[lang];
+
+    document.getElementById("impact").innerHTML = data.impact[lang];
+
+    document.getElementById("back-btn").innerHTML = content.back[lang];
+}
+
+function setLang(lang){
+    localStorage.setItem("lang", lang);
+    render(lang);
+}
+
+window.onload = function(){
+    render(localStorage.getItem("lang") || "ko");
+};
+
+</script>
+
+</body>
+</html>
