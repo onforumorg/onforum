@@ -51,7 +51,7 @@ body {
     transition: all .25s ease;
 }
 
-.card:hover {
+.menu-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 14px 36px rgba(0,0,0,.10);
     background:#1a2a40;
@@ -70,14 +70,15 @@ body {
     transition:color .25s ease;
 }
 
-.card:hover .card-title,
-.card:hover .card-desc{
+.menu-card:hover .card-title,
+.menu-card:hover .card-desc{
     color:#fff;
 }
 
 .center {
     text-align: center;
 }
+    
 </style>
 </head>
 
@@ -102,16 +103,6 @@ body {
 <section class="section">
     <h2 data-i18n="target_title"></h2>
     <div id="target-list"></div>
-</section>
-
-<section class="section">
-    <h2 data-i18n="method_title"></h2>
-    <div id="method-list"></div>
-</section>
-
-<section class="section center">
-    <h2 data-i18n="notice_title"></h2>
-    <p data-i18n="notice_desc"></p>
 </section>
 
 <!-- 연구 참여 영역 시작 -->
@@ -170,21 +161,6 @@ subtitle: {
 intro: {
     ko: "회원으로, 연구자로, 또는 공진후원자로.<br>자신에게 맞는 방식으로 함께해 보세요.<br>온포럼은 여러분의 참여를 기다립니다.",
     en: "Join as a member, researcher, or supporter.<br>Choose the way that suits you best.<br>We look forward to your participation."
-},
-
-participation_title: {
-    ko: "",
-    en: ""
-},
-
-participation_subtitle: {
-    ko: "",
-    en: ""
-},
-
-participation_subtitle: {
-    ko: "회원, 연구, 공진후원은 모두 온포럼의 연구와 비영리 운영을 지속적으로 함께 이어가는 참여입니다.",
-    en: "Support helps sustain ON-FORUM's research and nonprofit activities."
 },
 
 resonance_title: {
@@ -247,21 +223,6 @@ const targets = [
 }
 ];
 
-const methods = [
-{
-    ko: "1. 함께하는 방법을 선택합니다.",
-    en: "1. Choose how you would like to get involved."
-},
-{
-    ko: "2. 자신에게 맞는 참여 방식을 확인합니다.",
-    en: "2. Find the participation option that best fits you."
-},
-{
-    ko: "3. 회원, 공진후원 또는 연구참여 가운데 원하는 방식으로 함께합니다.<br><br><span style='color:#666;'>모든 참여는 온포럼의 연구와 비영리 운영을 함께 이어가는 소중한 참여입니다.</span>",
-    en: "3. Join us as a member, researcher, or supporter.<br><br><span style='color:#666;'>Every form of participation helps sustain ON-FORUM's research and nonprofit activities.</span>"
-}
-];
-    
 const resonance = [
 {
     ko: "서로를 존중하며 함께 배우는 자세",
@@ -280,15 +241,19 @@ const resonance = [
 const process = [
 {
     ko: "1. 원하는 참여 방법을 선택합니다.",
-    en: "1. Choose how you would like to get involved."
+    en: "1. Choose your preferred way to get involved."
 },
 {
-    ko: "2. 회원가입, 후원 또는 연구참여를 신청합니다.",
-    en: "2. Apply for membership, support, or research participation."
+    ko: "2. 자신에게 맞는 참여 방식을 확인한 뒤 회원가입, 공진후원 또는 연구참여를 신청합니다.",
+    en: "2. Choose the participation option that suits you, then apply for membership, support, or research participation."
 },
 {
-    ko: "3. 온포럼과 함께 질문을 이어 갑니다.",
-    en: "3. Continue meaningful questions together with ON-FORUM."
+    ko: "3. 온포럼과 함께 질문과 연구를 이어 갑니다.",
+    en: "3. Continue asking meaningful questions and contributing to research with ON-FORUM."
+},
+{
+    ko: "4. 모든 참여는 온포럼의 연구와 비영리 운영을 지속적으로 함께 이어가는 참여입니다.",
+    en: "4. Every form of participation helps sustain ON-FORUM's research and nonprofit activities."
 }
 ];
 
@@ -304,7 +269,7 @@ gap:20px;
 ">
 ${
 targets.map(t => `
-<div class="card"
+<div class="card menu-card"
      style="
      cursor:pointer;
      margin-bottom:0;
@@ -317,12 +282,6 @@ targets.map(t => `
 `).join("")
 }
 </div>`;
-
-    const methodEl = document.getElementById("method-list");
-    methodEl.innerHTML = "";
-    methods.forEach(m => {
-        methodEl.innerHTML += `<div class="card">${m[lang]}</div>`;
-    });
 
     const resonanceEl = document.getElementById("resonance-list");
     resonanceEl.innerHTML = "";
