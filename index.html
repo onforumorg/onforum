@@ -381,20 +381,42 @@ body{
 .donate-btn{
     display:inline-block;
     margin-top:16px;
-    padding:14px 28px;
-    background:linear-gradient(to bottom,#fffdf8,#f2ebdb);
+    padding:18px 36px;
+
+    background:linear-gradient(
+        to bottom,
+        #fffefc 0%,
+        #f8f0dd 55%,
+        #ead7b8 100%
+    );
+
     color:#1a2a40;
     text-decoration:none;
-    border-radius:8px;
+    border-radius:10px;
+    border:1px solid #d8c3a0;
     font-weight:700;
-    font-size:1rem;
+    font-size:1.05rem;
+
+    box-shadow:
+        0 3px 10px rgba(0,0,0,.08),
+        inset 0 1px 0 rgba(255,255,255,.8);
+
     transition:all .25s ease;
 }
 
 .donate-btn:hover{
-    background:linear-gradient(to bottom,#fffefb,#ece2cb);
+    background:linear-gradient(
+        to bottom,
+        #fffefb 0%,
+        #f3e5c8 50%,
+        #e4cda6 100%
+    );
+
     transform:translateY(-2px);
-    box-shadow:0 6px 18px rgba(0,0,0,.12);
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,.14),
+        inset 0 1px 0 rgba(255,255,255,.9);
 }
 
 </style>
