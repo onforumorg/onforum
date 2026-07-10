@@ -276,6 +276,8 @@ targets.map(t => `
      background:#fdfaf3;
      border:1px solid #e9dfc9;
      "
+     onmouseover="this.style.background='#1a2a40'; this.querySelector('.card-title').style.color='#fff'; this.querySelector('.card-desc').style.color='#fff';"
+     onmouseout="this.style.background='#fdfaf3'; this.querySelector('.card-title').style.color='#1a2a40'; this.querySelector('.card-desc').style.color='#666';"
      onclick="location.href='${t.link}'">
      ${t[lang]}
 </div>
