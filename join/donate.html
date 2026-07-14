@@ -31,24 +31,56 @@ body {
   margin:auto;
   padding:60px 20px;
 }
+
+  .container{
+  max-width:900px;
+  margin:auto;
+  padding:60px 20px;
+}
+
+.lang-switch{
+    position:relative;
+    z-index:9999;
+    text-align:right;
+    padding:15px;
+}
+
+.lang-switch button{
+    padding:10px 18px;
+    margin-left:8px;
+    font-size:15px;
+    cursor:pointer;
+    position:relative;
+    z-index:9999;
+    touch-action:manipulation;
+}
+</style>
+  
 </style>
 
 </head>
 
 <body>
+
+<div class="lang-switch" style="text-align:right;padding:15px;">
+<button onclick="setLang('ko')">KOR</button>
+<button onclick="setLang('en')">ENG</button>
+</div>
+
 <div class="container">
 
   <div style="text-align:center; margin-top:40px;">
 
-    <h1 style="color:var(--deep-blue); margin-bottom:25px;">
-      공진후원
-    </h1>
+    <h1 style="color:var(--deep-blue); margin-bottom:25px;" data-i18n="title">
+</h1>
 
-    <p style="font-size:1.15rem; line-height:2; max-width:700px; margin:0 auto 70px auto;">
-      당신의 후원은<br>
-      온포럼의 연구와 기록,<br>
-      그리고 다음 세대의 질문을 이어갑니다.
-    </p>
+    <p
+style="font-size:1.15rem; line-height:2; max-width:700px; margin:0 auto 70px auto;"
+data-i18n="intro">
+  당신의 후원은<br>
+  온포럼의 연구와 기록,<br>
+  그리고 다음 세대의 질문을 이어갑니다.
+</p>
 
   </div>
 <div style="display:flex; gap:30px; flex-wrap:wrap; margin-top:20px;">
@@ -84,5 +116,43 @@ body {
 
 </div>  
 </div>
+
+<script>
+const content = {
+
+title:{
+    ko:"공진후원",
+    en:"Resonance Support"
+},
+
+intro:{
+    ko:"당신의 후원은<br>온포럼의 연구와 기록,<br>그리고 다음 세대의 질문을 이어갑니다.",
+    en:"Your support sustains ON-FORUM's research, records, and the questions of future generations."
+}
+
+};
+
+function setLang(lang){
+
+    localStorage.setItem("lang",lang);
+
+    document.documentElement.lang = lang;
+
+    document.querySelector("[data-i18n='title']").innerHTML = content.title[lang];
+
+    document.querySelector("[data-i18n='intro']").innerHTML = content.intro[lang];
+
+}
+
+window.onload=function(){
+
+    setLang(localStorage.getItem("lang") || "ko");
+
+}
+</script>
+
+</body>
+</html>
+  
 </body>
 </html>
